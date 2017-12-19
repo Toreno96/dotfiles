@@ -1,0 +1,21 @@
+{
+  "settingsVersion": "1.62.4",
+  "exclusionRules": [],
+  "filterLinkHints": false,
+  "waitForEnterForFilteredHints": true,
+  "hideHud": false,
+  "keyMappings": "# Because <c-[> is reserved in FF Quantum\nmapkey <c-a-[> <c-[>\nmapkey <c-{> <c-[>\n\nmap R reload hard",
+  "linkHintCharacters": "sadfjklewcmpgh",
+  "linkHintNumbers": "0123456789",
+  "newTabUrl": "about:newtab",
+  "nextPatterns": "next,more,newer,>,›,→,»,≫,>>",
+  "previousPatterns": "prev,previous,back,older,<,‹,←,«,≪,<<",
+  "regexFindMode": false,
+  "ignoreKeyboardLayout": false,
+  "scrollStepSize": 60,
+  "smoothScroll": true,
+  "grabBackFocus": false,
+  "searchEngines": "wen: https://en.wikipedia.org/w/index.php?title=Special:Search&search=%s Wikipedia ENG\nwpl: https://pl.wikipedia.org/w/index.php?title=Special:Search&search=%s Wikipedia PL\ng: https://www.google.com/search?q=%s Google\nyt: https://www.youtube.com/results?search_query=%s Youtube\nddg: https://duckduckgo.com/?q=%s DuckDuckGo\ncpp: http://en.cppreference.com/mwiki/index.php?title=Special%3ASearch&search=%s C++ reference",
+  "searchUrl": "https://duckduckgo.com/",
+  "userDefinedLinkHintCss": "div > .vimiumHintMarker {\n/* linkhint boxes */\nbackground: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FFF785),\n  color-stop(100%,#FFC542));\nborder: 1px solid #E3BE23;\n}\n\ndiv > .vimiumHintMarker span {\n/* linkhint text */\ncolor: black;\nfont-weight: bold;\nfont-size: 12px;\n}\n\ndiv > .vimiumHintMarker > .matchingCharacter {\n}"
+}
