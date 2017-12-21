@@ -1,0 +1,25 @@
+{
+    "editor.lineNumbers": "relative",
+    "editor.renderIndentGuides": false,
+    "editor.wordWrap": "on",
+    "editor.minimap.enabled": false,
+    "ruby.lint": {
+        "rubocop": true,
+        "ruby": true
+    },
+    "editor.acceptSuggestionOnEnter": "off",
+    "python.linting.pylintArgs": [
+        "--extension-pkg-whitelist=pymssql"
+    ],
+    "editor.fontSize": 14,
+    "editor.tabSize": 2,
+    "trailing-spaces.highlightCurrentLine": false,
+    "[markdown]": {
+        "files.trimTrailingWhitespace": false,
+    },
+    "files.trimTrailingWhitespace": true,
+    "window.zoomLevel": 0,
+    "vim.cmdLineInitialColon": true,
+    "vim.foldfix": true,
+    "vim.visualstar": true,
+}
