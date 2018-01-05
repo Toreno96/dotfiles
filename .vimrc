@@ -51,6 +51,9 @@ hi GitGutterChange ctermfg=darkblue
 hi GitGutterDelete ctermfg=darkred
 hi GitGutterChangeDelete ctermfg=darkmagenta
 set updatetime=250
+Plugin 'hdima/python-syntax'
+let python_highlight_all=1
+let python_highlight_file_headers_as_comments=1
 Plugin 'itchyny/vim-cursorword'
 Plugin 'junegunn/fzf'
 let g:fzf_layout={ 'down': '~15%' }

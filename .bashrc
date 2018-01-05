@@ -120,6 +120,7 @@ fi
 # Custom
 export PATH=$PATH:/opt/bin
 export LESS=-R
+export PYTHONSTARTUP=$HOME/.pythonrc.py
 PROMPT_DIRTRIM=3
 LS_COLORS="${LS_COLORS}ow=01;34:"
 # source "$HOME/development/scripts/gruvbox_256palette.sh"
