@@ -1,0 +1,3 @@
+#!/bin/sh
+
+xfce4-screenshooter -s ~/pictures/screens $1
