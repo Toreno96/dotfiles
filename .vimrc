@@ -26,9 +26,9 @@ else
   colorscheme default
 endif
 
-" required by Vundle
+" Required by Vundle
 filetype off
-" set the runtime path to include Vundle and initialize
+" Set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " let Vundle manage Vundle, required
@@ -58,14 +58,14 @@ Plugin 'itchyny/vim-cursorword'
 Plugin 'junegunn/fzf'
 let g:fzf_layout={ 'down': '~15%' }
 Plugin 'octol/vim-cpp-enhanced-highlight'
-" works only with classes, not structures, which introduce inconsistency
+" Works only with classes, not structures, which introduce inconsistency
 let g:cpp_class_decl_highlight=0
 let g:cpp_class_scope_highlight=1
 let g:cpp_member_variable_highlight=1
-" choose either of the following two
-" " lag issues
+" Choose either of the following two:
+" " 1. Lag issues
 " let g:cpp_experimental_simple_template_highlight=1
-" " highlighting issues with std::cout << '> '
+" " 2. Highlighting issues with std::cout << '> '
 " let g:cpp_experimental_template_highlight=1
 Plugin 'Valloric/YouCompleteMe'
 let g:ycm_show_diagnostics_ui=1
