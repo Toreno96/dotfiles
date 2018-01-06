@@ -1,0 +1,17 @@
+#!/bin/sh
+
+touchpad_enabled() {
+  synclient | grep -q TouchpadOff.*0 >/dev/null 2>&1
+}
+
+notify_touchpad_status() {
+  notify-send --urgency=low --expire-time=3000 --icon="touchpad-$1-symbolic" "Touchpad $1"
+}
+
+if touchpad_enabled; then
+  notify_touchpad_status 'disabled'
+  synclient TouchpadOff=1
+else
+  notify_touchpad_status 'enabled'
+  synclient TouchpadOff=0
+fi
