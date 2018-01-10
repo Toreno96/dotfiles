@@ -33,8 +33,8 @@
         <value type="int" value="8"/>
         <value type="int" value="13"/>
         <value type="int" value="10"/>
+        <value type="int" value="1"/>
         <value type="int" value="11"/>
-        <value type="int" value="12"/>
       </property>
       <property name="length-adjust" type="bool" value="false"/>
       <property name="position-locked" type="bool" value="true"/>
@@ -120,5 +120,6 @@
       <property name="style" type="uint" value="0"/>
       <property name="expand" type="bool" value="true"/>
     </property>
+    <property name="plugin-1" type="string" value="mailwatch"/>
   </property>
 </channel>

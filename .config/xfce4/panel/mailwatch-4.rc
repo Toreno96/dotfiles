@@ -1,0 +1,9 @@
+[mailwatch-plugin]
+click_command=thunderbird
+new_messages_command=
+normal_icon=mail-unread-new
+new_mail_icon=applications-email-panel
+log_lines=200
+show_log_status=false
+auto_open_online_doc=false
+
