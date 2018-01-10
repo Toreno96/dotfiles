@@ -153,3 +153,4 @@ set statusline=%<%f\ %h%m%r%=%-14.(%l/%L:%c%)
 set tabstop=2
 set undofile
 set nrformats=alpha,bin,hex
+hi IncSearch ctermfg=red cterm=bold
