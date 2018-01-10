@@ -53,6 +53,8 @@ hi GitGutterChange ctermfg=darkblue
 hi GitGutterDelete ctermfg=darkred
 hi GitGutterChangeDelete ctermfg=darkmagenta
 set updatetime=250
+Plugin 'easymotion/vim-easymotion'
+hi EasyMotionTarget ctermfg=red ctermbg=none cterm=bold
 Plugin 'hdima/python-syntax'
 let python_highlight_all=1
 let python_highlight_file_headers_as_comments=1
