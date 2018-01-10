@@ -3,7 +3,9 @@ if !has('nvim')
 endif
 
 let g:netrw_bufsettings='noma nomod nu rnu nobl nowrap ro'
-let g:netrw_liststyle=3
+let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
+" Makes '.' command of tpope/vim-vinegar not working
+" let g:netrw_liststyle=3
 let g:python_host_prog='/usr/bin/python3'
 
 " set termguicolors
@@ -94,6 +96,7 @@ autocmd FileType sh setlocal commentstring=#\ %s"
 autocmd FileType cpp setlocal commentstring=//\ %s
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-vinegar'
 
 call vundle#end()
 
