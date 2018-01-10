@@ -2,7 +2,7 @@
 
 <channel name="xfwm4" version="1.0">
   <property name="general" type="empty">
-    <property name="activate_action" type="string" value="bring"/>
+    <property name="activate_action" type="string" value="switch"/>
     <property name="borderless_maximize" type="bool" value="true"/>
     <property name="box_move" type="bool" value="false"/>
     <property name="box_resize" type="bool" value="false"/>
