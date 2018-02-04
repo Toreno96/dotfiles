@@ -1,2 +1,3 @@
 # set editing-mode vi
 # set show-mode-in-prompt on
+set mark-symlinked-directories on
