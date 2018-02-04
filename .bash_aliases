@@ -12,4 +12,4 @@ alias grepc='grep --color=always'
 alias grepn='grep --color=never'
 
 alias cd='cd -L'
-alias dush='du -sh'
+alias du='du -h'
