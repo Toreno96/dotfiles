@@ -95,6 +95,7 @@ Plugin 'tpope/vim-commentary'
 autocmd FileType vim setlocal commentstring=\"\ %s"
 autocmd FileType sh setlocal commentstring=#\ %s"
 autocmd FileType cpp setlocal commentstring=//\ %s
+autocmd FileType cmake setlocal commentstring=#\ %s
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-vinegar'
