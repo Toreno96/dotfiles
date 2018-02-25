@@ -52,7 +52,6 @@ hi GitGutterAdd ctermfg=darkgreen
 hi GitGutterChange ctermfg=darkblue
 hi GitGutterDelete ctermfg=darkred
 hi GitGutterChangeDelete ctermfg=darkmagenta
-set updatetime=250
 Plugin 'easymotion/vim-easymotion'
 hi EasyMotionTarget ctermfg=red ctermbg=none cterm=bold
 Plugin 'hdima/python-syntax'
@@ -154,3 +153,4 @@ set tabstop=2
 set undofile
 set nrformats=alpha,bin,hex
 hi IncSearch ctermfg=red cterm=bold
+set updatetime=250
