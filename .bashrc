@@ -97,6 +97,7 @@ export LESS=-R
 export PYTHONSTARTUP=$HOME/.pythonrc.py
 PROMPT_DIRTRIM=3
 LS_COLORS="${LS_COLORS}ow=01;34:"
+export EDITOR=vim
 # source "$HOME/development/scripts/gruvbox_256palette.sh"
 [ -f ~/.bash_aliases ] && source ~/.bash_aliases
 [ -f ~/.bash_functions ] && source ~/.bash_functions
