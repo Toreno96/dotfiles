@@ -13,3 +13,6 @@ alias grepn='grep --color=never'
 
 alias cd='cd -L'
 alias du='du -h'
+
+alias treec='tree -C'
+alias treen='tree -n'
