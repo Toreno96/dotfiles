@@ -102,3 +102,4 @@ export EDITOR=vim
 [ -f ~/.bash_aliases ] && source ~/.bash_aliases
 [ -f ~/.bash_functions ] && source ~/.bash_functions
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+[ -f ~/.local/bin/tmuxinator.bash ] && source ~/.local/bin/tmuxinator.bash
