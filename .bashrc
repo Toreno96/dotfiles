@@ -98,6 +98,9 @@ export PYTHONSTARTUP=$HOME/.pythonrc.py
 PROMPT_DIRTRIM=3
 LS_COLORS="${LS_COLORS}ow=01;34:"
 export EDITOR=vim
+export HISTSIZE=5000
+export HISTFILESIZE=$((HISTSIZE * 2))
+export HISTTIMEFORMAT='%F %T '
 # source "$HOME/development/scripts/gruvbox_256palette.sh"
 [ -f ~/.bash_aliases ] && source ~/.bash_aliases
 [ -f ~/.bash_functions ] && source ~/.bash_functions
