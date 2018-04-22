@@ -45,7 +45,7 @@ endif
 if $TERM=~'xterm' || $PRESERVED_TERM=~'xterm'
   let g:gitgutter_sign_added='▌'
   let g:gitgutter_sign_modified='▌'
-  let g:gitgutter_sign_removed='▄'
+  let g:gitgutter_sign_removed='▂'
   let g:gitgutter_sign_modified_removed='▛'
 endif
 hi GitGutterAdd ctermfg=darkgreen
@@ -132,9 +132,9 @@ set expandtab
 set linebreak
 set list
 if $TERM=~'xterm' || $PRESERVED_TERM=~'xterm'
-  set listchars=tab:│\ ,trail:█,extends:›,precedes:‹,nbsp:␣
+  set listchars=tab:│\ ,trail:█,extends:›,precedes:‹,nbsp:█
 else
-  set listchars=tab:\|\ ,trail:-,extends:>,precedes:<,nbsp:_
+  set listchars=tab:\|\ ,trail:-,extends:>,precedes:<,nbsp:-
 endif
 set number relativenumber
 set previewheight=5
