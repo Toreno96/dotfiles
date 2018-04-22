@@ -1,0 +1,27 @@
+#!/usr/bin/env python3
+
+import collections
+import datetime
+
+import psutil
+
+UPTIME = datetime.datetime.fromtimestamp(datetime.datetime.now().timestamp() - psutil.boot_time())
+# 'UPTIME.hour - 1' is a workaround for the problem of wrong hour, returned in the above statement.
+# TODO Find the source of the issue.
+UPTIME_OUTPUT = 'up {}:{}'.format(UPTIME.hour - 1, UPTIME.minute)
+
+VIRTUAL_MEM_PERCENT = psutil.virtual_memory().percent
+SWAP_MEM_PERCENT = psutil.swap_memory().percent
+MEM_OUTPUT = 'mem {}% swap {}%'.format(VIRTUAL_MEM_PERCENT, SWAP_MEM_PERCENT)
+
+DISK_USAGE_PERCENT = collections.OrderedDict(sorted(
+    {dp.mountpoint: psutil.disk_usage(dp.mountpoint).percent
+     for dp in psutil.disk_partitions()}.items()))
+disk_usage_output = ' '.join('{} {}%'.format(k, v)
+                             for k, v in DISK_USAGE_PERCENT.items())
+
+CPU_PERCENT = psutil.cpu_percent(interval=0.5)
+CPU_OUTPUT = 'cpu {}%'.format(CPU_PERCENT)
+
+OUTPUT = ' | '.join([UPTIME_OUTPUT, CPU_OUTPUT, MEM_OUTPUT, disk_usage_output])
+print(OUTPUT)
