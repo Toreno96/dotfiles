@@ -149,7 +149,7 @@ endif
 set showcmd
 set splitbelow
 set splitright
-set statusline=%<%f\ %h%m%r%=%-14.(%l/%L:%c%)
+set statusline=%<%f\ %h%m%r%=%-14.(%l/%L:%c%V%)
 set tabstop=4
 set undofile
 set nrformats=alpha,bin,hex
