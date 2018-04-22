@@ -140,7 +140,7 @@ set number relativenumber
 set previewheight=5
 set ruler
 set scrolloff=3
-set shiftwidth=2
+set shiftwidth=4
 if $TERM=~'xterm' || $PRESERVED_TERM=~'xterm'
   set showbreak=↪\ "
 else
@@ -150,7 +150,7 @@ set showcmd
 set splitbelow
 set splitright
 set statusline=%<%f\ %h%m%r%=%-14.(%l/%L:%c%)
-set tabstop=2
+set tabstop=4
 set undofile
 set nrformats=alpha,bin,hex
 hi IncSearch ctermfg=red cterm=bold
