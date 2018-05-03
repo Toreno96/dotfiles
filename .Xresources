@@ -8,3 +8,17 @@ rofi.modi:                           combi
 rofi.sidebar-mode:                   true
 ! Set the modi to combine in combi mode
 rofi.combi-modi:                     window,run
+! Keybinding
+rofi.kb-remove-char-back:            BackSpace
+! Keybinding
+rofi.kb-accept-entry:                Return
+! Keybinding
+rofi.kb-mode-next:                   Control+l
+! Keybinding
+rofi.kb-mode-previous:               Control+h
+! Keybinding
+rofi.kb-delete-entry:                Shift+BackSpace,Shift+Delete
+! Keybinding
+rofi.kb-row-up:                      Control+k
+! Keybinding
+rofi.kb-row-down:                    Control+j
