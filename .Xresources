@@ -7,7 +7,7 @@ rofi.modi:                           combi
 ! Enable sidebar-mode
 rofi.sidebar-mode:                   true
 ! Set the modi to combine in combi mode
-rofi.combi-modi:                     window,run
+rofi.combi-modi:                     window,session:xfce-session,run
 ! Keybinding
 rofi.kb-remove-char-back:            BackSpace
 ! Keybinding

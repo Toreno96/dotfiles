@@ -1,0 +1,42 @@
+#!/bin/bash
+
+SESSION_MANAGER='xfce4-session-logout'
+
+LOCK='lock'
+LOGOUT='logout'
+REBOOT='reboot'
+SHUTDOWN='shutdown'
+SUSPEND='suspend'
+HIBERNATE='hibernate'
+AVAILABLE_OPERATIONS=("${LOCK}" "${LOGOUT}" "${REBOOT}" "${SHUTDOWN}" "${SUSPEND}" "${HIBERNATE}")
+
+if [ "$@" ]; then
+    if [ "$@" = "${LOCK}" ]; then
+        xflock4 &
+    else
+        case "$@" in
+            "${LOGOUT}")
+                "${SESSION_MANAGER}" --logout &
+                ;;
+            "${REBOOT}")
+                "${SESSION_MANAGER}" --reboot &
+                ;;
+            "${SHUTDOWN}")
+                "${SESSION_MANAGER}" --halt &
+                ;;
+            "${SUSPEND}")
+                "${SESSION_MANAGER}" --suspend &
+                ;;
+            "${HIBERNATE}")
+                "${SESSION_MANAGER}" --hibernate &
+                ;;
+            *)
+                echo "Usage: $0 {$(echo ${AVAILABLE_OPERATIONS[*]} | tr ', ' '|')}"
+                exit 1
+        esac
+    fi
+else
+    for operation in ${AVAILABLE_OPERATIONS[*]}; do
+        echo "${operation}"
+    done
+fi
