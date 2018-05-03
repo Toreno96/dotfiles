@@ -37,5 +37,6 @@ disk_usage_output = ' '.join('{} {}%'.format('{}', FLOAT_FORMAT).format(k, v)
 CPU_PERCENT = psutil.cpu_percent(interval=0.5)
 CPU_OUTPUT = 'cpu {}%'.format(FLOAT_FORMAT).format(CPU_PERCENT)
 
-OUTPUT = ' | '.join([UPTIME_OUTPUT, CPU_OUTPUT, MEM_OUTPUT, disk_usage_output])
+SEPARATOR = ' :: '
+OUTPUT = SEPARATOR.join([UPTIME_OUTPUT, CPU_OUTPUT, MEM_OUTPUT, disk_usage_output])
 print(OUTPUT)
