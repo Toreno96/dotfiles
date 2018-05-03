@@ -31,12 +31,12 @@ MEM_OUTPUT = 'mem {0}% swap {0}%'.format(FLOAT_FORMAT).format(VIRTUAL_MEM_PERCEN
 DISK_USAGE_PERCENT = collections.OrderedDict(sorted(
     {dp.mountpoint: psutil.disk_usage(dp.mountpoint).percent
      for dp in psutil.disk_partitions()}.items()))
-disk_usage_output = ' '.join('{} {}%'.format('{}', FLOAT_FORMAT).format(k, v)
+DISK_USAGE_OUTPUT = ' '.join('{} {}%'.format('{}', FLOAT_FORMAT).format(k, v)
                              for k, v in DISK_USAGE_PERCENT.items())
 
 CPU_PERCENT = psutil.cpu_percent(interval=0.5)
 CPU_OUTPUT = 'cpu {}%'.format(FLOAT_FORMAT).format(CPU_PERCENT)
 
 SEPARATOR = ' :: '
-OUTPUT = SEPARATOR.join([UPTIME_OUTPUT, CPU_OUTPUT, MEM_OUTPUT, disk_usage_output])
+OUTPUT = SEPARATOR.join([UPTIME_OUTPUT, CPU_OUTPUT, MEM_OUTPUT, DISK_USAGE_OUTPUT])
 print(OUTPUT)
