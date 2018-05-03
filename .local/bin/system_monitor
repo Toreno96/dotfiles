@@ -5,6 +5,9 @@ import datetime
 
 import psutil
 
+TIME_FORMAT = '{:%H:%M}'
+FLOAT_FORMAT = '{:0>4.1f}'
+
 BOOT_DATETIME = datetime.datetime.fromtimestamp(psutil.boot_time())
 # UPTIME is an instance of class datetime.time instead of
 # datetime.datetime, because minimal year, month and day of
@@ -19,20 +22,20 @@ BOOT_DATETIME = datetime.datetime.fromtimestamp(psutil.boot_time())
 # extract information about how long the machine is up in days), but it
 # could be easily solved by the direct use of datetime.timedelta.
 UPTIME = (datetime.datetime.min + (datetime.datetime.now() - BOOT_DATETIME)).time()
-UPTIME_OUTPUT = 'up {}:{}'.format(UPTIME.hour, UPTIME.minute)
+UPTIME_OUTPUT = 'up {}'.format(TIME_FORMAT).format(UPTIME)
 
 VIRTUAL_MEM_PERCENT = psutil.virtual_memory().percent
 SWAP_MEM_PERCENT = psutil.swap_memory().percent
-MEM_OUTPUT = 'mem {}% swap {}%'.format(VIRTUAL_MEM_PERCENT, SWAP_MEM_PERCENT)
+MEM_OUTPUT = 'mem {0}% swap {0}%'.format(FLOAT_FORMAT).format(VIRTUAL_MEM_PERCENT, SWAP_MEM_PERCENT)
 
 DISK_USAGE_PERCENT = collections.OrderedDict(sorted(
     {dp.mountpoint: psutil.disk_usage(dp.mountpoint).percent
      for dp in psutil.disk_partitions()}.items()))
-disk_usage_output = ' '.join('{} {}%'.format(k, v)
+disk_usage_output = ' '.join('{} {}%'.format('{}', FLOAT_FORMAT).format(k, v)
                              for k, v in DISK_USAGE_PERCENT.items())
 
 CPU_PERCENT = psutil.cpu_percent(interval=0.5)
-CPU_OUTPUT = 'cpu {}%'.format(CPU_PERCENT)
+CPU_OUTPUT = 'cpu {}%'.format(FLOAT_FORMAT).format(CPU_PERCENT)
 
 OUTPUT = ' | '.join([UPTIME_OUTPUT, CPU_OUTPUT, MEM_OUTPUT, disk_usage_output])
 print(OUTPUT)
