@@ -11,30 +11,29 @@ HIBERNATE='hibernate'
 AVAILABLE_OPERATIONS=("${LOCK}" "${LOGOUT}" "${REBOOT}" "${SHUTDOWN}" "${SUSPEND}" "${HIBERNATE}")
 
 if [ "$@" ]; then
-    if [ "$@" = "${LOCK}" ]; then
-        xflock4 &
-    else
-        case "$@" in
-            "${LOGOUT}")
-                "${SESSION_MANAGER}" --logout &
-                ;;
-            "${REBOOT}")
-                "${SESSION_MANAGER}" --reboot &
-                ;;
-            "${SHUTDOWN}")
-                "${SESSION_MANAGER}" --halt &
-                ;;
-            "${SUSPEND}")
-                "${SESSION_MANAGER}" --suspend &
-                ;;
-            "${HIBERNATE}")
-                "${SESSION_MANAGER}" --hibernate &
-                ;;
-            *)
-                echo "Usage: $0 {$(echo ${AVAILABLE_OPERATIONS[*]} | tr ', ' '|')}"
-                exit 1
-        esac
-    fi
+    case "$@" in
+        "${LOCK}")
+            xflock4 &
+            ;;
+        "${LOGOUT}")
+            "${SESSION_MANAGER}" --logout &
+            ;;
+        "${REBOOT}")
+            "${SESSION_MANAGER}" --reboot &
+            ;;
+        "${SHUTDOWN}")
+            "${SESSION_MANAGER}" --halt &
+            ;;
+        "${SUSPEND}")
+            "${SESSION_MANAGER}" --suspend &
+            ;;
+        "${HIBERNATE}")
+            "${SESSION_MANAGER}" --hibernate &
+            ;;
+        *)
+            echo "Usage: $0 {$(echo ${AVAILABLE_OPERATIONS[*]} | tr ', ' '|')}"
+            exit 1
+    esac
 else
     for operation in ${AVAILABLE_OPERATIONS[*]}; do
         echo "${operation}"
