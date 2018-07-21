@@ -15,13 +15,13 @@
   </property>
   <property name="Xft" type="empty">
     <property name="DPI" type="int" value="95"/>
-    <property name="Antialias" type="empty"/>
+    <property name="Antialias" type="int" value="1"/>
     <property name="Hinting" type="empty"/>
     <property name="HintStyle" type="string" value="hintfull"/>
-    <property name="RGBA" type="string" value="none"/>
+    <property name="RGBA" type="string" value="rgb"/>
   </property>
   <property name="Gtk" type="empty">
-    <property name="CanChangeAccels" type="empty"/>
+    <property name="CanChangeAccels" type="bool" value="false"/>
     <property name="ColorPalette" type="empty"/>
     <property name="FontName" type="string" value="Lato Semi-Bold 11"/>
     <property name="IconSizes" type="empty"/>

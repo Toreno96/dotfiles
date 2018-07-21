@@ -1,0 +1,29 @@
+#!/bin/sh
+PLAY_ICON=''
+PAUSE_ICON=''
+SEPARATOR='::'
+
+dependencies_available() {
+    [ $(which spotify) ] && [ $(which playerctl) ]
+}
+
+create_full_status() {
+    ICON_STATUS="${1}"
+    ARTIST="$(playerctl -p spotify metadata artist)"
+    TITLE="$(playerctl -p spotify metadata title)"
+    echo "${ICON_STATUS} ${ARTIST} - ${TITLE} ${SEPARATOR}"
+}
+
+if dependencies_available; then
+    case "$(playerctl -p spotify status)" in
+        'Playing')
+            create_full_status "${PLAY_ICON}"
+            ;;
+        'Paused')
+            create_full_status "${PAUSE_ICON}"
+            ;;
+        *)
+            echo ''
+            ;;
+    esac
+fi

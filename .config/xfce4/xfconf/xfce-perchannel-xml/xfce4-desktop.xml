@@ -6,8 +6,14 @@
       <property name="monitor0" type="empty">
         <property name="workspace0" type="empty">
           <property name="color-style" type="int" value="0"/>
-          <property name="image-style" type="int" value="5"/>
-          <property name="last-image" type="string" value="/home/daniel_stasczak/pictures/wallpapers/spider_man_2099_by_dazztok-d93yynv.png"/>
+          <property name="image-style" type="int" value="4"/>
+          <property name="last-image" type="string" value="/home/daniel/pictures/wallpapers/spider_man_2099_by_dazztok-d93yynv.png"/>
+          <property name="color1" type="array">
+            <value type="uint" value="0"/>
+            <value type="uint" value="0"/>
+            <value type="uint" value="0"/>
+            <value type="uint" value="65535"/>
+          </property>
         </property>
         <property name="workspace1" type="empty">
           <property name="color-style" type="int" value="0"/>
@@ -69,6 +75,9 @@
           <property name="image-style" type="int" value="5"/>
           <property name="last-image" type="string" value="/usr/share/backgrounds/xfce/xfce-teal.jpg"/>
         </property>
+        <property name="image-path" type="string" value="/home/daniel/pictures/wallpapers/spider_man_2099_by_dazztok-d93yynv.png"/>
+        <property name="image-show" type="bool" value="true"/>
+        <property name="image-style" type="int" value="0"/>
       </property>
       <property name="monitor1" type="empty">
         <property name="workspace0" type="empty">
@@ -99,6 +108,18 @@
     <property name="style" type="int" value="0"/>
     <property name="file-icons" type="empty">
       <property name="show-home" type="bool" value="false"/>
+      <property name="show-filesystem" type="bool" value="false"/>
+      <property name="show-trash" type="bool" value="false"/>
+      <property name="show-removable" type="bool" value="false"/>
+      <property name="show-network-removable" type="bool" value="false"/>
+      <property name="show-device-removable" type="bool" value="false"/>
+      <property name="show-unknown-removable" type="bool" value="false"/>
     </property>
+    <property name="show-thumbnails" type="bool" value="false"/>
+    <property name="show-tooltips" type="bool" value="false"/>
+  </property>
+  <property name="last" type="empty">
+    <property name="window-width" type="int" value="678"/>
+    <property name="window-height" type="int" value="521"/>
   </property>
 </channel>

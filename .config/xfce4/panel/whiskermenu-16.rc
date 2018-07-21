@@ -1,5 +1,5 @@
-favorites=exo-terminal-emulator.desktop,thunderbird.desktop,firefox.desktop,opera.desktop,code.desktop,dbeaver.desktop
-recent=xfce4-power-manager-settings.desktop,opera.desktop,code.desktop,dbeaver.desktop,thunderbird.desktop,ristretto.desktop,xfce4-notifyd-config.desktop,xfce-keyboard-settings.desktop,xfce-mouse-settings.desktop,xfce4-settings-editor.desktop
+favorites=Thunar.desktop,exo-terminal-emulator.desktop,firefox.desktop,opera.desktop,code.desktop,dbeaver.desktop,mailspring.desktop,spotify.desktop
+recent=xfce-ui-settings.desktop,ncmpcpp.desktop,xfce-keyboard-settings.desktop,xfce-wm-settings.desktop,xfce4-notifyd-config.desktop,thunderbird.desktop,xfce-settings-manager.desktop,rxvt-unicode.desktop,opera.desktop,libreoffice-writer.desktop
 button-title=Whisker
 button-icon=xfce4-whiskermenu
 button-single-row=false
@@ -13,12 +13,12 @@ category-icon-size=1
 load-hierarchy=false
 recent-items-max=10
 favorites-in-recent=true
-display-recent-default=false
+display-recent-default=true
 position-search-alternate=false
 position-commands-alternate=false
 position-categories-alternate=false
-menu-width=399
-menu-height=470
+menu-width=454
+menu-height=479
 menu-opacity=100
 command-settings=xfce4-settings-manager
 show-command-settings=true
@@ -29,9 +29,9 @@ show-command-switchuser=true
 command-logout=xfce4-session-logout
 show-command-logout=true
 command-menueditor=menulibre
-show-command-menueditor=true
+show-command-menueditor=false
 command-profile=mugshot
-show-command-profile=true
+show-command-profile=false
 search-actions=4
 
 [action0]
