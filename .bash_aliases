@@ -6,13 +6,15 @@ alias ls='ls -F --group-directories-first --color=auto'
 alias ll="ls -hl --time-style='+%F %T'"
 alias lo="ls -ho --time-style='+%F %T'"
 alias lgo='lo -g'
+alias lhat='ll -hat'
 
 alias grep='grep --color=auto'
 alias grepc='grep --color=always'
 alias grepn='grep --color=never'
 
 alias cd='cd -L'
-alias du='du -h'
 
 alias treec='tree -C'
 alias treen='tree -n'
+
+which git &>/dev/null && alias chardiff='git --no-pager diff --no-index --word-diff=color --word-diff-regex=.'
