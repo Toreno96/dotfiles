@@ -3,11 +3,17 @@
 !!!!!!!!!!!!
 
 ! Enabled modi
-rofi.modi:                           combi
+rofi.modi:                           combi,run
+! Foreground color
+rofi.fg:                             #ffffff
+! Background color
+rofi.bg:                             #1e1e1e
+! Background color for alternating row
+rofi.bgalt:                          #1e1e1e
 ! Enable sidebar-mode
 rofi.sidebar-mode:                   true
 ! Set the modi to combine in combi mode
-rofi.combi-modi:                     window,session:xfce-session,run
+rofi.combi-modi:                     window,session:xfce-session
 ! Keybinding
 rofi.kb-remove-char-back:            BackSpace
 ! Keybinding
