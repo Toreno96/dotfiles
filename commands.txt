@@ -1,0 +1,96 @@
+# vim: set filetype=sh:
+
+##########################################
+### Packages Management (Debian-based) ###
+##########################################
+
+# List installed packages by size, in descending order
+dpkg-query -W -f='${Installed-Size;8}  ${Package}\n' | sort -nr
+
+####################################
+### Packages Management (Python) ###
+####################################
+
+# Update pip
+sudo -H pip install --upgrade pip
+
+# List all installed packages
+pip list --format=columns 2>/dev/null | cut -s -d ' ' -f 1 | tail -n +3
+
+# Install packages listed in file
+sudo -H pip install --upgrade $(cat <filename>)
+
+# All in one
+sudo -H pip install --upgrade pip && sudo -H pip install --upgrade $(pip list --format=columns 2>/dev/null | tee /tmp/before_update_$(date +'%Y%m%d%H%M%S').txt | cut -s -d ' ' -f 1 | tail -n +3)
+
+#############
+### C/C++ ###
+#############
+
+# Link specific library
+gcc <...> -l:libboost_system.so.1.66.0
+
+# Start without introductory and copyright messages
+gdb -q
+# Pass arguments to debugged executable
+gdb --args <executable_name> <arguments>
+
+# Set non-default C++ compiler (from the command line)
+qmake 'QMAKE_CXX=colorgcc' ..
+# Link additional libraries (from the command line)
+qmake 'LIBS += -l:libboost_system.so.1.66.0 -l:libboost_program_options.so.1.66.0' ..
+
+##################
+### Networking ###
+##################
+
+# Print all IPv4 HTTP packets containing data to and from port 80 and host
+# <ip_address>, i.e. omit SYN, FIN, ACK-only and similar kind of packets
+tcpdump 'tcp port 80 and host <ip_address> and (((ip[2:2] - ((ip[0]&0xf)<<2)) - ((tcp[12]&0xf0)>>2)) != 0)'
+# Print each packet in ASCII (e.g. content of HTTP requests/responses)
+tcpdump -A
+# Don't convert addresses to names
+tcpdump -n
+
+# Show both listening and non-listening sockets
+netstat -a
+# Show numerical addresses
+netstat -n
+# Show connections using TCP protocol
+netstat -t
+# Show connections using UDP protocol
+netstat -u
+# Display the kernel routing tables
+netstat -r
+# Show the PID and name of the program to which each socket belongs
+netstat -p
+
+###################
+### Job Control ###
+###################
+
+# TODO
+
+###########
+### SQL ###
+###########
+
+# Connect to chosen MSSQL server
+sqlcmd -S <server_name> -d <database_name> -U <username> -P <password>
+
+###########
+### Etc ###
+###########
+
+###########
+### Etc ###
+###########
+
+# Print basename of everything found recursively in the current directory
+find . -exec basename {} \;
+# GNU-only
+find . -printf '%f\n'
+
+# Create tag file 'tags' for source code found recursively in the current
+# directory
+ctags -R -f tags .
