@@ -1,28 +1,10 @@
 #!/usr/bin/env python3
 
 import collections
-import datetime
 
 import psutil
 
-TIME_FORMAT = '{:%H:%M}'
 FLOAT_FORMAT = '{:0>4.1f}'
-
-BOOT_DATETIME = datetime.datetime.fromtimestamp(psutil.boot_time())
-# UPTIME is an instance of class datetime.time instead of
-# datetime.datetime, because minimal year, month and day of
-# datetime.datetime equals respectively 1, 1 and 1 - which means that if
-# we would made UPTIME an instance of class datetime.datetime, mentioned
-# attributes would not correspond to the actual values; e.g. uptime of 0
-# days would equal value 1 of datetime.datetime.day.
-# The issue does not apply to the time portion of datetime.datetime,
-# which is extracted by the datetime.datetime.time method to limit the
-# possibility of wrong use.
-# This solution limits the functionality, too (it is not possible to
-# extract information about how long the machine is up in days), but it
-# could be easily solved by the direct use of datetime.timedelta.
-UPTIME = (datetime.datetime.min + (datetime.datetime.now() - BOOT_DATETIME)).time()
-UPTIME_OUTPUT = 'up {}'.format(TIME_FORMAT).format(UPTIME)
 
 VIRTUAL_MEM_PERCENT = psutil.virtual_memory().percent
 SWAP_MEM_PERCENT = psutil.swap_memory().percent
@@ -38,5 +20,5 @@ CPU_PERCENT = psutil.cpu_percent(interval=0.5)
 CPU_OUTPUT = 'cpu {}%'.format(FLOAT_FORMAT).format(CPU_PERCENT)
 
 SEPARATOR = ' :: '
-OUTPUT = SEPARATOR.join([UPTIME_OUTPUT, CPU_OUTPUT, MEM_OUTPUT, DISK_USAGE_OUTPUT])
+OUTPUT = SEPARATOR.join([CPU_OUTPUT, MEM_OUTPUT, DISK_USAGE_OUTPUT])
 print(OUTPUT)

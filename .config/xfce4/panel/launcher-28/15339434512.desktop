@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=rofi
+Comment=
+Exec=rofi -modi combi,run,drun -combi-modi window,session:xfce-session -show combi -sidebar-mode
+Icon=
+Path=
+Terminal=false
+StartupNotify=false

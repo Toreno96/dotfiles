@@ -1,0 +1,29 @@
+#!/usr/bin/env python3
+
+import datetime
+
+import psutil
+
+ICON = ''
+BOOT_DATETIME = datetime.datetime.fromtimestamp(psutil.boot_time())
+NOW_BOOT_TIMEDELTA = datetime.datetime.now() - BOOT_DATETIME
+# UPTIME is an instance of class datetime.time instead of
+# datetime.datetime, because minimal year, month and day of
+# datetime.datetime equals respectively 1, 1 and 1 - which means that if
+# we would made UPTIME an instance of class datetime.datetime, mentioned
+# attributes would not correspond to the actual values; e.g. uptime of 0
+# days would equal value 1 of datetime.datetime.day.
+# The issue does not apply to the time portion of datetime.datetime,
+# which is extracted by the datetime.datetime.time method to limit the
+# possibility of wrong use.
+# This solution limits the functionality, too (it is not possible to
+# extract information about how long the machine is up in days), but it
+# could be easily solved by the direct use of datetime.timedelta.
+UPTIME = (datetime.datetime.min + NOW_BOOT_TIMEDELTA).time()
+UPTIME_HOURS = UPTIME.hour
+if NOW_BOOT_TIMEDELTA.days > 0:
+    UPTIME_HOURS += NOW_BOOT_TIMEDELTA.days * 24
+UPTIME_MINUTES = UPTIME.minute
+UPTIME_OUTPUT = "<tool></tool><txt><span fgcolor='#d3dae3'>{} {:0>2}:{:0>2}</span></txt>".format(ICON, UPTIME_HOURS, UPTIME_MINUTES)
+
+print(UPTIME_OUTPUT)

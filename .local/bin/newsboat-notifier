@@ -1,0 +1,5 @@
+#!/bin/sh
+
+NOTIFICATION_MESSAGE="${1}"
+
+notify-send -i rssnow 'Newsboat' "${NOTIFICATION_MESSAGE}"

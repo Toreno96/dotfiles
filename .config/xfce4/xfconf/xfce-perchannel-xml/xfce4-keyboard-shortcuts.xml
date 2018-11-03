@@ -34,23 +34,29 @@
       <property name="&lt;Super&gt;f" type="empty">
         <property name="startup-notify" type="bool" value="true"/>
       </property>
-      <property name="&lt;Primary&gt;&lt;Alt&gt;t" type="string" value="gnome-terminal"/>
-      <property name="&lt;Alt&gt;F1" type="string" value="xfce4-popup-whiskermenu"/>
       <property name="&lt;Primary&gt;Print" type="string" value="screenshot -f"/>
       <property name="Print" type="string" value="screenshot -r"/>
       <property name="&lt;Shift&gt;Print" type="string" value="screenshot -w"/>
       <property name="&lt;Primary&gt;&lt;Shift&gt;&lt;Alt&gt;z" type="empty">
         <property name="startup-notify" type="bool" value="true"/>
       </property>
-      <property name="&lt;Super&gt;z" type="string" value="toggle-touchpad">
+      <property name="&lt;Super&gt;z" type="empty">
         <property name="startup-notify" type="bool" value="true"/>
       </property>
       <property name="&lt;Super&gt;l" type="string" value="xflock4"/>
-      <property name="&lt;Super&gt;space" type="string" value="rofi -show combi"/>
       <property name="XF86AudioNext" type="string" value="playerctl next"/>
       <property name="XF86AudioPlay" type="string" value="playerctl play-pause"/>
       <property name="XF86AudioPrev" type="string" value="playerctl previous"/>
       <property name="XF86AudioStop" type="string" value="playerctl stop"/>
+      <property name="&lt;Primary&gt;&lt;Alt&gt;t" type="string" value="xfce4-terminal"/>
+      <property name="&lt;Super&gt;x" type="string" value="toggle-touchpad"/>
+      <property name="&lt;Super&gt;equal" type="string" value="xcalib -c"/>
+      <property name="&lt;Super&gt;minus" type="string" value="xcalib -co 90 -a"/>
+      <property name="&lt;Primary&gt;&lt;Super&gt;minus" type="string" value="xcalib -co 95 -a"/>
+      <property name="&lt;Shift&gt;&lt;Super&gt;underscore" type="string" value="xcalib -co 80 -a"/>
+      <property name="&lt;Super&gt;space" type="string" value="rofi -modi combi,run,drun -combi-modi window,session:xfce-session -show combi -sidebar-mode"/>
+      <property name="&lt;Super&gt;d" type="string" value="rofi -modi run,drun -show run -sidebar-mode"/>
+      <property name="&lt;Shift&gt;&lt;Super&gt;d" type="string" value="rofi -modi run,drun -show drun -sidebar-mode"/>
     </property>
   </property>
   <property name="xfwm4" type="empty">

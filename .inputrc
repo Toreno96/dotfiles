@@ -1,4 +1,4 @@
 # set editing-mode vi
 # set show-mode-in-prompt on
 set mark-symlinked-directories on
-set visible-stat on
+set visible-stats on

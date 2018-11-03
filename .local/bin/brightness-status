@@ -1,0 +1,15 @@
+#!/bin/sh
+
+ICON=''
+BRIGHTNESS="$(xcalib -co 100 -a -v |
+           grep -Eo 'Contrast: [0-9.]+' |
+           grep -Eo '[0-9.]+' |
+           head -1)"
+
+round() {
+    NUMBER="${1}"
+    PRECISION="${2}"
+    printf "%.*f\n" "${PRECISION}" "${NUMBER}"
+}
+
+echo "<tool></tool><txt><span fgcolor='#d3dae3'>${ICON} $(round "${BRIGHTNESS}" 0)</span></txt>"

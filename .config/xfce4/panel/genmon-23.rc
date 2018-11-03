@@ -1,0 +1,6 @@
+Command=brightness-status
+UseLabel=0
+Text=
+UpdatePeriod=250
+Font=Lato 17
+

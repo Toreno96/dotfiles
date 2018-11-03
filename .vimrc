@@ -9,6 +9,7 @@ let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
 let g:python_host_prog='/usr/bin/python3'
 
 " set termguicolors
+" set background=light
 set background=dark
 syntax enable
 if $TERM=~'256color' || $PRESERVED_TERM=~'256color'
@@ -37,7 +38,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'airblade/vim-gitgutter'
-if has('nvim')
+if has('nvim') || v:version > 800
   set signcolumn=yes
 else
   let g:gitgutter_sign_column_always=1
@@ -86,11 +87,6 @@ hi YcmWarningSign ctermfg=green
 if has('nvim')
   Plugin 'w0rp/ale'
 endif
-Plugin 'Yggdroot/indentLine'
-let g:indentLine_enabled=0
-let g:indentLine_char='│'
-let g:indentLine_color_term=239
-let g:indentLine_color_dark=2
 Plugin 'tpope/vim-commentary'
 autocmd FileType vim setlocal commentstring=\"\ %s"
 autocmd FileType sh setlocal commentstring=#\ %s"
@@ -149,7 +145,7 @@ endif
 set showcmd
 set splitbelow
 set splitright
-set statusline=%<%f\ %h%m%r%=%-14.(%l/%L:%c%V%)
+set statusline=[%n]\ %f\ %<%y[%{&ff}]%m%r%w%=%l/%L:%c%V\ @%{strftime(\"%F\ %T\",getftime(expand(\"%:p\")))}
 set tabstop=4
 set undofile
 set nrformats=alpha,bin,hex

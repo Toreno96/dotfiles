@@ -7,6 +7,19 @@
 # List installed packages by size, in descending order
 dpkg-query -W -f='${Installed-Size;8}  ${Package}\n' | sort -nr
 
+########################################
+### Packages Management (Arch-based) ###
+########################################
+
+# List all explicitly installed packages that are not dependencies
+pacman -Qet
+
+# List installed packages by size, in descending order
+pacman -Qi | awk '/^Name/{name=$3} /^Installed Size/{print $4$5, name}' | sort -hr
+
+# Remove orphaned dependencies
+sudo pacman -Rs $(pacman -Qqdt)
+
 ####################################
 ### Packages Management (Python) ###
 ####################################
@@ -82,10 +95,6 @@ sqlcmd -S <server_name> -d <database_name> -U <username> -P <password>
 ### Etc ###
 ###########
 
-###########
-### Etc ###
-###########
-
 # Print basename of everything found recursively in the current directory
 find . -exec basename {} \;
 # GNU-only
@@ -94,3 +103,6 @@ find . -printf '%f\n'
 # Create tag file 'tags' for source code found recursively in the current
 # directory
 ctags -R -f tags .
+
+# Set foreground color of the current tmux pane
+tmux select-pane -P 'fg=<color>'

@@ -1,0 +1,10 @@
+#!/bin/bash
+
+ICON=''
+PARTITIONS=('/' '/home' '/data')
+
+echo -n "<tool></tool><txt><span fgcolor='#d3dae3'>${ICON}"
+for partition in ${PARTITIONS[*]}; do
+    echo -n " ${partition}:$(df -h "${partition}" | sed -n '2p' | awk '{ print $4 }')"
+done
+echo '</span></txt>'

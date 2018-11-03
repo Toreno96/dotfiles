@@ -18,3 +18,5 @@ alias treec='tree -C'
 alias treen='tree -n'
 
 which git &>/dev/null && alias chardiff='git --no-pager diff --no-index --word-diff=color --word-diff-regex=.'
+
+alias cal='LC_TIME=C cal -m'

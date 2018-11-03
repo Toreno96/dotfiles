@@ -1,17 +1,22 @@
 #!/bin/sh
 
+DEVICE_NAME='ELAN1200:00 04F3:3090 Touchpad'
+
 touchpad_enabled() {
-  synclient | grep -q TouchpadOff.*0 >/dev/null 2>&1
+  # synclient | grep -q TouchpadOff.*0 >/dev/null 2>&1
+  xinput --list-props "${DEVICE_NAME}" | grep 'Device Enabled.*:.*1' &>/dev/null
 }
 
 notify_touchpad_status() {
-  notify-send --urgency=low --expire-time=3000 --icon="touchpad-$1-symbolic" "Touchpad $1"
+  notify-send --urgency=low --expire-time=3000 --icon="touchpad-${1}-symbolic" "Touchpad $1"
 }
 
 if touchpad_enabled; then
   notify_touchpad_status 'disabled'
-  synclient TouchpadOff=1
+  # synclient TouchpadOff=1
+  xinput --disable "${DEVICE_NAME}"
 else
   notify_touchpad_status 'enabled'
-  synclient TouchpadOff=0
+  # synclient TouchpadOff=0
+  xinput --enable "${DEVICE_NAME}"
 fi
