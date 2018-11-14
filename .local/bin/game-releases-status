@@ -4,7 +4,6 @@ import datetime
 
 ICON = ''
 RELEASE_DATES = {
-    'hitman2': datetime.date(2018, 11, 13),
     'dmc5': datetime.date(2019, 3, 8),
 }
 OUTPUT = "<tool></tool><txt><span fgcolor='#d3dae3'>{} ".format(ICON)
