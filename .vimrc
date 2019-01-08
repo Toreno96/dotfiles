@@ -151,3 +151,8 @@ set undofile
 set nrformats=alpha,bin,hex
 hi IncSearch ctermfg=red cterm=bold
 set updatetime=250
+
+" Delete trailing whitespaces
+nnoremap <leader>d<space> :%s/\s\+$//g<enter>
+" Remap to remove collision with the above
+nnoremap <leader>D :YcmShowDetailedDiagnostic<enter>
