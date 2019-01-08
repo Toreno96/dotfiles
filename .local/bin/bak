@@ -1,0 +1,6 @@
+#!/bin/sh
+
+FILENAME="${1}"
+DATETIME_FORMAT='%Y%m%d%H%M%S'
+DATETIME="$(date +"${DATETIME_FORMAT}")"
+cp -vi "${FILENAME}" "${FILENAME}.${DATETIME}"
