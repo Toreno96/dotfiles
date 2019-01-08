@@ -156,3 +156,11 @@ set updatetime=250
 nnoremap <leader>d<space> :%s/\s\+$//g<enter>
 " Remap to remove collision with the above
 nnoremap <leader>D :YcmShowDetailedDiagnostic<enter>
+" Run pylint on the current file
+nnoremap <leader>pyl :silent !pylint -f colorized % \| less -R<enter>:redraw!<enter>
+" Run autopep8 on the current file (print the diff)
+nnoremap <leader>pyad :!autopep8 --diff % \| colordiff \| less -R<enter>:redraw!<enter>
+" Run autopep8 on the current file (in-place changes)
+nnoremap <leader>pyai :!autopep8 -i %<enter>:redraw!<enter>
+" Run shellcheck on the current file
+nnoremap <leader>shl :!shellcheck -Calways % \| less -R<enter>:redraw!<enter>
