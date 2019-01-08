@@ -16,9 +16,13 @@ pacman -Qet
 
 # List installed packages by size, in descending order
 pacman -Qi | awk '/^Name/{name=$3} /^Installed Size/{print $4$5, name}' | sort -hr
+yay -Ps
 
 # Remove orphaned dependencies
 sudo pacman -Rs $(pacman -Qqdt)
+
+# Display detailed information on a upgradable packages
+pacman -Qii $(checkupdates+aur | cut -d' ' -f1)
 
 ####################################
 ### Packages Management (Python) ###
