@@ -25,7 +25,7 @@ shopt -s globstar
 # Etc
 which opera &>/dev/null && export BROWSER=opera
 which vim &>/dev/null && export EDITOR=vim
-# export PYTHONSTARTUP=$HOME/.pythonrc.py
+export PYTHONSTARTUP=$HOME/.pythonrc.py
 export PROMPT_DIRTRIM=3
 export HISTSIZE=5000
 export HISTFILESIZE=$((HISTSIZE * 2))
