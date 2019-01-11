@@ -95,6 +95,37 @@ netstat -p
 # Connect to chosen MSSQL server
 sqlcmd -S <server_name> -d <database_name> -U <username> -P <password>
 
+#######################
+### Storage Devices ###
+#######################
+
+# Mount device
+sudo mount /dev/sdc1 /mnt
+# or
+udisksctl mount -b /dev/sdc1
+
+# Unmount device
+sudo umount /mnt
+# or
+sudo umount /dev/sdc1
+# or (https://unix.stackexchange.com/a/178648)
+udisksctl unmount -b /dev/sdc1
+udisksctl power-off -b /dev/sdc
+
+# Format the USB stick (https://askubuntu.com/a/223607/737231)
+umount /dev/sdc1
+sudo dd if=/dev/zero of=/dev/sdc bs=1M status=progress
+sudo fdisk /dev/sdc
+    Command: n
+    Select: p
+    Partition number: 1
+    First sector: <return>
+    Last sector, +sectors or +size{K,M,G}: <return>
+    Command: t
+    Hex code: 6
+    Command: w
+sudo mkfs.vfat /dev/sdc1 -n LABEL -v
+
 ###########
 ### Etc ###
 ###########
