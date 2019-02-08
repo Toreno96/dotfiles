@@ -1,4 +1,4 @@
-Command=brightness-status
+Command=brightness-status 'xbacklight'
 UseLabel=0
 Text=
 UpdatePeriod=250

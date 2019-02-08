@@ -1,10 +1,18 @@
 #!/bin/sh
 
+INTERFACE="${1}"
+
 ICON=''
-BRIGHTNESS="$(xcalib -co 100 -a -v |
-           grep -Eo 'Contrast: [0-9.]+' |
-           grep -Eo '[0-9.]+' |
-           head -1)"
+if [ "${INTERFACE}" = 'low-level' ] || [ -z "${INTERFACE}" ]; then
+    BRIGHTNESS="$(cat /sys/class/backlight/*/brightness)"
+elif [ "${INTERFACE}" = 'xbacklight' ]; then
+    BRIGHTNESS="$(xbacklight -get)"
+elif [ "${INTERFACE}" = 'xcalib' ]; then
+    BRIGHTNESS="$(xcalib -co 100 -a -v |
+               grep -Eo 'Contrast: [0-9.]+' |
+               grep -Eo '[0-9.]+' |
+               head -1)"
+fi
 
 round() {
     NUMBER="${1}"
