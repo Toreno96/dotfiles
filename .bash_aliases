@@ -23,6 +23,14 @@ if command -v tree &>/dev/null; then
     alias treen='tree -n'
 fi
 
-command -v git &>/dev/null && alias chardiff='git --no-pager diff --no-index --word-diff=color --word-diff-regex=.'
+if command -v git &>/dev/null; then
+    # Git word diff
+    alias gwdiff='git diff --no-index --word-diff=color'
+    # Git character diff
+    alias gcdiff='git diff --no-index --word-diff=color --word-diff-regex=.'
+    # Plain mode
+    alias gwdiffp='git diff --no-index --word-diff=plain'
+    alias gcdiffp='git diff --no-index --word-diff=plain --word-diff-regex=.'
+fi
 
 alias cal='LC_TIME=C cal -m'
