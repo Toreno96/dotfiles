@@ -12,6 +12,10 @@ alias grep='grep --color=auto'
 alias grepc='grep --color=always'
 alias grepn='grep --color=never'
 
+alias diff='diff --color=auto'
+alias diffc='diff --color=always'
+alias diffn='diff --color=never'
+
 alias cd='cd -L'
 
 alias treec='tree -C'
