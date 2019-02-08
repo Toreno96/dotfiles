@@ -23,6 +23,7 @@ shopt -s checkwinsize
 shopt -s globstar
 
 # Etc
+export PAGER=less
 command -v opera &>/dev/null && export BROWSER=opera
 command -v vim &>/dev/null && export EDITOR=vim
 export PYTHONSTARTUP=$HOME/.pythonrc.py
