@@ -4,12 +4,7 @@ PAUSE_ICON=''
 MAX_LENGTH=50
 
 dependencies_available() {
-    [ $(which spotify) ] && [ $(which playerctl) ]
-}
-
-length() {
-    STRING="${1}"
-    echo "${STRING}" | wc -m
+    [ "$(command -v spotify)" ] && [ "$(command -v playerctl)" ]
 }
 
 truncate() {
@@ -23,7 +18,7 @@ create_full_status() {
     TITLE="$(playerctl -p spotify metadata title)"
     ALBUM="$(playerctl -p spotify metadata album)"
     ARTIST_TITLE_COMBINED="${ARTIST} - ${TITLE}"
-    if [ $(length "${ARTIST} - ${TITLE}") -gt ${MAX_LENGTH} ]; then
+    if [ ${#ARTIST_TITLE_COMBINED} -gt ${MAX_LENGTH} ]; then
         ARTIST_TITLE_COMBINED="$(truncate "${ARTIST_TITLE_COMBINED}")..."
         ARTIST_TITLE_COMBINED="${ARTIST_TITLE_COMBINED/ .../...}"
     fi

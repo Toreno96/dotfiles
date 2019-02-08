@@ -23,8 +23,8 @@ shopt -s checkwinsize
 shopt -s globstar
 
 # Etc
-which opera &>/dev/null && export BROWSER=opera
-which vim &>/dev/null && export EDITOR=vim
+command -v opera &>/dev/null && export BROWSER=opera
+command -v vim &>/dev/null && export EDITOR=vim
 export PYTHONSTARTUP=$HOME/.pythonrc.py
 export PROMPT_DIRTRIM=3
 export HISTSIZE=5000
@@ -34,5 +34,5 @@ export HISTTIMEFORMAT='%F %T '
 [ -f ~/.bash_functions ] && source ~/.bash_functions
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 [ -f ~/.local/bin/tmuxinator.bash ] && source ~/.local/bin/tmuxinator.bash
-[ -f ~/.dircolors ] && eval $(dircolors -b ~/.dircolors)
+[ -f ~/.dircolors ] && eval "$(dircolors -b ~/.dircolors)"
 export LS_COLORS="${LS_COLORS}ow=01;34:"
