@@ -57,6 +57,12 @@
       <property name="&lt;Super&gt;space" type="string" value="rofi -modi combi,run,drun -combi-modi window,session:xfce-session -show combi -sidebar-mode"/>
       <property name="&lt;Super&gt;d" type="string" value="rofi -modi run,drun -show run -sidebar-mode"/>
       <property name="&lt;Shift&gt;&lt;Super&gt;d" type="string" value="rofi -modi run,drun -show drun -sidebar-mode"/>
+      <property name="&lt;Super&gt;bracketleft" type="string" value="xbacklight -steps 1 -dec 10"/>
+      <property name="&lt;Primary&gt;&lt;Super&gt;bracketleft" type="string" value="xbacklight -steps 1 -dec 5"/>
+      <property name="&lt;Shift&gt;&lt;Super&gt;braceleft" type="string" value="xbacklight -steps 1 -dec 20"/>
+      <property name="&lt;Super&gt;bracketright" type="string" value="xbacklight -steps 1 -inc 10"/>
+      <property name="&lt;Shift&gt;&lt;Super&gt;braceright" type="string" value="xbacklight -steps 1 -inc 20"/>
+      <property name="&lt;Primary&gt;&lt;Super&gt;bracketright" type="string" value="xbacklight -steps 1 -inc 5"/>
     </property>
   </property>
   <property name="xfwm4" type="empty">
