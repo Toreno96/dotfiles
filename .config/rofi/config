@@ -1,0 +1,3 @@
+! vim: syntax=xdefaults
+
+rofi.theme: ~/.config/rofi/themes/Arc-Dark-Custom
