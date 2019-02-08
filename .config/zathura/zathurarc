@@ -1,1 +1,10 @@
 set selection-clipboard clipboard
+set guioptions sv
+set window-title-basename true
+set statusbar-home-tilde
+# Gruvbox soft (light background)
+set recolor-darkcolor "#282828"
+set recolor-lightcolor "#F2E5BC"
+# Codedark (dark background)
+# set recolor-darkcolor "#D4D4D4"
+# set recolor-lightcolor "#1E1E1E"
