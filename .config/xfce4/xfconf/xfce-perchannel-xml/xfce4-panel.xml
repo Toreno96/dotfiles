@@ -161,6 +161,10 @@
       <property name="enable-keyboard-shortcuts" type="bool" value="true"/>
       <property name="show-notifications" type="bool" value="true"/>
       <property name="mpris-players" type="string" value="GnomeMpv.instance10694;GnomeMpv.instance12048;GnomeMpv.instance12791;GnomeMpv.instance14982;GnomeMpv.instance20919;GnomeMpv.instance23800;GnomeMpv.instance2407;GnomeMpv.instance25529;GnomeMpv.instance25941;GnomeMpv.instance31590;GnomeMpv.instance5912;GnomeMpv.instance6183;GnomeMpv.instance6550;GnomeMpv.instance7476;pragha;spotify"/>
+      <property name="blacklisted-players" type="string" value="pragha"/>
+      <property name="enable-multimedia-keys" type="bool" value="false"/>
+      <property name="enable-wnck" type="bool" value="true"/>
+      <property name="enable-mpris" type="bool" value="true"/>
     </property>
     <property name="plugin-17" type="string" value="separator">
       <property name="style" type="uint" value="0"/>
