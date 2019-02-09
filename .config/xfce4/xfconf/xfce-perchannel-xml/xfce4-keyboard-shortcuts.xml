@@ -44,10 +44,6 @@
         <property name="startup-notify" type="bool" value="true"/>
       </property>
       <property name="&lt;Super&gt;l" type="string" value="xflock4"/>
-      <property name="XF86AudioNext" type="string" value="playerctl next"/>
-      <property name="XF86AudioPlay" type="string" value="playerctl play-pause"/>
-      <property name="XF86AudioPrev" type="string" value="playerctl previous"/>
-      <property name="XF86AudioStop" type="string" value="playerctl stop"/>
       <property name="&lt;Primary&gt;&lt;Alt&gt;t" type="string" value="xfce4-terminal"/>
       <property name="&lt;Super&gt;x" type="string" value="toggle-touchpad"/>
       <property name="&lt;Super&gt;equal" type="string" value="xcalib -c"/>
@@ -64,6 +60,9 @@
       <property name="&lt;Shift&gt;&lt;Super&gt;braceright" type="string" value="xbacklight -steps 1 -inc 20"/>
       <property name="&lt;Primary&gt;&lt;Super&gt;bracketright" type="string" value="xbacklight -steps 1 -inc 5"/>
       <property name="&lt;Super&gt;Tab" type="string" value="rofi -modi windowcd -show windowcd"/>
+      <property name="XF86AudioNext" type="string" value="mpris2controller Next"/>
+      <property name="XF86AudioPlay" type="string" value="mpris2controller PlayPause"/>
+      <property name="XF86AudioPrev" type="string" value="mpris2controller Previous"/>
     </property>
   </property>
   <property name="xfwm4" type="empty">
