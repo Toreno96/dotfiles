@@ -168,3 +168,5 @@ nnoremap <leader>pyad :!autopep8 --diff % \| colordiff \| less -R<enter>:redraw!
 nnoremap <leader>pyai :!autopep8 -i %<enter>:redraw!<enter>
 " Run shellcheck on the current file
 nnoremap <leader>shl :!shellcheck -Calways % \| less -R<enter>:redraw!<enter>
+" Swap paragraphs marked by 'n' and 'm'
+nnoremap <leader>sp 'nvipy'mvipp'nvipp
