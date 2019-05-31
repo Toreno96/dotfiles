@@ -35,7 +35,7 @@ shopt -s globstar
 
 # Etc
 export PAGER=less
-command -v opera &>/dev/null && export BROWSER=opera
+command -v brave &>/dev/null && export BROWSER=brave
 command -v vim &>/dev/null && export EDITOR=vim
 export PYTHONSTARTUP=$HOME/.pythonrc.py
 export PROMPT_DIRTRIM=3
