@@ -145,6 +145,24 @@ ssh-keygen -f <private_key> -c -C <new_comment>
 # Copy the public key to the remote server
 ssh-copy-id -i <public_key> <destination>
 
+####################
+### File-copying ###
+####################
+
+# Copy 'src' to 'dest/src'
+rsync -r 'src' 'dest'
+# Copy content of 'src' to 'dest'
+rsync -r 'src/' 'dest'
+
+# Archive 'src' to 'dest/src'
+rsync -a 'src' 'dest'
+# Preserve hard links, ACLs and extended attributes
+rsync -HAX 'src' 'dest'
+# Keep partially transferred file(s), and show progress
+rsync -P 'src' 'dest'
+# All in one
+rsync -aHAXP 'src' 'dest'
+
 ###########
 ### Etc ###
 ###########
