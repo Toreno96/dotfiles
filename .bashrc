@@ -10,7 +10,7 @@ ANSI_MAGENTA='\[\e[35m\]'
 ANSI_CYAN='\[\e[36m\]'
 ANSI_RESET='\[\e[0m\]'
 _current_git_branch() {
-    if [ -d '.git' ]; then
+    if command -v git &>/dev/null && [ -d '.git' ]; then
         BRANCH=$(git branch | grep -F '*' | cut -d' ' -f2-)
         echo "${BRANCH} "
     fi
