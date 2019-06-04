@@ -133,6 +133,19 @@ sudo fdisk /dev/sdc
 sudo mkfs.vfat /dev/sdc1 -n LABEL -v
 
 ###########
+### SSH ###
+###########
+
+# Generate an SSH key pair
+ssh-keygen -C "$(whoami)@$(hostname)-$(date -Iseconds)"
+# Change the private key's passphrase
+ssh-keygen -f <private_key> -p
+# Change the keys' comment
+ssh-keygen -f <private_key> -c -C <new_comment>
+# Copy the public key to the remote server
+ssh-copy-id -i <public_key> <destination>
+
+###########
 ### Etc ###
 ###########
 
