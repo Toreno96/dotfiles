@@ -98,6 +98,8 @@ netstat -p
 
 # Connect to chosen MSSQL server
 sqlcmd -S <server_name> -d <database_name> -U <username> -P <password>
+# Connect to chosen PostgreSQL database
+psql -h <server_name> -d <database_name> -U <username> -p <port>
 
 #######################
 ### Storage Devices ###
