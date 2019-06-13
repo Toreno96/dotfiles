@@ -163,6 +163,26 @@ rsync -P 'src' 'dest'
 # All in one
 rsync -aHAXP 'src' 'dest'
 
+###############################
+### Version Control Systems ###
+###############################
+
+# Change last commit message
+git commit --amend
+
+# Undo a commit and reuse the log message and the authorship information in the
+# next commit
+git commit
+git reset HEAD~
+git add ...
+git commit -c ORIG_HEAD
+
+# Change URL(s) for the remote
+git remote set-url <new_url>
+svn relocate <new_url>
+# version < 1.7
+svn switch --relocate <old_url> <new_url>
+
 ###########
 ### Etc ###
 ###########
