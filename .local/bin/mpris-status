@@ -1,47 +1,49 @@
 #!/bin/bash
+
 PLAY_ICON=''
 PAUSE_ICON=''
-MAX_LENGTH=50
+STOP_ICON=''
+MAX_LENGTH=55
 
 dependencies_available() {
-    [ "$(command -v spotify)" ] && [ "$(command -v playerctl)" ]
+    (command -v mpris2controller &>/dev/null) && (command -v jq &>/dev/null)
 }
 
 truncate() {
     STRING="${1}"
-    echo "${STRING}" | cut -c "1-$((MAX_LENGTH-3))"
+    echo "${STRING}" | cut -c "1-$((MAX_LENGTH))"
 }
 
 create_full_status() {
-    ICON_STATUS="${1}"
-    ARTIST="$(playerctl -p spotify metadata artist)"
-    TITLE="$(playerctl -p spotify metadata title)"
-    ALBUM="$(playerctl -p spotify metadata album)"
-    ARTIST_TITLE_COMBINED="${ARTIST} - ${TITLE}"
-    if [ ${#ARTIST_TITLE_COMBINED} -gt ${MAX_LENGTH} ]; then
-        ARTIST_TITLE_COMBINED="$(truncate "${ARTIST_TITLE_COMBINED}")..."
-        ARTIST_TITLE_COMBINED="${ARTIST_TITLE_COMBINED/ .../...}"
+    STATUS="$(mpris2controller Status)"
+    STATUS="${STATUS/Playing/$PLAY_ICON}"
+    STATUS="${STATUS/Paused/$PAUSE_ICON}"
+    STATUS="${STATUS/Stopped/$STOP_ICON}"
+    METADATA="$(mpris2controller Metadata)"
+    if [ -z "${STATUS}" ] || [ -z "${METADATA}" ]; then
+        echo ''
+    else
+        ARTIST="$(jq -r '."xesam:artist" // [] | join(", ")' <<<"${METADATA}")"
+        TITLE="$(jq -r '."xesam:title" // ""' <<<"${METADATA}")"
+        MAIN_STATUS="${STATUS} ${ARTIST}:${TITLE}"
+        if [ ${#MAIN_STATUS} -gt ${MAX_LENGTH} ]; then
+            MAIN_STATUS="$(truncate "${MAIN_STATUS}")…"
+            MAIN_STATUS="${MAIN_STATUS/ …/…}"
+        fi
+
+        ALBUM="$(jq -r '."xesam:album" // ""' <<<"${METADATA}")"
+        echo "${ALBUM}" >/tmp/mpris-status.log
+        FULL_STATUS='<tool>'
+        FULL_STATUS+="ARTIST...: ${ARTIST}\n"
+        FULL_STATUS+="TITLE......: ${TITLE}\n"
+        FULL_STATUS+="ALBUM..: ${ALBUM}"
+        FULL_STATUS+='</tool>'
+        FULL_STATUS+="<txt><span fgcolor='#d3dae3'>${MAIN_STATUS}</span></txt>"
+        FULL_STATUS="${FULL_STATUS//&/&amp;}"
+        echo -e "${FULL_STATUS}"
     fi
-    FULL_STATUS='<tool>'
-    FULL_STATUS+="ARTIST...: ${ARTIST}\n"
-    FULL_STATUS+="TITLE......: ${TITLE}\n"
-    FULL_STATUS+="ALBUM..: ${ALBUM}"
-    FULL_STATUS+='</tool>'
-    FULL_STATUS+="<txt><span fgcolor='#d3dae3'>${ICON_STATUS} ${ARTIST_TITLE_COMBINED}</span></txt>"
-    FULL_STATUS="${FULL_STATUS//&/&amp;}"
-    echo -e "${FULL_STATUS}"
 }
 
 if dependencies_available; then
-    case "$(playerctl -p spotify status)" in
-        'Playing')
-            create_full_status "${PLAY_ICON}"
-            ;;
-        'Paused')
-            create_full_status "${PAUSE_ICON}"
-            ;;
-        *)
-            echo ''
-            ;;
-    esac
+    create_full_status
 fi
