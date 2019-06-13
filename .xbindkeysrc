@@ -1,0 +1,23 @@
+#############################
+### Logitech MX Master 2S ###
+#############################
+
+# Horizontal scroll up -> Switch current workspace to the right
+# "xte 'keydown Control_L' 'keydown Alt_L' 'key Right' 'keyup Control_L' 'keyup Alt_L'"
+#     b:6
+
+# Horizontal scroll down -> Switch current workspace to the left
+# "xte 'keydown Control_L' 'keydown Alt_L' 'key Left' 'keyup Control_L' 'keyup Alt_L'"
+#     b:7
+
+# Side-bottom button -> Decrease mouse dpi
+"set_mouse_dpi -0.5"
+    b:8
+
+# Side-top button -> Increase mouse dpi
+"set_mouse_dpi 0.5"
+    b:9
+
+# Thumb button -> Reset mouse dpi to the default
+"sleep 0.1 && set_mouse_dpi"
+    m:0xc + c:23
