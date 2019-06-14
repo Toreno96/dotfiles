@@ -132,6 +132,17 @@ sudo fdisk /dev/sdc
     Command: w
 sudo mkfs.vfat /dev/sdc1 -n LABEL -v
 
+# Check if device is a LUKS device
+cryptsetup isLuks <device>
+
+# Open the LUKS device and map it
+cryptsetup open --type luks <device> <mapping_name>
+# or
+cryptsetup luksOpen <device> <mapping_name>
+
+# Close the LUKS device
+cryptsetup close <mapping_name>
+
 ###########
 ### SSH ###
 ###########
