@@ -23,9 +23,21 @@ create_full_status() {
     if [ -z "${STATUS}" ] || [ -z "${METADATA}" ]; then
         echo ''
     else
-        ARTIST="$(jq -r '."xesam:artist" // [] | join(", ")' <<<"${METADATA}")"
+        # Spotify (desktop) and Parole returns artist as array, while Chromium
+        # returns it as string
+        ARTIST="$(jq -r '."xesam:artist" | if . | type == "array" then . | join(", ") else . end' <<<"${METADATA}")"
         TITLE="$(jq -r '."xesam:title" // ""' <<<"${METADATA}")"
+
+        if [ "${ARTIST}" == 'https://open.spotify.com' ]; then
+            # Order-dependent, reassign of `TITLE` must be placed at the end
+            ARTIST=$(awk -F ' · ' '{ print $2 }' <<<"${TITLE}")
+            TITLE=$(awk -F ' · ' '{ print $1 }' <<<"${TITLE}")
+            MAIN_STATUS="${STATUS} ${NORMALIZED_TITLE}"
+        elif [ "${ARTIST}" == 'https://soundcloud.com' ]; then
+            ARTIST=''
+        fi
         MAIN_STATUS="${STATUS} ${ARTIST}:${TITLE}"
+
         if [ ${#MAIN_STATUS} -gt ${MAX_LENGTH} ]; then
             MAIN_STATUS="$(truncate "${MAIN_STATUS}")…"
             MAIN_STATUS="${MAIN_STATUS/ …/…}"
