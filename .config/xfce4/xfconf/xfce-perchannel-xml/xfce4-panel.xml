@@ -83,6 +83,8 @@
       <property name="plugin-ids" type="array">
         <value type="int" value="4"/>
         <value type="int" value="19"/>
+        <value type="int" value="6"/>
+        <value type="int" value="3"/>
         <value type="int" value="27"/>
         <value type="int" value="21"/>
         <value type="int" value="7"/>
@@ -219,5 +221,9 @@
       <property name="expand" type="bool" value="true"/>
       <property name="style" type="uint" value="0"/>
     </property>
+    <property name="plugin-3" type="string" value="separator">
+      <property name="style" type="uint" value="0"/>
+    </property>
+    <property name="plugin-6" type="string" value="embed"/>
   </property>
 </channel>
