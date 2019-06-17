@@ -9,3 +9,7 @@
 	default = simple
 [alias]
 	diffs = diff --staged
+[merge]
+	tool = vimdiff
+	conflictStyle = diff3
+	prompt = false
