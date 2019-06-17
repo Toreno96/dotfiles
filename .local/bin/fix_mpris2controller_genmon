@@ -1,0 +1,6 @@
+#!/bin/sh
+
+pgrep -f mpris2controller | tr '\n' ' ' | xargs kill -2 --verbose
+echo 'restarting xfce4-panel in 1 second(s)'
+sleep 1s
+xfce4-panel -r
