@@ -161,6 +161,8 @@ nnoremap <leader>d<space> :%s/\s\+$//g<enter>
 nnoremap <leader>D :YcmShowDetailedDiagnostic<enter>
 " Run pylint on the current file
 nnoremap <leader>pyl :silent !pylint -f colorized % \| less -R<enter>:redraw!<enter>
+" Run pylint-django on the current file
+nnoremap <leader>pydl :silent !pylint -f colorized --load-plugins pylint_django % \| less -R<enter>:redraw!<enter>
 " Run autopep8 on the current file (print the diff)
 nnoremap <leader>pyad :!autopep8 --diff % \| colordiff \| less -R<enter>:redraw!<enter>
 " Run autopep8 on the current file (in-place changes)
