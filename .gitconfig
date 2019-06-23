@@ -9,6 +9,7 @@
 	default = simple
 [alias]
 	diffs = diff --staged
+	ss = status --short
 [merge]
 	tool = vimdiff
 	conflictStyle = diff3
