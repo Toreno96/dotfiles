@@ -11,7 +11,7 @@ dependencies_available() {
 
 truncate() {
     STRING="${1}"
-    echo "${STRING}" | cut -c "1-$((MAX_LENGTH))"
+    echo "${STRING}" | colrm ${MAX_LENGTH}
 }
 
 create_full_status() {
