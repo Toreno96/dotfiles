@@ -3,19 +3,28 @@
 
 # Prompt
 ANSI_BOLD='\[\e[01m\]'
+ANSI_RED='\[\e[31m\]'
 ANSI_GREEN='\[\e[32m\]'
 ANSI_YELLOW='\[\e[33m\]'
 ANSI_BLUE='\[\e[34m\]'
 ANSI_MAGENTA='\[\e[35m\]'
 ANSI_CYAN='\[\e[36m\]'
 ANSI_RESET='\[\e[0m\]'
+_exit_status() {
+    STATUS="${?}"
+    if [ ${STATUS} -ne 0 ]; then
+        echo "${STATUS} "
+    fi
+}
 _current_git_branch() {
     if command -v git &>/dev/null && git status &>/dev/null; then
         BRANCH=$(git branch | grep -F '*' | cut -d' ' -f2-)
         echo "${BRANCH} "
     fi
 }
-PS1="${ANSI_BOLD}${ANSI_YELLOW}\$(_current_git_branch)${ANSI_RESET}"
+PS1=''
+PS1+="${ANSI_BOLD}${ANSI_RED}\$(_exit_status)${ANSI_RESET}"
+PS1+="${ANSI_BOLD}${ANSI_YELLOW}\$(_current_git_branch)${ANSI_RESET}"
 PS1+="${ANSI_BOLD}${ANSI_GREEN}\u@\h${ANSI_RESET}:"
 PS1+="${ANSI_BOLD}${ANSI_BLUE}\w${ANSI_RESET}\$ "
 
