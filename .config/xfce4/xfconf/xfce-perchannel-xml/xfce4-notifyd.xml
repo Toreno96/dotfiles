@@ -4,8 +4,38 @@
   <property name="notify-location" type="uint" value="2"/>
   <property name="theme" type="string" value="Default"/>
   <property name="initial-opacity" type="double" value="0.900000"/>
+  <property name="applications" type="empty">
+    <property name="known_applications" type="array">
+      <value type="string" value="brave-browser"/>
+      <value type="string" value="firefox"/>
+      <value type="string" value="kalu"/>
+      <value type="string" value="Mailspring"/>
+      <value type="string" value="MEGAsync"/>
+      <value type="string" value="nm-applet"/>
+      <value type="string" value="notify-send"/>
+      <value type="string" value="opera"/>
+      <value type="string" value="Package Manager"/>
+      <value type="string" value="parole-notify"/>
+      <value type="string" value="pragha"/>
+      <value type="string" value="rssowl"/>
+      <value type="string" value="Spotify"/>
+      <value type="string" value="terminal"/>
+      <value type="string" value="Thunar"/>
+      <value type="string" value="Thunderbird"/>
+      <value type="string" value="Transmission"/>
+      <value type="string" value="vivaldi-stable"/>
+      <value type="string" value="xcalib-wrapper"/>
+      <value type="string" value="Xfce volume control"/>
+      <value type="string" value="Xfce4-notifyd settings"/>
+      <value type="string" value="xfce4-power-manager"/>
+      <value type="string" value="xfce4-settings-helper"/>
+    </property>
+  </property>
   <property name="primary-monitor" type="uint" value="0"/>
   <property name="log-level" type="uint" value="0"/>
   <property name="log-level-apps" type="uint" value="0"/>
   <property name="do-not-disturb" type="bool" value="false"/>
+  <property name="do-slideout" type="bool" value="false"/>
+  <property name="do-fadeout" type="bool" value="true"/>
+  <property name="notification-log" type="bool" value="true"/>
 </channel>

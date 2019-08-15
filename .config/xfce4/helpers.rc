@@ -2,4 +2,5 @@ TerminalEmulator=xfce4-terminal
 MailReader=thunderbird
 FileManager=Thunar
 WebBrowser=brave
+WebBrowserDismissed=true
 

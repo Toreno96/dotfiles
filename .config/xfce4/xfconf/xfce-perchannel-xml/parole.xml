@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<channel name="parole" version="1.0">
+  <property name="subtitles" type="empty">
+    <property name="font" type="string" value="Sans Bold 20"/>
+  </property>
+  <property name="folders" type="empty">
+    <property name="last-used-media" type="string" value="/home/dstasczak/video/movies/How I Met Your Mother Season 7 Complete HDTV Bzingaz"/>
+  </property>
+  <property name="window" type="empty">
+    <property name="maximized" type="bool" value="true"/>
+    <property name="width" type="int" value="1920"/>
+    <property name="height" type="int" value="992"/>
+  </property>
+  <property name="audio" type="empty">
+    <property name="volume" type="int" value="100"/>
+    <property name="visualization-enabled" type="bool" value="false"/>
+    <property name="visualization-name" type="string" value="monoscope"/>
+  </property>
+  <property name="playlist" type="empty">
+    <property name="show-playlist" type="bool" value="false"/>
+    <property name="repeat" type="bool" value="true"/>
+    <property name="shuffle" type="bool" value="false"/>
+    <property name="remember-playlist" type="bool" value="true"/>
+    <property name="replace-playlist" type="bool" value="true"/>
+    <property name="play-opened-files" type="bool" value="true"/>
+  </property>
+  <property name="parole" type="empty">
+    <property name="plugins" type="string" value="/usr/lib/parole-0/parole-mpris2.so"/>
+    <property name="multimedia-keys" type="bool" value="false"/>
+  </property>
+  <property name="video" type="empty">
+    <property name="aspect-ratio" type="string" value="PAROLE_ASPECT_RATIO_AUTO"/>
+  </property>
+</channel>

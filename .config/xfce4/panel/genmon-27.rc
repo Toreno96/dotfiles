@@ -2,5 +2,5 @@ Command=mpris-status
 UseLabel=0
 Text=
 UpdatePeriod=500
-Font=Lato 17
+Font=Lato 13
 

@@ -39,6 +39,7 @@
         <value type="int" value="23"/>
         <value type="int" value="22"/>
         <value type="int" value="10"/>
+        <value type="int" value="14"/>
         <value type="int" value="11"/>
       </property>
       <property name="length-adjust" type="bool" value="false"/>
@@ -59,6 +60,7 @@
       <property name="plugin-ids" type="array">
         <value type="int" value="1"/>
         <value type="int" value="13"/>
+        <value type="int" value="16"/>
         <value type="int" value="2"/>
         <value type="int" value="18"/>
       </property>
@@ -134,33 +136,24 @@
     </property>
     <property name="plugin-10" type="string" value="systray">
       <property name="names-visible" type="array">
-        <value type="string" value="thunar"/>
-        <value type="string" value="qnapi"/>
         <value type="string" value="networkmanager applet"/>
-        <value type="string" value="megasync"/>
-        <value type="string" value="gg"/>
-        <value type="string" value="network"/>
-        <value type="string" value="steam"/>
-        <value type="string" value="discord"/>
-        <value type="string" value="task manager"/>
-        <value type="string" value="mailspring"/>
-        <value type="string" value="pamac-tray"/>
-        <value type="string" value="blueman-applet"/>
-        <value type="string" value="tomahawk"/>
-        <value type="string" value="pragha music player"/>
         <value type="string" value="xfce4-power-manager"/>
-        <value type="string" value="scp-dbus-service.py"/>
-        <value type="string" value="octopi-notifier"/>
+        <value type="string" value="megasync"/>
       </property>
       <property name="size-max" type="uint" value="24"/>
       <property name="show-frame" type="bool" value="false"/>
       <property name="names-hidden" type="array">
       </property>
+      <property name="names-ordered" type="array">
+        <value type="string" value="networkmanager applet"/>
+        <value type="string" value="xfce4-power-manager"/>
+        <value type="string" value="megasync"/>
+      </property>
     </property>
     <property name="plugin-11" type="string" value="pulseaudio">
       <property name="enable-keyboard-shortcuts" type="bool" value="true"/>
       <property name="show-notifications" type="bool" value="true"/>
-      <property name="mpris-players" type="string" value="GnomeMpv.instance10694;GnomeMpv.instance12048;GnomeMpv.instance12791;GnomeMpv.instance14982;GnomeMpv.instance20919;GnomeMpv.instance23800;GnomeMpv.instance2407;GnomeMpv.instance25529;GnomeMpv.instance25941;GnomeMpv.instance31590;GnomeMpv.instance5912;GnomeMpv.instance6183;GnomeMpv.instance6550;GnomeMpv.instance7476;pragha;spotify"/>
+      <property name="mpris-players" type="string" value="chrome;chrome.tab101;chrome.tab102;chrome.tab103;chrome.tab104;chrome.tab105;chrome.tab108;chrome.tab11;chrome.tab110;chrome.tab111;chrome.tab112;chrome.tab113;chrome.tab114;chrome.tab12;chrome.tab128;chrome.tab129;chrome.tab131;chrome.tab133;chrome.tab137;chrome.tab138;chrome.tab139;chrome.tab143;chrome.tab145;chrome.tab146;chrome.tab148;chrome.tab149;chrome.tab15;chrome.tab150;chrome.tab152;chrome.tab154;chrome.tab155;chrome.tab156;chrome.tab157;chrome.tab159;chrome.tab160;chrome.tab162;chrome.tab165;chrome.tab166;chrome.tab168;chrome.tab175;chrome.tab176;chrome.tab178;chrome.tab18;chrome.tab181;chrome.tab182;chrome.tab184;chrome.tab187;chrome.tab189;chrome.tab190;chrome.tab191;chrome.tab195;chrome.tab202;chrome.tab205;chrome.tab206;chrome.tab207;chrome.tab21;chrome.tab210;chrome.tab211;chrome.tab213;chrome.tab216;chrome.tab225;chrome.tab227;chrome.tab229;chrome.tab230;chrome.tab233;chrome.tab243;chrome.tab244;chrome.tab248;chrome.tab251;chrome.tab253;chrome.tab256;chrome.tab260;chrome.tab268;chrome.tab270;chrome.tab271;chrome.tab275;chrome.tab276;chrome.tab28;chrome.tab29;chrome.tab295;chrome.tab3;chrome.tab30;chrome.tab302;chrome.tab31;chrome.tab32;chrome.tab33;chrome.tab338;chrome.tab34;chrome.tab35;chrome.tab36;chrome.tab369;chrome.tab37;chrome.tab38;chrome.tab39;chrome.tab394;chrome.tab40;chrome.tab402;chrome.tab406;chrome.tab409;chrome.tab41;chrome.tab42;chrome.tab424;chrome.tab43;chrome.tab433;chrome.tab437;chrome.tab44;chrome.tab440;chrome.tab453;chrome.tab456;chrome.tab460;chrome.tab47;chrome.tab49;chrome.tab491;chrome.tab5;chrome.tab504;chrome.tab507;chrome.tab51;chrome.tab510;chrome.tab515;chrome.tab525;chrome.tab529;chrome.tab61;chrome.tab62;chrome.tab64;chrome.tab642;chrome.tab645;chrome.tab648;chrome.tab65;chrome.tab66;chrome.tab662;chrome.tab666;chrome.tab671;chrome.tab677;chrome.tab69;chrome.tab700;chrome.tab705;chrome.tab709;chrome.tab71;chrome.tab713;chrome.tab718;chrome.tab721;chrome.tab74;chrome.tab75;chrome.tab750;chrome.tab753;chrome.tab756;chrome.tab76;chrome.tab766;chrome.tab777;chrome.tab783;chrome.tab786;chrome.tab796;chrome.tab799;chrome.tab803;chrome.tab806;chrome.tab81;chrome.tab812;chrome.tab815;chrome.tab818;chrome.tab83;chrome.tab84;chrome.tab87;chrome.tab89;chrome.tab9;chrome.tab90;chrome.tab91;chrome.tab93;chrome.tab94;chrome.tab95;chrome.tab96;chrome.tab97;chrome.tab99;chromium.instance10037;chromium.instance10958;chromium.instance11004;chromium.instance11113;chromium.instance13312;chromium.instance1344;chromium.instance1358;chromium.instance14137;chromium.instance1491;chromium.instance1493;chromium.instance15190;chromium.instance1621;chromium.instance16374;chromium.instance17584;chromium.instance1801;chromium.instance18069;chromium.instance18494;chromium.instance1903;chromium.instance19648;chromium.instance2064;chromium.instance21328;chromium.instance2254;chromium.instance2284;chromium.instance2327;chromium.instance2347;chromium.instance23511;chromium.instance23777;chromium.instance2401;chromium.instance2507;chromium.instance25311;chromium.instance26138;chromium.instance26509;chromium.instance2653;chromium.instance2730;chromium.instance2758;chromium.instance31237;chromium.instance3467;chromium.instance3586;chromium.instance3593;chromium.instance3670;chromium.instance3755;chromium.instance4064;chromium.instance4312;chromium.instance4529;chromium.instance4725;chromium.instance4958;chromium.instance5210;chromium.instance5683;chromium.instance6567;chromium.instance6807;chromium.instance7371;chromium.instance7771;cmus;GnomeMpv.instance10694;GnomeMpv.instance12048;GnomeMpv.instance12791;GnomeMpv.instance14982;GnomeMpv.instance18121;GnomeMpv.instance19046;GnomeMpv.instance20919;GnomeMpv.instance23800;GnomeMpv.instance2407;GnomeMpv.instance25529;GnomeMpv.instance25941;GnomeMpv.instance27507;GnomeMpv.instance27852;GnomeMpv.instance28455;GnomeMpv.instance28777;GnomeMpv.instance29029;GnomeMpv.instance29367;GnomeMpv.instance29634;GnomeMpv.instance29864;GnomeMpv.instance30074;GnomeMpv.instance31590;GnomeMpv.instance32257;GnomeMpv.instance32400;GnomeMpv.instance32566;GnomeMpv.instance5912;GnomeMpv.instance6183;GnomeMpv.instance6550;GnomeMpv.instance7476;GnomeMpv.instance9349;parole;pragha;spotify;web-media-controller.pid32742;web-media-controller.pid3386;web-media-controller.pid3518;web-media-controller.pid450"/>
       <property name="blacklisted-players" type="string" value="pragha"/>
       <property name="enable-multimedia-keys" type="bool" value="false"/>
       <property name="enable-wnck" type="bool" value="true"/>
@@ -225,5 +218,9 @@
       <property name="style" type="uint" value="0"/>
     </property>
     <property name="plugin-6" type="string" value="embed"/>
+    <property name="plugin-14" type="string" value="notification-plugin"/>
+    <property name="plugin-16" type="string" value="separator">
+      <property name="style" type="uint" value="0"/>
+    </property>
   </property>
 </channel>
