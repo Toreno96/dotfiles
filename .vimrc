@@ -98,6 +98,7 @@ autocmd FileType cmake setlocal commentstring=#\ %s
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-vinegar'
+Plugin 'raimon49/requirements.txt.vim'
 
 call vundle#end()
 
