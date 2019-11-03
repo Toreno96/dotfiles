@@ -58,14 +58,10 @@ hi GitGutterAdd ctermfg=darkgreen
 hi GitGutterChange ctermfg=darkblue
 hi GitGutterDelete ctermfg=darkred
 hi GitGutterChangeDelete ctermfg=darkmagenta
-Plugin 'easymotion/vim-easymotion'
-hi EasyMotionTarget ctermfg=red ctermbg=none cterm=bold
 Plugin 'hdima/python-syntax'
 let python_highlight_all=1
 let python_highlight_file_headers_as_comments=1
 Plugin 'itchyny/vim-cursorword'
-Plugin 'junegunn/fzf'
-let g:fzf_layout={ 'down': '~15%' }
 Plugin 'octol/vim-cpp-enhanced-highlight'
 " Works only with classes, not structures, which introduce inconsistency
 let g:cpp_class_decl_highlight=0
