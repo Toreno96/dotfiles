@@ -156,6 +156,9 @@ ssh-keygen -f <private_key> -c -C <new_comment>
 # Copy the public key to the remote server
 ssh-copy-id -i <public_key> <destination>
 
+# Connect with public key authentication explicitly disabled
+ssh -o pubkeyauthentication=no <...>
+
 ####################
 ### File-copying ###
 ####################
@@ -193,6 +196,28 @@ git remote set-url <new_url>
 svn relocate <new_url>
 # version < 1.7
 svn switch --relocate <old_url> <new_url>
+
+##############
+### Docker ###
+##############
+
+# Remove all:
+# - stopped containers,
+# - networks not used by at least one container,
+# - dangling images,
+# - dangling build cache,
+docker system prune
+
+###############
+### Printer ###
+###############
+
+# Print file
+lpr <filename>
+# Show printer queue status
+lpq
+# Cancel print jobs
+lprm
 
 ###########
 ### Etc ###
@@ -233,3 +258,6 @@ sed "0~2s/.*/$(printf '\e[36m')&$(printf '\e[0m')/"
 
 # Reduce volume to 50% of its original value
 ffmpeg -i input.mp3 -filter:a 'volume=0.5' output.mp3
+
+# Pretty-format CSV file
+column -s',' -t result.csv | less -#5 -N -S
