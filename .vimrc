@@ -170,3 +170,5 @@ nnoremap <leader>pyai :!autopep8 -i %<enter>:redraw!<enter>
 nnoremap <leader>shl :!shellcheck -Calways % \| less -R<enter>:redraw!<enter>
 " Swap paragraphs marked by 'n' and 'm'
 nnoremap <leader>sp 'nvipy'mvipp'nvipp
+" Yank current filepath and line number to the + register
+nnoremap <leader>yf :let @+ = expand("%:p") . ":" . line(".")<enter>
