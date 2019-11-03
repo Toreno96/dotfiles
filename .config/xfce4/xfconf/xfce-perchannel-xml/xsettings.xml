@@ -35,6 +35,11 @@
     <property name="CursorThemeName" type="string" value="Adwaita"/>
     <property name="CursorThemeSize" type="empty"/>
     <property name="DecorationLayout" type="string" value="menu:minimize,maximize,close"/>
+    <property name="ShellShowsMenubar" type="bool" value="true"/>
+    <property name="ShellShowsAppmenu" type="bool" value="true"/>
+  </property>
+  <property name="Gdk" type="empty">
+    <property name="WindowScalingFactor" type="int" value="1"/>
   </property>
   <property name="Xfce" type="empty">
     <property name="LastCustomDPI" type="int" value="95"/>

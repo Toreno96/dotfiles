@@ -8,20 +8,7 @@
     <value type="int" value="3"/>
     <value type="int" value="4"/>
     <property name="panel-1" type="empty">
-      <property name="position" type="string" value="p=6;x=0;y=0"/>
-      <property name="length" type="uint" value="38"/>
-      <property name="position-locked" type="bool" value="true"/>
-      <property name="size" type="uint" value="30"/>
-      <property name="plugin-ids" type="array">
-        <value type="int" value="28"/>
-        <value type="int" value="36"/>
-      </property>
-      <property name="background-style" type="uint" value="2"/>
-      <property name="enter-opacity" type="uint" value="100"/>
-      <property name="leave-opacity" type="uint" value="100"/>
       <property name="background-alpha" type="uint" value="0"/>
-      <property name="length-adjust" type="bool" value="false"/>
-      <property name="disable-struts" type="bool" value="false"/>
       <property name="background-color" type="array">
         <value type="uint" value="0"/>
         <value type="uint" value="0"/>
@@ -29,11 +16,32 @@
         <value type="uint" value="65535"/>
       </property>
       <property name="background-image" type="string" value="/home/dstasczak/pictures/wallpapers/spider_man_2099_by_dazztok-d93yynv.png"/>
+      <property name="background-style" type="uint" value="2"/>
+      <property name="disable-struts" type="bool" value="false"/>
+      <property name="enter-opacity" type="uint" value="100"/>
+      <property name="leave-opacity" type="uint" value="100"/>
+      <property name="length" type="uint" value="38"/>
+      <property name="length-adjust" type="bool" value="false"/>
+      <property name="plugin-ids" type="array">
+        <value type="int" value="28"/>
+        <value type="int" value="36"/>
+      </property>
+      <property name="position" type="string" value="p=6;x=0;y=0"/>
+      <property name="position-locked" type="bool" value="true"/>
+      <property name="size" type="uint" value="30"/>
     </property>
     <property name="panel-2" type="empty">
-      <property name="position" type="string" value="p=2;x=1059;y=15"/>
-      <property name="size" type="uint" value="30"/>
+      <property name="background-alpha" type="uint" value="0"/>
+      <property name="background-color" type="array">
+        <value type="uint" value="0"/>
+        <value type="uint" value="0"/>
+        <value type="uint" value="0"/>
+        <value type="uint" value="65535"/>
+      </property>
+      <property name="background-image" type="string" value="/home/dstasczak/pictures/wallpapers/spider_man_2099_by_dazztok-d93yynv.png"/>
+      <property name="background-style" type="uint" value="2"/>
       <property name="length" type="uint" value="38"/>
+      <property name="length-adjust" type="bool" value="false"/>
       <property name="plugin-ids" type="array">
         <value type="int" value="9"/>
         <value type="int" value="23"/>
@@ -42,10 +50,12 @@
         <value type="int" value="14"/>
         <value type="int" value="11"/>
       </property>
-      <property name="length-adjust" type="bool" value="false"/>
+      <property name="position" type="string" value="p=2;x=1059;y=15"/>
       <property name="position-locked" type="bool" value="true"/>
+      <property name="size" type="uint" value="30"/>
+    </property>
+    <property name="panel-3" type="empty">
       <property name="background-alpha" type="uint" value="0"/>
-      <property name="background-style" type="uint" value="2"/>
       <property name="background-color" type="array">
         <value type="uint" value="0"/>
         <value type="uint" value="0"/>
@@ -53,10 +63,9 @@
         <value type="uint" value="65535"/>
       </property>
       <property name="background-image" type="string" value="/home/dstasczak/pictures/wallpapers/spider_man_2099_by_dazztok-d93yynv.png"/>
-    </property>
-    <property name="panel-3" type="empty">
-      <property name="position" type="string" value="p=9;x=683;y=15"/>
-      <property name="size" type="uint" value="30"/>
+      <property name="background-style" type="uint" value="2"/>
+      <property name="length" type="uint" value="24"/>
+      <property name="length-adjust" type="bool" value="false"/>
       <property name="plugin-ids" type="array">
         <value type="int" value="1"/>
         <value type="int" value="13"/>
@@ -64,11 +73,12 @@
         <value type="int" value="2"/>
         <value type="int" value="18"/>
       </property>
-      <property name="length-adjust" type="bool" value="false"/>
+      <property name="position" type="string" value="p=9;x=683;y=15"/>
       <property name="position-locked" type="bool" value="true"/>
+      <property name="size" type="uint" value="30"/>
+    </property>
+    <property name="panel-4" type="empty">
       <property name="background-alpha" type="uint" value="0"/>
-      <property name="length" type="uint" value="24"/>
-      <property name="background-style" type="uint" value="2"/>
       <property name="background-color" type="array">
         <value type="uint" value="0"/>
         <value type="uint" value="0"/>
@@ -76,12 +86,9 @@
         <value type="uint" value="65535"/>
       </property>
       <property name="background-image" type="string" value="/home/dstasczak/pictures/wallpapers/spider_man_2099_by_dazztok-d93yynv.png"/>
-    </property>
-    <property name="panel-4" type="empty">
-      <property name="position" type="string" value="p=8;x=79;y=869"/>
-      <property name="position-locked" type="bool" value="true"/>
-      <property name="size" type="uint" value="30"/>
-      <property name="background-alpha" type="uint" value="0"/>
+      <property name="background-style" type="uint" value="2"/>
+      <property name="length" type="uint" value="100"/>
+      <property name="length-adjust" type="bool" value="false"/>
       <property name="plugin-ids" type="array">
         <value type="int" value="4"/>
         <value type="int" value="19"/>
@@ -98,91 +105,75 @@
         <value type="int" value="24"/>
         <value type="int" value="25"/>
       </property>
-      <property name="length" type="uint" value="100"/>
-      <property name="length-adjust" type="bool" value="false"/>
-      <property name="background-style" type="uint" value="2"/>
-      <property name="background-color" type="array">
-        <value type="uint" value="0"/>
-        <value type="uint" value="0"/>
-        <value type="uint" value="0"/>
-        <value type="uint" value="65535"/>
-      </property>
-      <property name="background-image" type="string" value="/home/dstasczak/pictures/wallpapers/spider_man_2099_by_dazztok-d93yynv.png"/>
+      <property name="position" type="string" value="p=8;x=79;y=869"/>
+      <property name="position-locked" type="bool" value="true"/>
+      <property name="size" type="uint" value="30"/>
     </property>
   </property>
   <property name="plugins" type="empty">
-    <property name="plugin-36" type="string" value="places">
-      <property name="show-button-type" type="int" value="1"/>
-      <property name="show-icons" type="bool" value="true"/>
-      <property name="mount-open-volumes" type="bool" value="true"/>
-      <property name="show-bookmarks" type="bool" value="true"/>
-      <property name="show-recent" type="bool" value="true"/>
-      <property name="show-recent-number" type="int" value="5"/>
-      <property name="button-label" type="string" value="places"/>
-      <property name="search-cmd" type="string" value=""/>
-    </property>
     <property name="clipman" type="empty">
       <property name="settings" type="empty">
         <property name="enable-actions" type="bool" value="false"/>
       </property>
       <property name="tweaks" type="empty">
-        <property name="popup-at-pointer" type="bool" value="false"/>
         <property name="inhibit" type="bool" value="false"/>
+        <property name="popup-at-pointer" type="bool" value="false"/>
       </property>
     </property>
-    <property name="plugin-9" type="string" value="separator">
+    <property name="plugin-1" type="string" value="separator">
       <property name="expand" type="bool" value="true"/>
       <property name="style" type="uint" value="0"/>
     </property>
     <property name="plugin-10" type="string" value="systray">
+      <property name="names-hidden" type="array">
+      </property>
+      <property name="names-ordered" type="array">
+        <value type="string" value="blueman"/>
+        <value type="string" value="blueman-tray"/>
+        <value type="string" value="steam"/>
+        <value type="string" value="redshift-gtk"/>
+        <value type="string" value="networkmanager applet"/>
+        <value type="string" value="xfce4-power-manager"/>
+        <value type="string" value="megasync"/>
+      </property>
       <property name="names-visible" type="array">
         <value type="string" value="networkmanager applet"/>
         <value type="string" value="xfce4-power-manager"/>
         <value type="string" value="megasync"/>
       </property>
-      <property name="size-max" type="uint" value="24"/>
       <property name="show-frame" type="bool" value="false"/>
-      <property name="names-hidden" type="array">
-      </property>
-      <property name="names-ordered" type="array">
-        <value type="string" value="networkmanager applet"/>
-        <value type="string" value="xfce4-power-manager"/>
-        <value type="string" value="megasync"/>
-      </property>
+      <property name="size-max" type="uint" value="24"/>
     </property>
     <property name="plugin-11" type="string" value="pulseaudio">
-      <property name="enable-keyboard-shortcuts" type="bool" value="true"/>
-      <property name="show-notifications" type="bool" value="true"/>
-      <property name="mpris-players" type="string" value="chrome;chrome.tab101;chrome.tab102;chrome.tab103;chrome.tab104;chrome.tab105;chrome.tab108;chrome.tab11;chrome.tab110;chrome.tab111;chrome.tab112;chrome.tab113;chrome.tab114;chrome.tab12;chrome.tab128;chrome.tab129;chrome.tab131;chrome.tab133;chrome.tab137;chrome.tab138;chrome.tab139;chrome.tab143;chrome.tab145;chrome.tab146;chrome.tab148;chrome.tab149;chrome.tab15;chrome.tab150;chrome.tab152;chrome.tab154;chrome.tab155;chrome.tab156;chrome.tab157;chrome.tab159;chrome.tab160;chrome.tab162;chrome.tab165;chrome.tab166;chrome.tab168;chrome.tab175;chrome.tab176;chrome.tab178;chrome.tab18;chrome.tab181;chrome.tab182;chrome.tab184;chrome.tab187;chrome.tab189;chrome.tab190;chrome.tab191;chrome.tab195;chrome.tab202;chrome.tab205;chrome.tab206;chrome.tab207;chrome.tab21;chrome.tab210;chrome.tab211;chrome.tab213;chrome.tab216;chrome.tab225;chrome.tab227;chrome.tab229;chrome.tab230;chrome.tab233;chrome.tab243;chrome.tab244;chrome.tab248;chrome.tab251;chrome.tab253;chrome.tab256;chrome.tab260;chrome.tab268;chrome.tab270;chrome.tab271;chrome.tab275;chrome.tab276;chrome.tab28;chrome.tab29;chrome.tab295;chrome.tab3;chrome.tab30;chrome.tab302;chrome.tab31;chrome.tab32;chrome.tab33;chrome.tab338;chrome.tab34;chrome.tab35;chrome.tab36;chrome.tab369;chrome.tab37;chrome.tab38;chrome.tab39;chrome.tab394;chrome.tab40;chrome.tab402;chrome.tab406;chrome.tab409;chrome.tab41;chrome.tab42;chrome.tab424;chrome.tab43;chrome.tab433;chrome.tab437;chrome.tab44;chrome.tab440;chrome.tab453;chrome.tab456;chrome.tab460;chrome.tab47;chrome.tab49;chrome.tab491;chrome.tab5;chrome.tab504;chrome.tab507;chrome.tab51;chrome.tab510;chrome.tab515;chrome.tab525;chrome.tab529;chrome.tab61;chrome.tab62;chrome.tab64;chrome.tab642;chrome.tab645;chrome.tab648;chrome.tab65;chrome.tab66;chrome.tab662;chrome.tab666;chrome.tab671;chrome.tab677;chrome.tab69;chrome.tab700;chrome.tab705;chrome.tab709;chrome.tab71;chrome.tab713;chrome.tab718;chrome.tab721;chrome.tab74;chrome.tab75;chrome.tab750;chrome.tab753;chrome.tab756;chrome.tab76;chrome.tab766;chrome.tab777;chrome.tab783;chrome.tab786;chrome.tab796;chrome.tab799;chrome.tab803;chrome.tab806;chrome.tab81;chrome.tab812;chrome.tab815;chrome.tab818;chrome.tab83;chrome.tab84;chrome.tab87;chrome.tab89;chrome.tab9;chrome.tab90;chrome.tab91;chrome.tab93;chrome.tab94;chrome.tab95;chrome.tab96;chrome.tab97;chrome.tab99;chromium.instance10037;chromium.instance10958;chromium.instance11004;chromium.instance11113;chromium.instance13312;chromium.instance1344;chromium.instance1358;chromium.instance14137;chromium.instance1491;chromium.instance1493;chromium.instance15190;chromium.instance1621;chromium.instance16374;chromium.instance17584;chromium.instance1801;chromium.instance18069;chromium.instance18494;chromium.instance1903;chromium.instance19648;chromium.instance2064;chromium.instance21328;chromium.instance2254;chromium.instance2284;chromium.instance2327;chromium.instance2347;chromium.instance23511;chromium.instance23777;chromium.instance2401;chromium.instance2507;chromium.instance25311;chromium.instance26138;chromium.instance26509;chromium.instance2653;chromium.instance2730;chromium.instance2758;chromium.instance31237;chromium.instance3467;chromium.instance3586;chromium.instance3593;chromium.instance3670;chromium.instance3755;chromium.instance4064;chromium.instance4312;chromium.instance4529;chromium.instance4725;chromium.instance4958;chromium.instance5210;chromium.instance5683;chromium.instance6567;chromium.instance6807;chromium.instance7371;chromium.instance7771;cmus;GnomeMpv.instance10694;GnomeMpv.instance12048;GnomeMpv.instance12791;GnomeMpv.instance14982;GnomeMpv.instance18121;GnomeMpv.instance19046;GnomeMpv.instance20919;GnomeMpv.instance23800;GnomeMpv.instance2407;GnomeMpv.instance25529;GnomeMpv.instance25941;GnomeMpv.instance27507;GnomeMpv.instance27852;GnomeMpv.instance28455;GnomeMpv.instance28777;GnomeMpv.instance29029;GnomeMpv.instance29367;GnomeMpv.instance29634;GnomeMpv.instance29864;GnomeMpv.instance30074;GnomeMpv.instance31590;GnomeMpv.instance32257;GnomeMpv.instance32400;GnomeMpv.instance32566;GnomeMpv.instance5912;GnomeMpv.instance6183;GnomeMpv.instance6550;GnomeMpv.instance7476;GnomeMpv.instance9349;parole;pragha;spotify;web-media-controller.pid32742;web-media-controller.pid3386;web-media-controller.pid3518;web-media-controller.pid450"/>
       <property name="blacklisted-players" type="string" value="pragha"/>
+      <property name="enable-keyboard-shortcuts" type="bool" value="true"/>
+      <property name="enable-mpris" type="bool" value="true"/>
       <property name="enable-multimedia-keys" type="bool" value="false"/>
       <property name="enable-wnck" type="bool" value="true"/>
-      <property name="enable-mpris" type="bool" value="true"/>
+      <property name="mpris-players" type="string" value="chrome;chrome.tab101;chrome.tab102;chrome.tab103;chrome.tab104;chrome.tab105;chrome.tab108;chrome.tab11;chrome.tab110;chrome.tab111;chrome.tab112;chrome.tab113;chrome.tab114;chrome.tab12;chrome.tab128;chrome.tab129;chrome.tab131;chrome.tab133;chrome.tab137;chrome.tab138;chrome.tab139;chrome.tab143;chrome.tab145;chrome.tab146;chrome.tab148;chrome.tab149;chrome.tab15;chrome.tab150;chrome.tab152;chrome.tab154;chrome.tab155;chrome.tab156;chrome.tab157;chrome.tab159;chrome.tab160;chrome.tab162;chrome.tab165;chrome.tab166;chrome.tab168;chrome.tab175;chrome.tab176;chrome.tab178;chrome.tab18;chrome.tab181;chrome.tab182;chrome.tab184;chrome.tab187;chrome.tab189;chrome.tab190;chrome.tab191;chrome.tab195;chrome.tab202;chrome.tab205;chrome.tab206;chrome.tab207;chrome.tab21;chrome.tab210;chrome.tab211;chrome.tab213;chrome.tab216;chrome.tab225;chrome.tab227;chrome.tab229;chrome.tab230;chrome.tab233;chrome.tab243;chrome.tab244;chrome.tab248;chrome.tab251;chrome.tab253;chrome.tab256;chrome.tab260;chrome.tab268;chrome.tab270;chrome.tab271;chrome.tab275;chrome.tab276;chrome.tab28;chrome.tab29;chrome.tab295;chrome.tab3;chrome.tab30;chrome.tab302;chrome.tab31;chrome.tab32;chrome.tab33;chrome.tab338;chrome.tab34;chrome.tab35;chrome.tab36;chrome.tab369;chrome.tab37;chrome.tab38;chrome.tab39;chrome.tab394;chrome.tab40;chrome.tab402;chrome.tab406;chrome.tab409;chrome.tab41;chrome.tab42;chrome.tab424;chrome.tab43;chrome.tab433;chrome.tab437;chrome.tab44;chrome.tab440;chrome.tab453;chrome.tab456;chrome.tab460;chrome.tab47;chrome.tab49;chrome.tab491;chrome.tab5;chrome.tab504;chrome.tab507;chrome.tab51;chrome.tab510;chrome.tab515;chrome.tab525;chrome.tab529;chrome.tab61;chrome.tab62;chrome.tab64;chrome.tab642;chrome.tab645;chrome.tab648;chrome.tab65;chrome.tab66;chrome.tab662;chrome.tab666;chrome.tab671;chrome.tab677;chrome.tab69;chrome.tab700;chrome.tab705;chrome.tab709;chrome.tab71;chrome.tab713;chrome.tab718;chrome.tab721;chrome.tab74;chrome.tab75;chrome.tab750;chrome.tab753;chrome.tab756;chrome.tab76;chrome.tab766;chrome.tab777;chrome.tab783;chrome.tab786;chrome.tab796;chrome.tab799;chrome.tab803;chrome.tab806;chrome.tab81;chrome.tab812;chrome.tab815;chrome.tab818;chrome.tab83;chrome.tab84;chrome.tab87;chrome.tab89;chrome.tab9;chrome.tab90;chrome.tab91;chrome.tab93;chrome.tab94;chrome.tab95;chrome.tab96;chrome.tab97;chrome.tab99;chromium.instance10037;chromium.instance10633;chromium.instance10819;chromium.instance10958;chromium.instance11004;chromium.instance11113;chromium.instance11122;chromium.instance11168;chromium.instance13312;chromium.instance1344;chromium.instance1358;chromium.instance14137;chromium.instance1491;chromium.instance1493;chromium.instance15190;chromium.instance1539;chromium.instance1554;chromium.instance1587;chromium.instance1621;chromium.instance1632;chromium.instance16374;chromium.instance1640;chromium.instance1716;chromium.instance17584;chromium.instance1801;chromium.instance18069;chromium.instance18494;chromium.instance1865;chromium.instance1903;chromium.instance1918;chromium.instance1937;chromium.instance19648;chromium.instance20078;chromium.instance2064;chromium.instance2118;chromium.instance21328;chromium.instance2186;chromium.instance222971;chromium.instance2241;chromium.instance2254;chromium.instance2284;chromium.instance2327;chromium.instance2347;chromium.instance23511;chromium.instance2375;chromium.instance23777;chromium.instance2387;chromium.instance2401;chromium.instance2486;chromium.instance2507;chromium.instance25311;chromium.instance2532;chromium.instance2556;chromium.instance26138;chromium.instance26509;chromium.instance2653;chromium.instance2684;chromium.instance2730;chromium.instance2740;chromium.instance2758;chromium.instance2793;chromium.instance2811;chromium.instance2891;chromium.instance29692;chromium.instance2994;chromium.instance31237;chromium.instance31359;chromium.instance3263;chromium.instance3271;chromium.instance3403;chromium.instance3467;chromium.instance3551;chromium.instance3586;chromium.instance3593;chromium.instance3632;chromium.instance3670;chromium.instance3737;chromium.instance3755;chromium.instance3793;chromium.instance4064;chromium.instance4141;chromium.instance4312;chromium.instance4396;chromium.instance4529;chromium.instance4580;chromium.instance4689;chromium.instance4725;chromium.instance4883;chromium.instance4958;chromium.instance5104;chromium.instance5210;chromium.instance5320;chromium.instance55055;chromium.instance5588;chromium.instance5683;chromium.instance6347;chromium.instance6567;chromium.instance6570;chromium.instance6807;chromium.instance7371;chromium.instance7428;chromium.instance7771;chromium.instance8008;chromium.instance8287;chromium.instance8342;chromium.instance9011;chromium.instance9707;chromium.instance9727;cmus;GnomeMpv.instance10694;GnomeMpv.instance12048;GnomeMpv.instance12791;GnomeMpv.instance14982;GnomeMpv.instance18121;GnomeMpv.instance19046;GnomeMpv.instance20919;GnomeMpv.instance23800;GnomeMpv.instance2407;GnomeMpv.instance25529;GnomeMpv.instance25941;GnomeMpv.instance27507;GnomeMpv.instance27852;GnomeMpv.instance28455;GnomeMpv.instance28777;GnomeMpv.instance29029;GnomeMpv.instance29367;GnomeMpv.instance29634;GnomeMpv.instance29864;GnomeMpv.instance30074;GnomeMpv.instance31590;GnomeMpv.instance32257;GnomeMpv.instance32400;GnomeMpv.instance32566;GnomeMpv.instance5912;GnomeMpv.instance6183;GnomeMpv.instance6550;GnomeMpv.instance7476;GnomeMpv.instance9349;parole;pragha;spotify;web-media-controller.pid32742;web-media-controller.pid3386;web-media-controller.pid3518;web-media-controller.pid450"/>
+      <property name="show-notifications" type="bool" value="true"/>
+    </property>
+    <property name="plugin-12" type="string" value="separator">
+      <property name="style" type="uint" value="0"/>
+    </property>
+    <property name="plugin-13" type="string" value="genmon"/>
+    <property name="plugin-14" type="string" value="notification-plugin"/>
+    <property name="plugin-15" type="string" value="separator">
+      <property name="style" type="uint" value="0"/>
     </property>
     <property name="plugin-18" type="string" value="separator">
-      <property name="style" type="uint" value="0"/>
       <property name="expand" type="bool" value="true"/>
-    </property>
-    <property name="plugin-4" type="string" value="pager">
-      <property name="rows" type="uint" value="1"/>
-      <property name="miniature-view" type="bool" value="false"/>
-      <property name="workspace-scrolling" type="bool" value="false"/>
+      <property name="style" type="uint" value="0"/>
     </property>
     <property name="plugin-19" type="string" value="separator">
-      <property name="style" type="uint" value="0"/>
       <property name="expand" type="bool" value="true"/>
+      <property name="style" type="uint" value="0"/>
     </property>
     <property name="plugin-2" type="string" value="clock">
-      <property name="tooltip-format" type="string" value=""/>
-      <property name="mode" type="uint" value="2"/>
       <property name="digital-format" type="string" value=" %F  %H:%M"/>
+      <property name="mode" type="uint" value="2"/>
+      <property name="tooltip-format" type="string" value=""/>
     </property>
-    <property name="plugin-5" type="string" value="separator">
-      <property name="style" type="uint" value="0"/>
-      <property name="expand" type="bool" value="false"/>
-    </property>
-    <property name="plugin-7" type="string" value="genmon"/>
-    <property name="plugin-13" type="string" value="genmon"/>
     <property name="plugin-20" type="string" value="genmon"/>
     <property name="plugin-21" type="string" value="separator">
       <property name="style" type="uint" value="0"/>
@@ -191,36 +182,58 @@
       <property name="style" type="uint" value="0"/>
     </property>
     <property name="plugin-23" type="string" value="genmon"/>
-    <property name="plugin-8" type="string" value="genmon"/>
-    <property name="plugin-12" type="string" value="separator">
-      <property name="style" type="uint" value="0"/>
-    </property>
-    <property name="plugin-15" type="string" value="separator">
-      <property name="style" type="uint" value="0"/>
-    </property>
     <property name="plugin-24" type="string" value="genmon"/>
     <property name="plugin-25" type="string" value="separator">
       <property name="style" type="uint" value="0"/>
     </property>
     <property name="plugin-27" type="string" value="genmon"/>
     <property name="plugin-28" type="string" value="launcher">
+      <property name="disable-tooltips" type="bool" value="true"/>
       <property name="items" type="array">
         <value type="string" value="15339434512.desktop"/>
       </property>
       <property name="show-label" type="bool" value="true"/>
-      <property name="disable-tooltips" type="bool" value="true"/>
-    </property>
-    <property name="plugin-1" type="string" value="separator">
-      <property name="expand" type="bool" value="true"/>
-      <property name="style" type="uint" value="0"/>
     </property>
     <property name="plugin-3" type="string" value="separator">
       <property name="style" type="uint" value="0"/>
     </property>
+    <property name="plugin-36" type="string" value="places">
+      <property name="button-label" type="string" value="places"/>
+      <property name="mount-open-volumes" type="bool" value="true"/>
+      <property name="search-cmd" type="string" value=""/>
+      <property name="show-bookmarks" type="bool" value="true"/>
+      <property name="show-button-type" type="int" value="1"/>
+      <property name="show-icons" type="bool" value="true"/>
+      <property name="show-recent" type="bool" value="true"/>
+      <property name="show-recent-number" type="int" value="5"/>
+    </property>
+    <property name="plugin-4" type="string" value="pager">
+      <property name="miniature-view" type="bool" value="false"/>
+      <property name="rows" type="uint" value="1"/>
+      <property name="workspace-scrolling" type="bool" value="false"/>
+    </property>
+    <property name="plugin-5" type="string" value="separator">
+      <property name="expand" type="bool" value="false"/>
+      <property name="style" type="uint" value="0"/>
+    </property>
     <property name="plugin-6" type="string" value="embed"/>
-    <property name="plugin-14" type="string" value="notification-plugin"/>
+    <property name="plugin-7" type="string" value="genmon"/>
+    <property name="plugin-8" type="string" value="genmon"/>
+    <property name="plugin-9" type="string" value="separator">
+      <property name="expand" type="bool" value="true"/>
+      <property name="style" type="uint" value="0"/>
+    </property>
     <property name="plugin-16" type="string" value="separator">
       <property name="style" type="uint" value="0"/>
+    </property>
+    <property name="plugin-17" type="string" value="appmenu">
+      <property name="plugins" type="empty">
+        <property name="plugin-17" type="empty">
+          <property name="compact-mode" type="bool" value="false"/>
+          <property name="bold-application-name" type="bool" value="true"/>
+          <property name="expand" type="bool" value="true"/>
+        </property>
+      </property>
     </property>
   </property>
 </channel>
