@@ -25,8 +25,10 @@ if $TERM=~'256color' || $PRESERVED_TERM=~'256color'
   hi SpecialKey ctermfg=240
   hi cCustomClassName ctermfg=43
   hi DiffAdd ctermfg=black ctermbg=green
+  hi diffAdded ctermfg=green ctermbg=black
   hi DiffChange ctermfg=black ctermbg=yellow
   hi DiffDelete ctermfg=black ctermbg=red
+  hi diffRemoved ctermfg=red ctermbg=black
   hi SpellBad ctermfg=red
 else
   colorscheme default
