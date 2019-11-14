@@ -56,4 +56,5 @@ export HISTTIMEFORMAT='%F %T '
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 [ -f ~/.local/bin/tmuxinator.bash ] && source ~/.local/bin/tmuxinator.bash
 [ -f ~/.dircolors ] && eval "$(dircolors -b ~/.dircolors)"
+[ -f /usr/share/autojump/autojump.bash ] && source /usr/share/autojump/autojump.bash
 export LS_COLORS="${LS_COLORS}ow=01;34:"
