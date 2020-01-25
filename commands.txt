@@ -219,6 +219,14 @@ lpq
 # Cancel print jobs
 lprm
 
+###############
+### Scanner ###
+###############
+
+# Scan image with the sane options (--resolution specific to the device:
+# Hewlett-Packard HP_LaserJet_Professional_M1132_MFP all-in-one)
+scanimage --progress --format=tiff --mode Gray --resolution 300 >file.tiff
+
 ###########
 ### Etc ###
 ###########
