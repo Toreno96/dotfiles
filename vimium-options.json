@@ -1,6 +1,11 @@
 {
   "settingsVersion": "1.64.6",
-  "exclusionRules": [],
+  "exclusionRules": [
+    {
+      "pattern": "https://mail.google.com/*",
+      "passKeys": ""
+    }
+  ],
   "filterLinkHints": false,
   "waitForEnterForFilteredHints": true,
   "hideHud": false,
