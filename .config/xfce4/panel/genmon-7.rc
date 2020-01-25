@@ -2,5 +2,5 @@ Command=arch-outdated-packages
 UseLabel=0
 Text=
 UpdatePeriod=60000
-Font=Lato 13
+Font=Bitstream Vera Sans 12
 

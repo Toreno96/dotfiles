@@ -2,5 +2,5 @@ Command=brightness-status 'xbacklight'
 UseLabel=0
 Text=
 UpdatePeriod=250
-Font=Lato 13
+Font=Bitstream Vera Sans 12
 

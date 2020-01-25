@@ -98,7 +98,7 @@
         <value type="int" value="21"/>
         <value type="int" value="7"/>
         <value type="int" value="5"/>
-        <value type="int" value="20"/>
+        <value type="int" value="17"/>
         <value type="int" value="12"/>
         <value type="int" value="8"/>
         <value type="int" value="15"/>
@@ -174,7 +174,6 @@
       <property name="mode" type="uint" value="2"/>
       <property name="tooltip-format" type="string" value=""/>
     </property>
-    <property name="plugin-20" type="string" value="genmon"/>
     <property name="plugin-21" type="string" value="separator">
       <property name="style" type="uint" value="0"/>
     </property>
@@ -226,14 +225,6 @@
     <property name="plugin-16" type="string" value="separator">
       <property name="style" type="uint" value="0"/>
     </property>
-    <property name="plugin-17" type="string" value="appmenu">
-      <property name="plugins" type="empty">
-        <property name="plugin-17" type="empty">
-          <property name="compact-mode" type="bool" value="false"/>
-          <property name="bold-application-name" type="bool" value="true"/>
-          <property name="expand" type="bool" value="true"/>
-        </property>
-      </property>
-    </property>
+    <property name="plugin-17" type="string" value="genmon"/>
   </property>
 </channel>
