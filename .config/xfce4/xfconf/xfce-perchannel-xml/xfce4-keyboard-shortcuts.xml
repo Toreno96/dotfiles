@@ -65,6 +65,7 @@
       <property name="&lt;Super&gt;Return" type="string" value="xfce4-terminal">
         <property name="startup-notify" type="bool" value="true"/>
       </property>
+      <property name="&lt;Shift&gt;&lt;Super&gt;q" type="string" value="rofi -modi session:xfce-session -show session -sidebar-mode"/>
     </property>
   </property>
   <property name="xfwm4" type="empty">
