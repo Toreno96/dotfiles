@@ -66,6 +66,7 @@
         <property name="startup-notify" type="bool" value="true"/>
       </property>
       <property name="&lt;Shift&gt;&lt;Super&gt;q" type="string" value="rofi -modi session:xfce-session -show session -sidebar-mode"/>
+      <property name="&lt;Primary&gt;&lt;Super&gt;space" type="string" value="rofimoji -c --skin-tone neutral"/>
     </property>
   </property>
   <property name="xfwm4" type="empty">
