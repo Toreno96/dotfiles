@@ -7,3 +7,7 @@ manc() {
         LESS_TERMCAP_us=$'\e[01;32m' \
         command man "${@}"
 }
+
+glowless() {
+    PAGER='less -R' glow "${@}" -p
+}
