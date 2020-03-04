@@ -210,6 +210,9 @@ svn relocate <new_url>
 # version < 1.7
 svn switch --relocate <old_url> <new_url>
 
+# Get hash of the last commit
+git rev-parse HEAD
+
 ##############
 ### Docker ###
 ##############
