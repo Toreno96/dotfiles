@@ -41,6 +41,21 @@ pip list --format=columns 2>/dev/null | cut -s -d ' ' -f 1 | tail -n +3
 # Install packages listed in the file
 pip install -r requirements.txt
 
+###################################
+### Packages Management (macOS) ###
+###################################
+
+# Upgrade packages
+brew update
+brew upgrade
+brew cask upgrade
+
+# List outdated packages
+brew outdated
+brew cask outdated
+
+# Show info about the package
+brew info <package>
 
 #############
 ### C/C++ ###
