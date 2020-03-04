@@ -243,6 +243,19 @@ lprm
 # device: Hewlett-Packard HP_LaserJet_Professional_M1132_MFP all-in-one)
 scanimage --progress --format=tiff --mode Gray --resolution 300 >file.tiff
 
+##################
+### Encryption ###
+##################
+
+# Encrypt file symmetrically (creates <file>.gpg and do _not_ removes the
+# original: shred recommended)
+gpg -c <file>
+# With specified cipher and disabled passphrase caching
+gpg -c --cipher-algo 'AES256' --no-symkey-cache a.txt
+
+# Decrypt file
+gpg -d <file>
+
 ###########
 ### Etc ###
 ###########
@@ -285,3 +298,6 @@ ffmpeg -i input.mp3 -filter:a 'volume=0.5' output.mp3
 
 # Pretty-format CSV file
 column -s',' -t result.csv | less -#5 -N -S
+
+# Remove file while preventing data recovery
+shred -u <file>
