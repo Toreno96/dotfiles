@@ -15,7 +15,7 @@
         <value type="uint" value="0"/>
         <value type="uint" value="65535"/>
       </property>
-      <property name="background-image" type="string" value="/home/dstasczak/pictures/wallpapers/spider_man_2099_by_dazztok-d93yynv.png"/>
+      <property name="background-image" type="string" value="/home/dstasczak/pictures/wallpapers/JFHHaor-deus-ex-wallpapers.jpg"/>
       <property name="background-style" type="uint" value="2"/>
       <property name="disable-struts" type="bool" value="false"/>
       <property name="enter-opacity" type="uint" value="100"/>
@@ -38,7 +38,7 @@
         <value type="uint" value="0"/>
         <value type="uint" value="65535"/>
       </property>
-      <property name="background-image" type="string" value="/home/dstasczak/pictures/wallpapers/spider_man_2099_by_dazztok-d93yynv.png"/>
+      <property name="background-image" type="string" value="/home/dstasczak/pictures/wallpapers/JFHHaor-deus-ex-wallpapers.jpg"/>
       <property name="background-style" type="uint" value="2"/>
       <property name="length" type="uint" value="38"/>
       <property name="length-adjust" type="bool" value="false"/>
@@ -62,7 +62,7 @@
         <value type="uint" value="0"/>
         <value type="uint" value="65535"/>
       </property>
-      <property name="background-image" type="string" value="/home/dstasczak/pictures/wallpapers/spider_man_2099_by_dazztok-d93yynv.png"/>
+      <property name="background-image" type="string" value="/home/dstasczak/pictures/wallpapers/JFHHaor-deus-ex-wallpapers.jpg"/>
       <property name="background-style" type="uint" value="2"/>
       <property name="length" type="uint" value="24"/>
       <property name="length-adjust" type="bool" value="false"/>
@@ -85,7 +85,7 @@
         <value type="uint" value="0"/>
         <value type="uint" value="65535"/>
       </property>
-      <property name="background-image" type="string" value="/home/dstasczak/pictures/wallpapers/spider_man_2099_by_dazztok-d93yynv.png"/>
+      <property name="background-image" type="string" value="/home/dstasczak/pictures/wallpapers/JFHHaor-deus-ex-wallpapers.jpg"/>
       <property name="background-style" type="uint" value="2"/>
       <property name="length" type="uint" value="100"/>
       <property name="length-adjust" type="bool" value="false"/>
