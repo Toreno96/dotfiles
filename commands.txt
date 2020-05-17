@@ -28,6 +28,14 @@ sudo pacman -Rs $(pacman -Qqdt)
 # Display detailed information on a upgradable packages
 pacman -Qii $(checkupdates+aur | cut -d' ' -f1)
 
+# Move all the cached packages to different directory
+sudo rsync -aHAXP --remove-source-files /var/cache/pacman/pkg/ dir/
+paccache -vvv -k 0 -m dir/
+
+# Remove old cached packages, keeping 3 last versions of specific package
+paccache -vvv -r
+paccache -vvv -r -c cache_dir
+
 ####################################
 ### Packages Management (Python) ###
 ####################################
