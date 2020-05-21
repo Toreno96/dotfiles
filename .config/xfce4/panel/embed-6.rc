@@ -1,4 +1,4 @@
-launch_cmd=urxvt -bg '#040707' +sb -fn 'xft:Source Code Pro:pixelsize=1' -embed %s -e cava
+launch_cmd=urxvt -bg '#060201' +sb -fn 'xft:Source Code Pro:pixelsize=1' -embed %s -e cava
 label_fmt=
 poll_delay=0
 min_size=120
