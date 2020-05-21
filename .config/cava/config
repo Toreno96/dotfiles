@@ -96,7 +96,7 @@ bar_width = 1
 # Colors can be one of seven predefined: black, blue, cyan, green, magenta, red, white, yellow.
 # Or defined by hex code '#xxxxxx' (hex code must be within ''). User defined colors requires a
 # terminal that can change color definitions such as Gnome-terminal or rxvt.
-background = '#060201'
+; background = '#060201'
 foreground = '#d3dae3'
 
 # Gradient mode, only hex defined colors are supported, background must also be defined in hex
