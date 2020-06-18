@@ -2,7 +2,7 @@ auto-reload yes
 reload-time 15
 datetime-format "%F %T"
 
-browser "opera %u >/dev/null 2>/dev/null"
+browser "${BROWSER} %u >/dev/null 2>/dev/null"
 notify-format "%n new article(s)"
 notify-program newsboat-notifier
 
