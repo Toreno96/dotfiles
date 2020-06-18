@@ -337,7 +337,7 @@ ffmpeg -i input.mp3 -filter:a 'volume=0.5' output.mp3
 # Pretty-format CSV file
 column -s',' -t result.csv | less -#5 -N -S
 
-# Remove file while preventing data recovery
+# Remove file while preventing data recovery (only HDD!)
 shred -u <file>
 
 # Print all lines starting from the <n>th
