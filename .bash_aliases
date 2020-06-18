@@ -12,8 +12,8 @@ if command -v tree &>/dev/null; then
     alias treen='tree -n'
 fi
 
-if [ $(uname) == 'linux' ]; then
+if [ "$(uname)" == 'linux' ]; then
     source ~/.bash_aliases_linux
-elif [ $(uname) == 'Darwin' ]; then
+elif [ "$(uname)" == 'Darwin' ]; then
     source ~/.bash_aliases_macos
 fi
