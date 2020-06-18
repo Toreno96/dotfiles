@@ -339,3 +339,6 @@ column -s',' -t result.csv | less -#5 -N -S
 
 # Remove file while preventing data recovery
 shred -u <file>
+
+# Print all lines starting from the <n>th
+tail -n +<n>
