@@ -1,0 +1,13 @@
+# An "alert" alias for long running commands.  Use like so:
+# sleep 10; alert
+alias alert='terminal-notifier -message "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+alias gls='gls -F --group-directories-first --color=auto'
+alias gll="gls -hl --time-style='+%F %T'"
+alias glo="gls -ho --time-style='+%F %T'"
+alias glgo='glo -g'
+alias glhat='gll -hat'
+
+alias ggrep='ggrep --color=auto'
+alias ggrepc='ggrep --color=always'
+alias ggrepn='ggrep --color=never'
