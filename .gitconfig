@@ -25,3 +25,5 @@
 	tool = vimdiff
 	conflictStyle = diff3
 	prompt = false
+[pull]
+	rebase = false
