@@ -1,0 +1,13 @@
+#!/usr/bin/env python3
+
+import ast
+import json
+import sys
+
+
+def main():
+    print(json.dumps(ast.literal_eval(sys.stdin.read())))
+
+
+if __name__ == "__main__":
+    main()
