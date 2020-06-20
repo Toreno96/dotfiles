@@ -111,7 +111,20 @@ netstat -p
 ### Job Control ###
 ###################
 
-# TODO
+# List background jobs
+jobs
+# Run cmd in background
+<cmd> &
+# Move current cmd to the background
+<Ctrl+Z>
+# Move the most recent job to the foreground
+fg
+# Move job with specific id to the foreground
+fg <id>
+# Kill the most recent job
+kill %%
+# Kill job with specific id
+kill <id>
 
 ###########
 ### SQL ###
