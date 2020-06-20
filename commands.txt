@@ -177,6 +177,13 @@ cryptsetup luksOpen <device> <mapping_name>
 # Close the LUKS device
 cryptsetup close <mapping_name>
 
+# Create swap file (alternative to swap partition)
+sudo dd if=/dev/zero of=/swapfile bs=1M count=4096 status=progress
+sudo chmod 600 /swapfile
+sudo mkswap /swapfile
+sudo swapon /swapfile
+echo '/swapfile none swap defaults 0 0' >>/etc/fstab
+
 ###########
 ### SSH ###
 ###########
