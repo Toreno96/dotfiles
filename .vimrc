@@ -173,5 +173,5 @@ nnoremap <leader>sp 'nvipy'mvipp'nvipp
 " Yank current filepath and line number to the + register
 nnoremap <leader>yf :let @+ = expand("%:p") . ":" . line(".")<enter>
 " Expanded version of `gf`:
-" Edit existing _or new file_ whose name is under or after the cursor;
+" Edit existing _or new file_ whose name is under or after the cursor
 nnoremap <leader>gf :e <cfile><CR>
