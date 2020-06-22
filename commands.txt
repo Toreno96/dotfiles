@@ -362,3 +362,6 @@ shred -u <file>
 
 # Print all lines starting from the <n>th
 tail -n +<n>
+
+# Show <n> random lines from file
+shuf -n <n> <file>
