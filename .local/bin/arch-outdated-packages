@@ -1,7 +1,7 @@
 #!/bin/sh
 
 ICON=''
-OUTDATED="$(checkupdates+aur)"
+OUTDATED="$(checkupdates; checkupdates-aur)"
 if [ -n "${OUTDATED}" ]; then
     OUTDATED_COUNT=$(echo "${OUTDATED}" | wc -l)
 else
