@@ -17,7 +17,7 @@ if [ -n "$BASH_VERSION" ]; then
 fi
 
 # Set PATH so it includes user's private bin directories
-PATH="$PATH:$HOME/bin:$HOME/.local/bin"
+PATH="$PATH:$HOME/bin"
 
 # Load customized locale
 [ -f ~/.config/locale.conf ] && source ~/.config/locale.conf
