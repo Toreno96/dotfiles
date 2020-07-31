@@ -1,0 +1,10 @@
+#!/usr/bin/bash
+
+# TODO hook into the pacman post-upgrade
+cp -vib \
+    -t '/usr/share/icons/hicolor/scalable/status/' \
+    '/usr/share/icons/ePapirus/24x24/panel/megalogging.svg' \
+    '/usr/share/icons/ePapirus/24x24/panel/megapaused.svg' \
+    '/usr/share/icons/ePapirus/24x24/panel/megasynching.svg' \
+    '/usr/share/icons/ePapirus/24x24/panel/megauptodate.svg' \
+    '/usr/share/icons/ePapirus/24x24/panel/megawarning.svg'
