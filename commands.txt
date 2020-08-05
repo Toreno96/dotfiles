@@ -135,6 +135,13 @@ sqlcmd -S <server_name> -d <database_name> -U <username> -P <password>
 # Connect to chosen PostgreSQL database
 psql -h <server_name> -d <database_name> -U <username> -p <port>
 
+# Connect to running MySQL docker-compose container
+docker-compose run --rm <service_name> mysql -h <service_name> -u root -D ${MYSQL_DATABASE} -p ${MYSQL_ROOT_PASSWORD}
+# Connect to running MySQL docker-compose container (prompt for password)
+docker-compose run --rm <service_name> mysql -h <service_name> -u root -D ${MYSQL_DATABASE} -p
+# Restore MySQL data from database dump
+docker-compose run --rm <service_name> sh -c "exec mysql -h <service_name> -u root -D ${MYSQL_DATABASE} -p ${MYSQL_ROOT_PASSWORD}" < dump.sql
+
 #######################
 ### Storage Devices ###
 #######################
