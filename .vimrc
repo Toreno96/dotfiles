@@ -175,3 +175,5 @@ nnoremap <leader>yf :let @+ = expand("%:p") . ":" . line(".")<enter>
 " Expanded version of `gf`:
 " Edit existing _or new file_ whose name is under or after the cursor
 nnoremap <leader>gf :e <cfile><CR>
+" Enable spellchecking
+nnoremap <leader>esp :setlocal spell spelllang=pl,en<CR>
