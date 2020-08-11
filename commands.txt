@@ -321,6 +321,23 @@ gpg -c --cipher-algo 'AES256' --no-symkey-cache a.txt
 # Decrypt file
 gpg -d <file>
 
+###################
+### Compressing ###
+###################
+
+# Show ZIP content
+unzip -l example.zip
+zip -sf example.zip
+
+# Unzip to specific directory
+unzip -d <dir> example.zip
+
+# Grep all ZIPs in current directory
+find . -maxdepth 1 -type f -name '*.zip' -exec zipgrep '<pattern>' {} \;
+# Grep all ZIPs in current directory (consider only specific files inside ZIPs)
+find . -maxdepth 1 -type f -name '*.zip' -exec zipgrep '<pattern>' {} <files_to_consider> \;
+
+
 ###########
 ### Etc ###
 ###########
