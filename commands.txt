@@ -239,8 +239,8 @@ git reset HEAD~
 git add ...
 git commit -c ORIG_HEAD
 
-# Change URL(s) for the remote
-git remote set-url <new_url>
+# Change URL(s) for the origin remote
+git remote set-url origin <new_url>
 svn relocate <new_url>
 # version < 1.7
 svn switch --relocate <old_url> <new_url>
