@@ -53,7 +53,8 @@ export HISTFILESIZE=$((HISTSIZE * 2))
 export HISTTIMEFORMAT='%F %T '
 [ -f ~/.bash_aliases ] && source ~/.bash_aliases
 [ -f ~/.bash_functions ] && source ~/.bash_functions
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+[ -f /usr/share/fzf/key-bindings.bash ] && source /usr/share/fzf/key-bindings.bash
+[ -f /usr/share/fzf/completion.bash ] && source /usr/share/fzf/completion.bash
 [ -f ~/.local/bin/tmuxinator.bash ] && source ~/.local/bin/tmuxinator.bash
 [ -f ~/.dircolors ] && eval "$(dircolors -b ~/.dircolors)"
 [ -f /usr/share/autojump/autojump.bash ] && source /usr/share/autojump/autojump.bash
