@@ -13,3 +13,5 @@ alias grepc='grep --color=always'
 alias grepn='grep --color=never'
 
 alias cal='LC_TIME=C cal -m'
+
+alias open='xdg-open'
