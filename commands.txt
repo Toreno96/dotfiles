@@ -382,6 +382,9 @@ sed "0~2s/.*/$(printf '\e[36m')&$(printf '\e[0m')/"
 # Reduce volume to 50% of its original value
 ffmpeg -i input.mp3 -filter:a 'volume=0.5' output.mp3
 
+# Change metadata title and artist of macOS's Voice Memo
+ffmpeg -i input.m4a -metadata title='title' -metadata artist='artist' output.m4a
+
 # Pretty-format CSV file
 column -s',' -t result.csv | less -#5 -N -S
 
