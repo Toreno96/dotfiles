@@ -15,7 +15,7 @@
   <property name="tree-icon-emblems" type="bool" value="true"/>
   <property name="last-window-width" type="int" value="956"/>
   <property name="last-window-height" type="int" value="990"/>
-  <property name="last-window-maximized" type="bool" value="false"/>
+  <property name="last-window-maximized" type="bool" value="true"/>
   <property name="last-statusbar-visible" type="bool" value="true"/>
   <property name="last-menubar-visible" type="bool" value="true"/>
   <property name="misc-middle-click-in-tab" type="bool" value="true"/>

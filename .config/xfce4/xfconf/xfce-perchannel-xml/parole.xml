@@ -5,12 +5,12 @@
     <property name="font" type="string" value="Sans Bold 20"/>
   </property>
   <property name="folders" type="empty">
-    <property name="last-used-media" type="string" value="/home/dstasczak/video/movies/How I Met Your Mother Season 7 Complete HDTV Bzingaz"/>
+    <property name="last-used-media" type="string" value="/home/dstasczak/audio/music/Inne"/>
   </property>
   <property name="window" type="empty">
     <property name="maximized" type="bool" value="true"/>
     <property name="width" type="int" value="1920"/>
-    <property name="height" type="int" value="992"/>
+    <property name="height" type="int" value="990"/>
   </property>
   <property name="audio" type="empty">
     <property name="volume" type="int" value="100"/>

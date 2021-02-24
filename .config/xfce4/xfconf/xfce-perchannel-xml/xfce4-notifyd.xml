@@ -6,6 +6,7 @@
   <property name="initial-opacity" type="double" value="0.900000"/>
   <property name="applications" type="empty">
     <property name="known_applications" type="array">
+      <value type="string" value="blueman"/>
       <value type="string" value="brave-browser"/>
       <value type="string" value="firefox"/>
       <value type="string" value="kalu"/>
