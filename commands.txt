@@ -265,6 +265,10 @@ docker system prune
 
 # Print file
 lpr <filename>
+# Print only the odd pages of file
+lpr -o page-set=odd <filename>
+# Print only the even pages of file
+lpr -o page-set=even <filename>
 # Show printer queue status
 lpq
 # Cancel print jobs
