@@ -177,3 +177,5 @@ nnoremap <leader>yf :let @+ = expand("%:p") . ":" . line(".")<enter>
 nnoremap <leader>gf :e <cfile><CR>
 " Enable spellchecking
 nnoremap <leader>esp :setlocal spell spelllang=pl,en<CR>
+" Clear search highlighting
+nnoremap <leader>n :noh<CR>
