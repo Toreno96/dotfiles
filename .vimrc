@@ -30,6 +30,7 @@ if $TERM=~'256color' || $PRESERVED_TERM=~'256color'
   hi DiffDelete ctermfg=black ctermbg=red
   hi diffRemoved ctermfg=red ctermbg=black
   hi SpellBad ctermfg=red
+  hi SpellCap ctermfg=blue
 else
   colorscheme default
 endif
