@@ -213,7 +213,7 @@
     <property name="show-tooltips" type="bool" value="false"/>
   </property>
   <property name="last" type="empty">
-    <property name="window-width" type="int" value="678"/>
+    <property name="window-width" type="int" value="728"/>
     <property name="window-height" type="int" value="521"/>
   </property>
 </channel>

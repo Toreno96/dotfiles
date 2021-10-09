@@ -14,7 +14,7 @@
   <property name="shortcuts-icon-emblems" type="bool" value="true"/>
   <property name="tree-icon-emblems" type="bool" value="true"/>
   <property name="last-window-width" type="int" value="956"/>
-  <property name="last-window-height" type="int" value="990"/>
+  <property name="last-window-height" type="int" value="988"/>
   <property name="last-window-maximized" type="bool" value="true"/>
   <property name="last-statusbar-visible" type="bool" value="true"/>
   <property name="last-menubar-visible" type="bool" value="true"/>
@@ -26,4 +26,5 @@
   <property name="misc-date-style" type="string" value="THUNAR_DATE_STYLE_ISO"/>
   <property name="last-location-bar" type="string" value="ThunarLocationButtons"/>
   <property name="last-show-hidden" type="bool" value="false"/>
+  <property name="misc-confirm-close-multiple-tabs" type="bool" value="false"/>
 </channel>

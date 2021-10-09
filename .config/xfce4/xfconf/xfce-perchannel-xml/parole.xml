@@ -10,7 +10,7 @@
   <property name="window" type="empty">
     <property name="maximized" type="bool" value="true"/>
     <property name="width" type="int" value="1920"/>
-    <property name="height" type="int" value="990"/>
+    <property name="height" type="int" value="1052"/>
   </property>
   <property name="audio" type="empty">
     <property name="volume" type="int" value="100"/>
@@ -19,7 +19,7 @@
   </property>
   <property name="playlist" type="empty">
     <property name="show-playlist" type="bool" value="false"/>
-    <property name="repeat" type="bool" value="true"/>
+    <property name="repeat" type="bool" value="false"/>
     <property name="shuffle" type="bool" value="false"/>
     <property name="remember-playlist" type="bool" value="true"/>
     <property name="replace-playlist" type="bool" value="true"/>
