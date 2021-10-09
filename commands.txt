@@ -385,6 +385,26 @@ ffmpeg -i input.mp3 -filter:a 'volume=0.5' output.mp3
 # Change metadata title and artist of macOS's Voice Memo
 ffmpeg -i input.m4a -metadata title='title' -metadata artist='artist' output.m4a
 
+# Change metadata of MP3 file (ID3v1 tags)
+mp3info -a 'artist' -l 'album' -t 'title' -n 'track number' -y 'year' input.mp3
+# Change metadata of MP3 file (ID3v1 or ID3v2 tags)
+eyeD3 -a 'artist' -A 'album' -t 'title' -n 'track number' -y 'year' input.mp3
+# Convert metadata of MP3 file from ID3v1 to ID3v2 tags
+eyeD3 -1 --to-v2.4 input.mp3
+
+# Change covert art metadata (ID3v2 tags) of MP3 file
+eyeD3 --add-image cover.jpg:FRONT_COVER input.mp3
+
+# Cut the audio/video file w/o changing the encoding
+ffmpeg -i input.mp4 -ss HH:MM:SS -to HH:MM:SS -c copy -avoid_negative_ts make-zero output.mp4
+
+# Convert MP4 to MP3
+ffmpeg -i input.mp3 -vn -b:a 320K output.mp3
+
+# Rename the MP3 file based on ID3 tags (e.g. '03 - Any Way You Wanna Love.mp3')
+mv -vi input.mp3 "$(mp3info -p '%02n - %t.mp3' input.mp3)"
+mv -vi input.mp3 "$(eyeD3 --plugin=display -p '$num(%n%, 2) - %t%.mp3' input.mp3)"
+
 # Pretty-format CSV file
 column -s',' -t result.csv | less -#5 -N -S
 
