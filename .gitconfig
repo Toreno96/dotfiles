@@ -1,29 +1,29 @@
 [user]
-	name = Toreno96
-	email = toreno96@gmail.com
+    name = Toreno96
+    email = toreno96@gmail.com
 [diff]
-	tool = vimdiff
+    tool = vimdiff
 [difftool]
-	prompt = false
+    prompt = false
 [push]
-	default = simple
+    default = simple
 [alias]
-	diffs = diff --staged
-	diffm = diff master
-	ss = status --short
-	adog = log --all --decorate --oneline --graph
-	checkoutfzf = ! git checkout $(git branch -a | sed 's@remotes/origin/@@' | sort -u | fzf)
-	pullr = pull --rebase
-	lastash = checkout -p stash@{0}
-	logona = log --oneline --no-abbrev
-	rs = restore --staged
-	pushu = push -u origin
-	bdiff = ! git diff | colordiff | diff-highlight | less -R
-	bdiffs = ! git diffs | colordiff | diff-highlight | less -R
-	bdiffm = ! git diffm | colordiff | diff-highlight | less -R
+    diffs = diff --staged
+    diffm = diff master
+    ss = status --short
+    adog = log --all --decorate --oneline --graph
+    checkoutfzf = ! git checkout $(git branch -a | sed 's@remotes/origin/@@' | sort -u | fzf)
+    pullr = pull --rebase
+    lastash = checkout -p stash@{0}
+    logona = log --oneline --no-abbrev
+    rs = restore --staged
+    pushu = push -u origin
+    bdiff = ! git diff | colordiff | diff-highlight | less -R
+    bdiffs = ! git diffs | colordiff | diff-highlight | less -R
+    bdiffm = ! git diffm | colordiff | diff-highlight | less -R
 [merge]
-	tool = vimdiff
-	conflictStyle = diff3
-	prompt = false
+    tool = vimdiff
+    conflictStyle = diff3
+    prompt = false
 [pull]
-	rebase = false
+    rebase = false
