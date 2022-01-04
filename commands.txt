@@ -195,8 +195,10 @@ echo '/swapfile none swap defaults 0 0' >>/etc/fstab
 ### SSH ###
 ###########
 
-# Generate an SSH key pair
+# Generate an SSH key pair (linux)
 ssh-keygen -C "$(whoami)@$(hostname)-$(date -Iseconds)"
+# Generate an SSH key pair (macOS)
+ssh-keygen -C "$(whoami)@$(hostname -s)-$(gdate -Iseconds)"
 # Change the private key's passphrase
 ssh-keygen -f <private_key> -p
 # Change the keys' comment
@@ -248,6 +250,15 @@ svn switch --relocate <old_url> <new_url>
 # Get hash of the last commit
 git rev-parse HEAD
 
+# Delete a branch both locally and remotely
+git push -d origin <branch_name>
+git branch -d <branch_name>
+
+# Partial revert
+git revert <SHA> --no-commit
+git restore --staged --worktree ...  # exclude changes you do NOT want to restore
+git commit
+
 ##############
 ### Docker ###
 ##############
@@ -258,6 +269,13 @@ git rev-parse HEAD
 # - dangling images,
 # - dangling build cache,
 docker system prune
+# Remove all:
+# - stopped containers
+# - networks not used by at least one container
+# - volumes not used by at least one container
+# - images without at least one container associated to them
+# - build cache
+docker system prune --all --volumes
 
 ###############
 ### Printer ###
@@ -416,3 +434,19 @@ tail -n +<n>
 
 # Show <n> random lines from file
 shuf -n <n> <file>
+
+# Simple copying between directories
+cd <source>
+ln -sv $(pwd) /tmp/easycp
+cd <target>
+cp -rv ./... /tmp/easycp/...
+
+###########
+### AWS ###
+###########
+
+# Empty and remove all S3 buckets (versioned ones have to be emptied via AWS Console)
+for bucket in $(aws s3 ls | cut -d ' ' -f3); do
+    aws s3 rm "s3://${bucket}" --recursive  # Empty bucket
+    aws s3 rb "s3://${bucket}"  # Remove bucket
+done

@@ -10,17 +10,28 @@
 [alias]
     diffs = diff --staged
     diffm = diff master
-    ss = status --short
+    ss = status --short --branch
+    ignored = ! git ss --ignored | grep --color '^!!'
     adog = log --all --decorate --oneline --graph
     checkoutfzf = ! git checkout $(git branch -a | sed 's@remotes/origin/@@' | sort -u | fzf)
-    pullr = pull --rebase
+    pullr = ! git pull --rebase && echo >&2 'WARNING: `pullr` alias is deprecated, please use `purr`.'
+    purr = pull --rebase
     lastash = checkout -p stash@{0}
     logona = log --oneline --no-abbrev
     rs = restore --staged
-    pushu = push -u origin
+    pushu = ! git push -u origin $(git branch --show-current)
+    pusht = push --tags
     bdiff = ! git diff | colordiff | diff-highlight | less -R
     bdiffs = ! git diffs | colordiff | diff-highlight | less -R
     bdiffm = ! git diffm | colordiff | diff-highlight | less -R
+    ddiff = ! git diff | delta | less -R
+    ddiffs = ! git diffs | delta | less -R
+    ddiffm = ! git diffm | delta | less -R
+    ada = add -vu
+    comane = commit --amend --no-edit
+    findc = ! git log --oneline --all | fzf | cut -d ' ' -f1 | tr -d '\n'
+    cm = checkout master
+    clearb = ! git branch | grep -v 'master' | xargs -p git branch -D
 [merge]
     tool = vimdiff
     conflictStyle = diff3

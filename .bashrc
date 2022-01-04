@@ -19,11 +19,23 @@ _exit_status() {
 _current_git_branch() {
     if command -v git &>/dev/null && git status &>/dev/null; then
         BRANCH=$(git branch | grep -F '*' | cut -d' ' -f2-)
-        echo "${BRANCH} "
+        GIT_ROOT=$(git rev-parse --show-toplevel)
+        # Indicate if a merge is in progress
+        # https://stackoverflow.com/a/30783114/5875021
+        if [ -e "$GIT_ROOT/.git/MERGE_HEAD" ]; then
+            MERGE_FLAG="!"
+        fi
+        echo "${MERGE_FLAG}${BRANCH} "
+    fi
+}
+_current_aws_vault() {
+    if ! [ -z ${AWS_VAULT+x} ]; then
+        echo "${AWS_VAULT} "
     fi
 }
 PS1=''
 PS1+="${ANSI_BOLD}${ANSI_RED}\$(_exit_status)${ANSI_RESET}"
+PS1+="${ANSI_BOLD}${ANSI_MAGENTA}\$(_current_aws_vault)${ANSI_RESET}"
 PS1+="${ANSI_BOLD}${ANSI_YELLOW}\$(_current_git_branch)${ANSI_RESET}"
 PS1+="${ANSI_BOLD}${ANSI_GREEN}\u@\h${ANSI_RESET}:"
 PS1+="${ANSI_BOLD}${ANSI_BLUE}\w${ANSI_RESET}\$ "

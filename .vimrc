@@ -180,3 +180,5 @@ nnoremap <leader>gf :e <cfile><CR>
 nnoremap <leader>esp :setlocal spell spelllang=pl,en<CR>
 " Clear search highlighting
 nnoremap <leader>n :noh<CR>
+" Insert to do item
+nnoremap <leader>iti o<C-D>- [ ]<Space>

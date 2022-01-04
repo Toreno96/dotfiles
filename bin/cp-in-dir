@@ -1,0 +1,18 @@
+#!/bin/bash
+
+SOURCE_PATH="${1}"
+TARGET_FILENAME="${2}"
+
+if [ -z "${SOURCE_PATH}" ]; then
+    echo "ERROR: SOURCE_PATH argument is required" >&2
+    exit 1
+fi
+
+if [ -z "${TARGET_FILENAME}" ]; then
+    echo "ERROR: TARGET_FILENAME argument is required" >&2
+    exit 1
+fi
+
+SOURCE_DIRNAME=$(dirname "${SOURCE_PATH}")
+
+cp -v -- "${SOURCE_PATH}" "${SOURCE_DIRNAME}/${TARGET_FILENAME}"

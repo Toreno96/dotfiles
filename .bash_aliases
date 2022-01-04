@@ -17,3 +17,15 @@ if [ "$(uname)" == 'Linux' ]; then
 elif [ "$(uname)" == 'Darwin' ]; then
     source ~/.bash_aliases_macos
 fi
+
+if command -v jq &>/dev/null; then
+    alias jql='jq -C | less -R'
+fi
+
+if command -v docker &>/dev/null; then
+    alias dockerstopa="docker ps | tail -n +2 | cut -d ' ' -f 1 | xargs -p docker stop"
+fi
+
+if command -v aws &>/dev/null; then
+    alias awslocal="aws --endpoint-url=http://localhost:4566"
+fi

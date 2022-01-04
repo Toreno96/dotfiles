@@ -1,0 +1,11 @@
+#!/bin/bash
+
+for file in $(git ls-files); do
+    if \
+            [ -e "${file}" ] && \
+            [ -e "${HOME}/${file}" ] && \
+            ! (diff -q "${file}" "${HOME}/${file}" >/dev/null); then
+        echo "${HOME}/${file}"
+    fi
+done
+

@@ -11,3 +11,8 @@ manc() {
 glowless() {
     PAGER='less -R' glow "${@}" -p
 }
+
+groot() {
+    GIT_ROOT=$(git rev-parse --show-toplevel)
+    cd "${GIT_ROOT}"
+}
