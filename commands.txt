@@ -215,6 +215,9 @@ ssh-copy-id -i <public_key> <destination>
 # Connect with public key authentication explicitly disabled
 ssh -o pubkeyauthentication=no <...>
 
+# Add an SSH key to the SSH agent
+eval $(ssh-agent) && ssh-add ~/.ssh/<private_key>
+
 ####################
 ### File-copying ###
 ####################
