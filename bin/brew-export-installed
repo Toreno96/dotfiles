@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# Lists all the packages installed via `homebrew` (both formulaes and casks) in
+# the simple format that allows to easily redirect this to `xargs brew install`
+
+brew info --json=v2 --installed | jq -r '.formulae[]|select(any(.installed[]; .installed_on_request)).full_name'
+brew list --cask -1
