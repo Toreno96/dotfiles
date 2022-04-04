@@ -157,7 +157,7 @@ endif
 set showcmd
 set splitbelow
 set splitright
-set statusline=[%n]\ %f\ %<%y[%{&ff}]%m%r%w%=%l/%L:%c%V\ @%{strftime(\"%F\ %T\",getftime(expand(\"%:p\")))}
+set statusline=[%n]\ %f\ %<%y[%{&ff}]%m%r%w%=%l/%L:%c%V\ \|\ %{strftime(\"%F\ %T\",getftime(expand(\"%:p\")))}
 set tabstop=4
 set undofile
 set nrformats=alpha,bin,hex
