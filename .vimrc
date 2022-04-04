@@ -33,6 +33,13 @@ if $TERM=~'256color' || $PRESERVED_TERM=~'256color'
 
   hi SpellBad ctermfg=red
   hi SpellCap ctermfg=blue
+
+  hi markdownH1 ctermfg=75 cterm=bold
+  hi markdownH2 ctermfg=75 cterm=bold
+  hi markdownH3 ctermfg=75 cterm=bold
+  hi markdownHeadingDelimiter ctermfg=75 cterm=bold
+  hi markdownCode ctermfg=203
+  hi markdownCodeDelimiter ctermfg=203
 else
   colorscheme default
 endif
