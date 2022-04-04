@@ -191,3 +191,7 @@ nnoremap <leader>esp :setlocal spell spelllang=pl,en<CR>
 nnoremap <leader>n :noh<CR>
 " Insert to do item
 nnoremap <leader>iti o<C-D>- [ ]<Space>
+" Insert current date
+nnoremap <leader>idd :r !date +'\%F'<CR>kJ
+" Insert current datetime
+nnoremap <leader>idt :r !date +'\%F \%H:\%M'<CR>kJ
