@@ -148,6 +148,9 @@ docker-compose run --rm <service_name> mysql -h <service_name> -u root -D ${MYSQ
 # Restore MySQL data from database dump
 docker-compose run --rm <service_name> sh -c "exec mysql -h <service_name> -u root -D ${MYSQL_DATABASE} -p ${MYSQL_ROOT_PASSWORD}" < dump.sql
 
+# Check PostgreSQL table's definition
+\d <schema_name>.<table_name>
+
 #######################
 ### Storage Devices ###
 #######################
