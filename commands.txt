@@ -271,6 +271,22 @@ git revert <SHA> --no-commit
 git restore --staged --worktree ...  # exclude changes you do NOT want to restore
 git commit
 
+# Completely replace one branch's code and history with another
+git checkout target
+git checkout -m old-target
+git checkout source
+git branch -m target
+
+git push origin target -f
+
+git branch -m source
+git checkout old-target
+git branch -m target
+
+git fetch --all
+git reset --hard origin/target
+
+
 ##############
 ### Docker ###
 ##############
