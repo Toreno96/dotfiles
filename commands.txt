@@ -284,6 +284,10 @@ git branch -m target
 git fetch --all
 git reset --hard origin/target
 
+# Checkout a branch on non-default remote
+git fetch <remote>
+git checkout -b <branch_name> --track <remote>/<branch_name>
+
 
 ##############
 ### Docker ###
