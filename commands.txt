@@ -56,11 +56,9 @@ pip install -r requirements.txt
 # Upgrade packages
 brew update
 brew upgrade
-brew cask upgrade
 
 # List outdated packages
 brew outdated
-brew cask outdated
 
 # Show info about the package
 brew info <package>
