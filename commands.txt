@@ -480,3 +480,14 @@ for bucket in $(aws s3 ls | cut -d ' ' -f3); do
     aws s3 rm "s3://${bucket}" --recursive  # Empty bucket
     aws s3 rb "s3://${bucket}"  # Remove bucket
 done
+
+#############################
+### Environment Variables ###
+#############################
+
+# Substitute the STDIN w/ the value of environment variable, and output the result to STDOUT
+# e.g. if `echo $FOO` is `42`, STDOUT will be `hello 42`
+echo 'hello ${FOO}' | envsubst
+
+# Export the environment variables defined in the `.env` file into the shell
+source <(sed 's/^/export /' .env)
