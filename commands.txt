@@ -360,18 +360,45 @@ sentry-cli releases set-commits --auto <version>
 # Finalize (release) the release
 sentry-cli releases finalize <version>
 
-##################
-### Encryption ###
-##################
+############################
+### Encryption & Signing ###
+############################
 
 # Encrypt file symmetrically (creates <file>.gpg and do _not_ removes the
 # original: shred recommended)
 gpg -c <file>
 # With specified cipher and disabled passphrase caching
 gpg -c --cipher-algo 'AES256' --no-symkey-cache a.txt
+# Encrypt file asymmetrically
+gpg -e --default-recipient-self <file>
+# As ASCII and output to the STDOUT
+gpg -e --default-recipient-self -a --output - <file>
 
 # Decrypt file
 gpg -d <file>
+
+# Generate a new secret key
+gpg --full-gen-key
+
+# List secret keys in the keyring
+gpg -K
+# List public keys in the keyring
+gpg -k
+
+# Export the public key in ASCII format
+gpg --export --armor <user-id> >public.key
+# Import the public key
+gpg --import public.key
+
+# Change the expiration period of the key
+gpg --edit-key <user-id>
+> expire
+
+# Sign a file
+gpg -s <file>
+# Verify the signature
+gpg --verify <file>.gpg
+
 
 ###################
 ### Compressing ###
