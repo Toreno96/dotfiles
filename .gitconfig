@@ -39,3 +39,5 @@
     prompt = false
 [pull]
     rebase = false
+[commit]
+    gpgSign = true
