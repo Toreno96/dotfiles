@@ -1,6 +1,7 @@
 [user]
     name = Toreno96
     email = toreno96@gmail.com
+    signingkey = 75FA716CC082C83B
 [diff]
     tool = vimdiff
 [difftool]
