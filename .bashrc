@@ -54,6 +54,9 @@ shopt -s checkwinsize
 # files and zero or more directories and subdirectories.
 shopt -s globstar
 
+# gpg: signing failed: Inappropriate ioctl for device
+export GPG_TTY=$(tty)
+
 # Etc
 export PAGER=less
 command -v brave &>/dev/null && export BROWSER=brave
