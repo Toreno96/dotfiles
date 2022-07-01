@@ -7,6 +7,7 @@ let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
 " Makes '.' command of tpope/vim-vinegar not working
 " let g:netrw_liststyle=3
 let g:python_host_prog='/usr/bin/python3'
+let g:markdown_fenced_languages = ['sh', 'bash=sh', 'shell=sh', 'python', 'json']
 
 " set termguicolors
 " set background=light
@@ -37,6 +38,9 @@ if $TERM=~'256color'
   hi markdownH1 ctermfg=75 cterm=bold
   hi markdownH2 ctermfg=75 cterm=bold
   hi markdownH3 ctermfg=75 cterm=bold
+  hi markdownH4 ctermfg=75 cterm=bold
+  hi markdownH5 ctermfg=75 cterm=bold
+  hi markdownH6 ctermfg=75 cterm=bold
   hi markdownHeadingDelimiter ctermfg=75 cterm=bold
   hi markdownCode ctermfg=203
   hi markdownCodeDelimiter ctermfg=203
