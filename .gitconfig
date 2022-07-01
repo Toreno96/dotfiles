@@ -33,6 +33,7 @@
     findc = ! git log --oneline --all | fzf | cut -d ' ' -f1 | tr -d '\n'
     cm = checkout master
     clearb = ! git branch | grep -v 'master' | xargs -p git branch -D
+    changelog-squash = log --pretty='* %B'
 [merge]
     tool = vimdiff
     conflictStyle = diff3
