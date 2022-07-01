@@ -288,6 +288,9 @@ git reset --hard origin/target
 git fetch <remote>
 git checkout -b <branch_name> --track <remote>/<branch_name>
 
+# Reuse the message of the most recent failed commit
+git commit -eF .git/COMMIT_EDITMSG
+
 
 ##############
 ### Docker ###
@@ -306,6 +309,18 @@ docker system prune
 # - images without at least one container associated to them
 # - build cache
 docker system prune --all --volumes
+
+# Show full output of _all_ the build steps; the default `tty` hides a lot of them
+docker-compose build --progress plain <service>
+# Do not use cache when building the image
+docker-compose build --no-cache <service>
+
+# Build a docker image and name it
+docker build --progress plain -t <name>
+# Run the docker image's default entrypoint
+docker run <name>
+# Run interactive shell in the docker image
+docker run --rm -it <name> bash
 
 ###############
 ### Printer ###
@@ -483,6 +498,15 @@ mv -vi input.mp3 "$(eyeD3 --plugin=display -p '$num(%n%, 2) - %t%.mp3' input.mp3
 # Pretty-format CSV file
 column -s',' -t result.csv | less -#5 -N -S
 
+# Run SQL query on CSV file
+sqlite3 :memory: \
+    -cmd '.mode csv' \
+    -cmd '.import file.csv table' \
+    -cmd '.mode <output_format>' \
+  'SELECT …'
+# Print full list of possible output formats
+sqlite3 -cmd '.help mode'
+
 # Remove file while preventing data recovery (only HDD!)
 shred -u <file>
 
@@ -497,6 +521,22 @@ cd <source>
 ln -sv $(pwd) /tmp/easycp
 cd <target>
 cp -rv ./... /tmp/easycp/...
+
+# Fix bluetooth on OSX
+sudo pkill bluetoothd
+
+# Open all files found by `fd` in the vim
+fd <pattern> -X vim
+
+# Insert line numbering (input from the STDIN)
+seq 10 | nl
+# Insert line numbering (input from the file)
+nl <file>
+# Insert line numbering as e.g. '1. ' instead of the default '1	'
+nl -s'. '
+# Insert line numbering w/o padding. GNU only; macOS nl truncates the number to 1 digit
+nl -w 1
+
 
 ###########
 ### AWS ###
