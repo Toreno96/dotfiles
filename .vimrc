@@ -8,6 +8,12 @@ let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
 " let g:netrw_liststyle=3
 let g:python_host_prog='/usr/bin/python3'
 let g:markdown_fenced_languages = ['sh', 'bash=sh', 'shell=sh', 'python', 'json']
+" Support strikethrough
+let &t_Ts = "\e[9m"
+let &t_Te = "\e[29m"
+" Support undercurl
+let &t_Cs = "\e[4:3m"
+let &t_Ce = "\e[4:0m"
 
 " set termguicolors
 " set background=light
