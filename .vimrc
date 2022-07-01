@@ -199,3 +199,6 @@ nnoremap <leader>idd :r !date +'\%F'<CR>kJ
 nnoremap <leader>idt :r !date +'\%F \%H:\%M'<CR>kJ
 " Insert line numbering
 xnoremap <leader>iln :!nl -s'. '<CR>gv=
+
+" Digraph 'ː', IPA phonetic symbol that indicates a long vowel or consonant
+digr p: 720
