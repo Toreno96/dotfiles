@@ -68,10 +68,11 @@ hi GitGutterAdd ctermfg=darkgreen
 hi GitGutterChange ctermfg=darkblue
 hi GitGutterDelete ctermfg=darkred
 hi GitGutterChangeDelete ctermfg=darkmagenta
+
 Plugin 'hdima/python-syntax'
 let python_highlight_all=1
 let python_highlight_file_headers_as_comments=1
-Plugin 'itchyny/vim-cursorword'
+
 Plugin 'octol/vim-cpp-enhanced-highlight'
 " Works only with classes, not structures, which introduce inconsistency
 let g:cpp_class_decl_highlight=0
@@ -82,30 +83,17 @@ let g:cpp_member_variable_highlight=1
 " let g:cpp_experimental_simple_template_highlight=1
 " " 2. Highlighting issues with std::cout << '> '
 " let g:cpp_experimental_template_highlight=1
-Plugin 'Valloric/YouCompleteMe'
-let g:ycm_show_diagnostics_ui=1
-let g:ycm_global_ycm_extra_conf='~/.ycm_extra_conf.py'
-let g:ycm_python_binary_path='python3'
-let g:ycm_autoclose_preview_window_after_insertion=0
-if $TERM=~'xterm' || $PRESERVED_TERM=~'xterm'
-  let g:ycm_error_symbol='██'
-  let g:ycm_warning_symbol='██'
-endif
-hi YcmErrorSection ctermfg=red cterm=bold
-hi YcmErrorSign ctermfg=red
-hi YcmWarningSection ctermfg=green cterm=italic
-hi YcmWarningSign ctermfg=green
-if has('nvim')
-  Plugin 'w0rp/ale'
-endif
+
 Plugin 'tpope/vim-commentary'
 autocmd FileType vim setlocal commentstring=\"\ %s"
 autocmd FileType sh setlocal commentstring=#\ %s"
 autocmd FileType cpp setlocal commentstring=//\ %s
 autocmd FileType cmake setlocal commentstring=#\ %s
+
 Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-surround'
+
 Plugin 'tpope/vim-vinegar'
+
 Plugin 'raimon49/requirements.txt.vim'
 
 call vundle#end()
