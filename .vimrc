@@ -12,7 +12,7 @@ let g:python_host_prog='/usr/bin/python3'
 " set background=light
 set background=dark
 syntax enable
-if $TERM=~'256color' || $PRESERVED_TERM=~'256color'
+if $TERM=~'256color'
   " let g:gruvbox_bold=0
   " let g:gruvbox_underline=0
   " let g:gruvbox_undercurl=0

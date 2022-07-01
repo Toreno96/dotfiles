@@ -57,6 +57,10 @@ shopt -s globstar
 # gpg: signing failed: Inappropriate ioctl for device
 export GPG_TTY=$(tty)
 
+# Use custom terminfo database entries compiled into the home directory
+# (https://gpanders.com/blog/the-definitive-guide-to-using-tmux-256color-on-macos)
+export TERMINFO_DIRS=$TERMINFO_DIRS:$HOME/.local/share/terminfo
+
 # Etc
 export PAGER=less
 command -v brave &>/dev/null && export BROWSER=brave
