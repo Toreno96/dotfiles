@@ -197,3 +197,5 @@ nnoremap <leader>iti o<C-D>- [ ]<Space>
 nnoremap <leader>idd :r !date +'\%F'<CR>kJ
 " Insert current datetime
 nnoremap <leader>idt :r !date +'\%F \%H:\%M'<CR>kJ
+" Insert line numbering
+xnoremap <leader>iln :!nl -s'. '<CR>gv=
