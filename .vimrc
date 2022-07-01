@@ -50,6 +50,11 @@ if $TERM=~'256color'
   hi markdownHeadingDelimiter ctermfg=75 cterm=bold
   hi markdownCode ctermfg=203
   hi markdownCodeDelimiter ctermfg=203
+
+  " Highlight the search pattern _while typing_ (e.g. `/IncSearch`).
+  " This is separate from the `hi Search`, which highlights the last search
+  " pattern (e.g. `/IncSearch<CR>`)
+  hi IncSearch ctermfg=red cterm=bold
 else
   colorscheme default
 endif
@@ -159,7 +164,6 @@ set statusline=[%n]\ %f\ %<%y[%{&ff}]%m%r%w%=%l/%L:%c%V\ \|\ %{strftime(\"%F\ %T
 set tabstop=4
 set undofile
 set nrformats=alpha,bin,hex
-hi IncSearch ctermfg=red cterm=bold
 set updatetime=250
 
 " Delete trailing whitespaces
