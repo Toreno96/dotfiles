@@ -33,8 +33,22 @@ _current_aws_vault() {
         echo "${AWS_VAULT} "
     fi
 }
+_ssh_enabled() {
+    # On some systems (e.g. macOS), if ssh-agent is enabled in one instance of
+    # a shell, it is not available in other instances, which sometimes results
+    # in me trying to e.g. `git pull` new changes, just to get the `Permission
+    # denied` because I forgot this is not the shell in which I've enabled the
+    # ssh-agent and added a private key.
+    #
+    # This part of the prompt is supposed to inform me which of my currently
+    # opened shells have the ssh-agent enabled/disabled.
+    if ! [ -z ${SSH_AGENT_PID+x} ]; then
+        echo 'ssh '
+    fi
+}
 PS1=''
 PS1+="${ANSI_BOLD}${ANSI_RED}\$(_exit_status)${ANSI_RESET}"
+PS1+="${ANSI_BOLD}${ANSI_CYAN}\$(_ssh_enabled)${ANSI_RESET}"
 PS1+="${ANSI_BOLD}${ANSI_MAGENTA}\$(_current_aws_vault)${ANSI_RESET}"
 PS1+="${ANSI_BOLD}${ANSI_YELLOW}\$(_current_git_branch)${ANSI_RESET}"
 PS1+="${ANSI_BOLD}${ANSI_GREEN}\u@\h${ANSI_RESET}:"
