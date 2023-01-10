@@ -34,6 +34,11 @@
     cm = checkout master
     clearb = ! git branch | grep -v 'master' | xargs -p git branch -D
     changelog-squash = log --pretty='* %B'
+    cp = cherry-pick
+    mergeff = merge --ff-only
+    logss = log --show-signature
+    logme = ! git log --author=$(git config user.email)
+    comnogpg = commit --no-gpg-sign
 [merge]
     tool = vimdiff
     conflictStyle = diff3
