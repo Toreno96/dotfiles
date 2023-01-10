@@ -81,8 +81,14 @@ command -v brave &>/dev/null && export BROWSER=brave
 command -v vim &>/dev/null && export EDITOR=vim
 export PYTHONSTARTUP=$HOME/.pythonrc.py
 export PROMPT_DIRTRIM=3
-export HISTSIZE=5000
-export HISTFILESIZE=$((HISTSIZE * 2))
+# > Numeric values less than zero result in every command being saved on the
+# > history list (there is no limit)
+# > —https://man.archlinux.org/man/bash.1#HISTSIZE
+export HISTSIZE=-1
+# > If HISTFILESIZE is unset, or set to null, a non-numeric value, or a numeric
+# > value less than zero, the history file is not truncated.
+# > —https://man.archlinux.org/man/bash.1#HISTORY
+export HISTFILESIZE=-1
 export HISTTIMEFORMAT='%F %T '
 [ -f ~/.bash_aliases ] && source ~/.bash_aliases
 [ -f ~/.bash_functions ] && source ~/.bash_functions
