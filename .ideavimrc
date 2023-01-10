@@ -1,0 +1,94 @@
+if !has('nvim')
+  set nocompatible
+endif
+
+filetype plugin indent on
+if !has('nvim')
+  set autoindent
+  set autoread
+  set backspace=indent,eol,start
+  set backupdir=~/.vim/backup
+  set directory=~/.vim/swap//
+  set encoding=utf-8
+  set formatoptions=jcroql
+  set history=10000
+  set hlsearch
+  set incsearch
+  set langnoremap
+  set laststatus=2
+  set mouse=a
+  set nrformats=bin,hex
+  set sessionoptions=blank,buffers,curdir,folds,help,tabpages,winsize
+  set smarttab
+  set tabpagemax=50
+  set ttyfast
+  set undodir=~/.vim/undo
+  set viminfo=!,'100,<50,s10,h
+  set wildmenu
+endif
+set breakindent
+set cinoptions=j1
+set expandtab
+set linebreak
+set list
+if $TERM=~'xterm' || $PRESERVED_TERM=~'xterm'
+  " `tab` and `nbsp` are using a common Unicode representation
+  " Source: https://en.wikipedia.org/w/index.php?title=Whitespace_character&oldid=1122350113#Substitute_images
+  set listchars=tab:⪫\ ,trail:█,extends:›,precedes:‹,nbsp:⍽
+else
+  set listchars=tab:\|\ ,trail:-,extends:>,precedes:<,nbsp:!
+endif
+set number relativenumber
+set previewheight=5
+set ruler
+set scrolloff=3
+set shiftwidth=4
+if $TERM=~'xterm' || $PRESERVED_TERM=~'xterm'
+  set showbreak=↪\ "
+else
+  set showbreak=\\\ "
+endif
+set showcmd
+set splitbelow
+set splitright
+set statusline=[%n]\ %f\ %<%y[%{&ff}]%m%r%w%=%l/%L:%c%V\ \|\ %{strftime(\"%F\ %T\",getftime(expand(\"%:p\")))}
+set tabstop=4
+set undofile
+set nrformats=alpha,bin,hex
+hi IncSearch ctermfg=red cterm=bold
+set updatetime=250
+
+set ignorecase
+set tagcase=followscs
+set smartcase
+
+" Delete trailing whitespaces
+nnoremap <leader>d<space> :%s/\s\+$//g<enter>
+" Run shellcheck on the current file
+nnoremap <leader>shl :!shellcheck -Calways % \| less -R<enter>:redraw!<enter>
+" Swap paragraphs marked by 'n' and 'm'
+nnoremap <leader>sp 'nvipy'mvipp'nvipp
+" Yank current filepath and line number to the + register
+nnoremap <leader>yf :let @+ = expand("%:p") . ":" . line(".")<enter>
+" Expanded version of `gf`:
+" Edit existing _or new file_ whose name is under or after the cursor
+nnoremap <leader>gf :e <cfile><CR>
+" Clear search highlighting
+nnoremap <leader>n :noh<CR>
+" Insert to do item
+nnoremap <leader>iti o<C-D>- [ ]<Space>
+" Insert line numbering
+xnoremap <leader>iln :!nl -s'. '<CR>gv=
+" Convert the current file from `dos` to `unix` fileformat
+nnoremap <leader>unix :set fileformat=unix<CR>
+" Insert a line below cursor
+nnoremap <leader>o o<esc>
+" Insert a line above cursor
+nnoremap <leader>O O<esc>
+" Use arrow keys to jump between buffers
+" Source: https://github.com/jdavis/dotfiles/blob/62435dc83dd444be605e9ba204a3033e7192f3e4/.vimrc#L278..L280
+map <right> :bn<CR>
+map <left> :bp<CR>
+
+nnoremap ]c :action VcsShowNextChangeMarker<enter>
+nnoremap [c :action VcsShowPrevChangeMarker<enter>
