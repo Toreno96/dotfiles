@@ -4,3 +4,21 @@ https://advait.live/feed.xml
 https://robertheaton.com/feed.xml
 https://evanjconrad.com/feed.xml
 https://dkb.show/rss.xml
+https://bjakubowski.hashnode.dev/rss.xml
+https://gordonc.bearblog.dev/feed/
+https://dev.jimgrey.net/feed/
+http://www.aaronsw.com/2002/feeds/pgessays.rss
+https://blog.plover.com/index.rss
+https://jacobian.org/index.xml
+# Added because of:
+# https://kimmo.blog/posts/7-building-eink-weather-display-for-our-home/
+# and https://kimmo.blog/posts/1-writing-or-coding/
+https://kimmo.blog/rss.xml
+# Added because of:
+# https://neugierig.org/software/blog/2022/12/chrome.html
+# and https://neugierig.org/software/blog/2020/05/ninja.html
+https://neugierig.org/software/blog/atom.xml
+# Added because of:
+# https://www.benkuhn.net/abyss/
+# and https://www.benkuhn.net/listen/
+https://www.benkuhn.net/index.xml
