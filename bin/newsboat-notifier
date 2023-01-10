@@ -2,4 +2,8 @@
 
 NOTIFICATION_MESSAGE="${1}"
 
-notify-send -i rssnow 'Newsboat' "${NOTIFICATION_MESSAGE}"
+if [ "$(uname)" == 'Linux' ]; then
+    notify-send -i rssnow 'Newsboat' "${NOTIFICATION_MESSAGE}"
+elif [ "$(uname)" == 'Darwin' ]; then
+    terminal-notifier -title 'Newsboat' -message "${NOTIFICATION_MESSAGE}"
+fi
