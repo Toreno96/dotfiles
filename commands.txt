@@ -265,9 +265,15 @@ git push -d origin <branch_name>
 git branch -d <branch_name>
 
 # Partial revert
-git revert <SHA> --no-commit
+git revert --no-commit <SHA>
 git restore --staged --worktree ...  # exclude changes you do NOT want to restore
 git commit
+
+# Partial cherry-pick
+git cherry-pick --no-commit <SHA>
+git reset --mixed
+git add -p
+git commit -c ORIG_HEAD
 
 # Completely replace one branch's code and history with another
 git checkout target
@@ -290,6 +296,17 @@ git checkout -b <branch_name> --track <remote>/<branch_name>
 
 # Reuse the message of the most recent failed commit
 git commit -eF .git/COMMIT_EDITMSG
+
+# See diff between yesterday (24 hours ago) and now
+git diff @{yesterday}
+
+# Find the most recent commit on the current branch whose message contains
+# `foo`
+git show :/foo
+
+# Find the most recent commits on the current branch between the one mentioning
+# `introduce`, and the one mentioning `remove`
+git log :/introduce..:/remove
 
 
 ##############
