@@ -7,7 +7,7 @@ let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
 " Makes '.' command of tpope/vim-vinegar not working
 " let g:netrw_liststyle=3
 let g:python_host_prog='/usr/bin/python3'
-let g:markdown_fenced_languages = ['sh', 'bash=sh', 'shell=sh', 'python', 'json']
+let g:markdown_fenced_languages = ['sh', 'bash=sh', 'shell=sh', 'python', 'json', 'vim', 'diff']
 " Support strikethrough
 let &t_Ts = "\e[9m"
 let &t_Te = "\e[29m"
@@ -118,7 +118,7 @@ if !has('nvim')
   set autoindent
   set autoread
   set backspace=indent,eol,start
-  set backupdir=.,~/.vim/backup
+  set backupdir=~/.vim/backup
   set directory=~/.vim/swap//
   set encoding=utf-8
   set formatoptions=jcroql
@@ -143,9 +143,11 @@ set expandtab
 set linebreak
 set list
 if $TERM=~'xterm' || $PRESERVED_TERM=~'xterm'
-  set listchars=tab:│\ ,trail:█,extends:›,precedes:‹,nbsp:█
+  " `tab` and `nbsp` are using a common Unicode representation
+  " Source: https://en.wikipedia.org/w/index.php?title=Whitespace_character&oldid=1122350113#Substitute_images
+  set listchars=tab:⪫\ ,trail:█,extends:›,precedes:‹,nbsp:⍽
 else
-  set listchars=tab:\|\ ,trail:-,extends:>,precedes:<,nbsp:-
+  set listchars=tab:\|\ ,trail:-,extends:>,precedes:<,nbsp:!
 endif
 set number relativenumber
 set previewheight=5
@@ -165,6 +167,10 @@ set tabstop=4
 set undofile
 set nrformats=alpha,bin,hex
 set updatetime=250
+
+set ignorecase
+set tagcase=followscs
+set smartcase
 
 " Delete trailing whitespaces
 nnoremap <leader>d<space> :%s/\s\+$//g<enter>
@@ -189,6 +195,8 @@ nnoremap <leader>yf :let @+ = expand("%:p") . ":" . line(".")<enter>
 nnoremap <leader>gf :e <cfile><CR>
 " Enable spellchecking
 nnoremap <leader>esp :setlocal spell spelllang=pl,en<CR>
+" Disable spellchecking
+nnoremap <leader>dsp :setlocal nospell<CR>
 " Clear search highlighting
 nnoremap <leader>n :noh<CR>
 " Insert to do item
@@ -199,6 +207,43 @@ nnoremap <leader>idd :r !date +'\%F'<CR>kJ
 nnoremap <leader>idt :r !date +'\%F \%H:\%M'<CR>kJ
 " Insert line numbering
 xnoremap <leader>iln :!nl -s'. '<CR>gv=
+" Convert the current file from `dos` to `unix` fileformat
+nnoremap <leader>unix :set fileformat=unix<CR>
+" Insert a line below cursor
+nnoremap <leader>o o<esc>
+" Insert a line above cursor
+nnoremap <leader>O O<esc>
+" Use arrow keys to jump between buffers
+" Source: https://github.com/jdavis/dotfiles/blob/62435dc83dd444be605e9ba204a3033e7192f3e4/.vimrc#L278..L280
+map <right> :bn<CR>
+map <left> :bp<CR>
 
 " Digraph 'ː', IPA phonetic symbol that indicates a long vowel or consonant
 digr p: 720
+
+if has("patch-8.1.0360")
+    set diffopt+=internal,algorithm:patience
+endif
+
+if !has('gui_running') && &term =~ '^\%(screen\|tmux\)'
+    " Better mouse support, see  :help 'ttymouse'
+    set ttymouse=sgr
+
+    " Enable bracketed paste mode, see  :help xterm-bracketed-paste
+    let &t_BE = "\<Esc>[?2004h"
+    let &t_BD = "\<Esc>[?2004l"
+    let &t_PS = "\<Esc>[200~"
+    let &t_PE = "\<Esc>[201~"
+
+    " Enable focus event tracking, see  :help xterm-focus-event
+    let &t_fe = "\<Esc>[?1004h"
+    let &t_fd = "\<Esc>[?1004l"
+    execute "set <FocusGained>=\<Esc>[I"
+    execute "set <FocusLost>=\<Esc>[O"
+
+    " Enable modified arrow keys, see  :help arrow_modifiers
+    execute "silent! set <xUp>=\<Esc>[@;*A"
+    execute "silent! set <xDown>=\<Esc>[@;*B"
+    execute "silent! set <xRight>=\<Esc>[@;*C"
+    execute "silent! set <xLeft>=\<Esc>[@;*D"
+endif
