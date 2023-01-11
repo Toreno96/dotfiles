@@ -90,5 +90,26 @@ nnoremap <leader>O O<esc>
 map <right> :bn<CR>
 map <left> :bp<CR>
 
+" Equivalent of Vim's `]c`
 nnoremap ]c :action VcsShowNextChangeMarker<enter>
+" Equivalent of Vim's `[c`
 nnoremap [c :action VcsShowPrevChangeMarker<enter>
+" Jetbrains IDE does not have equivalents of `<C-w>|`, `<C-w>_` and `<C-w>=`,
+" instead it allows to toggle between a maximized current pane (equivalent of
+" using both `<C-w>|` and `<C-w>_`) and normalized splits.
+"
+" `<C-w>m` is unused in Vim, so it seems as a good candidate for that action
+" (`m` as in `maximize`)
+nnoremap <C-w>m :action MaximizeEditorInSplit<enter>
+" Reformat a whole file using `black`; requires `BlackConnect` plugin
+" Source: https://plugins.jetbrains.com/plugin/14321-blackconnect
+nnoremap <leader>black :action me.lensvol.blackconnect.actions.ReformatWholeFileAction<enter>
+" Reformat a selected fragment using `black`; requires `BlackConnect` plugin
+" Source: https://plugins.jetbrains.com/plugin/14321-blackconnect
+vnoremap <leader>black :action me.lensvol.blackconnect.actions.ReformatSelectedFragmentAction<enter>
+" Optimize imports
+nnoremap <leader>oi :action OptimizeImports<enter>
+" Go to the next error; inspired by the `:cn`
+nnoremap <leader>cn :action GotoNextError<CR>
+" Go to the previous error; inspired by the `:cp`
+nnoremap <leader>cp :action GotoPreviousError<CR>
