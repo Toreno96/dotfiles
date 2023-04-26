@@ -1,8 +1,8 @@
 " Custom tag
-syn match markdownPriority '+priority' contained
-syn match markdownMust '+must' contained
-syn match markdownShould '+should' contained
-syn match markdownCould '+could' contained
+syn match markdownPriority '+priority'
+syn match markdownMust '+must'
+syn match markdownShould '+should'
+syn match markdownCould '+could'
 
 " Support for GFM's task list items:
 " https://github.github.com/gfm/#task-list-items-extension-
