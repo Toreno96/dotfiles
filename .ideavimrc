@@ -2,6 +2,8 @@ if !has('nvim')
   set nocompatible
 endif
 
+Plugin 'tpope/vim-commentary'
+
 filetype plugin indent on
 if !has('nvim')
   set autoindent
