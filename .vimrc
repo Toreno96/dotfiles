@@ -111,6 +111,8 @@ Plugin 'tpope/vim-vinegar'
 
 Plugin 'raimon49/requirements.txt.vim'
 
+Plugin 'tpope/vim-fugitive'
+
 call vundle#end()
 
 filetype plugin indent on
