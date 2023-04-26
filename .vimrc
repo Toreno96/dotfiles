@@ -123,13 +123,6 @@ Plugin 'raimon49/requirements.txt.vim'
 
 Plugin 'junegunn/goyo.vim'
 
-" Complementary to 'junegunn/goyo.vim'
-Plugin 'junegunn/limelight.vim'
-let g:limelight_conceal_ctermfg = 'darkgray'
-" Per line, instead of the default per paragraph
-" let g:limelight_bop ='^'
-" let g:limelight_eop ='$'
-
 Plugin 'tpope/vim-fugitive'
 
 call vundle#end()
