@@ -219,6 +219,16 @@ nnoremap <leader>O O<esc>
 " Source: https://github.com/jdavis/dotfiles/blob/62435dc83dd444be605e9ba204a3033e7192f3e4/.vimrc#L278..L280
 map <right> :bn<CR>
 map <left> :bp<CR>
+" Change `'` to `"` globally in the line
+nnoremap <leader>c'" :s/'/"/g<CR>
+" Remove parentheses `()`, (square) brackets `[]`
+" or braces (curly brackets) `{}` around an entity, e.g.
+" `(foo bar baz)` -> `foo bar baz`
+" `[foo bar baz]` -> `foo bar baz`
+" `{foo bar baz}` -> `foo bar baz`
+nnoremap <leader>d) di("_d%P
+nnoremap <leader>d] di["_d%P
+nnoremap <leader>d} di{"_d%P
 
 " Digraph 'ː', IPA phonetic symbol that indicates a long vowel or consonant
 digr p: 720
