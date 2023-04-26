@@ -282,3 +282,8 @@ if !has('gui_running') && &term =~ '^\%(screen\|tmux\)'
     execute "silent! set <xRight>=\<Esc>[@;*C"
     execute "silent! set <xLeft>=\<Esc>[@;*D"
 endif
+
+" If available, use `ripgrep` as vim's external grep
+if executable('rg')
+    set grepprg=rg\ --vimgrep
+endif
