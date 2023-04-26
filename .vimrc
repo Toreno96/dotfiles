@@ -122,6 +122,16 @@ noremap <leader>- <Plug>VinegarUp
 Plugin 'raimon49/requirements.txt.vim'
 
 Plugin 'junegunn/goyo.vim'
+function! s:goyo_enter()
+    set scrolloff=999
+endfunction
+
+function! s:goyo_leave()
+    let &scrolloff=s:scrolloff
+endfunction
+
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
 Plugin 'tpope/vim-fugitive'
 
@@ -166,7 +176,8 @@ endif
 set number relativenumber
 set previewheight=5
 set ruler
-set scrolloff=3
+let s:scrolloff=3
+let &scrolloff=s:scrolloff
 set shiftwidth=4
 if $TERM=~'xterm' || $PRESERVED_TERM=~'xterm'
   set showbreak=↪\ "
