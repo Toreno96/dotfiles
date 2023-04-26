@@ -39,6 +39,15 @@
     logss = log --show-signature
     logme = ! git log --author=$(git config user.email)
     comnogpg = commit --no-gpg-sign
+    # Outputs the full commit hash of the most recent commit, e.g.
+    # `git hash | pbcopy` will copy the most recent commit hash into the system
+    # clipboard
+    hash = log -1 --pretty=tformat:%H
+    rebasec = rebase --continue
+    # For fun, borrowed from: https://github.com/maciejkorsan/podlaskigit
+    # Relies on the fact that there's no other command or alias starting with
+    # `ak`, therefore `ak<TAB>` is enough to run this alias
+    akomutopotrzebne = reset HEAD --hard
 [merge]
     tool = vimdiff
     conflictStyle = diff3
