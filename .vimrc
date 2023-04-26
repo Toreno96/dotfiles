@@ -77,6 +77,8 @@ if $TERM=~'xterm' || $PRESERVED_TERM=~'xterm'
   let g:gitgutter_sign_added='▌'
   let g:gitgutter_sign_modified='▌'
   let g:gitgutter_sign_removed='▂'
+  let g:gitgutter_sign_removed_first_line='▔'
+  let g:gitgutter_sign_removed_above_and_below='▞'
   let g:gitgutter_sign_modified_removed='▛'
 endif
 hi GitGutterAdd ctermfg=darkgreen
@@ -108,6 +110,14 @@ autocmd FileType cmake setlocal commentstring=#\ %s
 Plugin 'tpope/vim-repeat'
 
 Plugin 'tpope/vim-vinegar'
+" By default, the plugin overrides `-` which (in normal mode outside the
+" Netrw) allows to go [count] lines upward, on the first non-blank character
+" (complementary to `+`).
+" As opposed to the `+`, however, the `-` does _not_ have the alternative
+" keybindings, so the plugin removes possibility to use it altogether.
+" Therefore, we bring back the original behavior of `-` by remapping the
+" plugin's behavior to another keybinding.
+noremap <leader>- <Plug>VinegarUp
 
 Plugin 'raimon49/requirements.txt.vim'
 
