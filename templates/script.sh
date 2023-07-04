@@ -8,6 +8,10 @@ Usage: $(basename "${0}") [-hv]
 Placeholder title.
 
 Placeholder description.
+
+Options:
+  -h  Show this help message and exit
+  -v  Show version information and exit
 EOF
 )
 
