@@ -1,0 +1,108 @@
+#!/bin/bash
+
+VERSION=1.2.0
+
+USAGE=$(cat << EOF
+Usage: $(basename "${0}") [-hv]
+
+A wrapper for the \`brew outdated --verbose\`.
+
+For each package that uses a semantic versioning, appends difference between
+the current and new version (possible values are: major, minor, patch,
+prerelease, build) and highlights if the difference is major (to see which
+packages you have to be extra careful with before upgrading).
+EOF
+)
+
+while getopts 'hv' option; do
+    case "${option}" in
+        'h')
+            echo "${USAGE}"
+            exit
+            ;;
+        'v')
+            echo "${VERSION}"
+            exit
+            ;;
+        *)
+            echo "${USAGE}"
+            exit 1
+            ;;
+    esac
+done
+
+dependencies_available() {
+    (command -v brew &>/dev/null) && (command -v semver &>/dev/null)
+}
+
+list_outdated() {
+    OUTDATED=$(brew outdated --verbose)
+    while read -r line; do
+        # Transform e.g. 'aws-cdk (2.80.0) < 2.83.1' into '2.80.0 2.83.1'
+        VERSIONS=$(cut -d' ' -f2,4 <<<"${line}" | tr -d '()')
+        OLD_VERSION=$(cut -d' ' -f1 <<<"${VERSIONS}")
+        NEW_VERSION=$(cut -d' ' -f2 <<<"${VERSIONS}")
+        VALID_SEMVER_OLD=$(semver validate "${OLD_VERSION}")
+        VALID_SEMVER_NEW=$(semver validate "${NEW_VERSION}")
+        # `semver diff` won't work for invalid version
+        if [[ "${VALID_SEMVER_OLD}" == 'valid' ]] && [[ "${VALID_SEMVER_NEW}" == 'valid' ]]; then
+            echo "${line} $(semver diff "${OLD_VERSION}" "${NEW_VERSION}")"
+        else
+            echo "${line}"
+        fi
+    done < <(echo "${OUTDATED}")
+}
+
+if dependencies_available; then
+    # There are two tricks here:
+    # 1) `grep` one, to print the full output while highlighting the match,
+    #    borrowed from:
+    #    https://stackoverflow.com/a/981831/5875021
+    #
+    #    This allows to highlight packages which have a _major_ update pending.
+    # 2) Here string `<<<` instead of `list_outdated | grep`.
+    #    The side-effect of the former is that the resulting output is printed
+    #    all at once instead of line by line.
+    #    A surprise to be sure, but a welcome one.
+    grep --color=always 'major\|$' <<<"$(list_outdated)"
+fi
+
+# CHANGELOG
+#
+# All notable changes to this project will be documented in this file.
+#
+# The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+# and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+#
+# [1.2.0] - 2023-06-14
+#
+# CHANGED
+# - The documentation of the purpose of this script from the inline comment to
+#   the multi-line string variable.
+# - Option 'h' to print the usage (uses the above-mentioned variable).
+# - Print the usage on failure if illegal option was passed.
+#
+# [1.1.0] - 2023-06-14
+#
+# ADDED
+# - Document what's the purpose of this script (as the inline comment at the
+#   top of the file).
+# - Semantic versioning of this script.
+# - Option 'v' to print the current version.
+# - Failure if illegal option was passed.
+#
+# [1.0.0] - 2023-06-14
+#
+# ADDED
+# - Highlight 'major' version differences in the output.
+# - Document the code.
+#
+# CHANGED
+# - Print the resulting output all at once instead of line by line.
+# - Prefer here strings over `echo "${variable} | …` when `cut`ting variables.
+#
+# [0.0.1] - 2023-06-13
+#
+# ADDED
+#
+# - Initial version of this script.
