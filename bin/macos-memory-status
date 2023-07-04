@@ -1,0 +1,22 @@
+#!/bin/sh
+
+# macOS does not provide `free` command; we need to rely on other methods.
+
+# Extract available (unused) RAM from the `top` output, e.g.
+# ```
+# PhysMem: 15G used (1740M wired), 655M unused.
+# ```
+# into: `665M`
+MEM="$(top -l1 -s0 | grep 'PhysMem' | grep -o '[0-9]\+[A-Za-z] unused' | grep -o '[0-9]\+[A-Za-z]')"
+# Extract free SWAP from `sysctl` output, e.g.
+# ```
+# vm.swapusage: total = 2048.00M  used = 744.56M  free = 1303.51M  (encrypted)
+# ```
+# into: `1303M`
+#
+# Note that decimal part is truncated using `sed`, which rounds the value down.
+# This is for simplicity—rounding up would require more sophisticated bash-fu
+# and the inaccuracy of 1M is subjectively not worth it.
+SWAP="$(sysctl vm.swapusage | grep -o 'free = .\+$' | grep -o '[0-9.]\+[A-Za-z]' | sed 's/\.[0-9][0-9]//')"
+
+echo "mem:${MEM} swap:${SWAP}"

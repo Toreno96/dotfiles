@@ -1,0 +1,80 @@
+#!/bin/bash
+
+VERSION=1.0.0
+
+# I've used `there’s` instead of `there's` (which I typically don't do) because
+# the latter causes an issue:
+# ```
+# brew-outdated-packages: line 5: unexpected EOF while looking for matching `)'
+# brew-outdated-packages: line 71: syntax error: unexpected end of file
+# ```
+#
+# I've tried escaping via multitude of ways (i.a. `\'`, `'''`, `"'"`), but it
+# didn't work as expected. Using inline `$(echo "'")` or `$(echo $'\'')` _did_
+# work, but it looks ugly and less clear from the code perspective.
+USAGE=$(cat << EOF
+Usage: $(basename "${0}") [-hv]
+
+Pretty-print a number of outdated packages per number of installed packages for
+\`homebrew\` package manager.
+
+Mainly intended for use in all sorts of status bars.
+
+Tested only on macOS, there’s no guarantee it will work on Linux!
+EOF
+)
+
+while getopts 'hv' option; do
+    case "${option}" in
+        'h')
+            echo "${USAGE}"
+            exit
+            ;;
+        'v')
+            echo "${VERSION}"
+            exit
+            ;;
+        *)
+            echo "${USAGE}"
+            exit 1
+            ;;
+    esac
+done
+
+dependencies_available() {
+    (command -v brew &>/dev/null)
+}
+
+main() {
+    # The icon used in the `arch-outdated-packages` is not supported on macOS (at
+    # least not by default)
+    ICON='⬆'
+    OUTDATED="$(brew outdated --quiet)"
+    if [ -n "${OUTDATED}" ]; then
+        # The macOS's `wc` adds an unwanted padding
+        OUTDATED_COUNT=$(echo "${OUTDATED}" | wc -l | tr -d ' ')
+    else
+        OUTDATED_COUNT=0
+    fi
+    # The macOS's `wc` adds an unwanted padding
+    ALL_COUNT=$(brew list --quiet -1 | wc -l | tr -d ' ')
+
+    echo "${ICON} ${OUTDATED_COUNT}/${ALL_COUNT}"
+}
+
+if dependencies_available; then
+    main
+fi
+
+# CHANGELOG
+#
+# All notable changes to this project will be documented in this file.
+#
+# The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+# and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+#
+# [1.0.0] - 2023-07-03
+#
+# ADDED
+#
+# - Initial version of this script, based on the `arch-outdated-packages`.
