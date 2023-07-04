@@ -28,6 +28,10 @@
     ddiff = ! git diff | delta | less -R
     ddiffs = ! git diffs | delta | less -R
     ddiffm = ! git diffm | delta | less -R
+    # Add all changed tracked files to the index while being verbose about it
+    # to allow instant verification of what exactly was added.
+    # The mnemonic `ada` comes from [ad]d [a]ll, while also being the tribute
+    # to Ada Lovelace.
     ada = add -vu
     comane = commit --amend --no-edit
     findc = ! git log --oneline --all | fzf | cut -d ' ' -f1 | tr -d '\n'
