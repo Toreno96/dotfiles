@@ -11,3 +11,13 @@ alias glhat='gll -hat'
 alias ggrep='ggrep --color=auto'
 alias ggrepc='ggrep --color=always'
 alias ggrepn='ggrep --color=never'
+
+# If [trash](https://hasseg.org/trash/) is installed, use `-F` option by default:
+# >  -F  Ask Finder to move the files to the trash, instead of
+# >      using the system API.
+#
+# Otherwise, if using the system API, the "put back" feature (restoring files
+# from trash) does *NOT* work.
+if command -v trash &>/dev/null && trash | grep -Fq -- 'Ali Rantakari'; then
+    alias trash='trash -F'
+fi
