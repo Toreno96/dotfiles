@@ -1,0 +1,73 @@
+#!/bin/bash
+
+VERSION=1.0.0
+
+USAGE=$(cat << EOF
+Usage: $(basename "${0}") [-chv]
+
+Generate a full file path for a screenshot.
+It assumes that the screenshots directory is \`~/pictures/screenshots\`
+and that the screenshot will have a PNG file extension.
+
+Options:
+  -c  Generate the file path for a screencast instead;
+      it assumes that the screencast will have an MP4 file extension
+  -h  Show this help message and exit
+  -v  Show version information and exit
+EOF
+)
+
+while getopts 'chv' option; do
+    case "${option}" in
+        'c')
+            SCREENCAST_MODE=1
+            ;;
+        'h')
+            echo "${USAGE}"
+            exit
+            ;;
+        'v')
+            echo "${VERSION}"
+            exit
+            ;;
+        *)
+            echo "${USAGE}"
+            exit 1
+            ;;
+    esac
+done
+
+main() {
+    if [ -z "${SCREENCAST_MODE}" ]; then
+        FILE_EXTENSION='png'
+        SUFFIX='screenshot'
+    else
+        FILE_EXTENSION='mp4'
+        SUFFIX='screencast'
+    fi
+    DATETIME_NOW=$(date '+%Y-%m-%d_%H-%M-%S_%Z')
+
+    echo "${HOME}/pictures/screenshots/${DATETIME_NOW}_${SUFFIX}.${FILE_EXTENSION}"
+}
+
+main
+
+# CHANGELOG
+#
+# All notable changes to this project will be documented in this file.
+#
+# The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+# and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+#
+# [Unreleased]
+#
+# ADDED
+#
+# - An option to specify a file extension explicitly?
+# - An option to specify a screenshots directory explicitly?
+#
+# [1.0.0] - 2023-07-04
+#
+# ADDED
+#
+# - Initial version of this script.
