@@ -1,0 +1,92 @@
+#!/bin/bash
+
+# The script generates the changelog message based on the indicated count of
+# the last git commits and the current git branch.
+#
+# ASSUMPTIONS
+#
+# The script assumes workflow adopted in the I*** project:
+# 1. Every environment has dedicated branch that is supposed to be 1:1 w/ what
+#    is currently deployed to the environment, e.g. `dev`, `qa` and `prod`
+#    branches…
+# 2. … although, _sometimes_ deployment happens from the different, often
+#    temporary branch, and such exception should be explicitly indicated in the
+#    specific changelog.
+# 3. Changelog message is posted on the Slack, and as such, uses Slack's
+#    markdown flavor.
+#
+# USAGE
+#
+# ```
+# $ ./git-changelog-slack COMMITS_COUNT [TARGET_ENV]
+# ```
+#
+# EXAMPLE USAGE
+#
+# Print changelog including the last 3 commit messages:
+# ```
+# $ ./git-changelog-slack 3
+# ```
+#
+# Print changelog including the last 3 commit messages, and explicitly indicate
+# the target environment as `dev` (the script will add the proper info if
+# different branch than `dev` is used, see the 2nd assumption):
+# ```
+# $ ./git-changelog-slack 3 dev
+# ```
+#
+# The script will output the generated changelog to the stdout.
+# On macOS, you can pipe it directly to the clipboard by using:
+# ```
+# $ ./git-changelog-slack 3 | pbcopy
+# ```
+#
+# If you want to edit the changelog before copying (e.g. to remove the
+# redundant commit messages, like the merge commits, or to add some additional
+# info), you can use `moreutils`'s `vipe`,
+# <https://joeyh.name/code/moreutils/>:
+# ```
+# $ ./git-changelog-slack 3 | vipe | pbcopy
+# ```
+#
+# Or if you're not a Vim freak like @dstasczak, redirect the output to the text
+# file, and use the preferred GUI text editor:
+# ```
+# $ ./git-changelog-slack 3 >/tmp/changelog.md
+# ```
+
+set -e
+
+GIT_BRANCH=$(git branch --show-current)
+COMMITS_COUNT="${1}"
+TARGET_ENV="${2}"
+
+if [ -z "${COMMITS_COUNT}" ]; then
+    echo "ERROR: COMMITS_COUNT argument is required" >&2
+    exit 1
+fi
+
+if [ -z "${TARGET_ENV}" ]; then
+    TARGET_ENV="${GIT_BRANCH}"
+fi
+
+COMMITS_LIST=$(git log -n "${COMMITS_COUNT}" --pretty=format:'- %s' --reverse)
+
+CHANGELOG=$(cat << EOF
+🚀 New version of BE was deployed to \`${TARGET_ENV}\`
+
+*CHANGELOG*:
+${COMMITS_LIST}
+EOF
+)
+
+if [ "${TARGET_ENV}" != "${GIT_BRANCH}" ]; then
+    CHANGELOG=$(cat << EOF
+${CHANGELOG}
+
+(build from temporary branch \`${GIT_BRANCH}\`)
+EOF
+)
+fi
+
+echo "${CHANGELOG}"
