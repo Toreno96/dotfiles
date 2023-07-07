@@ -1,0 +1,175 @@
+#!/bin/bash
+
+VERSION=2.1.1
+
+USAGE=$(cat << EOF
+Usage: $(basename "${0}") [-hv] PACKAGE_MANAGER FRONTEND
+
+Pretty-print a number of outdated packages per number of installed packages for
+PACKAGE_MANAGER, with the result compatible with FRONTEND.
+
+Mainly intended for use in all sorts of status bars.
+
+Options:
+  -h      Show this help message and exit
+  -v      Show version information and exit
+
+Supported values for PACKAGE_MANAGER:
+  brew    The Homebrew package manager for macOS (or Linux)
+          https://docs.brew.sh/Manpage
+          Requires installed:
+          - brew
+  pacman  The pacman package manager for Arch Linux
+          https://man.archlinux.org/man/pacman.8
+          Requires installed:
+          - pacman
+          - checkupdates
+          - checkupdates-aur
+
+Supported values for FRONTEND:
+  tmux    The result must be compatible with the status line of tmux terminal multiplexer
+          https://github.com/tmux/tmux
+  xfce    The result must be compatible with the XFCE4 Genmon plugin
+          https://docs.xfce.org/panel-plugins/xfce4-genmon-plugin
+EOF
+)
+
+while getopts 'hv' option; do
+    case "${option}" in
+        'h')
+            echo "${USAGE}"
+            exit
+            ;;
+        'v')
+            echo "${VERSION}"
+            exit
+            ;;
+        *)
+            echo "${USAGE}"
+            exit 1
+            ;;
+    esac
+done
+
+PACKAGE_MANAGER="${1}"
+FRONTEND="${2}"
+
+if [ -z "${PACKAGE_MANAGER}" ] || [ "${PACKAGE_MANAGER}" != 'brew' ] && [ "${PACKAGE_MANAGER}" != 'pacman' ]; then
+    echo "${0}: missing or invalid argument PACKAGE_MANAGER" >&2
+    exit 1
+fi
+
+if [ -z "${FRONTEND}" ] || [ "${FRONTEND}" != 'tmux' ] && [ "${FRONTEND}" != 'xfce' ]; then
+    echo "${0}: missing or invalid argument FRONTEND" >&2
+    exit 1
+fi
+
+dependencies_available() {
+    if [ "${PACKAGE_MANAGER}" = 'brew' ]; then
+        (command -v brew &>/dev/null)
+    elif [ "${PACKAGE_MANAGER}" = 'pacman' ]; then
+        (command -v pacman &>/dev/null) && (command -v checkupdates &>/dev/null) && (command -v checkupdates-aur &>/dev/null)
+    else
+        echo "${0}: unexpected error" >&2
+        exit 2
+    fi
+}
+
+main() {
+    if [ "${PACKAGE_MANAGER}" = 'brew' ]; then
+        OUTDATED="$(brew outdated --quiet)"
+        INSTALLED="$(brew list --quiet -1)"
+    elif [ "${PACKAGE_MANAGER}" = 'pacman' ]; then
+        OUTDATED="$(checkupdates; checkupdates-aur)"
+        INSTALLED="$(pacman -Q)"
+    else
+        echo "${0}: unexpected error" >&2
+        exit 2
+    fi
+
+    if [ -n "${OUTDATED}" ]; then
+        # The macOS's `wc` adds an unwanted padding;
+        # for Linux the `tr` part will be a no-op
+        OUTDATED_COUNT=$(echo "${OUTDATED}" | wc -l | tr -d ' ')
+    else
+        OUTDATED_COUNT=0
+    fi
+    # The macOS's `wc` adds an unwanted padding;
+    # for Linux the `tr` part will be a no-op
+    INSTALLED_COUNT=$(echo "${INSTALLED}" | wc -l | tr -d ' ')
+
+    if [ "${FRONTEND}" = 'tmux' ]; then
+        if (echo "${TERM}${PRESERVED_TERM}" | grep -q 'xterm'); then
+            ICON='⬆'
+        else
+            ICON='^'
+        fi
+        echo "${ICON} ${OUTDATED_COUNT}/${INSTALLED_COUNT}"
+    elif [ "${FRONTEND}" = 'xfce' ]; then
+        ICON=''
+        echo "<tool>${OUTDATED}</tool>"
+        echo "<txt><span fgcolor='#d3dae3'>${ICON} ${OUTDATED_COUNT}/${INSTALLED_COUNT}</span></txt>"
+    else
+        echo "${0}: unexpected error" >&2
+        exit 2
+    fi
+}
+
+if dependencies_available; then
+    main
+else
+    echo "${0}: dependencies not available" >&2
+    exit 3
+fi
+
+# CHANGELOG
+#
+# All notable changes to this project will be documented in this file.
+#
+# The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+# and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+#
+# [2.1.1] - 2023-07-07
+#
+# FIXED
+#
+# - Use ASCII character for ICON if running on `linux` tty (which has the
+#   limited Unicode support).
+#
+# [2.1.0] - 2023-07-05
+#
+# CHANGED
+#
+# - The usage message to document required dependencies for each
+#   PACKAGE_MANAGER.
+# - Unwanted padding introduced by macOS's `wc` is now removed independently of
+#   used PACKAGE_MANAGER.
+#
+# FIXED
+#
+# - Missing non-zero exit status on unavailable dependencies.
+#
+# [2.0.0] - 2023-07-04
+#
+# ADDED
+#
+# - Required positional arguments to control package manager (brew/pacman)
+#   and frontend (tmux/xfce) to use.
+#
+# CHANGED
+#
+# - Merged `arch-outdated-packages` into this script.
+# - Fail if dependencies are unavailable.
+# - The usage message to reflect new changes.
+#
+# [1.1.0] - 2023-07-04
+#
+# CHANGED
+#
+# - The usage message to document available options.
+#
+# [1.0.0] - 2023-07-03
+#
+# ADDED
+#
+# - Initial version of this script, based on the `arch-outdated-packages`.
