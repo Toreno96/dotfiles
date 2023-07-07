@@ -3,7 +3,9 @@
 ICON='disk'
 PARTITIONS=('/')
 
-echo -n "${ICON}"
+PARTITIONS_WITH_SIZE=()
 for partition in ${PARTITIONS[*]}; do
-    echo -n " ${partition}:$(df -H "${partition}" | sed -n '2p' | awk '{ print $4 }')"
+    PARTITIONS_WITH_SIZE+=("${partition}:$(df -H "${partition}" | sed -n '2p' | awk '{ print $4 }')")
 done
+
+echo "${ICON} ${PARTITIONS_WITH_SIZE[*]}"
