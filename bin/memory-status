@@ -1,9 +1,0 @@
-#!/bin/sh
-
-ICON='/usr/share/icons/Papirus/16x16/panel/indicator-sensors-memory.svg'
-# Print memory stats | Get 2nd row (RAM stats) | Get 7th column (available RAM)
-MEM="$(free -h | sed -n '2p' | awk '{ print $7 }' | sed 's/i$//')"
-# Print memory stats | Get 3rd row (SWAP stats) | Get 4th column (free SWAP)
-SWAP="$(free -h | sed -n '3p' | awk '{ print $4 }' | sed 's/i$//')"
-
-echo "<tool></tool><img>${ICON}</img><txt><span fgcolor='#d3dae3'> mem:${MEM} swap:${SWAP}</span></txt>"
