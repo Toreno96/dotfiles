@@ -1,0 +1,146 @@
+#!/bin/bash
+
+VERSION=1.0.0
+
+USAGE=$(cat << EOF
+Usage: $(basename "${0}") [-hv] FRONTEND
+
+Pretty-print the amount of unused disk storage per the most interesting
+partitions, with the result compatible with FRONTEND.
+
+Mainly intended for use in all sorts of status bars.
+
+Options:
+  -h      Show this help message and exit
+  -v      Show version information and exit
+
+Supported values for FRONTEND:
+  tmux    The result must be compatible with the status line of tmux terminal multiplexer
+          https://github.com/tmux/tmux
+  xfce    The result must be compatible with the XFCE4 Genmon plugin
+          https://docs.xfce.org/panel-plugins/xfce4-genmon-plugin
+EOF
+)
+
+while getopts 'hv' option; do
+    case "${option}" in
+        'h')
+            echo "${USAGE}"
+            exit
+            ;;
+        'v')
+            echo "${VERSION}"
+            exit
+            ;;
+        *)
+            echo "${USAGE}"
+            exit 1
+            ;;
+    esac
+done
+
+FRONTEND="${1}"
+
+if [ -z "${FRONTEND}" ] || [ "${FRONTEND}" != 'tmux' ] && [ "${FRONTEND}" != 'xfce' ]; then
+    echo "${0}: missing or invalid argument FRONTEND" >&2
+    exit 1
+fi
+
+dependencies_available() {
+    # No dependencies for this script
+    :;
+}
+
+is_macos() {
+    (echo "$(uname -s)" | grep -iq 'darwin')
+}
+
+is_linux() {
+    (echo "$(uname -s)" | grep -iq 'linux')
+}
+
+main() {
+    if (is_linux); then
+        PARTITIONS=('/' '/home' '/data')
+    elif (is_macos); then
+        # The macOS shows `0B` for `/home` usage, which is useless
+        # and `/data` does not exist on my Macbook
+        PARTITIONS=('/')
+    else
+        echo "${0}: unexpected error" >&2
+        exit 2
+    fi
+
+    PARTITIONS_WITH_SIZE=()
+    for partition in ${PARTITIONS[*]}; do
+        if [ -e "${partition}" ]; then
+            if (is_linux); then
+                DF_OUTPUT="$(df -h "${partition}")"
+            elif (is_macos); then
+                # `df -h` would return the size using base 2 for sizes and with
+                # 'Gi' suffix instead of 'G' suffix
+                DF_OUTPUT="$(df -H "${partition}")"
+            fi
+            PARTITIONS_WITH_SIZE+=("${partition}:$(echo "${DF_OUTPUT}" | sed -n '2p' | awk '{ print $4 }')")
+        fi
+    done
+
+    if [ "${FRONTEND}" = 'tmux' ]; then
+        echo "${PARTITIONS_WITH_SIZE[*]}"
+    elif [ "${FRONTEND}" = 'xfce' ]; then
+        ICON=''
+        echo -n "<tool></tool><txt><span fgcolor='#d3dae3'>${ICON} ${PARTITIONS_WITH_SIZE[*]}</span></txt>"
+    else
+        echo "${0}: unexpected error" >&2
+        exit 2
+    fi
+}
+
+if dependencies_available; then
+    main
+else
+    echo "${0}: dependencies not available" >&2
+    exit 3
+fi
+
+# CHANGELOG
+#
+# All notable changes to this project will be documented in this file.
+#
+# The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+# and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+#
+# [Unreleased]
+#
+# CHANGED
+# - Add fallback support for other OS than macOS and Linux (by providing a
+#   fallback list of PARTITIONS?)?
+# - Calculate disk size in an OS-agnostic way (replace `df -h` and `df -H` that
+#   depends on `uname`)?
+# - Allow to specify PARTITIONS via option?
+#
+# [1.0.0] - 2023-07-07
+#
+# ADDED
+#
+# - Required positional arguments to control frontend (tmux/xfce) to use.
+# - The usage message.
+# - Option 'h' to print the usage.
+# - Semantic versioning of this script.
+# - Option 'v' to print the current version.
+# - Failure if illegal option was passed.
+# - Failure if dependencies are unavailable.
+# - This changelog.
+#
+# CHANGED
+#
+# - Merged `disk-status` and `macos-disk-status`.
+# - Renamed to `status-disk` to update to the new naming convention of
+#   scripts related to pretty-printing status info (`status-*`).
+# - Removed icon for `FRONTEND=tmux`.
+# - Support only macOS and Linux.
+# - What partitions are listed depending if the script is running on macOS or
+#   Linux.
+#
+# FIXED
+# - Ignore non-existing partitions if they are listed in PARTITIONS.
