@@ -1,0 +1,102 @@
+#!/bin/bash
+
+VERSION=1.0.0
+
+USAGE=$(cat << EOF
+Usage: $(basename "${0}") [-hv] FRONTEND
+
+Pretty-print the CPU load average, with the result compatible
+with FRONTEND.
+
+Mainly intended for use in all sorts of status bars.
+
+Options:
+  -h      Show this help message and exit
+  -v      Show version information and exit
+
+Supported values for FRONTEND:
+  tmux    The result must be compatible with the status line of tmux terminal multiplexer
+          https://github.com/tmux/tmux
+  xfce    The result must be compatible with the XFCE4 Genmon plugin
+          https://docs.xfce.org/panel-plugins/xfce4-genmon-plugin
+EOF
+)
+
+while getopts 'hv' option; do
+    case "${option}" in
+        'h')
+            echo "${USAGE}"
+            exit
+            ;;
+        'v')
+            echo "${VERSION}"
+            exit
+            ;;
+        *)
+            echo "${USAGE}"
+            exit 1
+            ;;
+    esac
+done
+
+FRONTEND="${1}"
+
+if [ -z "${FRONTEND}" ] || [ "${FRONTEND}" != 'tmux' ] && [ "${FRONTEND}" != 'xfce' ]; then
+    echo "${0}: missing or invalid argument FRONTEND" >&2
+    exit 1
+fi
+
+dependencies_available() {
+    # No dependencies for this script
+    :;
+}
+
+main() {
+    # GNU's `uptime` includes `,` characters, while macOS's one does not
+    LOAD_AVERAGE="$(uptime | grep -Eo '[0-9.]+,? [0-9.]+,? [0-9.]+$' | tr -d ',')"
+
+    if [ "${FRONTEND}" = 'tmux' ]; then
+        echo "cpu:${LOAD_AVERAGE}"
+    elif [ "${FRONTEND}" = 'xfce' ]; then
+        ICON=''
+        echo "<tool></tool><txt><span fgcolor='#d3dae3'>${ICON} ${LOAD_AVERAGE}</span></txt>"
+    else
+        echo "${0}: unexpected error" >&2
+        exit 2
+    fi
+}
+
+if dependencies_available; then
+    main
+else
+    echo "${0}: dependencies not available" >&2
+    exit 3
+fi
+
+# CHANGELOG
+#
+# All notable changes to this project will be documented in this file.
+#
+# The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+# and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+#
+# [1.0.0] - 2023-07-07
+#
+# ADDED
+#
+# - Required positional arguments to control frontend (tmux/xfce) to use.
+# - The usage message.
+# - Option 'h' to print the usage.
+# - Semantic versioning of this script.
+# - Option 'v' to print the current version.
+# - Failure if illegal option was passed.
+# - Failure if dependencies are unavailable.
+# - This changelog.
+#
+# CHANGED
+#
+# - Merged `load-average-status` and `tmux-load-average-status`.
+# - Renamed to `status-load-average` to update to the new naming convention of
+#   scripts related to pretty-printing status info (`status-*`).
+# - Label/icon for `FRONTEND=tmux` variant from 'cpu 1.23 4.56 7.89' to
+#   'cpu:1.23 4.56 7.89'.

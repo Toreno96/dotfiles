@@ -1,6 +1,0 @@
-#!/bin/bash
-
-ICON=''
-LOAD_AVERAGE="$(uptime | grep -Eo '[0-9.]+, [0-9.]+, [0-9.]+$' | tr -d ',')"
-
-echo "<tool></tool><txt><span fgcolor='#d3dae3'>${ICON} ${LOAD_AVERAGE}</span></txt>"

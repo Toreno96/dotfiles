@@ -1,7 +1,0 @@
-#!/bin/bash
-
-ICON='cpu'
-# GNU's `uptime` includes `,` characters, while macOS's one does not
-LOAD_AVERAGE="$(uptime | grep -Eo '[0-9.]+,? [0-9.]+,? [0-9.]+$' | tr -d ',')"
-
-echo "${ICON} ${LOAD_AVERAGE}"
