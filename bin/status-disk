@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VERSION=1.0.0
+VERSION=1.1.0
 
 USAGE=$(cat << EOF
 Usage: $(basename "${0}") [-hv] FRONTEND
@@ -42,7 +42,7 @@ done
 FRONTEND="${1}"
 
 if [ -z "${FRONTEND}" ] || [ "${FRONTEND}" != 'tmux' ] && [ "${FRONTEND}" != 'xfce' ]; then
-    echo "${0}: missing or invalid argument FRONTEND" >&2
+    echo "${0}: '${FRONTEND}': missing or invalid argument FRONTEND" >&2
     exit 1
 fi
 
@@ -118,6 +118,12 @@ fi
 # - Calculate disk size in an OS-agnostic way (replace `df -h` and `df -H` that
 #   depends on `uname`)?
 # - Allow to specify PARTITIONS via option?
+#
+# [1.1.0] - 2023-07-13
+#
+# CHANGED
+# - Print the value of ARGUMENT in `missing or invalid argument ARGUMENT` error
+#   messages.
 #
 # [1.0.0] - 2023-07-07
 #
