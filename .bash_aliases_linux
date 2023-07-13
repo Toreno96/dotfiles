@@ -4,9 +4,12 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 
 alias ls='ls -F --group-directories-first --color=auto'
 alias ll="ls -hl --time-style='+%F %T'"
-alias lo="ls -ho --time-style='+%F %T'"
+# Like `ll`, but do not list group information
+alias lo="ll -o"
+# Like `ll`, but do not list group information and owner
 alias lgo='lo -g'
-alias lhat='ll -hat'
+# Like `ll`, but show hidden files and sort everything by time, newest first
+alias lhat='ll -at'
 
 alias grep='grep --color=auto'
 alias grepc='grep --color=always'

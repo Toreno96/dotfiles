@@ -2,11 +2,15 @@
 # sleep 10; alert
 alias alert='terminal-notifier -message "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
-alias gls='gls -F --group-directories-first --color=auto'
-alias gll="gls -hl --time-style='+%F %T'"
-alias glo="gls -ho --time-style='+%F %T'"
-alias glgo='glo -g'
-alias glhat='gll -hat'
+# EXPERIMENT: alias `ls` to GNU `ls`
+alias ls='gls -F --group-directories-first --color=auto'
+alias ll="ls -hl --time-style='+%F %T'"
+# Like `ll`, but do not list group information
+alias lo="ll -o"
+# Like `ll`, but do not list group information and owner
+alias lgo='lo -g'
+# Like `ll`, but show hidden files and sort everything by time, newest first
+alias lhat='ll -at'
 
 alias ggrep='ggrep --color=auto'
 alias ggrepc='ggrep --color=always'
