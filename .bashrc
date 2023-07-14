@@ -1,6 +1,57 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+# Homebrew-specific logic
+if [ "$(uname)" == 'Darwin' ]; then
+    # Something similar is added to `~/.bash_profile` when installing Homebrew:
+    # https://github.com/Homebrew/install/blob/96362c02f64bc1270645f6cd1698dda5a4790619/install.sh#L1010
+    # via `brew shellenv bash` command, however, the output of that hardcodes
+    # all values, e.g.:
+    # ```
+    # export HOMEBREW_PREFIX='/opt/homebrew'
+    # export HOMEBREW_CELLAR='/opt/homebrew/Cellar'
+    # …
+    # ```
+    # I've modified it to check if the prefix directory exists, used
+    # `HOMEBREW_PREFIX` to evaluate further variables and moved it here to the
+    # `~/.bashrc`
+    export HOMEBREW_PREFIX='/opt/homebrew'
+    if [ -d "${HOMEBREW_PREFIX}" ]; then
+        export HOMEBREW_CELLAR="${HOMEBREW_PREFIX}/Cellar";
+        export HOMEBREW_REPOSITORY="${HOMEBREW_PREFIX}";
+        export PATH="${HOMEBREW_PREFIX}/bin:${HOMEBREW_PREFIX}/sbin${PATH+:$PATH}";
+        export MANPATH="${HOMEBREW_PREFIX}/share/man${MANPATH+:$MANPATH}:";
+        export INFOPATH="${HOMEBREW_PREFIX}/share/info:${INFOPATH:-}";
+
+        # Based on:
+        # https://docs.brew.sh/Shell-Completion#configuring-completions-in-bash
+        if [[ -r "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]]; then
+            source "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"
+        else
+            for COMPLETION in "${HOMEBREW_PREFIX}/etc/bash_completion.d/"*; do
+                [[ -r "${COMPLETION}" ]] && source "${COMPLETION}"
+            done
+        fi
+
+        # It seems to be safe to load completion, `autojump`, `nvm`, etc as
+        # early in the `~/.bashrc` because none of those relies on environment
+        # variables like `EDITOR`, `PAGER`, `BROWSER`, etc (checked with
+        # recursive `grep` in those directories and by analyzing full output of
+        # `bash -x`)
+        [ -r "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ] && source "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"
+
+        [ -f "${HOMEBREW_PREFIX}/etc/profile.d/autojump.sh" ] && source "${HOMEBREW_PREFIX}/etc/profile.d/autojump.sh"
+
+        export NVM_DIR="$HOME/.nvm"
+        # This loads nvm
+        [ -s "${HOMEBREW_PREFIX}/opt/nvm/nvm.sh" ] && source "${HOMEBREW_PREFIX}/opt/nvm/nvm.sh"
+        # This loads nvm bash_completion
+        [ -s "${HOMEBREW_PREFIX}/opt/nvm/etc/bash_completion.d/nvm" ] && source "${HOMEBREW_PREFIX}/opt/nvm/etc/bash_completion.d/nvm"
+    else
+        echo "${HOMEBREW_PREFIX}: No such file or directory; check if and where Homebrew is installed" >&2
+    fi
+fi
+
 # Prompt
 ANSI_BOLD='\[\e[01m\]'
 ANSI_RED='\[\e[31m\]'
@@ -92,9 +143,22 @@ export HISTFILESIZE=-1
 export HISTTIMEFORMAT='%F %T '
 [ -f ~/.bash_aliases ] && source ~/.bash_aliases
 [ -f ~/.bash_functions ] && source ~/.bash_functions
-[ -f /usr/share/fzf/key-bindings.bash ] && source /usr/share/fzf/key-bindings.bash
-[ -f /usr/share/fzf/completion.bash ] && source /usr/share/fzf/completion.bash
-[ -f ~/.local/bin/tmuxinator.bash ] && source ~/.local/bin/tmuxinator.bash
-[ -f ~/.dircolors ] && eval "$(dircolors -b ~/.dircolors)"
-[ -f /usr/share/autojump/autojump.bash ] && source /usr/share/autojump/autojump.bash
+if [ "$(uname)" == 'Darwin' ]; then
+    # If this fails with
+    # ```
+    # -bash: gdircolors: command not found
+    # ```
+    # it means something went wrong while loading Homebrew
+    [ -f ~/.dircolors ] && eval "$(gdircolors -b ~/.dircolors)"
+
+    [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+else
+    [ -f ~/.dircolors ] && eval "$(dircolors -b ~/.dircolors)"
+
+    [ -f /usr/share/fzf/key-bindings.bash ] && source /usr/share/fzf/key-bindings.bash
+    [ -f /usr/share/fzf/completion.bash ] && source /usr/share/fzf/completion.bash
+
+    [ -f /usr/share/autojump/autojump.bash ] && source /usr/share/autojump/autojump.bash
+fi
+
 export LS_COLORS="${LS_COLORS}ow=01;34:"
