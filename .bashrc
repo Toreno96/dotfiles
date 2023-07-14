@@ -128,6 +128,7 @@ export TERMINFO_DIRS=$TERMINFO_DIRS:$HOME/.local/share/terminfo
 
 # Etc
 export PAGER=less
+export MANPAGER='less -s'
 command -v brave &>/dev/null && export BROWSER=brave
 command -v vim &>/dev/null && export EDITOR=vim
 export PYTHONSTARTUP=$HOME/.pythonrc.py
