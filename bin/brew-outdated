@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VERSION=1.3.0
+VERSION=2.0.0
 
 USAGE=$(cat << EOF
 Usage: $(basename "${0}") [-hv]
@@ -57,7 +57,7 @@ list_outdated() {
     done < <(echo "${OUTDATED}")
 }
 
-if dependencies_available; then
+main() {
     # There are two tricks here:
     # 1) `grep` one, to print the full output while highlighting the match,
     #    borrowed from:
@@ -69,6 +69,13 @@ if dependencies_available; then
     #    all at once instead of line by line.
     #    A surprise to be sure, but a welcome one.
     grep --color=always 'major\|$' <<<"$(list_outdated)"
+}
+
+if dependencies_available; then
+    main
+else
+    echo "${0}: dependencies not available" >&2
+    exit 3
 fi
 
 # CHANGELOG
@@ -77,6 +84,21 @@ fi
 #
 # The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 # and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+#
+# [2.0.0] - 2023-07-14
+#
+# CHANGED
+#
+# - If dependencies are unavailable, the script now fails with a non-zero exit
+#   code, instead of silently failing with a zero (successful) exit code and no
+#   error message.
+# - Wrap the main functionality into the `main` function, adopting a convention
+#   of my other recent scripts.
+#
+# FIXED
+#
+# - Formatting of this changelog (added blank line after each ADDED/CHANGED/etc
+#   section).
 #
 # [1.3.0] - 2023-07-04
 #
@@ -87,6 +109,7 @@ fi
 # [1.2.0] - 2023-06-14
 #
 # CHANGED
+#
 # - The documentation of the purpose of this script from the inline comment to
 #   the multi-line string variable.
 # - Option 'h' to print the usage (uses the above-mentioned variable).
@@ -95,6 +118,7 @@ fi
 # [1.1.0] - 2023-06-14
 #
 # ADDED
+#
 # - Document what's the purpose of this script (as the inline comment at the
 #   top of the file).
 # - Semantic versioning of this script.
@@ -104,10 +128,12 @@ fi
 # [1.0.0] - 2023-06-14
 #
 # ADDED
+#
 # - Highlight 'major' version differences in the output.
 # - Document the code.
 #
 # CHANGED
+#
 # - Print the resulting output all at once instead of line by line.
 # - Prefer here strings over `echo "${variable} | …` when `cut`ting variables.
 #
