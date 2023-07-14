@@ -3,7 +3,7 @@
 VERSION=0.0.1
 
 USAGE=$(cat << EOF
-Usage: $(basename "${0}") [-hv]
+Usage: $(basename "${0}") [-hv] ARGUMENT
 
 Placeholder title.
 
@@ -32,6 +32,13 @@ while getopts 'hv' option; do
     esac
 done
 
+ARGUMENT="${1}"
+
+if [ -z "${ARGUMENT}" ] || [ "${ARGUMENT}" != 'placeholder foo' ] && [ "${ARGUMENT}" != 'placeholder bar' ]; then
+    echo "${0}: '${ARGUMENT}': missing or invalid argument ARGUMENT" >&2
+    exit 1
+fi
+
 dependencies_available() {
     (command -v brew &>/dev/null) && (command -v semver &>/dev/null)
 }
@@ -41,6 +48,9 @@ main() {
 
 if dependencies_available; then
     main
+else
+    echo "${0}: dependencies not available" >&2
+    exit 3
 fi
 
 # CHANGELOG
