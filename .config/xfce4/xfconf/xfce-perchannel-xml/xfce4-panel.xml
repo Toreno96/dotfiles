@@ -227,9 +227,12 @@
       <property name="style" type="uint" value="0"/>
     </property>
     <property name="plugin-2" type="string" value="clock">
-      <property name="digital-format" type="string" value=" %F  %H:%M"/>
+      <property name="digital-format" type="string" value=" %a %F  %H:%M"/>
       <property name="mode" type="uint" value="2"/>
-      <property name="tooltip-format" type="string" value=""/>
+      <property name="tooltip-format" type="string" value="%s, %:z"/>
+      <property name="digital-time-format" type="string" value=" %a %F  %R %Z"/>
+      <property name="digital-layout" type="uint" value="3"/>
+      <property name="digital-time-font" type="string" value="Bitstream Vera Sans 12"/>
     </property>
     <property name="plugin-21" type="string" value="separator">
       <property name="style" type="uint" value="0"/>
