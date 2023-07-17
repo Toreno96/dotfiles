@@ -44,7 +44,6 @@ create_full_status() {
         fi
 
         ALBUM="$(jq -r '."xesam:album" // ""' <<<"${METADATA}")"
-        echo "${ALBUM}" >/tmp/mpris-status.log
         FULL_STATUS='<tool>'
         FULL_STATUS+="ARTIST...: ${ARTIST}\n"
         FULL_STATUS+="TITLE......: ${TITLE}\n"
