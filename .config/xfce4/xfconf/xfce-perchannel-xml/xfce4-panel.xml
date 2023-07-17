@@ -237,12 +237,33 @@
     <property name="plugin-22" type="string" value="separator">
       <property name="style" type="uint" value="0"/>
     </property>
-    <property name="plugin-23" type="string" value="genmon"/>
-    <property name="plugin-24" type="string" value="genmon"/>
+    <property name="plugin-23" type="string" value="genmon">
+      <property name="command" type="string" value="brightness-status &apos;xbacklight&apos;"/>
+      <property name="use-label" type="bool" value="false"/>
+      <property name="text" type="string" value="(genmon)"/>
+      <property name="update-period" type="int" value="250"/>
+      <property name="enable-single-row" type="bool" value="true"/>
+      <property name="font" type="string" value="Bitstream Vera Sans 12"/>
+    </property>
+    <property name="plugin-24" type="string" value="genmon">
+      <property name="command" type="string" value="status-disk xfce"/>
+      <property name="use-label" type="bool" value="false"/>
+      <property name="text" type="string" value="(genmon)"/>
+      <property name="update-period" type="int" value="1000"/>
+      <property name="enable-single-row" type="bool" value="true"/>
+      <property name="font" type="string" value="Bitstream Vera Sans 12"/>
+    </property>
     <property name="plugin-25" type="string" value="separator">
       <property name="style" type="uint" value="0"/>
     </property>
-    <property name="plugin-27" type="string" value="genmon"/>
+    <property name="plugin-27" type="string" value="genmon">
+      <property name="command" type="string" value="mpris-status"/>
+      <property name="use-label" type="bool" value="false"/>
+      <property name="text" type="string" value="(genmon)"/>
+      <property name="update-period" type="int" value="500"/>
+      <property name="enable-single-row" type="bool" value="true"/>
+      <property name="font" type="string" value="Bitstream Vera Sans 12"/>
+    </property>
     <property name="plugin-28" type="string" value="launcher">
       <property name="disable-tooltips" type="bool" value="true"/>
       <property name="items" type="array">
@@ -273,8 +294,22 @@
       <property name="style" type="uint" value="0"/>
     </property>
     <property name="plugin-6" type="string" value="embed"/>
-    <property name="plugin-7" type="string" value="genmon"/>
-    <property name="plugin-8" type="string" value="genmon"/>
+    <property name="plugin-7" type="string" value="genmon">
+      <property name="command" type="string" value="status-outdated-packages pacman xfce"/>
+      <property name="use-label" type="bool" value="false"/>
+      <property name="text" type="string" value="(genmon)"/>
+      <property name="update-period" type="int" value="60000"/>
+      <property name="enable-single-row" type="bool" value="true"/>
+      <property name="font" type="string" value="Bitstream Vera Sans 12"/>
+    </property>
+    <property name="plugin-8" type="string" value="genmon">
+      <property name="command" type="string" value="status-memory xfce"/>
+      <property name="use-label" type="bool" value="false"/>
+      <property name="text" type="string" value="(genmon)"/>
+      <property name="update-period" type="int" value="1000"/>
+      <property name="enable-single-row" type="bool" value="true"/>
+      <property name="font" type="string" value="Bitstream Vera Sans 12"/>
+    </property>
     <property name="plugin-9" type="string" value="separator">
       <property name="expand" type="bool" value="true"/>
       <property name="style" type="uint" value="0"/>
@@ -282,6 +317,13 @@
     <property name="plugin-16" type="string" value="separator">
       <property name="style" type="uint" value="0"/>
     </property>
-    <property name="plugin-17" type="string" value="genmon"/>
+    <property name="plugin-17" type="string" value="genmon">
+      <property name="command" type="string" value="status-load-average xfce"/>
+      <property name="use-label" type="bool" value="false"/>
+      <property name="text" type="string" value="(genmon)"/>
+      <property name="update-period" type="int" value="1000"/>
+      <property name="enable-single-row" type="bool" value="true"/>
+      <property name="font" type="string" value="Bitstream Vera Sans 12"/>
+    </property>
   </property>
 </channel>
