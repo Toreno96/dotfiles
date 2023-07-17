@@ -97,7 +97,7 @@
       </property>
     </property>
   </property>
-  <property name="Notify" type="bool" value="true"/>
+  <property name="Notify" type="int" value="3"/>
   <property name="ActiveProfile" type="string" value="Default"/>
   <property name="Fallback" type="empty">
     <property name="HDMI-0" type="string" value="Dell Inc. 24&quot;">
