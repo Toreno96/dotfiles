@@ -79,7 +79,7 @@
         <property name="Y" type="double" value="1.000000"/>
       </property>
     </property>
-    <property name="DP-0" type="string" value="DO NOT USE - AUO 15&quot;">
+    <property name="DP-0" type="string" value="AU Optronics 15&quot;">
       <property name="Active" type="bool" value="true"/>
       <property name="Resolution" type="string" value="1920x1080"/>
       <property name="RefreshRate" type="double" value="60.052440"/>
@@ -117,7 +117,7 @@
         <property name="Y" type="int" value="0"/>
       </property>
     </property>
-    <property name="DP-0" type="string" value="DO NOT USE - AUO 15&quot;">
+    <property name="DP-0" type="string" value="AU Optronics 15&quot;">
       <property name="Active" type="bool" value="true"/>
       <property name="EDID" type="string" value="4c4d57b70c4d3addd0731dbf5320c8b45cdcd32a"/>
       <property name="Resolution" type="string" value="1920x1080"/>

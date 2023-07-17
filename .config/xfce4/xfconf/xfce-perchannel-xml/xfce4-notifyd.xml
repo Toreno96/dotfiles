@@ -3,7 +3,7 @@
 <channel name="xfce4-notifyd" version="1.0">
   <property name="notify-location" type="uint" value="2"/>
   <property name="theme" type="string" value="Default"/>
-  <property name="initial-opacity" type="double" value="0.900000"/>
+  <property name="initial-opacity" type="double" value="0.90000000000000002"/>
   <property name="applications" type="empty">
     <property name="known_applications" type="array">
       <value type="string" value="blueman"/>
@@ -15,6 +15,8 @@
       <value type="string" value="nm-applet"/>
       <value type="string" value="notify-send"/>
       <value type="string" value="opera"/>
+      <value type="string" value="org.freedesktop.network-manager-applet"/>
+      <value type="string" value="org.xfce.Thunar"/>
       <value type="string" value="Package Manager"/>
       <value type="string" value="parole-notify"/>
       <value type="string" value="pragha"/>
@@ -22,6 +24,7 @@
       <value type="string" value="signal"/>
       <value type="string" value="Spotify"/>
       <value type="string" value="terminal"/>
+      <value type="string" value="thunar"/>
       <value type="string" value="Thunar"/>
       <value type="string" value="Thunderbird"/>
       <value type="string" value="Transmission"/>
@@ -40,4 +43,5 @@
   <property name="do-slideout" type="bool" value="false"/>
   <property name="do-fadeout" type="bool" value="true"/>
   <property name="notification-log" type="bool" value="true"/>
+  <property name="log-max-size-enabled" type="bool" value="true"/>
 </channel>
