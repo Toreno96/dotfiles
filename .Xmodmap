@@ -3,11 +3,11 @@ clear control
 clear mod1
 clear mod4
 
-! Left Alt as Left Control
-keycode 64 = Control_L
+! Left Alt as Right Control
+keycode 64 = Control_R
 ! Caps Lock as Left Control
 keycode 66 = Control_L
-add control = Control_L
+add control = Control_L Control_R
 
 ! Left Ctrl as Left Super
 keycode 37 = Super_L
@@ -17,5 +17,20 @@ add mod4 = Super_L Super_R Hyper_L
 keycode 133 = Alt_L
 add mod1 = Alt_L Meta_L
 
-! Right Ctrl as Compose Key
-keycode 105 = Multi_key
+! Right Shift as Compose Key
+keycode 62 = Multi_key
+
+! Right Ctrl as Mode Switch
+keycode 105 = Mode_switch
+! Left Arrow + Mode Switch as Home
+keycode 113 = Left NoSymbol Home
+! a + Mode Switch as Home
+keycode 26 = e E End E eogonek Eogonek eogonek
+! Right Arrow + Mode Switch as End
+keycode 114 = Right NoSymbol End
+! e + Mode Switch as End
+keycode 38 = a A Home A aogonek Aogonek aogonek
+
+! Swap Escape and grave/asciitilde (for Keychron K14 keyboard)
+keycode 9 = grave asciitilde grave asciitilde notsign logicalor notsign
+keycode 49 = Escape
