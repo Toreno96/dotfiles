@@ -5,8 +5,8 @@
     <property name="power-button-action" type="uint" value="4"/>
     <property name="brightness-switch-restore-on-exit" type="int" value="1"/>
     <property name="brightness-switch" type="int" value="0"/>
-    <property name="presentation-mode" type="bool" value="true"/>
-    <property name="show-tray-icon" type="bool" value="true"/>
+    <property name="presentation-mode" type="bool" value="false"/>
+    <property name="show-tray-icon" type="bool" value="false"/>
     <property name="critical-power-action" type="uint" value="3"/>
     <property name="blank-on-ac" type="int" value="0"/>
     <property name="dpms-on-battery-off" type="uint" value="0"/>
@@ -23,10 +23,13 @@
     <property name="lock-screen-suspend-hibernate" type="bool" value="true"/>
     <property name="handle-brightness-keys" type="bool" value="true"/>
     <property name="lid-action-on-ac" type="uint" value="1"/>
-    <property name="critical-power-level" type="uint" value="15"/>
+    <property name="critical-power-level" type="uint" value="20"/>
     <property name="brightness-on-ac" type="uint" value="9"/>
     <property name="sleep-button-action" type="uint" value="1"/>
     <property name="inactivity-sleep-mode-on-battery" type="uint" value="1"/>
     <property name="hibernate-button-action" type="uint" value="1"/>
+    <property name="show-presentation-indicator" type="bool" value="false"/>
+    <property name="show-panel-label" type="int" value="1"/>
+    <property name="brightness-step-count" type="uint" value="17"/>
   </property>
 </channel>
