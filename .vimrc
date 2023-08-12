@@ -197,6 +197,18 @@ set ignorecase
 set tagcase=followscs
 set smartcase
 
+" EXPERIMENT: see if it causes lines to be auto-formatted on the 80 column (if
+" yes and I don't like it, rollback this setting or customize `formatoptions`
+" setting)
+set textwidth=80
+" 80 and 120 are the most common line lengths I've encountered in my daily work,
+" while 88 is the Black's default[^1].
+" This is set to +1 value (instead of 80,88,120), to show the color column right
+" _after_ each length (similar to how visual guides in PyCharm are displayed).
+"
+" [^1]: https://black.readthedocs.io/en/stable/the_black_code_style/current_style.html#line-length
+set colorcolumn=81,89,121
+
 " Delete trailing whitespaces
 nnoremap <leader>d<space> :%s/\s\+$//g<enter>
 " Remap to remove collision with the above
