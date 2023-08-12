@@ -45,7 +45,10 @@
     # `git hash | pbcopy` will copy the most recent commit hash into the system
     # clipboard
     hash = log -1 --pretty=tformat:%H
-    rebasec = rebase --continue
+    rc = rebase --continue
+    # Rebase interactively all commits on the current branch that are ahead of
+    # `master` branch
+    rebasim = ! git rebase -i --rebase-merges "HEAD~$(git logom | wc -l | tr -d ' ')"
     # For fun, borrowed from: https://github.com/maciejkorsan/podlaskigit
     # Relies on the fact that there's no other command or alias starting with
     # `ak`, therefore `ak<TAB>` is enough to run this alias
