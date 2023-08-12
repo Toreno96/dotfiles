@@ -13,9 +13,7 @@
     diffm = diff master
     ss = status --short --branch
     ignored = ! git ss --ignored | grep --color '^!!'
-    adog = log --all --decorate --oneline --graph
     checkoutfzf = ! git checkout $(git branch -a | sed 's@remotes/origin/@@' | sort -u | fzf)
-    pullr = ! git pull --rebase && echo >&2 'WARNING: `pullr` alias is deprecated, please use `purr`.'
     purr = pull --rebase
     lastash = checkout -p stash@{0}
     logona = log --oneline --no-abbrev
@@ -34,9 +32,7 @@
     # to Ada Lovelace.
     ada = add -vu
     comane = commit --amend --no-edit
-    findc = ! git log --oneline --all | fzf | cut -d ' ' -f1 | tr -d '\n'
     cm = checkout master
-    clearb = ! git branch | grep -v 'master' | xargs -p git branch -D
     changelog-squash = log --pretty='* %B'
     cp = cherry-pick
     mergeff = merge --ff-only
