@@ -1,3 +1,9 @@
 #!/bin/bash
 
+if command -v delta &>/dev/null; then
+    alias diff-highlight='delta --diff-highlight --keep-plus-minus-markers --paging=never'
+else
+    alias diff-highlight='cat'
+fi
+
 diff --color=always -u "${6}" "${7}" | diff-highlight
