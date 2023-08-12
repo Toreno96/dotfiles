@@ -167,11 +167,13 @@ set expandtab
 set linebreak
 set list
 if $TERM=~'xterm' || $PRESERVED_TERM=~'xterm'
-  " `tab` and `nbsp` are using a common Unicode representation
+  " `nbsp` is using a common Unicode representation
   " Source: https://en.wikipedia.org/w/index.php?title=Whitespace_character&oldid=1122350113#Substitute_images
-  set listchars=tab:⪫\ ,trail:█,extends:›,precedes:‹,nbsp:⍽
+  " `tab` was using it too (the '⪫' character), but while my macOS machine
+  " renders it correctly, my Linux machine does not
+  set listchars=tab:▸\ ,trail:█,extends:›,precedes:‹,nbsp:⍽
 else
-  set listchars=tab:\|\ ,trail:-,extends:>,precedes:<,nbsp:!
+  set listchars=tab:\|\ ,trail:#,extends:>,precedes:<,nbsp:!
 endif
 set number relativenumber
 set previewheight=5
