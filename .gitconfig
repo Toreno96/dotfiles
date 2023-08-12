@@ -16,7 +16,9 @@
     checkoutfzf = ! git checkout $(git branch -a | sed 's@remotes/origin/@@' | sort -u | fzf)
     purr = pull --rebase
     lastash = checkout -p stash@{0}
-    logona = log --oneline --no-abbrev
+    logo = log --oneline
+    logm = log master..HEAD
+    logom = log --oneline master..HEAD
     rs = restore --staged
     pushu = ! git push -u origin $(git branch --show-current)
     pusht = push --tags
