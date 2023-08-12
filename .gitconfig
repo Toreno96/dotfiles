@@ -22,12 +22,12 @@
     rs = restore --staged
     pushu = ! git push -u origin $(git branch --show-current)
     pusht = push --tags
-    bdiff = ! git diff | colordiff | diff-highlight | less -R
-    bdiffs = ! git diffs | colordiff | diff-highlight | less -R
-    bdiffm = ! git diffm | colordiff | diff-highlight | less -R
-    ddiff = ! git diff | delta | less -R
-    ddiffs = ! git diffs | delta | less -R
-    ddiffm = ! git diffm | delta | less -R
+    bdiff = ! git diff | colordiff | diff-highlight | less -FR
+    bdiffs = ! git diffs | colordiff | diff-highlight | less -FR
+    bdiffm = ! git diffm | colordiff | diff-highlight | less -FR
+    ddiff = ! git diff | delta | less -FR
+    ddiffs = ! git diffs | delta | less -FR
+    ddiffm = ! git diffm | delta | less -FR
     # Add all changed tracked files to the index while being verbose about it
     # to allow instant verification of what exactly was added.
     # The mnemonic `ada` comes from [ad]d [a]ll, while also being the tribute
