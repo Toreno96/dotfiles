@@ -135,6 +135,8 @@ autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
 Plugin 'tpope/vim-fugitive'
 
+Plugin 'whiteinge/diffconflicts'
+
 call vundle#end()
 
 filetype plugin indent on

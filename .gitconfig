@@ -53,9 +53,13 @@
     # `ak`, therefore `ak<TAB>` is enough to run this alias
     akomutopotrzebne = reset HEAD --hard
 [merge]
-    tool = vimdiff
-    conflictStyle = diff3
+    tool = diffconflicts
     prompt = false
+[mergetool]
+    keepBackup = false
+[mergetool "diffconflicts"]
+    cmd = vim -c DiffConflicts \"$MERGED\" \"$BASE\" \"$LOCAL\" \"$REMOTE\"
+    trustExitCode = true
 [pull]
     rebase = false
 [commit]
