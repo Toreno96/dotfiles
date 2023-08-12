@@ -1,15 +1,31 @@
 {
-  "settingsVersion": "1.66",
+  "settingsVersion": "1.67.7",
   "exclusionRules": [
     {
-      "pattern": "https://mail.google.com/*",
+      "pattern": "*",
+      "passKeys": "oObBtTxXWvVrR"
+    },
+    {
+      "pattern": "https?://trello.com/*",
       "passKeys": ""
+    },
+    {
+      "pattern": "https?://*.atlassian.net/*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https?://miro.com/*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https://mail.google.com/*",
+      "passKeys": "oObBtTxXWvVrR?jkpxercgils#ud/"
     }
   ],
   "filterLinkHints": false,
   "waitForEnterForFilteredHints": true,
   "hideHud": false,
-  "keyMappings": "# Because <c-[> is reserved in FF Quantum\nmapkey <c-a-[> <c-[>\nmapkey <c-{> <c-[>\n\nmap R reload hard",
+  "keyMappings": "# Workaround for Gmail using `d` and `u` for its own mappings;\n# this may conflict with `CTRL+d` and `CTRL+u` on Linux/Windows, however, the\n# former is a shortcut for adding a bookmark, which I don't use anyway, while\n# I'm not sure the CTRL-u if even has any mapping\nmap <c-d> scrollPageDown\nmap <c-u> scrollPageUp",
   "linkHintCharacters": "sadfjklewcmpgh",
   "linkHintNumbers": "0123456789",
   "newTabUrl": "about:newtab",
@@ -19,8 +35,8 @@
   "ignoreKeyboardLayout": false,
   "scrollStepSize": 60,
   "smoothScroll": true,
-  "grabBackFocus": false,
-  "searchEngines": "wen: https://en.wikipedia.org/w/index.php?title=Special:Search&search=%s Wikipedia ENG\nwpl: https://pl.wikipedia.org/w/index.php?title=Special:Search&search=%s Wikipedia PL\nwarch: https://wiki.archlinux.org/index.php?search=%s Arch Wiki\ng: https://www.google.com/search?q=%s Google\nyt: https://www.youtube.com/results?search_query=%s Youtube\nddg: https://duckduckgo.com/?q=%s DuckDuckGo\ncpp: https://en.cppreference.com/mwiki/index.php?title=Special%3ASearch&search=%s C++ reference\npy27: https://docs.python.org/2.7/search.html?q=%s Python 2.7.14 docs\npy35: https://docs.python.org/3.5/search.html?q=%s Python 3.5.4 docs\nqt48: https://doc.qt.io/archives/qt-4.8/%s.html Qt 4.8 docs",
+  "grabBackFocus": true,
+  "searchEngines": "",
   "searchUrl": "https://duckduckgo.com/",
   "userDefinedLinkHintCss": "div > .vimiumHintMarker {\n/* linkhint boxes */\nbackground: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FFF785),\n  color-stop(100%,#FFC542));\nborder: 1px solid #E3BE23;\n}\n\ndiv > .vimiumHintMarker span {\n/* linkhint text */\ncolor: black;\nfont-weight: bold;\nfont-size: 12px;\n}\n\ndiv > .vimiumHintMarker > .matchingCharacter {\n}"
 }
