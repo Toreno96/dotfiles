@@ -203,6 +203,18 @@ set smartcase
 " yes and I don't like it, rollback this setting or customize `formatoptions`
 " setting)
 set textwidth=80
+" If `formatoptions` is updated via the plain:
+" ```
+" set formatoptions-=…
+" ```
+" it is overidden by `/usr/share/vim/…/ftplugin/*.vim` files.
+" One way to address that is to use `autocmd` as below
+" Source: https://vi.stackexchange.com/a/26130
+augroup FormatOptions
+  autocmd!
+  autocmd FileType * setlocal formatoptions-=c
+  autocmd FileType * setlocal formatoptions-=t
+augroup end
 " 80 and 120 are the most common line lengths I've encountered in my daily work,
 " while 88 is the Black's default[^1].
 " This is set to +1 value (instead of 80,88,120), to show the color column right
