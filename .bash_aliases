@@ -27,5 +27,5 @@ if command -v docker &>/dev/null; then
 fi
 
 if command -v aws &>/dev/null; then
-    alias awslocal="aws --endpoint-url=http://localhost:4566"
+    alias awslocal='aws --endpoint-url=http://localhost:4566'
 fi
