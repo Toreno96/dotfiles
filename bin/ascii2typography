@@ -1,0 +1,26 @@
+#!/usr/bin/sed -f
+
+# After connecting my Keychron K14 (or any physical keyboard, I guess) to
+# Android phone, I'm not able to input typographical characters like em dash,
+# ellipsis, etc. There's no built-in shortcut for that, neither I have access to
+# Compose key, as opposed to my macOS/Linux configuration.
+#
+# As a workaround, I type ASCII approximate[^1] of those typographical
+# characters, and then I replace them on a machine where I can input them. This
+# script automates the last part of the workaround. Also, it's possible to use
+# it on Termux at Android, so that way I don't even need to send the file to
+# another machine.
+#
+# [^1]: as defined by myself: they are either inspired by Compose key sequences,
+#       like `---` (triple hyphen) for em dash, or invented myself, like `,,` double
+#       comma and `''` double apostrophe (!) for Polish quotation marks
+#       (`,,foo bar baz''` over something like `"foo bar baz"` simplified the
+#       implementation).
+
+s/---/—/g
+s/--./–/g
+s/\.\.\./…/g
+s/,,/„/g
+s/''/”/g
+s/<</«/g
+s/>>/»/g
