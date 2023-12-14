@@ -19,20 +19,9 @@ let &t_Ce = "\e[4:0m"
 " set background=light
 set background=dark
 syntax enable
-if $TERM=~'256color'
-  " let g:gruvbox_bold=0
-  " let g:gruvbox_underline=0
-  " let g:gruvbox_undercurl=0
-  " let g:gruvbox_sign_column='bg0'
-  " let g:gruvbox_vert_split='bg0'
-  " let g:gruvbox_contrast_dark='hard'
-  " let g:gruvbox_contrast_light='hard'
-  " colorscheme gruvbox
-  colorscheme codedark
-  hi SpecialKey ctermfg=240
-  " From 'octol/vim-cpp-enhanced-highlight'
-  hi cCustomClassName ctermfg=43
 
+" Customizes all colorschemes
+function! s:tweak_colors()
   hi DiffAdd ctermfg=black ctermbg=green
   hi diffAdded ctermfg=green ctermbg=black
   hi DiffChange ctermfg=black ctermbg=yellow
@@ -41,6 +30,21 @@ if $TERM=~'256color'
 
   hi SpellBad ctermfg=red
   hi SpellCap ctermfg=blue
+
+  " Highlight the search pattern _while typing_ (e.g. `/IncSearch`).
+  " This is separate from the `hi Search`, which highlights the last search
+  " pattern (e.g. `/IncSearch<CR>`)
+  hi IncSearch ctermfg=red cterm=bold
+endfunction
+
+" Customizes `codedark` scheme
+" TODO consider moving it to the `codedark`'s file?
+" that would remove the need for this autocmd function and I could define colors
+" for 256colorless terminal easily
+function! s:tweak_codedark_colors()
+  hi SpecialKey ctermfg=240
+  " From 'octol/vim-cpp-enhanced-highlight'
+  hi cCustomClassName ctermfg=43
 
   " Make H1 distinguishable from H2-6 to make it easier to catch if it's
   " incorrectly in the middle of higher-level headings;
@@ -58,14 +62,29 @@ if $TERM=~'256color'
   hi markdownCode ctermfg=203
   hi markdownCodeDelimiter ctermfg=203
 
-  " Highlight the search pattern _while typing_ (e.g. `/IncSearch`).
-  " This is separate from the `hi Search`, which highlights the last search
-  " pattern (e.g. `/IncSearch<CR>`)
-  hi IncSearch ctermfg=red cterm=bold
   " Highlight the current match for the last search pattern to distinguish it
   " from other matches
   hi CurSearch ctermfg=yellow ctermbg=239 cterm=bold
+endfunction
+
+" To avoid losing my customization after changing colorscheme and changing it back
+" Source: https://github.com/junegunn/goyo.vim/blob/7f5d35a65510083ea5c2d0941797244b9963d4a9/README.md#faq
+autocmd! ColorScheme * call s:tweak_colors()
+autocmd! ColorScheme codedark call s:tweak_codedark_colors()
+
+if $TERM=~'256color'
+  " let g:gruvbox_bold=0
+  " let g:gruvbox_underline=0
+  " let g:gruvbox_undercurl=0
+  " let g:gruvbox_sign_column='bg0'
+  " let g:gruvbox_vert_split='bg0'
+  " let g:gruvbox_contrast_dark='hard'
+  " let g:gruvbox_contrast_light='hard'
+  " colorscheme gruvbox
+  colorscheme codedark
 else
+  " TODO test how `codedark` would work on the terminal without 256 color support;
+  " that would simplify syntax highlighting configuration significantly
   colorscheme default
 endif
 
