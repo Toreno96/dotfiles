@@ -48,22 +48,25 @@
     checkoutfzf = ! git checkout $(git branch -a | sed 's@remotes/origin/@@' | sort -u | fzf)
     purr = pull --rebase
     lastash = checkout -p stash@{0}
-    logo = log --oneline
     logm = log master..HEAD
-    logom = log --oneline master..HEAD
+    # The mnemonic [o]neline [log]
+    olog = log --oneline
+    ologm = log --oneline master..HEAD
     rs = restore --staged
     pushu = ! git push -u origin $(git branch --show-current)
     pusht = push --tags
+    # The mnemonic [b]etter [diff]
     bdiff = ! git diff --color=always | delta --features=diff-highlight | less -FR
     bdiffs = ! git diffs --color=always | delta --features=diff-highlight | less -FR
     bdiffm = ! git diffm --color=always | delta --features=diff-highlight | less -FR
+    # The mnemonic [d]elta [diff]
     ddiff = ! git diff --color=always | delta --features=ddiff
     ddiffs = ! git diffs --color=always | delta --features=ddiff
     ddiffm = ! git diffm --color=always | delta --features=ddiff
     # Add all changed tracked files to the index while being verbose about it
     # to allow instant verification of what exactly was added.
-    # The mnemonic `ada` comes from [ad]d [a]ll, while also being the tribute
-    # to Ada Lovelace.
+    # The alias `ada` comes from [ad]d [a]ll, while also being the tribute
+    # to Ada Lovelace
     ada = add -vu
     comane = commit --amend --no-edit
     cm = checkout master
@@ -80,7 +83,12 @@
     rc = rebase --continue
     # Rebase interactively all commits on the current branch that are ahead of
     # `master` branch
-    rebasim = ! git rebase -i --rebase-merges "HEAD~$(git logom | wc -l | tr -d ' ')"
+    rebasim = ! git rebase -i --rebase-merges "HEAD~$(git ologm | wc -l | tr -d ' ')"
+    # Run pre-commit hooks after each commit during the rebase
+    prebase = rebase -x 'pre-commit run --from-ref HEAD~ --to-ref HEAD'
+    # Rebase interactively all commits on the current branch that are ahead of
+    # `master` branch and run pre-commit hooks after each commit during the rebase
+    prebasim = ! git prebase -i --rebase-merges "HEAD~$(git ologm | wc -l | tr -d ' ')"
     # For fun, borrowed from: https://github.com/maciejkorsan/podlaskigit
     # Relies on the fact that there's no other command or alias starting with
     # `ak`, therefore `ak<TAB>` is enough to run this alias
