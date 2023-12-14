@@ -30,6 +30,7 @@ if $TERM=~'256color'
   " colorscheme gruvbox
   colorscheme codedark
   hi SpecialKey ctermfg=240
+  " From 'octol/vim-cpp-enhanced-highlight'
   hi cCustomClassName ctermfg=43
 
   hi DiffAdd ctermfg=black ctermbg=green
@@ -41,7 +42,13 @@ if $TERM=~'256color'
   hi SpellBad ctermfg=red
   hi SpellCap ctermfg=blue
 
-  hi markdownH1 ctermfg=75 cterm=bold
+  " Make H1 distinguishable from H2-6 to make it easier to catch if it's
+  " incorrectly in the middle of higher-level headings;
+  " also, wanted the opportunity to use the beautiful `ctermfg=43` for something
+  hi markdownH1 ctermfg=43 cterm=bold
+  " hi markdownH1 ctermfg=75 cterm=bold,reverse
+  " Headings and code colorization inspired by:
+  " https://github.com/charmbracelet/glow
   hi markdownH2 ctermfg=75 cterm=bold
   hi markdownH3 ctermfg=75 cterm=bold
   hi markdownH4 ctermfg=75 cterm=bold
@@ -55,6 +62,9 @@ if $TERM=~'256color'
   " This is separate from the `hi Search`, which highlights the last search
   " pattern (e.g. `/IncSearch<CR>`)
   hi IncSearch ctermfg=red cterm=bold
+  " Highlight the current match for the last search pattern to distinguish it
+  " from other matches
+  hi CurSearch ctermfg=yellow ctermbg=239 cterm=bold
 else
   colorscheme default
 endif
