@@ -35,6 +35,7 @@
 [diff]
     tool = vimdiff
     colorMoved = default
+    algorithm = patience
 [difftool]
     prompt = false
 [push]
