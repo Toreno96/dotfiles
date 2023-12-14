@@ -1,42 +1,29 @@
 {
-  "settingsVersion": "1.67.7",
-  "exclusionRules": [
-    {
-      "pattern": "*",
-      "passKeys": "oObBtTxXWvVrR"
-    },
-    {
-      "pattern": "https?://trello.com/*",
-      "passKeys": ""
-    },
-    {
-      "pattern": "https?://*.atlassian.net/*",
-      "passKeys": ""
-    },
-    {
-      "pattern": "https?://miro.com/*",
-      "passKeys": ""
-    },
-    {
-      "pattern": "https://mail.google.com/*",
-      "passKeys": "oObBtTxXWvVrR?jkpxercgils#ud/"
-    }
-  ],
-  "filterLinkHints": false,
-  "waitForEnterForFilteredHints": true,
-  "hideHud": false,
   "keyMappings": "# Workaround for Gmail using `d` and `u` for its own mappings;\n# this may conflict with `CTRL+d` and `CTRL+u` on Linux/Windows, however, the\n# former is a shortcut for adding a bookmark, which I don't use anyway, while\n# I'm not sure the CTRL-u if even has any mapping\nmap <c-d> scrollPageDown\nmap <c-u> scrollPageUp",
-  "linkHintCharacters": "sadfjklewcmpgh",
-  "linkHintNumbers": "0123456789",
-  "newTabUrl": "about:newtab",
-  "nextPatterns": "next,more,newer,>,›,→,»,≫,>>",
-  "previousPatterns": "prev,previous,back,older,<,‹,←,«,≪,<<",
-  "regexFindMode": false,
-  "ignoreKeyboardLayout": false,
-  "scrollStepSize": 60,
-  "smoothScroll": true,
   "grabBackFocus": true,
   "searchEngines": "",
   "searchUrl": "https://duckduckgo.com/",
-  "userDefinedLinkHintCss": "div > .vimiumHintMarker {\n/* linkhint boxes */\nbackground: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FFF785),\n  color-stop(100%,#FFC542));\nborder: 1px solid #E3BE23;\n}\n\ndiv > .vimiumHintMarker span {\n/* linkhint text */\ncolor: black;\nfont-weight: bold;\nfont-size: 12px;\n}\n\ndiv > .vimiumHintMarker > .matchingCharacter {\n}"
+  "settingsVersion": "2.0.4",
+  "exclusionRules": [
+    {
+      "passKeys": "oObBtTxXWvVrR",
+      "pattern": "*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://trello.com/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://*.atlassian.net/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://miro.com/*"
+    },
+    {
+      "passKeys": "oObBtTxXWvVrR?jkpxercgils#ud/",
+      "pattern": "https://mail.google.com/*"
+    }
+  ]
 }
