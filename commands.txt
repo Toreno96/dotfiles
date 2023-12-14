@@ -130,6 +130,24 @@ kill %%
 # Kill job with specific id
 kill <id>
 
+# Run <cmd> in the background and do _not_ kill it when exiting terminal (it
+# will save STDOUT and STDERR to the file `nohup.out` in **the current working
+# directory**)
+nohup <cmd> &
+
+##################
+### GNU Screen ###
+##################
+
+# Create a named session
+screen -S <session_name>
+# Attach to a named session
+screen -x <session_name>
+# or
+screen -r <session_name>
+# Detach from the current session
+CTRL-a, d
+
 ###########
 ### SQL ###
 ###########
