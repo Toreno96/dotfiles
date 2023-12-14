@@ -105,3 +105,5 @@
     rebase = false
 [commit]
     gpgSign = true
+[blame]
+    ignoreRevsFile = .git-blame-ignore-revs
