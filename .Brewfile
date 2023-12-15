@@ -129,6 +129,8 @@ brew "watch"
 brew "wget"
 # Yet Another Dotfiles Manager
 brew "yadm"
+# Suite of barcodes-reading tools
+brew "zbar"
 # Everything you need to get started with Heroku
 brew "heroku/brew/heroku"
 # Menu bar icon organizer
