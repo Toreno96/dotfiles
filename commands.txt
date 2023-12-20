@@ -69,6 +69,11 @@ brew info --json=v2 --installed | jq -r '.formulae[]|select(any(.installed[]; .i
 # Show all casks installed
 brew list --cask -1
 
+# Create (and overwrite if it already exists) `~/.Brewfile`, a file containing
+# list of explicitly installed packages, e.g. to version control each
+# installed/uninstalled package
+brew bundle dump --describe --global --no-upgrade --force
+
 #############
 ### C/C++ ###
 #############
