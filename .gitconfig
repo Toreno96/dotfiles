@@ -1,6 +1,8 @@
+# See section ".gitconfig" of:
+# https://yadm.io/docs/alternates
+[include]
+    path = .gitconfig.local
 [user]
-    name = Toreno96
-    email = toreno96@gmail.com
     signingkey = 75FA716CC082C83B
 [color.diff]
     # Represents this part of the diff:
