@@ -25,8 +25,6 @@ brew "catimg"
 brew "cbonsai"
 # CLI for managing secrets through AWS SSM Parameter Store
 brew "chamber"
-# Color-highlighted diff(1) output
-brew "colordiff"
 # GNU File, Shell, and Text utilities
 brew "coreutils"
 # Open source suite of directory software
@@ -39,8 +37,6 @@ brew "diffutils"
 brew "fd"
 # Collection of GNU find, xargs, and locate
 brew "findutils"
-# Collection of reusable C++ library artifacts developed at Facebook
-brew "folly"
 # Command-line fuzzy finder written in Go
 brew "fzf"
 # GNU awk utility
@@ -71,18 +67,10 @@ brew "unbound"
 brew "gnutls"
 # GNU Pretty Good Privacy (PGP) package
 brew "gnupg"
-# Open source programming language to build simple/reliable/efficient software
-brew "go"
 # GNU grep, egrep and fgrep
 brew "grep"
-# GNU Ubiquitous Intelligent Language for Extensions
-brew "guile"
-# ISO/IEC 23008-12:2017 HEIF file format decoder and encoder
-brew "libheif"
 # Interpreted, interactive, object-oriented programming language
 brew "python@3.9"
-# Tools and libraries to manipulate images in many formats
-brew "imagemagick"
 # Lightweight and flexible command-line JSON processor
 brew "jq"
 # Next-gen compiler infrastructure
@@ -91,20 +79,14 @@ brew "llvm"
 brew "moreutils"
 # RSS/Atom feed reader for text terminals
 brew "newsboat"
-# HTTP/2 C Library
-brew "nghttp2"
 # Manage multiple Node.js versions
 brew "nvm"
 # Simulation game based upon Transport Tycoon Deluxe
 brew "openttd"
 # Modern Python package and dependency manager supporting the latest PEP standards
 brew "pdm"
-# Bash completion for Pip
-brew "pip-completion"
 # Framework for managing multi-language pre-commit hooks
 brew "pre-commit"
-# Protocol buffers (Google's data interchange format)
-brew "protobuf"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
 # Powerful, clean, object-oriented scripting language
@@ -113,8 +95,6 @@ brew "ruby"
 brew "shellcheck"
 # Command-line interface for https://speedtest.net bandwidth tests
 brew "speedtest-cli"
-# Tool to create intelligent and beautiful documentation
-brew "sphinx-doc"
 # Send macOS User Notifications from the command-line
 brew "terminal-notifier"
 # Terminal multiplexer
