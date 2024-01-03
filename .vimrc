@@ -64,7 +64,7 @@ function! s:tweak_codedark_colors()
 
   " Highlight the current match for the last search pattern to distinguish it
   " from other matches
-  hi CurSearch ctermfg=yellow ctermbg=239 cterm=bold
+  hi CurSearch ctermbg=239 cterm=underline
 endfunction
 
 " To avoid losing my customization after changing colorscheme and changing it back
