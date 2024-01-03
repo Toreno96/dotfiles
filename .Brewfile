@@ -19,6 +19,8 @@ brew "docutils"
 brew "awscli"
 # Bourne-Again SHell, a UNIX command interpreter
 brew "bash"
+# Core application library for C
+brew "glib"
 # Insanely fast image printing in your terminal
 brew "catimg"
 # Console Bonsai is a bonsai tree generator, written in C using ncurses
@@ -49,8 +51,6 @@ brew "git"
 brew "git-delta"
 # Incremental merge for git
 brew "git-imerge"
-# Core application library for C
-brew "glib"
 # Render markdown on the CLI
 brew "glow"
 # Command-line option parsing utility
