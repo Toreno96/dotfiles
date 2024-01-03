@@ -1,9 +1,9 @@
 #!/bin/bash
 
-VERSION=2.2.0
+VERSION=2.3.0
 
 USAGE=$(cat << EOF
-Usage: $(basename "${0}") [-hv] PACKAGE_MANAGER FRONTEND
+Usage: $(basename "${0}") [-hvpP] PACKAGE_MANAGER FRONTEND
 
 Pretty-print a number of outdated packages per number of installed packages for
 PACKAGE_MANAGER, with the result compatible with FRONTEND.
@@ -11,30 +11,35 @@ PACKAGE_MANAGER, with the result compatible with FRONTEND.
 Mainly intended for use in all sorts of status bars.
 
 Options:
-  -h      Show this help message and exit
-  -v      Show version information and exit
+  -h       Show this help message and exit
+  -v       Show version information and exit
+  -p / -P  Include/exclude pinned packages when evaluating outdated packages;
+           option -p is ignored (forced to -P) if PACKAGE_MANAGER equals to
+           \`pacman\` due to technical limitations
+           [default: P if PACKAGE_MANAGER is \`pacman\`, p otherwise]
 
 Supported values for PACKAGE_MANAGER:
-  brew    The Homebrew package manager for macOS (or Linux)
-          https://docs.brew.sh/Manpage
-          Requires installed:
-          - brew
-  pacman  The pacman package manager for Arch Linux
-          https://man.archlinux.org/man/pacman.8
-          Requires installed:
-          - pacman
-          - checkupdates
-          - checkupdates-aur
+  brew     The Homebrew package manager for macOS (or Linux)
+           https://docs.brew.sh/Manpage
+           Requires installed:
+           - brew
+  pacman   The pacman package manager for Arch Linux
+           https://man.archlinux.org/man/pacman.8
+           Requires installed:
+           - pacman
+           - checkupdates
+           - checkupdates-aur
 
 Supported values for FRONTEND:
-  tmux    The result must be compatible with the status line of tmux terminal multiplexer
-          https://github.com/tmux/tmux
-  xfce    The result must be compatible with the XFCE4 Genmon plugin
-          https://docs.xfce.org/panel-plugins/xfce4-genmon-plugin
+  tmux     The result must be compatible with the status line of tmux terminal
+           multiplexer
+           https://github.com/tmux/tmux
+  xfce     The result must be compatible with the XFCE4 Genmon plugin
+           https://docs.xfce.org/panel-plugins/xfce4-genmon-plugin
 EOF
 )
 
-while getopts 'hv' option; do
+while getopts 'hvpP' option; do
     case "${option}" in
         'h')
             echo "${USAGE}"
@@ -44,12 +49,19 @@ while getopts 'hv' option; do
             echo "${VERSION}"
             exit
             ;;
+        'p')
+            PINNED_INCLUDE=true
+            ;;
+        'P')
+            PINNED_INCLUDE=false
+            ;;
         *)
             echo "${USAGE}"
             exit 1
             ;;
     esac
 done
+shift $((OPTIND-1))
 
 PACKAGE_MANAGER="${1}"
 FRONTEND="${2}"
@@ -77,9 +89,23 @@ dependencies_available() {
 
 main() {
     if [ "${PACKAGE_MANAGER}" = 'brew' ]; then
-        OUTDATED="$(brew outdated --quiet)"
+        if "${PINNED_INCLUDE:-true}"; then
+            OUTDATED="$(brew outdated --quiet)"
+        else
+            OUTDATED="$(brew outdated --verbose | grep -vF '[pinned at' | cut -d' ' -f1)"
+        fi
         INSTALLED="$(brew list --quiet -1)"
     elif [ "${PACKAGE_MANAGER}" = 'pacman' ]; then
+        if "${PINNED_INCLUDE:-false}"; then
+            # This option is ignored for `pacman` because pinned packages are
+            # set by configuring `IgnorePkg` in `/etc/pacman.conf` and
+            # `checkupdates` automatically omits them in the output, while not
+            # providing any option to change that behavior. We could temporarily
+            # edit `/etc/pacman.conf` for the duration of executing this
+            # command, but that could be dangerous and, most importantly, would
+            # require sudo privileges
+            echo 'warning: option -p is ignored' >&2
+        fi
         OUTDATED="$(checkupdates; checkupdates-aur)"
         INSTALLED="$(pacman -Q)"
     else
@@ -128,6 +154,16 @@ fi
 #
 # The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 # and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+#
+# [2.3.0] - 2024-01-03
+#
+# ADDED
+# - Option to exclude pinned packages when evaluating outdated packages. By
+#   default, these are included for brew and excluded for pacman to preserve
+#   backward compatibility.
+#
+# CHANGED
+# - Help text indendation (to adjust for the newly introduced option).
 #
 # [2.2.0] - 2023-07-13
 #
