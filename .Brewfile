@@ -73,6 +73,8 @@ brew "grep"
 brew "python@3.9"
 # Lightweight and flexible command-line JSON processor
 brew "jq"
+# Style and grammar checker
+brew "languagetool"
 # Next-gen compiler infrastructure
 brew "llvm"
 # Collection of tools that nobody wrote when UNIX was young

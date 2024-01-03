@@ -166,6 +166,15 @@ Plugin 'tpope/vim-fugitive'
 
 Plugin 'whiteinge/diffconflicts'
 
+" For instructions how to install the latest supported version of LanguageTool
+" (5.9), see:
+" https://github.com/dpelle/vim-LanguageTool/issues/33#issuecomment-1873818550
+" https://stackoverflow.com/a/46306176/5875021
+Plugin 'dpelle/vim-LanguageTool'
+let g:languagetool_cmd='languagetool'
+hi link LanguageToolGrammarError SpellCap
+hi link LanguageToolSpellingError SpellBad
+
 call vundle#end()
 
 filetype plugin indent on
