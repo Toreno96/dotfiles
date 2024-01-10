@@ -331,6 +331,11 @@ git show :/foo
 # `introduce`, and the one mentioning `remove`
 git log :/introduce..:/remove
 
+# Print number of added and deleted lines per pathname
+git diff --numstat
+
+# Print total number of added and deleted lines
+git diff --shortstat
 
 ##############
 ### Docker ###
