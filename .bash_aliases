@@ -31,7 +31,7 @@ if command -v aws &>/dev/null; then
 fi
 
 if command -v delta &>/dev/null; then
-    alias delta="delta --syntax-theme 'Visual Studio Dark+'"
+    alias delta="delta --max-line-length=0 --syntax-theme 'Visual Studio Dark+'"
     alias diff-highlight='delta --diff-highlight --keep-plus-minus-markers --paging=never'
     alias ddiff='delta --line-numbers --navigate --paging=auto'
 fi
