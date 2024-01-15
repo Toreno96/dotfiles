@@ -18,23 +18,14 @@ h1, h2, h3 {
     text-align: center;
 }
 
-h2, h3 {
-    /* Force page break before header level 2 and 3 (chapter or subchapter
-     * title) when printing or saving as PDF */
+h2 {
+    /* Force page break before a new chapter when printing or saving as PDF */
     break-before: page;
-    /* Force big margin before the start of a new (sub)chapter;
-     * based on the Standard Ebooks' CSS */
-    margin-top: 12em;
 }
-h1+h2 {
-    /* Reset margin if a new chapter comes immediately after the title */
-    margin-top: 0;
-}
-/* Reset page break and margin if a new subchapter comes immediately after a
- * quote (see Lovecraft's "Call of Cthulhu" */
-blockquote+h3 {
+/* Reset page break if a new chapter comes immediately after a quote
+ * (see Lovecraft's "Call of Cthulhu" */
+blockquote+h2 {
     break-before: avoid;
-    margin-top: 0;
 }
 
 /* Indented paragraphs instead of blank line paragraphs */
