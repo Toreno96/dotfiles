@@ -1,4 +1,5 @@
-/* `body` and `h1-h3` are copied from the http://bettermotherfuckingwebsite.com/ */
+/* `body` and `h1-h3` are heavily based on the:
+ * http://bettermotherfuckingwebsite.com/ */
 body {
     margin: 40px auto;
     max-width: 650px;
@@ -11,6 +12,29 @@ body {
 
 h1, h2, h3 {
     line-height: 1.2;
+    /* Based on: https://standardebooks.org/manual/1.7.3/single-page
+     * See e.g.: https://github.com/standardebooks/edgar-rice-burroughs_tarzan-the-terrible/blob/ab37f905ad620764ef36defd6ef90c197e69737f/src/epub/css/core.css */
+    font-variant: small-caps;
+    text-align: center;
+}
+
+h2, h3 {
+    /* Force page break before header level 2 and 3 (chapter or subchapter
+     * title) when printing or saving as PDF */
+    break-before: page;
+    /* Force big margin before the start of a new (sub)chapter;
+     * based on the Standard Ebooks' CSS */
+    margin-top: 12em;
+}
+h1+h2 {
+    /* Reset margin if a new chapter comes immediately after the title */
+    margin-top: 0;
+}
+/* Reset page break and margin if a new subchapter comes immediately after a
+ * quote (see Lovecraft's "Call of Cthulhu" */
+blockquote+h3 {
+    break-before: avoid;
+    margin-top: 0;
 }
 
 /* Indented paragraphs instead of blank line paragraphs */
@@ -60,4 +84,14 @@ hr:after {
     font-weight: 900;
     padding: 0 0.25em;
     background: white;
+}
+
+/* Based on the format I found in the Frank Herbert's "Dune" */
+dt {
+    font-weight: bold;
+    /* font-variant: small-caps; */
+}
+/* Source: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl#metadata */
+dt::after {
+    content: ": ";
 }
