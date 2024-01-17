@@ -61,11 +61,6 @@
       <property name="&lt;Super&gt;equal" type="string" value="xbacklight -steps 1 -inc 10"/>
       <property name="&lt;Shift&gt;&lt;Super&gt;underscore" type="string" value="xbacklight -steps 1 -dec 20"/>
       <property name="&lt;Super&gt;minus" type="string" value="xbacklight -steps 1 -dec 10"/>
-      <property name="&lt;Super&gt;p" type="string" value="mpris2controller PlayPause">
-        <property name="startup-notify" type="bool" value="true"/>
-      </property>
-      <property name="&lt;Super&gt;period" type="string" value="mpris2controller Next"/>
-      <property name="&lt;Super&gt;comma" type="string" value="mpris2controller Previous"/>
       <property name="&lt;Primary&gt;&lt;Shift&gt;numbersign" type="string" value="screenshot -f"/>
       <property name="&lt;Primary&gt;&lt;Shift&gt;dollar" type="string" value="screenshot -r"/>
       <property name="&lt;Primary&gt;&lt;Shift&gt;percent" type="string" value="screenshot"/>
@@ -73,11 +68,11 @@
       <property name="&lt;Super&gt;Return" type="string" value="xfce4-terminal">
         <property name="startup-notify" type="bool" value="true"/>
       </property>
-      <property name="&lt;Primary&gt;space" type="string" value="rofi -modi combi,drun,session:xfce-session -combi-modi window,run -show combi -sidebar-mode"/>
-      <property name="&lt;Primary&gt;&lt;Super&gt;space" type="string" value="rofimoji --action clipboard --skin-tone neutral"/>
       <property name="&lt;Alt&gt;&lt;Super&gt;minus" type="string" value="xbacklight -steps 1 -dec 5"/>
       <property name="&lt;Alt&gt;&lt;Super&gt;equal" type="string" value="xbacklight -steps 1 -inc 5"/>
       <property name="&lt;Shift&gt;&lt;Super&gt;q" type="string" value="rofi -modi session:xfce-session -show session -sidebar-mode"/>
+      <property name="&lt;Super&gt;space" type="string" value="rofi -modi combi,drun,session:xfce-session -combi-modi window,run -show combi -sidebar-mode"/>
+      <property name="&lt;Alt&gt;&lt;Super&gt;space" type="string" value="rofimoji --action clipboard --skin-tone neutral"/>
     </property>
   </property>
   <property name="xfwm4" type="empty">
@@ -179,24 +174,28 @@
       <property name="&lt;Super&gt;s" type="string" value="stick_window_key"/>
       <property name="&lt;Super&gt;m" type="string" value="move_window_key"/>
       <property name="&lt;Super&gt;r" type="string" value="resize_window_key"/>
-      <property name="&lt;Super&gt;Home" type="string" value="tile_up_key"/>
-      <property name="&lt;Super&gt;End" type="string" value="tile_down_key"/>
       <property name="&lt;Super&gt;Insert" type="string" value="tile_up_left_key"/>
       <property name="&lt;Super&gt;Page_Up" type="string" value="tile_up_right_key"/>
       <property name="&lt;Super&gt;Delete" type="string" value="tile_down_left_key"/>
       <property name="&lt;Super&gt;Page_Down" type="string" value="tile_down_right_key"/>
-      <property name="&lt;Primary&gt;&lt;Shift&gt;ISO_Left_Tab" type="string" value="cycle_reverse_windows_key"/>
-      <property name="&lt;Primary&gt;grave" type="string" value="switch_window_key"/>
       <property name="&lt;Super&gt;q" type="string" value="close_window_key"/>
       <property name="&lt;Super&gt;Down" type="string" value="hide_window_key"/>
       <property name="&lt;Primary&gt;&lt;Shift&gt;&lt;Super&gt;Left" type="string" value="move_window_left_workspace_key"/>
       <property name="&lt;Primary&gt;&lt;Shift&gt;&lt;Super&gt;Right" type="string" value="move_window_right_workspace_key"/>
       <property name="&lt;Primary&gt;&lt;Super&gt;Left" type="string" value="left_workspace_key"/>
       <property name="&lt;Primary&gt;&lt;Super&gt;Right" type="string" value="right_workspace_key"/>
-      <property name="&lt;Primary&gt;Tab" type="string" value="cycle_windows_key"/>
-      <property name="&lt;Primary&gt;&lt;Alt&gt;Left" type="string" value="tile_left_key"/>
-      <property name="&lt;Primary&gt;&lt;Alt&gt;Right" type="string" value="tile_right_key"/>
-      <property name="&lt;Primary&gt;Up" type="string" value="maximize_window_key"/>
+      <property name="&lt;Alt&gt;Tab" type="string" value="cycle_windows_key"/>
+      <property name="&lt;Alt&gt;grave" type="string" value="switch_window_key"/>
+      <property name="&lt;Shift&gt;&lt;Alt&gt;ISO_Left_Tab" type="string" value="cycle_reverse_windows_key"/>
+      <property name="&lt;Shift&gt;&lt;Alt&gt;&lt;Super&gt;Left" type="string" value="move_window_to_monitor_left_key"/>
+      <property name="&lt;Shift&gt;&lt;Alt&gt;&lt;Super&gt;Right" type="string" value="move_window_to_monitor_right_key"/>
+      <property name="&lt;Shift&gt;&lt;Alt&gt;&lt;Super&gt;Up" type="string" value="move_window_to_monitor_up_key"/>
+      <property name="&lt;Shift&gt;&lt;Alt&gt;&lt;Super&gt;Down" type="string" value="move_window_to_monitor_down_key"/>
+      <property name="&lt;Alt&gt;&lt;Super&gt;Right" type="string" value="tile_right_key"/>
+      <property name="&lt;Alt&gt;&lt;Super&gt;Down" type="string" value="tile_down_key"/>
+      <property name="&lt;Alt&gt;&lt;Super&gt;Up" type="string" value="tile_up_key"/>
+      <property name="&lt;Alt&gt;&lt;Super&gt;Left" type="string" value="tile_left_key"/>
+      <property name="&lt;Alt&gt;&lt;Super&gt;m" type="string" value="maximize_window_key"/>
     </property>
   </property>
   <property name="providers" type="array">
