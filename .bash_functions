@@ -16,3 +16,14 @@ groot() {
     GIT_ROOT=$(git rev-parse --show-toplevel)
     cd "${GIT_ROOT}"
 }
+
+# Enable `nvm` on demand, to not delay creating a new instance of bash when
+# I don't need `nvm` in the instance
+activate_nvm() {
+    export NVM_DIR="$HOME/.nvm"
+
+    [ -s "${HOMEBREW_PREFIX}/opt/nvm/nvm.sh" ] && source "${HOMEBREW_PREFIX}/opt/nvm/nvm.sh"
+
+    PS1="(nvm) ${PS1:-}"
+    export PS1
+}

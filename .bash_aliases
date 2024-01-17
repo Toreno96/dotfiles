@@ -27,5 +27,11 @@ if command -v docker &>/dev/null; then
 fi
 
 if command -v aws &>/dev/null; then
-    alias awslocal="aws --endpoint-url=http://localhost:4566"
+    alias awslocal='aws --endpoint-url=http://localhost:4566'
+fi
+
+if command -v delta &>/dev/null; then
+    alias delta="delta --max-line-length=0 --syntax-theme 'Visual Studio Dark+'"
+    alias diff-highlight='delta --diff-highlight --keep-plus-minus-markers --paging=never'
+    alias ddiff='delta --line-numbers --navigate --paging=auto'
 fi

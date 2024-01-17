@@ -1,0 +1,77 @@
+#!/usr/bin/env python3
+"""Print the current time for all team members.
+
+For all team members and their respective timezones, as defined in
+`TIMEZONE_BY_TEAM_MEMBER` dictionary, print their current local time in a
+human-readable format.
+The result is sorted by the local time (earlier first) and grouped by identical
+local time, e.g.:
+```
+TIMEZONE_BY_TEAM_MEMBER = {
+    "Alice": "Europe/Warsaw",
+    "Bob": "Europe/Ljubljana",
+    "Charlie": "US/Pacific",
+}
+```
+would result in:
+```
+Charlie       Wed 2023-10-18 04:41:04 PDT       (-0700)
+Alice & Bob   Wed 2023-10-18 13:41:04 CEST      (+0200)
+```
+
+"""
+import datetime
+import itertools
+import math
+import zoneinfo
+
+JOIN_STR = " & "
+
+TIMEZONE_BY_TEAM_MEMBER = {
+    JOIN_STR.join(["D***", "M***n", "W***"]): "Europe/Warsaw",
+    JOIN_STR.join(["J***", "M***a"]): "EST5EDT",
+    "O***": "Israel",
+    "Z***": "Europe/Ljubljana",
+}
+
+
+def main():
+    now = datetime.datetime.now(tz=datetime.timezone.utc)
+
+    now_by_team_member = {
+        k: now.astimezone(zoneinfo.ZoneInfo(v))
+        for k, v in TIMEZONE_BY_TEAM_MEMBER.items()
+    }
+
+    def key(x: tuple[str, datetime.datetime]):
+        datetime_ = x[1]
+        return (
+            datetime_.isoformat(),
+            # Preserve the original value to be able to use it later;
+            # we can't rely on `.isoformat()` + `.fromisoformat()` because it
+            # loses the timezone info in the form of names `CEST`, `EDT`, `IDT`
+            # and instead provides `UTC+HH:MM`
+            datetime_,
+        )
+
+    sorted_ = sorted(now_by_team_member.items(), key=key)
+    grouped_by_identical_local_time = {
+        JOIN_STR.join(dict(v)): k[1] for k, v in itertools.groupby(sorted_, key=key)
+    }
+    strftime_by_grouped_team_members = {
+        k: v.strftime("%a %F %T %Z\t(%z)")
+        for k, v in grouped_by_identical_local_time.items()
+    }
+
+    # Define alignment dynamically to make it adjustable depending on how long
+    # are names of grouped team members
+    alignment = math.ceil(max(len(i) for i in strftime_by_grouped_team_members) * 1.25)
+    result = "\n".join(
+        f"{k:<{alignment}}{v}" for k, v in strftime_by_grouped_team_members.items()
+    )
+
+    print(result)
+
+
+if __name__ == "__main__":
+    main()

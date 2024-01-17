@@ -1,5 +1,42 @@
 " Vim Code Dark (color scheme)
 " https://github.com/tomasiser/vim-code-dark
+"
+" At some point I copy-pasted this file from the original repo into my vim
+" directory, and (later?) made some small customizations to it. It was added to
+" the dotfiles repo either before the customizations or after them, I don't
+" remember.
+"
+" At this point, I can't possibly recall which exact commit from the original
+" repo it was. I tried to find it by checking out each single commit of
+" 'tomasiser/vim-code-dark' and comparing my initial version of this file (from
+" the initial commit in my dotfiles repo) with the version from the original
+" author, but I was _not_ able to find the version that would be exactly
+" identical.
+"
+" The best candidate is the one from
+" https://github.com/tomasiser/vim-code-dark/tree/d5519a1ca8775896d60c2355317000dbd5c20490
+" (Date: 2017-07-23 00:20:23 +0200)
+" PR #6 (https://github.com/tomasiser/vim-code-dark/pull/6), which has only one
+" different line:
+"
+" ```
+" 206c206
+" < call <sid>hi('SpecialChar', s:cdOrange, {}, 'none', {})
+" ---
+" > call <sid>hi('SpecialChar', s:cdFront, {}, 'none', {})
+" ```
+"
+" But I can't recall changing this specific line in my copy, especially since I
+" modified `SpecialChar` highlighting in the `$MYVIMRC` instead.
+"
+" I've also tried to update this file with the newest version at the moment, the one from
+" https://github.com/tomasiser/vim-code-dark/tree/8def3d890b2087ee4c42af03117d7edc7d693706
+" (Date: 2023-11-11 17:42:04 +0100)
+"
+" But it contains a lot of changes I'm not happy with, like different colors in
+" Markdown and search, then the ones I'm used to. As such, I'll probably
+" continue using my own copy, and maybe copy-paste only small parts of the most
+" recent versions (e.g. updated to Python and JavaScript syntax highlighting).
 
 scriptencoding utf-8
 
@@ -160,6 +197,7 @@ call <sid>hi('SpellBad', s:cdNone, s:cdNone, 'underline', {})
 call <sid>hi('SpellCap', s:cdNone, s:cdNone, 'underline', {})
 call <sid>hi('SpellLocal', s:cdNone, s:cdNone, 'underline', {})
 call <sid>hi('StatusLine', s:cdFront, s:cdLeftMid, 'none', {})
+call <sid>hi('StatusLineTerm', s:cdFront, s:cdLeftMid, 'none', {})
 call <sid>hi('StatusLineNC', s:cdFront, s:cdLeftDark, 'none', {})
 call <sid>hi('TabLine', s:cdFront, s:cdTabOther, 'none', {})
 call <sid>hi('TabLineFill', s:cdFront, s:cdTabOutside, 'none', {})

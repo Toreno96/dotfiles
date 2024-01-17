@@ -23,30 +23,35 @@ if [ "$(uname)" == 'Darwin' ]; then
         export MANPATH="${HOMEBREW_PREFIX}/share/man${MANPATH+:$MANPATH}:";
         export INFOPATH="${HOMEBREW_PREFIX}/share/info:${INFOPATH:-}";
 
-        # Based on:
-        # https://docs.brew.sh/Shell-Completion#configuring-completions-in-bash
-        if [[ -r "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]]; then
-            source "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"
-        else
-            for COMPLETION in "${HOMEBREW_PREFIX}/etc/bash_completion.d/"*; do
-                [[ -r "${COMPLETION}" ]] && source "${COMPLETION}"
-            done
-        fi
-
         # It seems to be safe to load completion, `autojump`, `nvm`, etc as
         # early in the `~/.bashrc` because none of those relies on environment
         # variables like `EDITOR`, `PAGER`, `BROWSER`, etc (checked with
         # recursive `grep` in those directories and by analyzing full output of
         # `bash -x`)
-        [ -r "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ] && source "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"
+
+        # Based on:
+        # https://docs.brew.sh/Shell-Completion#configuring-completions-in-bash
+        if [[ -r "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]]; then
+            # Won't run if `bash-completion` is not installed
+            source "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"
+        else
+            for COMPLETION in "${HOMEBREW_PREFIX}/etc/bash_completion.d/"*; do
+                # Enable only selected completions to not delay creating a new
+                # instance of bash with things I'm not using or need a
+                # completion for, or I do but they have a significant impact on
+                # performance (e.g. completion for Docker)
+                if \
+                    # [ "$(basename "${COMPLETION}")" = "aws-vault.bash" ] || \
+                    # [ "$(basename "${COMPLETION}")" = "aws_bash_completer" ] || \
+                    [ "$(basename "${COMPLETION}")" = "git-completion.bash" ] || \
+                    [ "$(basename "${COMPLETION}")" = "tmux" ] || \
+                    [ "$(basename "${COMPLETION}")" = "yadm" ]; then
+                        [[ -r "${COMPLETION}" ]] && source "${COMPLETION}"
+                fi
+            done
+        fi
 
         [ -f "${HOMEBREW_PREFIX}/etc/profile.d/autojump.sh" ] && source "${HOMEBREW_PREFIX}/etc/profile.d/autojump.sh"
-
-        export NVM_DIR="$HOME/.nvm"
-        # This loads nvm
-        [ -s "${HOMEBREW_PREFIX}/opt/nvm/nvm.sh" ] && source "${HOMEBREW_PREFIX}/opt/nvm/nvm.sh"
-        # This loads nvm bash_completion
-        [ -s "${HOMEBREW_PREFIX}/opt/nvm/etc/bash_completion.d/nvm" ] && source "${HOMEBREW_PREFIX}/opt/nvm/etc/bash_completion.d/nvm"
     else
         echo "${HOMEBREW_PREFIX}: No such file or directory; check if and where Homebrew is installed" >&2
     fi
@@ -127,7 +132,7 @@ export GPG_TTY=$(tty)
 export TERMINFO_DIRS=$TERMINFO_DIRS:$HOME/.local/share/terminfo
 
 # Etc
-export PAGER=less
+export PAGER='less -FR'
 export MANPAGER='less -s'
 command -v brave &>/dev/null && export BROWSER=brave
 command -v vim &>/dev/null && export EDITOR=vim

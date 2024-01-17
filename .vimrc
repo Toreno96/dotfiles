@@ -19,6 +19,59 @@ let &t_Ce = "\e[4:0m"
 " set background=light
 set background=dark
 syntax enable
+
+" Customizes all colorschemes
+function! s:tweak_colors()
+  hi DiffAdd ctermfg=black ctermbg=green
+  hi diffAdded ctermfg=green ctermbg=black
+  hi DiffChange ctermfg=black ctermbg=yellow
+  hi DiffDelete ctermfg=black ctermbg=red
+  hi diffRemoved ctermfg=red ctermbg=black
+
+  hi SpellBad ctermfg=red
+  hi SpellCap ctermfg=blue
+
+  " Highlight the search pattern _while typing_ (e.g. `/IncSearch`).
+  " This is separate from the `hi Search`, which highlights the last search
+  " pattern (e.g. `/IncSearch<CR>`)
+  hi IncSearch ctermfg=red cterm=bold
+endfunction
+
+" Customizes `codedark` scheme
+" TODO consider moving it to the `codedark`'s file?
+" that would remove the need for this autocmd function and I could define colors
+" for 256colorless terminal easily
+function! s:tweak_codedark_colors()
+  hi SpecialKey ctermfg=240
+  " From 'octol/vim-cpp-enhanced-highlight'
+  hi cCustomClassName ctermfg=43
+
+  " Make H1 distinguishable from H2-6 to make it easier to catch if it's
+  " incorrectly in the middle of higher-level headings;
+  " also, wanted the opportunity to use the beautiful `ctermfg=43` for something
+  hi markdownH1 ctermfg=43 cterm=bold
+  " hi markdownH1 ctermfg=75 cterm=bold,reverse
+  " Headings and code colorization inspired by:
+  " https://github.com/charmbracelet/glow
+  hi markdownH2 ctermfg=75 cterm=bold
+  hi markdownH3 ctermfg=75 cterm=bold
+  hi markdownH4 ctermfg=75 cterm=bold
+  hi markdownH5 ctermfg=75 cterm=bold
+  hi markdownH6 ctermfg=75 cterm=bold
+  hi markdownHeadingDelimiter ctermfg=75 cterm=bold
+  hi markdownCode ctermfg=203
+  hi markdownCodeDelimiter ctermfg=203
+
+  " Highlight the current match for the last search pattern to distinguish it
+  " from other matches
+  hi CurSearch ctermbg=239 cterm=underline
+endfunction
+
+" To avoid losing my customization after changing colorscheme and changing it back
+" Source: https://github.com/junegunn/goyo.vim/blob/7f5d35a65510083ea5c2d0941797244b9963d4a9/README.md#faq
+autocmd! ColorScheme * call s:tweak_colors()
+autocmd! ColorScheme codedark call s:tweak_codedark_colors()
+
 if $TERM=~'256color'
   " let g:gruvbox_bold=0
   " let g:gruvbox_underline=0
@@ -29,33 +82,9 @@ if $TERM=~'256color'
   " let g:gruvbox_contrast_light='hard'
   " colorscheme gruvbox
   colorscheme codedark
-  hi SpecialKey ctermfg=240
-  hi cCustomClassName ctermfg=43
-
-  hi DiffAdd ctermfg=black ctermbg=green
-  hi diffAdded ctermfg=green ctermbg=black
-  hi DiffChange ctermfg=black ctermbg=yellow
-  hi DiffDelete ctermfg=black ctermbg=red
-  hi diffRemoved ctermfg=red ctermbg=black
-
-  hi SpellBad ctermfg=red
-  hi SpellCap ctermfg=blue
-
-  hi markdownH1 ctermfg=75 cterm=bold
-  hi markdownH2 ctermfg=75 cterm=bold
-  hi markdownH3 ctermfg=75 cterm=bold
-  hi markdownH4 ctermfg=75 cterm=bold
-  hi markdownH5 ctermfg=75 cterm=bold
-  hi markdownH6 ctermfg=75 cterm=bold
-  hi markdownHeadingDelimiter ctermfg=75 cterm=bold
-  hi markdownCode ctermfg=203
-  hi markdownCodeDelimiter ctermfg=203
-
-  " Highlight the search pattern _while typing_ (e.g. `/IncSearch`).
-  " This is separate from the `hi Search`, which highlights the last search
-  " pattern (e.g. `/IncSearch<CR>`)
-  hi IncSearch ctermfg=red cterm=bold
 else
+  " TODO test how `codedark` would work on the terminal without 256 color support;
+  " that would simplify syntax highlighting configuration significantly
   colorscheme default
 endif
 
@@ -135,6 +164,17 @@ autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
 Plugin 'tpope/vim-fugitive'
 
+Plugin 'whiteinge/diffconflicts'
+
+" For instructions how to install the latest supported version of LanguageTool
+" (5.9), see:
+" https://github.com/dpelle/vim-LanguageTool/issues/33#issuecomment-1873818550
+" https://stackoverflow.com/a/46306176/5875021
+Plugin 'dpelle/vim-LanguageTool'
+let g:languagetool_cmd='languagetool'
+hi link LanguageToolGrammarError SpellCap
+hi link LanguageToolSpellingError SpellBad
+
 call vundle#end()
 
 filetype plugin indent on
@@ -167,11 +207,13 @@ set expandtab
 set linebreak
 set list
 if $TERM=~'xterm' || $PRESERVED_TERM=~'xterm'
-  " `tab` and `nbsp` are using a common Unicode representation
+  " `nbsp` is using a common Unicode representation
   " Source: https://en.wikipedia.org/w/index.php?title=Whitespace_character&oldid=1122350113#Substitute_images
-  set listchars=tab:⪫\ ,trail:█,extends:›,precedes:‹,nbsp:⍽
+  " `tab` was using it too (the '⪫' character), but while my macOS machine
+  " renders it correctly, my Linux machine does not
+  set listchars=tab:▸\ ,trail:█,extends:›,precedes:‹,nbsp:⍽
 else
-  set listchars=tab:\|\ ,trail:-,extends:>,precedes:<,nbsp:!
+  set listchars=tab:\|\ ,trail:#,extends:>,precedes:<,nbsp:!
 endif
 set number relativenumber
 set previewheight=5
@@ -196,6 +238,30 @@ set updatetime=250
 set ignorecase
 set tagcase=followscs
 set smartcase
+
+" EXPERIMENT: see if it causes lines to be auto-formatted on the 80 column (if
+" yes and I don't like it, rollback this setting or customize `formatoptions`
+" setting)
+set textwidth=80
+" If `formatoptions` is updated via the plain:
+" ```
+" set formatoptions-=…
+" ```
+" it is overidden by `/usr/share/vim/…/ftplugin/*.vim` files.
+" One way to address that is to use `autocmd` as below
+" Source: https://vi.stackexchange.com/a/26130
+augroup FormatOptions
+  autocmd!
+  autocmd FileType * setlocal formatoptions-=c
+  autocmd FileType * setlocal formatoptions-=t
+augroup end
+" 80 and 120 are the most common line lengths I've encountered in my daily work,
+" while 88 is the Black's default[^1].
+" This is set to +1 value (instead of 80,88,120), to show the color column right
+" _after_ each length (similar to how visual guides in PyCharm are displayed).
+"
+" [^1]: https://black.readthedocs.io/en/stable/the_black_code_style/current_style.html#line-length
+set colorcolumn=81,89,121
 
 " Delete trailing whitespaces
 nnoremap <leader>d<space> :%s/\s\+$//g<enter>

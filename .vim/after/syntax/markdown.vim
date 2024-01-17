@@ -6,9 +6,7 @@ syn match markdownCould '+could'
 
 " Support for GFM's task list items:
 " https://github.github.com/gfm/#task-list-items-extension-
-syn match markdownTodoUndoneMarker '\s\+\[ \]\s\+' contained
 syn match markdownTodoDoneMarker '\s\+\[x\]\s\+' contained
-syn region markdownTodoUndone start='\%(\t\| \{0,4\}\)[-*+]\s\+\[ \]\s\+' end='$' contains=markdownListMarker,markdownTodoUndoneMarker,markdownPriority,markdownMust,markdownShould,markdownCould
 syn region markdownTodoDone start='\%(\t\| \{0,4\}\)[-*+]\s\+\[x\]\s\+' end='$' contains=markdownListMarker,markdownTodoDoneMarker
 
 " Support for GFM's strikethrough:

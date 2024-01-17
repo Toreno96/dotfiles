@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# TODO add support for Linux (via `speedtest-cli` or similar)
+
+NETWORK_QUALITY=$(networkQuality -c)
+
+DOWNLOAD_CAPACITY=$(echo "${NETWORK_QUALITY}" | jq '.dl_throughput' | numfmt --from=auto --to=si | sed 's/$/bps/')
+
+echo "net:${DOWNLOAD_CAPACITY}"

@@ -1,0 +1,5 @@
+# vim: set filetype=gitconfig:
+[user]
+    name = Daniel Staśczak
+    email = toreno96@gmail.com
+

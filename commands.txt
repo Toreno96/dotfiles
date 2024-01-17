@@ -69,6 +69,11 @@ brew info --json=v2 --installed | jq -r '.formulae[]|select(any(.installed[]; .i
 # Show all casks installed
 brew list --cask -1
 
+# Create (and overwrite if it already exists) `~/.Brewfile`, a file containing
+# list of explicitly installed packages, e.g. to version control each
+# installed/uninstalled package
+brew bundle dump --describe --global --no-upgrade --force
+
 #############
 ### C/C++ ###
 #############
@@ -129,6 +134,24 @@ fg <id>
 kill %%
 # Kill job with specific id
 kill <id>
+
+# Run <cmd> in the background and do _not_ kill it when exiting terminal (it
+# will save STDOUT and STDERR to the file `nohup.out` in **the current working
+# directory**)
+nohup <cmd> &
+
+##################
+### GNU Screen ###
+##################
+
+# Create a named session
+screen -S <session_name>
+# Attach to a named session
+screen -x <session_name>
+# or
+screen -r <session_name>
+# Detach from the current session
+CTRL-a, d
 
 ###########
 ### SQL ###
@@ -308,6 +331,11 @@ git show :/foo
 # `introduce`, and the one mentioning `remove`
 git log :/introduce..:/remove
 
+# Print number of added and deleted lines per pathname
+git diff --numstat
+
+# Print total number of added and deleted lines
+git diff --shortstat
 
 ##############
 ### Docker ###
@@ -442,6 +470,8 @@ zip -sf example.zip
 
 # Unzip to specific directory
 unzip -d <dir> example.zip
+# or
+cd <dir> && unzip ../example.zip
 
 # Grep all ZIPs in current directory
 find . -maxdepth 1 -type f -name '*.zip' -exec zipgrep '<pattern>' {} \;
@@ -553,6 +583,93 @@ nl <file>
 nl -s'. '
 # Insert line numbering w/o padding. GNU only; macOS nl truncates the number to 1 digit
 nl -w 1
+
+# Format number from/to human-readable string (e.g. '1659.41M' into '1.7G')
+numfmt --from=auto --to=si <string>
+# Format sizes in columns 2-4 of `df` output (e.g.
+# ```
+# Filesystem     512-blocks     Used Available Capacity iused      ifree %iused  Mounted on
+# /dev/disk3s1s1  965595304 47774640 430265192    10%  502161 2151325960    0%   /
+# ```
+# into
+# ```
+# Filesystem     512-blocks     Used Available Capacity iused      ifree %iused  Mounted on
+# /dev/disk3s1s1       966M      48M      431M    10%  502161 2151325840    0%   /
+# ```
+df | numfmt --header --field 2-4 --to=si
+
+# (macOS-only) capture screenshot of the full screen of the main display
+screencapture 'file.png'
+# (macOS-only) capture screenshot of the full screen of each display
+# (`screencapture` will ignore surplus filenames if there are less displays than
+# filenames)
+screencapture 'display1.png' 'display2.png' 'display3.png'
+# (macOS-only) capture screenshot interactively (selected region or selected
+# window; press space to switch between)
+screencapture -i 'file.png'
+# (macOS-only) capture screencast of the main display and show mouse clicks on
+# the recording
+screencapture -vk 'file.mp4'
+# (macOS-only) capture screencast of each display (surplus filenames will be
+# ignored)
+screencapture -vk 'display1.mp4' 'display2.mp4' 'display3.mp4'
+
+# (macOS-only) create an audiobook from the given text file
+say -f input.txt -o output.aiff
+
+# (macOS-only) run an internet speed test
+networkQuality
+
+# Open `file` in Vim at the last line
+vim + 'file'
+# Open `file` in Vim at the 42nd line
+vim +42 'file'
+# Open `file` in Vim at the `pattern`
+vim +/pattern 'file'
+
+# Record a terminal session
+script -r
+# Playback the recording with the recorded timing
+script -p
+# Playback the recording immediately
+script -pd
+
+# Wrap text (breaks words)
+fold
+# Wrap text (doesn't break words, doesn't break after the first word in the
+# sentence, tries to preserve the text flow at the cost of not always breaking
+# at the max line length)
+fmt
+
+# Alternative to `ls -1`
+ls | paste -
+# Alternative to `nl`
+sed = <file> | paste - -
+
+# Search for English words that begin with the prefix, including the prefix
+# itself (e.g. 'car')
+look <prefix>
+
+# Print a file info in the format of:
+# human-readable file permissions, octal file permissions, filename
+stat -c '%A %a %n' <file>
+
+# Show a calendar for the whole current year
+cal -y
+# Show a calendar for the previous, current, and next month
+cal -3
+# Show the date of the current year's Easter
+ncal -e
+
+# Show the current boot entries, boot order, boot timeout, etc
+efibootmgr
+
+# Temporarily override which boot entry will be the default for the next (and
+# only the next) boot to 0002
+efibootmgr -n 2
+
+# Change the boot order to 0002,0001,0004
+efibootmgr -o 2,1,4
 
 
 ###########

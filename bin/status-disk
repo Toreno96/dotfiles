@@ -52,11 +52,11 @@ dependencies_available() {
 }
 
 is_macos() {
-    (echo "$(uname -s)" | grep -iq 'darwin')
+    (uname -s | grep -iq 'darwin')
 }
 
 is_linux() {
-    (echo "$(uname -s)" | grep -iq 'linux')
+    (uname -s | grep -iq 'linux')
 }
 
 main() {

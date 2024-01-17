@@ -115,6 +115,17 @@ nnoremap [c :action VcsShowPrevChangeMarker<enter>
 " `<C-w>m` is unused in Vim, so it seems as a good candidate for that action
 " (`m` as in `maximize`)
 nnoremap <C-w>m :action MaximizeEditorInSplit<enter>
+" Those are not implemented in IdeaVim, so we simulate them
+nnoremap <C-w>< :action StretchSplitToLeft<enter>
+nnoremap <C-w>> :action StretchSplitToRight<enter>
+" Those are not implemented in IdeaVim, so we simulate them, _however_, they
+" won't work exactly as in Vim: in Vim, `-` makes the current window smaller,
+" `+` makes the current window bigger; in IdeaVim there is no action for that,
+" so `-` resizes the current window to bottom, `+` resizes the current window to
+" top, which may either make it smaller or bigger depending on the window
+" position
+nnoremap <C-w>+ :action StretchSplitToTop<enter>
+nnoremap <C-w>- :action StretchSplitToBottom<enter>
 " Reformat a whole file using `black`; requires `BlackConnect` plugin
 " Source: https://plugins.jetbrains.com/plugin/14321-blackconnect
 nnoremap <leader>black :action me.lensvol.blackconnect.actions.ReformatWholeFileAction<enter>
@@ -129,3 +140,7 @@ nnoremap <leader>cn :action GotoNextError<CR>
 nnoremap <leader>cp :action GotoPreviousError<CR>
 " Rename object under the cursor
 nnoremap <leader>r :action RenameElement<CR>
+" Reformat the current paragraph using the PyCharm action; a workaround for
+" `gqq` not working in comments
+nnoremap <leader>gqq :action FillParagraph<enter>
+vnoremap <leader>gq :action FillParagraph<enter>
