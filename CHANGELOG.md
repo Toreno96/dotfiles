@@ -2,6 +2,8 @@
 
 All notable changes to the `ithaca` that aren't versioned in my `dotfiles` repository will be documented in this file.
 
+This allows me to preserve what I've done to the machine without relying only on my journal (which is less concise and contains unrelated entries) or on scrolling through the `~/.bash_history` (which is not detailed enough and can be chaotic).
+
 The format is _very loosely_ based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 <!--
