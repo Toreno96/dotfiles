@@ -692,3 +692,33 @@ echo 'hello ${FOO}' | envsubst
 
 # Export the environment variables defined in the `.env` file into the shell
 source <(sed 's/^/export /' .env)
+
+##################
+### Panic mode ###
+##################
+
+# Fix broken kernel image via bootable Arch Linux
+# 1. mount root partition
+$ mount /dev/sda6 /mnt
+# 2. mount boot partition
+$ mount /dev/sda2 /mnt/boot
+# 3. chroot into root partition
+$ arch-chroot /mnt
+# 4. backup existing kernel images
+$ mv -vi *linux* /root/
+# 5. restore original mkinitcpio.conf from the backup
+$ cp -vi /etc/mkinitcpio.conf{.bak,}
+# 6. force rebuild of kernel images _and_ intel microcode
+$ sudo pacman -Syyu linux intel-ucode
+# 7. update boot loader
+$ bootctl update
+# 8. verify boot loader configuration
+$ bootctl list
+# and
+$ bootctl status
+# 9. shutdown (to test if it helped)
+$ exit
+$ systemctl poweroff
+
+# Fix black screen after log in via lightdm (will exit all apps)
+$ sudo systemctl restart display-manager
