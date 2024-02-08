@@ -19,6 +19,13 @@ The format is _very loosely_ based on [Keep a Changelog](https://keepachangelog.
 
 -->
 
+## 2024-02-08
+
+- Upgraded packages via `pacman`.
+- Updated backup on HDD.
+- Changed titles of boot loader entries from `Antergos` and `Antergos (fallback)` to respectively `Arch Linux` and `Arch Linux (fallback)`.
+    However, preserved `antergos.conf` and `antergos-fallback.conf` filenames to be extra careful (I'll probably try to rename those too in the future).
+
 ## 2024-02-07
 
 - Upgraded packages via `pacman`.
