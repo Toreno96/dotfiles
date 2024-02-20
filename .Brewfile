@@ -115,11 +115,11 @@ brew "yadm"
 brew "zbar"
 # Everything you need to get started with Heroku
 brew "heroku/brew/heroku"
-# Menu bar icon organizer
+# Menu bar icon organiser
 cask "bartender"
 # Web browser focusing on privacy
 cask "brave-browser"
-# App to build and share containerized applications and microservices
+# App to build and share containerised applications and microservices
 cask "docker"
 # Web browser
 cask "firefox"
@@ -129,9 +129,9 @@ cask "gimp"
 cask "iterm2"
 # Menu bar calendar
 cask "itsycal"
-# Keyboard customizer
+# Keyboard customiser
 cask "karabiner-elements"
-# Open-source keystroke visualizer
+# Open-source keystroke visualiser
 cask "keycastr"
 # Syncs files between computers and MEGA Cloud drives
 cask "megasync"
