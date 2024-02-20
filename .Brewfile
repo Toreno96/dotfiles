@@ -91,6 +91,8 @@ brew "pdm"
 brew "pre-commit"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
+# CLI program for rolling a dice sequence
+brew "roll"
 # Powerful, clean, object-oriented scripting language
 brew "ruby"
 # Static analysis and lint tool, for (ba)sh scripts
