@@ -81,6 +81,8 @@ brew "llvm"
 brew "moreutils"
 # RSS/Atom feed reader for text terminals
 brew "newsboat"
+# Retrieves currently playing media, and simulates media actions
+brew "nowplaying-cli"
 # Manage multiple Node.js versions
 brew "nvm"
 # Simulation game based upon Transport Tycoon Deluxe

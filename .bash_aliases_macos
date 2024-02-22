@@ -33,3 +33,18 @@ alias ggrepn='ggrep --color=never'
 if command -v trash &>/dev/null && trash | grep -Fq -- 'Ali Rantakari'; then
     alias trash='trash -F'
 fi
+
+if command -v nowplaying-cli &>/dev/null; then
+    # `nowplaying-cli` prints the result in separate lines, so we `paste` it to
+    # the same line;
+    # YouTube often appends ` - Topic` to the artist's name, so we remove it;
+    #
+    # Example results:
+    # ```
+    # Monuments:Nefarious
+    # Monuments:False Providence (feat. Mick Gordon)
+    # Linkin Park:Don't Stay - Live In Texas
+    # HEALTH:MAX: PANAMA
+    # ```
+    alias nowplaying="nowplaying-cli get artist title | paste -d':' - - | sed 's@ - Topic@@'"
+fi
