@@ -1,5 +1,4 @@
 " Custom tag
-syn match markdownPriority '+priority'
 syn match markdownMust '+must'
 syn match markdownShould '+should'
 syn match markdownCould '+could'
@@ -18,7 +17,6 @@ syn match markdownStrikeDelimiter /\~\~/ contained
 
 hi def link markdownStrike htmlStrike
 
-hi markdownPriority ctermfg=203 cterm=bold
 hi markdownMust ctermfg=203 cterm=bold
 hi markdownShould ctermfg=173 cterm=bold
 hi markdownCould ctermfg=green cterm=bold
