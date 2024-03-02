@@ -1,8 +1,8 @@
-tap "aws/tap"
-tap "getsentry/tools"
 tap "heroku/brew"
 tap "homebrew/autoupdate"
 tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/core"
 # Print a list of paths as a tree of paths
 brew "as-tree"
 # Shell extension to jump to frequently used directories
