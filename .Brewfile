@@ -35,6 +35,8 @@ brew "curl"
 brew "diffutils"
 # Simple, fast and user-friendly alternative to find
 brew "fd"
+# Play, record, convert, and stream audio and video
+brew "ffmpeg"
 # Collection of GNU find, xargs, and locate
 brew "findutils"
 # Command-line fuzzy finder written in Go
