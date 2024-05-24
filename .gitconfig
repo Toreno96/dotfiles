@@ -48,7 +48,17 @@
     diffm = diff master
     ss = status --short --branch
     ignored = ! git ss --ignored | grep --color '^!!'
+    # List all branches (with `remotes/origin/` part removed), then
+    # sort and deduplicate them by name, then
+    # choose one using `fzf`, then
+    # checkout to it
     checkoutfzf = ! git checkout $(git branch -a | sed 's@remotes/origin/@@' | sort -u | fzf)
+    # List all branches other than the ones prefixed by `remotes/origin/`, then
+    # choose one using `fzf`
+    # (with a preview showing log of commits that are on that branch, but not on `master`), then
+    # checkout to it;
+    # sort order is inherited from `branch.sort`
+    checkoutfzf2 = ! git checkout $(git branch -a | tr -d ' *' | grep -v '^remotes/origin/' | fzf --preview 'git log --color master..{}' --preview-window 'up')
     purr = pull --rebase
     lastash = checkout -p stash@{0}
     logm = log master..HEAD
@@ -110,3 +120,6 @@
     gpgSign = true
 [log]
     date = format-local:%a %F %R %Z
+[branch]
+    # Order by the most recent commit
+    sort = -committerdate
