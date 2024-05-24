@@ -25,6 +25,7 @@
     # Let's stick to one color that is subjectively most clear to me
     meta = white bold
 [delta]
+    max-line-length = 0
     syntax-theme = Visual Studio Dark+
 [delta "diff-highlight"]
     diff-highlight = true
