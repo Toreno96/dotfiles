@@ -151,3 +151,5 @@ nnoremap <leader>r :action RenameElement<CR>
 " `gqq` not working in comments
 nnoremap <leader>gqq :action FillParagraph<enter>
 vnoremap <leader>gq :action FillParagraph<enter>
+" Open GitHub Copilot Chat; the mnemonic [o]pen [c]opilot [c]hat
+nnoremap <leader>occ :action copilot.chat.show<CR>
