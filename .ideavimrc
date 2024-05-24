@@ -34,16 +34,19 @@ set expandtab
 set linebreak
 set list
 if $TERM=~'xterm' || $PRESERVED_TERM=~'xterm'
-  " `tab` and `nbsp` are using a common Unicode representation
+  " `nbsp` is using a common Unicode representation
   " Source: https://en.wikipedia.org/w/index.php?title=Whitespace_character&oldid=1122350113#Substitute_images
-  set listchars=tab:⪫\ ,trail:█,extends:›,precedes:‹,nbsp:⍽
+  " `tab` was using it too (the '⪫' character), but while my macOS machine
+  " renders it correctly, my Linux machine does not
+  set listchars=tab:▸\ ,trail:█,extends:›,precedes:‹,nbsp:⍽
 else
-  set listchars=tab:\|\ ,trail:-,extends:>,precedes:<,nbsp:!
+  set listchars=tab:\|\ ,trail:#,extends:>,precedes:<,nbsp:!
 endif
 set number relativenumber
 set previewheight=5
 set ruler
-set scrolloff=3
+let s:scrolloff=3
+let &scrolloff=s:scrolloff
 set shiftwidth=4
 if $TERM=~'xterm' || $PRESERVED_TERM=~'xterm'
   set showbreak=↪\ "
@@ -57,7 +60,6 @@ set statusline=[%n]\ %f\ %<%y[%{&ff}]%m%r%w%=%l/%L:%c%V\ \|\ %{strftime(\"%F\ %T
 set tabstop=4
 set undofile
 set nrformats=alpha,bin,hex
-hi IncSearch ctermfg=red cterm=bold
 set updatetime=250
 
 set ignorecase
