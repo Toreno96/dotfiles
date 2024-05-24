@@ -157,7 +157,12 @@ if [ "$(uname)" == 'Darwin' ]; then
     # it means something went wrong while loading Homebrew
     [ -f ~/.dircolors ] && eval "$(gdircolors -b ~/.dircolors)"
 
-    [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+    if command -v fzf &>/dev/null; then
+        # Integrate fzf;
+        # disable ALT-C binding (`cd` into the selected directory) because I
+        # prefer `autojump`
+        FZF_ALT_C_COMMAND= eval "$(fzf --bash)"
+    fi
 else
     [ -f ~/.dircolors ] && eval "$(dircolors -b ~/.dircolors)"
 
