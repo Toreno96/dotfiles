@@ -328,6 +328,18 @@ nnoremap <leader>ss :source $MYVIMRC<CR>
 nnoremap <leader>* yiW/\V<C-r>"<CR>
 nnoremap <leader># yiW?\V<C-r>"<CR>
 
+" Utilize abbreviations for inserting emojis
+abbreviate :warn: ⚠️
+" Make it easier to remember which is which, because I always confuse the two.
+"
+" Unfortunately, the patterns `§1st` and `§2nd` that I have configured globally
+" in the macOS' settings (which does not work in the terminal) and I'm used to,
+" cannot be configured in Vim because it doesn't support such pattern (`§` is
+" treated as a non-keyword character; see the explanation of `full-id`, `end-id`
+" and `non-id` in `:help abbreviations`)
+abbreviate 1st§ the former
+abbreviate 2nd§ the latter
+
 " Digraph 'ː', IPA phonetic symbol that indicates a long vowel or consonant
 digr p: 720
 
