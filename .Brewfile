@@ -85,8 +85,6 @@ brew "newsboat"
 brew "nowplaying-cli"
 # Manage multiple Node.js versions
 brew "nvm"
-# Simulation game based upon Transport Tycoon Deluxe
-brew "openttd"
 # Modern Python package and dependency manager supporting the latest PEP standards
 brew "pdm"
 # Framework for managing multi-language pre-commit hooks
@@ -141,10 +139,6 @@ cask "keycastr"
 cask "megasync"
 # Reverse proxy, secure introspectable tunnels to localhost
 cask "ngrok"
-# Open-source open-world RPG game engine that supports playing Morrowind
-cask "openmw"
-# Collaboration platform for API development
-cask "postman"
 # IDE for professional Python development
 cask "pycharm"
 # Team communication and collaboration software
