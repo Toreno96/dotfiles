@@ -7,7 +7,7 @@ let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
 " Makes '.' command of tpope/vim-vinegar not working
 " let g:netrw_liststyle=3
 let g:python_host_prog='/usr/bin/python3'
-let g:markdown_fenced_languages = ['sh', 'bash=sh', 'shell=sh', 'python', 'json', 'vim', 'diff']
+let g:markdown_fenced_languages = ['sh', 'bash=sh', 'shell=sh', 'python', 'json', 'vim', 'diff', 'toml']
 " Support strikethrough
 let &t_Ts = "\e[9m"
 let &t_Te = "\e[29m"
