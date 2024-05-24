@@ -108,3 +108,5 @@
     rebase = false
 [commit]
     gpgSign = true
+[log]
+    date = format-local:%a %F %R %Z
