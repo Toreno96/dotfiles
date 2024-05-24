@@ -101,6 +101,11 @@ nnoremap <leader>c'" :s/'/"/g<CR>
 nnoremap <leader>d) di("_d%P
 nnoremap <leader>d] di["_d%P
 nnoremap <leader>d} di{"_d%P
+" Source vimrc
+nnoremap <leader>ss :source $MYVIMRC<CR>
+" Search next/previous WORD, see :help WORD
+nnoremap <leader>* yiW/\V<C-r>"<CR>
+nnoremap <leader># yiW?\V<C-r>"<CR>
 
 " IdeaVim-specific mappings
 
