@@ -295,9 +295,11 @@ nnoremap <leader>n :noh<CR>
 " Insert to do item
 nnoremap <leader>iti o<C-D>- [ ]<Space>
 " Insert current date
-nnoremap <leader>idd :r !date +'\%F'<CR>kJ
+nnoremap <leader>idd "=strftime('%F')<CR>p
 " Insert current datetime
-nnoremap <leader>idt :r !date +'\%F \%H:\%M'<CR>kJ
+nnoremap <leader>idt "=strftime('%F %R')<CR>p
+" Insert current timezone-aware datetime
+nnoremap <leader>idz "=strftime('%F %R %Z')<CR>p
 " Insert line numbering
 xnoremap <leader>iln :!nl -s'. '<CR>gv=
 " Convert the current file from `dos` to `unix` fileformat
