@@ -118,6 +118,8 @@
     rebase = false
 [commit]
     gpgSign = true
+[tag]
+    gpgSign = true
 [log]
     date = format-local:%a %F %R %Z
 [branch]
