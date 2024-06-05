@@ -1,0 +1,2 @@
+Markdown==3.5.2
+pymdown-extensions==10.7  # Support for ~~strikethrough~~
