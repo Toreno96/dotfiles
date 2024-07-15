@@ -86,7 +86,7 @@ nnoremap <leader>unix :set fileformat=unix<CR>
 map <right> :bn<CR>
 map <left> :bp<CR>
 " Change `'` to `"` globally in the line
-nnoremap <leader>c'" :s/'/"/g<CR>
+nnoremap <leader>' :s/'/"/g<CR>
 " Remove parentheses `()`, (square) brackets `[]`
 " or braces (curly brackets) `{}` around an entity, e.g.
 " `(foo bar baz)` -> `foo bar baz`
