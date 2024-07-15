@@ -156,20 +156,17 @@ if [ "$(uname)" == 'Darwin' ]; then
     # ```
     # it means something went wrong while loading Homebrew
     [ -f ~/.dircolors ] && eval "$(gdircolors -b ~/.dircolors)"
-
-    if command -v fzf &>/dev/null; then
-        # Integrate fzf;
-        # disable ALT-C binding (`cd` into the selected directory) because I
-        # prefer `autojump`
-        FZF_ALT_C_COMMAND= eval "$(fzf --bash)"
-    fi
 else
     [ -f ~/.dircolors ] && eval "$(dircolors -b ~/.dircolors)"
 
-    [ -f /usr/share/fzf/key-bindings.bash ] && source /usr/share/fzf/key-bindings.bash
-    [ -f /usr/share/fzf/completion.bash ] && source /usr/share/fzf/completion.bash
-
     [ -f /usr/share/autojump/autojump.bash ] && source /usr/share/autojump/autojump.bash
+fi
+
+if command -v fzf &>/dev/null; then
+    # Integrate fzf;
+    # disable ALT-C binding (`cd` into the selected directory) because I
+    # prefer `autojump`
+    FZF_ALT_C_COMMAND= eval "$(fzf --bash)"
 fi
 
 export LS_COLORS="${LS_COLORS}ow=01;34:"
