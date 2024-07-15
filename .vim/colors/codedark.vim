@@ -34,7 +34,7 @@
 " (Date: 2023-11-11 17:42:04 +0100)
 "
 " But it contains a lot of changes I'm not happy with, like different colors in
-" Markdown and search, then the ones I'm used to. As such, I'll probably
+" Markdown and search than the ones I'm used to. As such, I'll probably
 " continue using my own copy, and maybe copy-paste only small parts of the most
 " recent versions (e.g. updates to Python and JavaScript syntax highlighting).
 
