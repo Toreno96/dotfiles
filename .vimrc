@@ -316,8 +316,8 @@ abbreviate :warn: ⚠️
 " cannot be configured in Vim because it doesn't support such pattern (`§` is
 " treated as a non-keyword character; see the explanation of `full-id`, `end-id`
 " and `non-id` in `:help abbreviations`)
-abbreviate 1st§ the former
-abbreviate 2nd§ the latter
+abbreviate the1st the former
+abbreviate the2nd the latter
 
 if has("patch-8.1.0360")
     set diffopt+=internal,algorithm:patience
