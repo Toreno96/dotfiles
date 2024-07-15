@@ -80,98 +80,103 @@ else
   colorscheme default
 endif
 
-" Required by Vundle
-filetype off
-" Set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+" Check if Vundle plugin manager is installed by checking if the README file
+" exists because `filereadable` doesn't handle directories
+if filereadable(expand('~/.vim/bundle/Vundle.vim/README.md'))
+    " Required by Vundle
+    filetype off
+    " Set the runtime path to include Vundle and initialize
+    set rtp+=~/.vim/bundle/Vundle.vim
+    call vundle#begin()
+    " let Vundle manage Vundle, required
+    Plugin 'VundleVim/Vundle.vim'
 
-Plugin 'airblade/vim-gitgutter'
-if has('nvim') || v:version > 800
-  set signcolumn=yes
-else
-  let g:gitgutter_sign_column_always=1
+    Plugin 'airblade/vim-gitgutter'
+    if has('nvim') || v:version > 800
+      set signcolumn=yes
+    else
+      let g:gitgutter_sign_column_always=1
+    endif
+    if $TERM=~'xterm' || $PRESERVED_TERM=~'xterm'
+      let g:gitgutter_sign_added='▌'
+      let g:gitgutter_sign_modified='▌'
+      let g:gitgutter_sign_removed='▂'
+      let g:gitgutter_sign_removed_first_line='▔'
+      let g:gitgutter_sign_removed_above_and_below='▞'
+      let g:gitgutter_sign_modified_removed='▛'
+    endif
+    hi GitGutterAdd ctermfg=darkgreen
+    hi GitGutterChange ctermfg=darkblue
+    hi GitGutterDelete ctermfg=darkred
+    hi GitGutterChangeDelete ctermfg=darkmagenta
+
+    Plugin 'hdima/python-syntax'
+    let python_highlight_all=1
+    let python_highlight_file_headers_as_comments=1
+
+    Plugin 'octol/vim-cpp-enhanced-highlight'
+    " Works only with classes, not structures, which introduce inconsistency
+    let g:cpp_class_decl_highlight=0
+    let g:cpp_class_scope_highlight=1
+    let g:cpp_member_variable_highlight=1
+    " Choose either of the following two:
+    " " 1. Lag issues
+    " let g:cpp_experimental_simple_template_highlight=1
+    " " 2. Highlighting issues with std::cout << '> '
+    " let g:cpp_experimental_template_highlight=1
+
+    Plugin 'tpope/vim-commentary'
+    autocmd FileType vim setlocal commentstring=\"\ %s"
+    autocmd FileType sh setlocal commentstring=#\ %s"
+    autocmd FileType cpp setlocal commentstring=//\ %s
+    autocmd FileType cmake setlocal commentstring=#\ %s
+
+    Plugin 'tpope/vim-repeat'
+
+    Plugin 'tpope/vim-vinegar'
+    " By default, the plugin overrides `-` which (in normal mode outside the
+    " Netrw) allows to go [count] lines upward, on the first non-blank character
+    " (complementary to `+`).
+    " As opposed to the `+`, however, the `-` does _not_ have the alternative
+    " keybindings, so the plugin removes possibility to use it altogether.
+    " Therefore, we bring back the original behavior of `-` by remapping the
+    " plugin's behavior to another keybinding.
+    noremap <leader>- <Plug>VinegarUp
+
+    Plugin 'raimon49/requirements.txt.vim'
+
+    Plugin 'junegunn/goyo.vim'
+    function! s:goyo_enter()
+        set scrolloff=999
+    endfunction
+
+    function! s:goyo_leave()
+        let &scrolloff=s:scrolloff
+    endfunction
+
+    autocmd! User GoyoEnter nested call <SID>goyo_enter()
+    autocmd! User GoyoLeave nested call <SID>goyo_leave()
+
+    Plugin 'tpope/vim-fugitive'
+    " Support for GitHub in `:GBrowse`
+    Plugin 'tpope/vim-rhubarb'
+
+    Plugin 'whiteinge/diffconflicts'
+
+    " For instructions how to install the latest supported version of LanguageTool
+    " (5.9), see:
+    " https://github.com/dpelle/vim-LanguageTool/issues/33#issuecomment-1873818550
+    " https://stackoverflow.com/a/46306176/5875021
+    Plugin 'dpelle/vim-LanguageTool'
+    let g:languagetool_cmd='languagetool'
+    hi link LanguageToolGrammarError SpellCap
+    hi link LanguageToolSpellingError SpellBad
+
+    call vundle#end()
+
+    filetype plugin indent on
 endif
-if $TERM=~'xterm' || $PRESERVED_TERM=~'xterm'
-  let g:gitgutter_sign_added='▌'
-  let g:gitgutter_sign_modified='▌'
-  let g:gitgutter_sign_removed='▂'
-  let g:gitgutter_sign_removed_first_line='▔'
-  let g:gitgutter_sign_removed_above_and_below='▞'
-  let g:gitgutter_sign_modified_removed='▛'
-endif
-hi GitGutterAdd ctermfg=darkgreen
-hi GitGutterChange ctermfg=darkblue
-hi GitGutterDelete ctermfg=darkred
-hi GitGutterChangeDelete ctermfg=darkmagenta
 
-Plugin 'hdima/python-syntax'
-let python_highlight_all=1
-let python_highlight_file_headers_as_comments=1
-
-Plugin 'octol/vim-cpp-enhanced-highlight'
-" Works only with classes, not structures, which introduce inconsistency
-let g:cpp_class_decl_highlight=0
-let g:cpp_class_scope_highlight=1
-let g:cpp_member_variable_highlight=1
-" Choose either of the following two:
-" " 1. Lag issues
-" let g:cpp_experimental_simple_template_highlight=1
-" " 2. Highlighting issues with std::cout << '> '
-" let g:cpp_experimental_template_highlight=1
-
-Plugin 'tpope/vim-commentary'
-autocmd FileType vim setlocal commentstring=\"\ %s"
-autocmd FileType sh setlocal commentstring=#\ %s"
-autocmd FileType cpp setlocal commentstring=//\ %s
-autocmd FileType cmake setlocal commentstring=#\ %s
-
-Plugin 'tpope/vim-repeat'
-
-Plugin 'tpope/vim-vinegar'
-" By default, the plugin overrides `-` which (in normal mode outside the
-" Netrw) allows to go [count] lines upward, on the first non-blank character
-" (complementary to `+`).
-" As opposed to the `+`, however, the `-` does _not_ have the alternative
-" keybindings, so the plugin removes possibility to use it altogether.
-" Therefore, we bring back the original behavior of `-` by remapping the
-" plugin's behavior to another keybinding.
-noremap <leader>- <Plug>VinegarUp
-
-Plugin 'raimon49/requirements.txt.vim'
-
-Plugin 'junegunn/goyo.vim'
-function! s:goyo_enter()
-    set scrolloff=999
-endfunction
-
-function! s:goyo_leave()
-    let &scrolloff=s:scrolloff
-endfunction
-
-autocmd! User GoyoEnter nested call <SID>goyo_enter()
-autocmd! User GoyoLeave nested call <SID>goyo_leave()
-
-Plugin 'tpope/vim-fugitive'
-" Support for GitHub in `:GBrowse`
-Plugin 'tpope/vim-rhubarb'
-
-Plugin 'whiteinge/diffconflicts'
-
-" For instructions how to install the latest supported version of LanguageTool
-" (5.9), see:
-" https://github.com/dpelle/vim-LanguageTool/issues/33#issuecomment-1873818550
-" https://stackoverflow.com/a/46306176/5875021
-Plugin 'dpelle/vim-LanguageTool'
-let g:languagetool_cmd='languagetool'
-hi link LanguageToolGrammarError SpellCap
-hi link LanguageToolSpellingError SpellBad
-
-call vundle#end()
-
-filetype plugin indent on
 if !has('nvim')
   set autoindent
   set autoread
