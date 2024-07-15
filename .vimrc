@@ -73,14 +73,6 @@ autocmd! ColorScheme * call s:tweak_colors()
 autocmd! ColorScheme codedark call s:tweak_codedark_colors()
 
 if $TERM=~'256color'
-  " let g:gruvbox_bold=0
-  " let g:gruvbox_underline=0
-  " let g:gruvbox_undercurl=0
-  " let g:gruvbox_sign_column='bg0'
-  " let g:gruvbox_vert_split='bg0'
-  " let g:gruvbox_contrast_dark='hard'
-  " let g:gruvbox_contrast_light='hard'
-  " colorscheme gruvbox
   colorscheme codedark
 else
   " TODO test how `codedark` would work on the terminal without 256 color support;
@@ -267,20 +259,6 @@ set colorcolumn=81,89,121
 
 " Delete trailing whitespaces
 nnoremap <leader>d<space> :%s/\s\+$//g<enter>
-" Remap to remove collision with the above
-nnoremap <leader>D :YcmShowDetailedDiagnostic<enter>
-" Run pylint on the current file
-nnoremap <leader>pyl :silent !pylint -f colorized % \| less -R<enter>:redraw!<enter>
-" Run pylint-django on the current file
-nnoremap <leader>pydl :silent !pylint -f colorized --load-plugins pylint_django % \| less -R<enter>:redraw!<enter>
-" Run autopep8 on the current file (print the diff)
-nnoremap <leader>pyad :!autopep8 --diff % \| colordiff \| less -R<enter>:redraw!<enter>
-" Run autopep8 on the current file (in-place changes)
-nnoremap <leader>pyai :!autopep8 -i %<enter>:redraw!<enter>
-" Run shellcheck on the current file
-nnoremap <leader>shl :!shellcheck -Calways % \| less -R<enter>:redraw!<enter>
-" Swap paragraphs marked by 'n' and 'm'
-nnoremap <leader>sp 'nvipy'mvipp'nvipp
 " Yank current filepath and line number to the + register
 nnoremap <leader>yf :let @+ = expand("%:p") . ":" . line(".")<enter>
 " Expanded version of `gf`:
@@ -304,10 +282,6 @@ nnoremap <leader>idz "=strftime('%F %R %Z')<CR>p
 xnoremap <leader>iln :!nl -s'. '<CR>gv=
 " Convert the current file from `dos` to `unix` fileformat
 nnoremap <leader>unix :set fileformat=unix<CR>
-" Insert a line below cursor
-nnoremap <leader>o o<esc>
-" Insert a line above cursor
-nnoremap <leader>O O<esc>
 " Use arrow keys to jump between buffers
 " Source: https://github.com/jdavis/dotfiles/blob/62435dc83dd444be605e9ba204a3033e7192f3e4/.vimrc#L278..L280
 map <right> :bn<CR>
@@ -339,9 +313,6 @@ abbreviate :warn: ⚠️
 " and `non-id` in `:help abbreviations`)
 abbreviate 1st§ the former
 abbreviate 2nd§ the latter
-
-" Digraph 'ː', IPA phonetic symbol that indicates a long vowel or consonant
-digr p: 720
 
 if has("patch-8.1.0360")
     set diffopt+=internal,algorithm:patience

@@ -68,10 +68,6 @@ set smartcase
 
 " Delete trailing whitespaces
 nnoremap <leader>d<space> :%s/\s\+$//g<enter>
-" Run shellcheck on the current file
-nnoremap <leader>shl :!shellcheck -Calways % \| less -R<enter>:redraw!<enter>
-" Swap paragraphs marked by 'n' and 'm'
-nnoremap <leader>sp 'nvipy'mvipp'nvipp
 " Yank current filepath and line number to the + register
 nnoremap <leader>yf :let @+ = expand("%:p") . ":" . line(".")<enter>
 " Expanded version of `gf`:
@@ -85,10 +81,6 @@ nnoremap <leader>iti o<C-D>- [ ]<Space>
 xnoremap <leader>iln :!nl -s'. '<CR>gv=
 " Convert the current file from `dos` to `unix` fileformat
 nnoremap <leader>unix :set fileformat=unix<CR>
-" Insert a line below cursor
-nnoremap <leader>o o<esc>
-" Insert a line above cursor
-nnoremap <leader>O O<esc>
 " Use arrow keys to jump between buffers
 " Source: https://github.com/jdavis/dotfiles/blob/62435dc83dd444be605e9ba204a3033e7192f3e4/.vimrc#L278..L280
 map <right> :bn<CR>
