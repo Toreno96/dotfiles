@@ -107,7 +107,30 @@ PS1+="${ANSI_BOLD}${ANSI_RED}\$(_exit_status)${ANSI_RESET}"
 PS1+="${ANSI_BOLD}${ANSI_CYAN}\$(_ssh_enabled)${ANSI_RESET}"
 PS1+="${ANSI_BOLD}${ANSI_MAGENTA}\$(_current_aws_vault)${ANSI_RESET}"
 PS1+="${ANSI_BOLD}${ANSI_YELLOW}\$(_current_git_branch)${ANSI_RESET}"
-PS1+="${ANSI_BOLD}${ANSI_GREEN}\u@\h${ANSI_RESET}:"
+# Redirect STDERR because `uname -o` is an illegal option on macOS
+if [ "$(uname -o 2>/dev/null)" == 'Android' ]; then
+    # In Termux on Android, neither username nor hostname can be customized.
+    # As a workaround, I decided to hard-code it.
+    #
+    # > Android applications are sandboxed and have their own Linux user id and
+    # > SELinux label. Termux is no exception and everything within Termux is
+    # > executed with the same user id as the Termux application itself. The
+    # > username may look like `u0_a231` and cannot be changed as it is derived
+    # > from the user id by Bionic libc.
+    # > —https://wiki.termux.com/wiki/Differences_from_Linux#Termux_is_single-user
+    #
+    # ```
+    # $ hostname
+    # localhost
+    # $ hostname aeaea
+    # Bad system call
+    # $ echo $?
+    # 159
+    # ```
+    PS1+="${ANSI_BOLD}${ANSI_GREEN}dstasczak@aeaea${ANSI_RESET}:"
+else
+    PS1+="${ANSI_BOLD}${ANSI_GREEN}\u@\h${ANSI_RESET}:"
+fi
 PS1+="${ANSI_BOLD}${ANSI_BLUE}\w${ANSI_RESET}\$ "
 
 # Don't put duplicate lines or lines starting with space in the history

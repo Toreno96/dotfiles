@@ -220,7 +220,11 @@ set ruler
 let s:scrolloff=3
 let &scrolloff=s:scrolloff
 set shiftwidth=4
-if $TERM=~'xterm' || $PRESERVED_TERM=~'xterm'
+" Redirect STDERR because `uname -o` is an illegal option on macOS
+let is_android=substitute(system('uname -o 2>/dev/null || uname -s'), '\n', '', '') == 'Android'
+" Do not use `↪` on Android because it is ugly there (or at least on my Samsung
+" Galaxy A50)
+if !is_android && ($TERM=~'xterm' || $PRESERVED_TERM=~'xterm')
   set showbreak=↪\ "
 else
   set showbreak=\\\ "
