@@ -114,7 +114,7 @@
                             },
                             "to": [
                                 {
-                                    "key_code": "left_shift"
+                                    "key_code": "delete_forward"
                                 }
                             ]
                         },
