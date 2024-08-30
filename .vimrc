@@ -236,9 +236,6 @@ set ignorecase
 set tagcase=followscs
 set smartcase
 
-" EXPERIMENT: see if it causes lines to be auto-formatted on the 80 column (if
-" yes and I don't like it, rollback this setting or customize `formatoptions`
-" setting)
 set textwidth=80
 " If `formatoptions` is updated via the plain:
 " ```
