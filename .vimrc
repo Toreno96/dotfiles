@@ -126,10 +126,6 @@ if filereadable(expand('~/.vim/bundle/Vundle.vim/README.md'))
     " let g:cpp_experimental_template_highlight=1
 
     Plugin 'tpope/vim-commentary'
-    autocmd FileType vim setlocal commentstring=\"\ %s"
-    autocmd FileType sh setlocal commentstring=#\ %s"
-    autocmd FileType cpp setlocal commentstring=//\ %s
-    autocmd FileType cmake setlocal commentstring=#\ %s
 
     Plugin 'tpope/vim-repeat'
 
