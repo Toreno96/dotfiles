@@ -139,8 +139,6 @@ if filereadable(expand('~/.vim/bundle/Vundle.vim/README.md'))
     " plugin's behavior to another keybinding.
     noremap <leader>- <Plug>VinegarUp
 
-    Plugin 'raimon49/requirements.txt.vim'
-
     Plugin 'junegunn/goyo.vim'
     function! s:goyo_enter()
         set scrolloff=999
