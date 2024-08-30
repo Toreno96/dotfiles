@@ -100,6 +100,12 @@ nnoremap <leader>ss :source $MYVIMRC<CR>
 " Search next/previous WORD, see :help WORD
 nnoremap <leader>* yiW/\V<C-r>"<CR>
 nnoremap <leader># yiW?\V<C-r>"<CR>
+" Run inline `curl` command (HTTP request) and put the output (HTTP response)
+" below the command, and reformat the output
+" - Supports both single-line and multiline `curl` command
+" - Assumes that the response is in JSON format
+" - External dependencies: `bash` and `jq`
+nnoremap <leader>! vipy}o<CR><CR><ESC>Pvip!bash<CR>]]!!jq<CR>
 
 " IdeaVim-specific mappings
 
