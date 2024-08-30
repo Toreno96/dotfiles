@@ -31,6 +31,8 @@ brew "coreutils"
 brew "openldap"
 # Get a file from an HTTP, HTTPS or FTP server
 brew "curl"
+# Dictionary Server Protocol (RFC2229) client
+brew "dict"
 # File comparison utilities
 brew "diffutils"
 # Simple, fast and user-friendly alternative to find
