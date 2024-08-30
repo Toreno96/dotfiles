@@ -166,6 +166,8 @@ if filereadable(expand('~/.vim/bundle/Vundle.vim/README.md'))
     hi link LanguageToolGrammarError SpellCap
     hi link LanguageToolSpellingError SpellBad
 
+    Plugin 'godlygeek/tabular'
+
     call vundle#end()
 
     filetype plugin indent on
