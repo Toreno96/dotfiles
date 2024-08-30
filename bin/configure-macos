@@ -1,0 +1,100 @@
+#!/bin/bash
+
+# Exit immediately on an error
+set -e
+
+echo 'Configuring General…'
+
+# Appearance: Auto
+if defaults read -g AppleInterfaceStyle &>/dev/null; then
+    defaults delete -g AppleInterfaceStyle
+fi
+defaults write -g AppleInterfaceStyleSwitchesAutomatically -bool TRUE
+# Sidebar icon size: Medium
+defaults write -g NSTableViewDefaultSizeMode -int 2
+# Don't allow wallpaper tinting in windows
+defaults write -g AppleReduceDesktopTinting -bool TRUE
+# Show scroll bars: When scrolling
+defaults write -g AppleShowScrollBars WhenScrolling
+# Click in the scroll bar to: Jump to the spot that's clicked
+defaults write -g AppleScrollerPagingBehavior -int 1
+# Prefer tabs: always when opening documents
+defaults write -g AppleWindowTabbingMode always
+# Ask to keep changes when closing documents
+defaults write -g NSCloseAlwaysConfirmsChanges -bool TRUE
+# Close windows when quitting an app
+defaults write -g NSQuitAlwaysKeepsWindows -bool FALSE
+
+echo 'Configured General successfully'
+
+echo 'Configuring Dock…'
+
+# Dock size
+defaults write com.apple.dock tilesize -int 64
+# Magnification enabled
+defaults write com.apple.dock magnification -bool TRUE
+# Magnification size
+defaults write com.apple.dock largesize -int 70
+# Position on screen: Bottom
+defaults write com.apple.dock orientation bottom
+# Minimise windows using: Scale effect
+defaults write com.apple.dock mineffect scale
+# Minimise windows into application icon
+defaults write com.apple.dock "minimize-to-application" -bool TRUE
+# Animate opening applications
+defaults write com.apple.dock launchanim -bool TRUE
+# Automatically hide and show the Dock
+defaults write com.apple.dock autohide -bool TRUE
+# Show indicators for open applications
+defaults write com.apple.dock "show-process-indicators" -bool TRUE
+# Don't show recent applications in Dock
+defaults write com.apple.dock "show-recents" -bool FALSE
+# Unpin `~/Downloads` directory from Dock
+defaults write com.apple.dock "persistent-others" '()'
+
+# Unpin all apps kept in Dock.
+#
+# It's not trivial to pin apps to Dock via the CLI, so the least I can do is to
+# remove all the pinned defaults (if I reset Dock to the default configuration
+# before running this script), so I have less manual step to do afterwards.
+#
+# Prompt for confirmation because this is potentially undesirable if all my
+# favorite apps are already pinned in Dock, e.g. if I'm running this script
+# without resetting Dock configuration to the default one beforehand.
+read -p 'Do you want to unpin all apps kept in Dock? ' -r
+case "${REPLY}" in
+    [Yy]* )
+        echo 'Unpinning all apps kept in Dock…'
+        defaults write com.apple.dock "persistent-apps" '()'
+        echo 'Unpinned all apps kept in Dock successfully'
+        ;;
+    * )
+        echo 'Skipped unpinning all apps kept in Dock'
+        ;;
+esac
+
+echo 'Configured Dock successfully'
+
+echo 'Restarting Dock…'
+
+# Required for Dock to load new settings
+killall Dock
+
+echo 'Restarted Dock successfully'
+
+MANUAL_STEPS=$(cat << EOF
+
+Manual steps to do:
+- Pin favorite apps to Dock, in this order
+  (open an app, right click on it, Options > Keep in Dock):
+    - iTerm2
+    - Brave Browser
+    - Spotify
+    - PyCharm
+    - Slack
+    - Preview
+- Log out and log in to apply some settings
+EOF
+)
+
+echo "${MANUAL_STEPS}"
