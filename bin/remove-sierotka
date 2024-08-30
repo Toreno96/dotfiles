@@ -1,0 +1,11 @@
+#!/usr/bin/sed -f
+
+# This script removes orphans (sierotka) as defined by the Polish
+# typography[^1], by replacing a normal space ` ` with a non-breaking space ` `
+# wherever it would be a good idea[^2].
+#
+# [^1]: https://pl.wikipedia.org/wiki/Sierotka_(typografia)
+# [^2]: https://pl.wikipedia.org/wiki/Sierotka_(typografia)#Przykłady
+
+s/ \([a-z]\) / \1 /g
+s/^\([A-Z]\) /\1 /g
