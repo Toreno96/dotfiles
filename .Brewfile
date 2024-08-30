@@ -103,6 +103,8 @@ brew "shellcheck"
 brew "speedtest-cli"
 # Send macOS User Notifications from the command-line
 brew "terminal-notifier"
+# Command-line time tracking application
+brew "timewarrior"
 # Terminal multiplexer
 brew "tmux"
 # CLI tool that moves files or folder to the trash
