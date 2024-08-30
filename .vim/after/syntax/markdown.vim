@@ -22,3 +22,9 @@ hi markdownShould ctermfg=173 cterm=bold
 hi markdownCould ctermfg=green cterm=bold
 hi markdownTodoDone ctermfg=grey cterm=strikethrough
 hi markdownTodoDoneMarker ctermfg=grey
+
+" EXPERIMENT: see if I like it;
+" Change bold to underline, just for fun;
+" Inspired by: Tony's letter in The Ultimates (2024) #1
+hi markdownBold cterm=underline
+hi markdownBoldItalic cterm=underline,italic
