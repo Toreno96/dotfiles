@@ -259,6 +259,10 @@ augroup end
 " [^1]: https://black.readthedocs.io/en/stable/the_black_code_style/current_style.html#line-length
 set colorcolumn=81,89,121
 
+" `noinsert` is crucial when using `fuzzy` to allow editing the initial string
+" if the list of matches is unsatisfying
+set completeopt=menu,menuone,preview,noinsert,fuzzy
+
 " Delete trailing whitespaces
 nnoremap <leader>d<space> :%s/\s\+$//g<enter>
 " Yank current filepath and line number to the + register
