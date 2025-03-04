@@ -2,10 +2,23 @@ if !has('nvim')
   set nocompatible
 endif
 
+" Show (relative) line numbers
 let g:netrw_bufsettings='noma nomod nu rnu nobl nowrap ro'
+" Inspired by https://github.com/tpope/vim-vinegar:
+" > All that annoying crap at the top is turned off, leaving you with nothing
+" > but a list of files. This is surprisingly disorienting, but ultimately very
+" > liberating. Press I to toggle until you adapt.
+let g:netrw_banner=0
+" Hide dotfiles by default
 let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
-" Makes '.' command of tpope/vim-vinegar not working
-" let g:netrw_liststyle=3
+" Display human-readable file sizes (in powers of 1024)
+let g:netrw_sizestyle = 'H'
+" Enable syntax highlighting for certain file types
+let g:netrw_special_syntax=1
+" e.g. Sat 1996-12-10 08:00:00 CEST
+let g:netrw_timefmt = '%a %F %T %Z'
+
+
 let g:python_host_prog='/usr/bin/python3'
 let g:markdown_fenced_languages = ['sh', 'bash=sh', 'shell=sh', 'python', 'json', 'vim', 'diff', 'toml']
 " Support strikethrough
@@ -35,6 +48,8 @@ function! s:tweak_colors()
   " This is separate from the `hi Search`, which highlights the last search
   " pattern (e.g. `/IncSearch<CR>`)
   hi IncSearch ctermfg=red cterm=bold
+
+  hi netrwMarkFile cterm=reverse
 endfunction
 
 " Customizes `codedark` scheme
@@ -128,16 +143,6 @@ if filereadable(expand('~/.vim/bundle/Vundle.vim/README.md'))
     Plugin 'tpope/vim-commentary'
 
     Plugin 'tpope/vim-repeat'
-
-    Plugin 'tpope/vim-vinegar'
-    " By default, the plugin overrides `-` which (in normal mode outside the
-    " Netrw) allows to go [count] lines upward, on the first non-blank character
-    " (complementary to `+`).
-    " As opposed to the `+`, however, the `-` does _not_ have the alternative
-    " keybindings, so the plugin removes possibility to use it altogether.
-    " Therefore, we bring back the original behavior of `-` by remapping the
-    " plugin's behavior to another keybinding.
-    noremap <leader>- <Plug>VinegarUp
 
     Plugin 'junegunn/goyo.vim'
     function! s:goyo_enter()
