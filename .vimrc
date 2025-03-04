@@ -269,7 +269,8 @@ set colorcolumn=81,89,121
 set completeopt=menu,menuone,preview,noinsert,fuzzy
 
 " Delete trailing whitespaces
-nnoremap <leader>d<space> :%s/\s\+$//g<enter>
+nnoremap <leader>d<space> :s/\s\+$//g<enter>
+vnoremap <leader>d<space> :s/\s\+$//g<enter>
 " Yank current filepath and line number to the + register
 nnoremap <leader>yf :let @+ = expand("%:p") . ":" . line(".")<enter>
 " Expanded version of `gf`:
