@@ -4,8 +4,8 @@ alias alert='terminal-notifier -message "$(history|tail -n1|sed -e '\''s/^\s*[0-
 
 if command -v gls &>/dev/null; then
     # EXPERIMENT: alias `ls` to GNU `ls`
-    alias ls='gls -F --group-directories-first --color=auto'
-    alias ll="ls -hl --time-style='+%F %T'"
+    alias ls="gls -F --group-directories-first --color=auto -h --time-style='+%F %T'"
+    alias ll='ls -l'
 else
     # macOS's `ls` does not offer `--group-directories-first` or any
     # alternative
