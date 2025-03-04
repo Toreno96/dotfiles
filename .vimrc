@@ -35,11 +35,12 @@ syntax enable
 
 " Customizes all colorschemes
 function! s:tweak_colors()
-  hi DiffAdd ctermfg=black ctermbg=green
-  hi diffAdded ctermfg=green ctermbg=black
-  hi DiffChange ctermfg=black ctermbg=yellow
-  hi DiffDelete ctermfg=black ctermbg=red
-  hi diffRemoved ctermfg=red ctermbg=black
+  hi DiffAdd      ctermfg=green ctermbg=black
+  hi diffAdded    ctermfg=green ctermbg=black
+  hi DiffChange   ctermfg=green ctermbg=black
+  hi DiffText     ctermfg=black ctermbg=green
+  hi DiffDelete   ctermfg=black ctermbg=red
+  hi diffRemoved  ctermfg=red ctermbg=black
 
   hi SpellBad ctermfg=red
   hi SpellCap ctermfg=blue
