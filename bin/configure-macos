@@ -27,6 +27,12 @@ defaults write -g NSQuitAlwaysKeepsWindows -bool FALSE
 
 echo 'Configured General successfully'
 
+echo 'Configuring menu bar…'
+
+# Spacing between menu bar icons (removes the need to use Bartender)
+defaults -currentHost write -globalDomain NSStatusItemSpacing -int 12
+defaults -currentHost write -globalDomain NSStatusItemSelectionPadding -int 8
+
 echo 'Configuring Dock…'
 
 # Dock size

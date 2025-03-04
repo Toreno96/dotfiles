@@ -121,8 +121,6 @@ brew "yadm"
 brew "zbar"
 # Everything you need to get started with Heroku
 brew "heroku/brew/heroku"
-# Menu bar icon organiser
-cask "bartender"
 # Web browser focusing on privacy
 cask "brave-browser"
 # App to build and share containerised applications and microservices
