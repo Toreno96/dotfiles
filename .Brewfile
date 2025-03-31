@@ -1,6 +1,5 @@
 tap "heroku/brew"
 tap "homebrew/autoupdate"
-tap "homebrew/bundle"
 brew "as-tree"
 brew "autojump"
 brew "aws-vault"
