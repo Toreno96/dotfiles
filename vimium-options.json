@@ -2,13 +2,8 @@
   "keyMappings": "# Workaround for Gmail using `d` and `u` for its own mappings;\n# this may conflict with `CTRL+d` and `CTRL+u` on Linux/Windows, however, the\n# former is a shortcut for adding a bookmark, which I don't use anyway, while\n# I'm not sure the CTRL-u if even has any mapping\nmap <c-d> scrollPageDown\nmap <c-u> scrollPageUp",
   "grabBackFocus": true,
   "searchEngines": "",
-  "searchUrl": "https://duckduckgo.com/",
-  "settingsVersion": "2.0.4",
+  "settingsVersion": "2.2.1",
   "exclusionRules": [
-    {
-      "passKeys": "oObBtTxXWvVrR",
-      "pattern": "*"
-    },
     {
       "passKeys": "",
       "pattern": "https?://trello.com/*"
@@ -24,6 +19,30 @@
     {
       "passKeys": "oObBtTxXWvVrR?jkpxercgils#ud/",
       "pattern": "https://mail.google.com/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://www.typelit.io/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://tung.github.io/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://docs.google.com/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://mega.nz/*"
+    },
+    {
+      "passKeys": "oObBtTxXWvVrR",
+      "pattern": "*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://ooooooooo.ooo/*"
     }
   ]
 }
