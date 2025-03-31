@@ -69,3 +69,18 @@ The format is _very loosely_ based on [Keep a Changelog](https://keepachangelog.
 - Removed old unused lightdm webkit package (and, surprisingly, its dependency: `gnome-backgrounds`) and configuration.
 - Changed `/etc/lightdm/wallpaper{_,-}multihead.jpg`
 - Added AccountsService-based icon for my user `dstasczak` (in `/var/lib/AccountsService/icon/` because `~/.face` proved to be incompatible with lightdm).
+
+## 2023-12-12
+
+TODO translate to English and rephrase
+
+- Synchronizacja plików z MEGA do ithaca.
+- Rename `~/pictures/screens` → `~/pictures/screenshots.old`.
+- Upgrade całego systemu, włącznie z paczkami z AUR.
+- Eksperymentalna zmiana Arc-Darker + ePapirus na rzecz Arc-Dark + Papirus-Dark.
+- Usunięcie katalogu `current`. Nie używam tej maszyny regularnie, by taki katalog miał czemukolwiek obecnie służyć.
+- Usunięcie broken symlinka `~/comics/mega -> /data/mega/comics` (zmigrowałem jakiś czas temu, nie pamiętam dokładnie jaki, komiksy na mega jako podkatalog katalogu `books` (`~/books/comics`).
+- Opróżnienie katalogów `~/downloads`, `~/tmp` i `~/desktop`.
+- Zakomentowanie linii w `~/.Xmodmap`, w celu przywrócenia standardowego układu Ctrl, Super, Alt.
+- TODO zaktualizowanie key mappingów.
+- TODO zaktualizowanie dotfilesów (wrzucenie z phthia, zaciągnięcie do ithaca, wrzucenie z ithaca).

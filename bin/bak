@@ -4,3 +4,15 @@ FILENAME="${1}"
 DATETIME_FORMAT='%Y-%m-%d_%H-%M-%S_%Z'
 DATETIME_NOW="$(date +"${DATETIME_FORMAT}")"
 cp -vi "${FILENAME}" "${FILENAME}.${DATETIME_NOW}"
+
+# TODO rephrase
+# USAGE=$(cat << EOF
+# Usage: $(basename "${0}") [-fhv] ENTRY_FILE JOURNAL_FILE
+
+# Inserts an entry (represented by the ENTRY_FILE) into a journal (represented by
+# the JOURNAL_FILE).
+
+# The journal is edited in-place, saving backup with the dynamically generated
+# extension based on the current time, in the format of \`.${DATETIME_FORMAT}\`
+# (see the conversion specifications described in the strftime(3) manual page),
+# e.g. \`journal.md\` -> \`journal.md.${DATETIME_NOW}\`.
