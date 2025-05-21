@@ -1,0 +1,11 @@
+# vim: set filetype=gitconfig:
+
+# Copy the content of this file to `.git/config` of any local repository that
+# uses `main` as the default branch.
+# This will override the aliases I have configured in `~/.gitconfig` which use
+# `master` instead.
+[alias]
+    checkoutfzf2 = ! git checkout $(git branch -a | tr -d ' *' | grep -v '^remotes/origin/' | fzf --preview 'git log --color main..{}' --preview-window 'up')
+    cm = checkout main
+    diffm = diff main
+    logm = log main..HEAD
