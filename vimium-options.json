@@ -37,12 +37,20 @@
       "pattern": "https?://mega.nz/*"
     },
     {
+      "passKeys": "",
+      "pattern": "https?://ooooooooo.ooo/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://www.owlbear.rodeo/*"
+    },
+    {
       "passKeys": "oObBtTxXWvVrR",
       "pattern": "*"
     },
     {
       "passKeys": "",
-      "pattern": "https?://ooooooooo.ooo/*"
+      "pattern": "https?://xproger.info/*"
     }
   ]
 }
