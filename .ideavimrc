@@ -151,3 +151,7 @@ nnoremap <leader>gqq :action FillParagraph<enter>
 vnoremap <leader>gq :action FillParagraph<enter>
 " Open GitHub Copilot Chat; the mnemonic [o]pen [c]opilot [c]hat
 nnoremap <leader>occ :action copilot.chat.show<CR>
+" Browse line in GitHub UI
+nnoremap <leader>gitb :action uk.co.ben_gibson.git.link.ui.actions.menu.BrowserAction<CR>
+" Browse visual selection in GitHub UI
+vnoremap <leader>gitb :action uk.co.ben_gibson.git.link.ui.actions.menu.BrowserAction<CR>
