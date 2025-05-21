@@ -28,8 +28,8 @@ import zoneinfo
 JOIN_STR = " & "
 
 TIMEZONE_BY_TEAM_MEMBER = {
-    JOIN_STR.join(["D***", "M***n", "W***"]): "Europe/Warsaw",
-    JOIN_STR.join(["J***", "M***a"]): "EST5EDT",
+    JOIN_STR.join(["Poland"]): "Europe/Warsaw",
+    JOIN_STR.join(["M***a"]): "EST5EDT",
     "O***": "Israel",
     "Z***": "Europe/Ljubljana",
 }
