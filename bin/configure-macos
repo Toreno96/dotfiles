@@ -88,6 +88,31 @@ killall Dock
 
 echo 'Restarted Dock successfully'
 
+echo 'Configuring Keyboard…'
+
+# Disable the (enabled by default) "character accent menu"; a mobile-like way of
+# inserting non-ASCII characters, where holding a key does not repeat it, but
+# instead shows the menu; see:
+# https://support.apple.com/pl-pl/guide/mac-help/mh27474/mac
+defaults write -g ApplePressAndHoldEnabled -bool false
+
+echo 'Configured Keyboard successfully'
+
+echo 'Configuring workarounds to bugs / unexpected behaviors…'
+
+# Last time I checked, the host name set in the "System Settings → General →
+# About → Name" was not propagated everywhere they should, which led to a host
+# name being incorrect sometimes (e.g. randomly being changed to the default
+# `MacbookPro` or something like that in the Bash prompt).
+#
+# This command fixes this
+scutil --set HostName $(scutil --get ComputerName)
+
+# TODO make it possible to pass a target host name as an argument to the script,
+# in which case the script would configure it automatically everywhere?
+
+echo 'Configured workarounds successfully…'
+
 MANUAL_STEPS=$(cat << EOF
 
 Manual steps to do:
