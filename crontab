@@ -1,2 +1,2 @@
-PATH=/usr/bin:/opt/homebrew/bin
+PATH=/usr/bin
 0 11 * * * curl -q --silent --show-error 'https://zenquotes.io/api/today' | jq --raw-output '.[].h' >~/qod.html

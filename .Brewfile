@@ -28,7 +28,6 @@ brew "gnutls"
 brew "grep"
 brew "heroku/brew/heroku"
 brew "icu4c@76"
-brew "jq"
 brew "languagetool", restart_service: :changed
 brew "libpq", link: true
 brew "llvm"
