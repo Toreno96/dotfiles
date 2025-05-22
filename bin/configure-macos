@@ -106,7 +106,7 @@ echo 'Configuring workarounds to bugs / unexpected behaviors…'
 # `MacbookPro` or something like that in the Bash prompt).
 #
 # This command fixes this
-scutil --set HostName $(scutil --get ComputerName)
+scutil --set HostName "$(scutil --get ComputerName)"
 
 # TODO make it possible to pass a target host name as an argument to the script,
 # in which case the script would configure it automatically everywhere?
