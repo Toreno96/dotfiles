@@ -65,14 +65,15 @@ function! s:tweak_codedark_colors()
   " Make H1 distinguishable from H2-6 to make it easier to catch if it's
   " incorrectly in the middle of higher-level headings;
   " also, wanted the opportunity to use the beautiful `ctermfg=43` for something
-  hi markdownH1 ctermfg=43 cterm=bold
-  " hi markdownH1 ctermfg=75 cterm=bold,reverse
+  hi markdownH1 ctermfg=43 cterm=bold,reverse
   " Headings and code colorization inspired by:
   " https://github.com/charmbracelet/glow
   hi markdownH2 ctermfg=75 cterm=bold
-  hi markdownH3 ctermfg=75 cterm=bold
+  " Make odd headings a different color than even headings, to make them a bit
+  " more distinguishable from each other
+  hi markdownH3 ctermfg=43 cterm=bold
   hi markdownH4 ctermfg=75 cterm=bold
-  hi markdownH5 ctermfg=75 cterm=bold
+  hi markdownH5 ctermfg=43 cterm=bold
   hi markdownH6 ctermfg=75 cterm=bold
   hi markdownHeadingDelimiter ctermfg=75 cterm=bold
   hi markdownCode ctermfg=203
@@ -85,6 +86,9 @@ endfunction
 
 " To avoid losing my customization after changing colorscheme and changing it back
 " Source: https://github.com/junegunn/goyo.vim/blob/7f5d35a65510083ea5c2d0941797244b9963d4a9/README.md#faq
+"
+" TODO fix '~/.vim/after/syntax/markdown.vim' not beign reloaded after changing
+" colorscheme and changing it back
 autocmd! ColorScheme * call s:tweak_colors()
 autocmd! ColorScheme codedark call s:tweak_codedark_colors()
 
