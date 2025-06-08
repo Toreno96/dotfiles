@@ -151,7 +151,8 @@ if filereadable(expand('~/.vim/bundle/Vundle.vim/README.md'))
 
     Plugin 'junegunn/goyo.vim'
     function! s:goyo_enter()
-        set scrolloff=999
+        " set scrolloff=999
+        set number relativenumber
     endfunction
 
     function! s:goyo_leave()
