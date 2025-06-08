@@ -42,8 +42,9 @@ function! s:tweak_colors()
   hi DiffDelete   ctermfg=black ctermbg=red
   hi diffRemoved  ctermfg=red ctermbg=black
 
-  hi SpellBad ctermfg=red
-  hi SpellCap ctermfg=blue
+  " Experiment with undercurl instead of underline
+  hi SpellBad ctermfg=red cterm=undercurl
+  hi SpellCap ctermfg=blue cterm=undercurl
 
   " Highlight the search pattern _while typing_ (e.g. `/IncSearch`).
   " This is separate from the `hi Search`, which highlights the last search
@@ -82,6 +83,13 @@ function! s:tweak_codedark_colors()
   " Highlight the current match for the last search pattern to distinguish it
   " from other matches
   hi CurSearch ctermbg=239 cterm=underline
+
+  " Make it more readable than the default red on red
+  hi Error cterm=none ctermfg=white ctermbg=red
+
+  " Things like '\e' in '\e[9m', 'SID' in '<SID>goyo_enter()', etc;
+  " experimentally borrowed from the more recent version of `codedark`
+  hi Special ctermfg=179
 endfunction
 
 " To avoid losing my customization after changing colorscheme and changing it back
