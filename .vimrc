@@ -95,7 +95,7 @@ endfunction
 " To avoid losing my customization after changing colorscheme and changing it back
 " Source: https://github.com/junegunn/goyo.vim/blob/7f5d35a65510083ea5c2d0941797244b9963d4a9/README.md#faq
 "
-" TODO fix '~/.vim/after/syntax/markdown.vim' not beign reloaded after changing
+" TODO fix "~/.vim/after/syntax/markdown.vim" not beign reloaded after changing
 " colorscheme and changing it back
 autocmd! ColorScheme * call s:tweak_colors()
 autocmd! ColorScheme codedark call s:tweak_codedark_colors()
@@ -386,7 +386,7 @@ if executable('rg')
     set grepprg=rg\ --vimgrep
 endif
 
-" Below code was copy-pasted from '$VIMRUNTIME/defaults.vim'
+" Below code was copy-pasted from "$VIMRUNTIME/defaults.vim"
 
 " Only do this part when Vim was compiled with the +eval feature.
 if 1
