@@ -231,7 +231,6 @@ else
 endif
 set number relativenumber
 set previewheight=5
-set ruler
 let s:scrolloff=3
 let &scrolloff=s:scrolloff
 set shiftwidth=4
@@ -248,6 +247,9 @@ set showcmd
 set splitbelow
 set splitright
 set statusline=[%n]\ %f\ %<%y[%{&ff}]%m%r%w%=%l/%L:%c%V\ \|\ %{strftime(\"%F\ %T\",getftime(expand(\"%:p\")))}
+" The ruler is shown if laststatus is 0 or 1 (not 2)
+set ruler
+set rulerformat=%l/%L:%c%V
 set tabstop=8
 set undofile
 set nrformats=alpha,bin,hex
