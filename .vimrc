@@ -284,6 +284,12 @@ set colorcolumn=81,89,121
 " if the list of matches is unsatisfying
 set completeopt=menu,menuone,preview,noinsert,fuzzy
 
+" Display command-line completion as the popup menu instead of horizontally
+set wildoptions=pum
+" Complete to the longest common substring, then show wildmenu, then complete
+" the next full match
+set wildmode=longest:full,full
+
 " Delete trailing whitespaces
 nnoremap <leader>d<space> :s/\s\+$//g<enter>
 vnoremap <leader>d<space> :s/\s\+$//g<enter>
