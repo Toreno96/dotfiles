@@ -385,3 +385,44 @@ endif
 if executable('rg')
     set grepprg=rg\ --vimgrep
 endif
+
+" Below code was copy-pasted from '$VIMRUNTIME/defaults.vim'
+
+" Only do this part when Vim was compiled with the +eval feature.
+if 1
+
+  " Put these in an autocmd group, so that you can revert them with:
+  " ":autocmd! vimStartup"
+  augroup vimStartup
+    autocmd!
+
+    " When editing a file, always jump to the last known cursor position.
+    " Don't do it when the position is invalid, when inside an event handler
+    " (happens when dropping a file on gvim), for a commit or rebase message
+    " (likely a different one than last time), and when using xxd(1) to filter
+    " and edit binary files (it transforms input files back and forth, causing
+    " them to have dual nature, so to speak) or when running the new tutor
+    autocmd BufReadPost *
+      \ let line = line("'\"")
+      \ | if line >= 1 && line <= line("$") && &filetype !~# 'commit'
+      \      && index(['xxd', 'gitrebase', 'tutor'], &filetype) == -1
+      \      && !&diff
+      \ |   execute "normal! g`\""
+      \ | endif
+
+  augroup END
+
+endif
+
+" Convenient command to see the difference between the current buffer and the
+" file it was loaded from, thus the changes you made.
+" Only define it when not defined already.
+" Revert with: ":delcommand DiffOrig".
+if !exists(":DiffOrig")
+  command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
+                  \ | wincmd p | diffthis
+endif
+
+" I like highlighting strings inside C comments.
+" Revert with ":unlet c_comment_strings".
+let c_comment_strings=1
