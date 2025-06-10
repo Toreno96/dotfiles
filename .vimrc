@@ -1,3 +1,5 @@
+" vim: set shiftwidth=2:
+
 if !has('nvim')
   set nocompatible
 endif
@@ -111,85 +113,85 @@ endif
 " Check if Vundle plugin manager is installed by checking if the README file
 " exists because `filereadable` doesn't handle directories
 if filereadable(expand('~/.vim/bundle/Vundle.vim/README.md'))
-    " Required by Vundle
-    filetype off
-    " Set the runtime path to include Vundle and initialize
-    set rtp+=~/.vim/bundle/Vundle.vim
-    call vundle#begin()
-    " let Vundle manage Vundle, required
-    Plugin 'VundleVim/Vundle.vim'
+  " Required by Vundle
+  filetype off
+  " Set the runtime path to include Vundle and initialize
+  set rtp+=~/.vim/bundle/Vundle.vim
+  call vundle#begin()
+  " let Vundle manage Vundle, required
+  Plugin 'VundleVim/Vundle.vim'
 
-    Plugin 'airblade/vim-gitgutter'
-    if has('nvim') || v:version > 800
-      set signcolumn=yes
-    else
-      let g:gitgutter_sign_column_always=1
-    endif
-    if $TERM=~'xterm' || $PRESERVED_TERM=~'xterm'
-      let g:gitgutter_sign_added='▌'
-      let g:gitgutter_sign_modified='▌'
-      let g:gitgutter_sign_removed='▂'
-      let g:gitgutter_sign_removed_first_line='▔'
-      let g:gitgutter_sign_removed_above_and_below='▞'
-      let g:gitgutter_sign_modified_removed='▛'
-    endif
-    hi GitGutterAdd ctermfg=darkgreen
-    hi GitGutterChange ctermfg=darkblue
-    hi GitGutterDelete ctermfg=darkred
-    hi GitGutterChangeDelete ctermfg=darkmagenta
+  Plugin 'airblade/vim-gitgutter'
+  if has('nvim') || v:version > 800
+    set signcolumn=yes
+  else
+    let g:gitgutter_sign_column_always=1
+  endif
+  if $TERM=~'xterm' || $PRESERVED_TERM=~'xterm'
+    let g:gitgutter_sign_added='▌'
+    let g:gitgutter_sign_modified='▌'
+    let g:gitgutter_sign_removed='▂'
+    let g:gitgutter_sign_removed_first_line='▔'
+    let g:gitgutter_sign_removed_above_and_below='▞'
+    let g:gitgutter_sign_modified_removed='▛'
+  endif
+  hi GitGutterAdd ctermfg=darkgreen
+  hi GitGutterChange ctermfg=darkblue
+  hi GitGutterDelete ctermfg=darkred
+  hi GitGutterChangeDelete ctermfg=darkmagenta
 
-    Plugin 'hdima/python-syntax'
-    let python_highlight_all=1
-    let python_highlight_file_headers_as_comments=1
+  Plugin 'hdima/python-syntax'
+  let python_highlight_all=1
+  let python_highlight_file_headers_as_comments=1
 
-    Plugin 'octol/vim-cpp-enhanced-highlight'
-    " Works only with classes, not structures, which introduce inconsistency
-    let g:cpp_class_decl_highlight=0
-    let g:cpp_class_scope_highlight=1
-    let g:cpp_member_variable_highlight=1
-    " Choose either of the following two:
-    " " 1. Lag issues
-    " let g:cpp_experimental_simple_template_highlight=1
-    " " 2. Highlighting issues with std::cout << '> '
-    " let g:cpp_experimental_template_highlight=1
+  Plugin 'octol/vim-cpp-enhanced-highlight'
+  " Works only with classes, not structures, which introduce inconsistency
+  let g:cpp_class_decl_highlight=0
+  let g:cpp_class_scope_highlight=1
+  let g:cpp_member_variable_highlight=1
+  " Choose either of the following two:
+  " " 1. Lag issues
+  " let g:cpp_experimental_simple_template_highlight=1
+  " " 2. Highlighting issues with std::cout << '> '
+  " let g:cpp_experimental_template_highlight=1
 
-    Plugin 'tpope/vim-commentary'
+  Plugin 'tpope/vim-commentary'
 
-    Plugin 'tpope/vim-repeat'
+  Plugin 'tpope/vim-repeat'
 
-    Plugin 'junegunn/goyo.vim'
-    function! s:goyo_enter()
-        " set scrolloff=999
-        set number relativenumber
-    endfunction
+  Plugin 'junegunn/goyo.vim'
+  function! s:goyo_enter()
+    " set scrolloff=999
+    set number relativenumber
+  endfunction
 
-    function! s:goyo_leave()
-        let &scrolloff=s:scrolloff
-    endfunction
+  function! s:goyo_leave()
+    let &scrolloff=s:scrolloff
+  endfunction
 
-    autocmd! User GoyoEnter nested call <SID>goyo_enter()
-    autocmd! User GoyoLeave nested call <SID>goyo_leave()
+  autocmd! User GoyoEnter nested call <SID>goyo_enter()
+  autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
-    Plugin 'tpope/vim-fugitive'
-    " Support for GitHub in `:GBrowse`
-    Plugin 'tpope/vim-rhubarb'
+  Plugin 'tpope/vim-fugitive'
+  " Support for GitHub in `:GBrowse`
+  Plugin 'tpope/vim-rhubarb'
 
-    Plugin 'whiteinge/diffconflicts'
+  Plugin 'whiteinge/diffconflicts'
 
-    " For instructions how to install the latest supported version of LanguageTool
-    " (5.9), see:
-    " https://github.com/dpelle/vim-LanguageTool/issues/33#issuecomment-1873818550
-    " https://stackoverflow.com/a/46306176/5875021
-    Plugin 'dpelle/vim-LanguageTool'
-    let g:languagetool_cmd='languagetool'
-    hi link LanguageToolGrammarError SpellCap
-    hi link LanguageToolSpellingError SpellBad
+  " For instructions how to install the latest supported version of LanguageTool
+  " (5.9), see:
+  " https://github.com/dpelle/vim-LanguageTool/issues/33#issuecomment-1873818550
+  " https://stackoverflow.com/a/46306176/5875021
+  Plugin 'dpelle/vim-LanguageTool'
+  let g:languagetool_cmd='languagetool'
+  hi link LanguageToolGrammarError SpellCap
+  hi link LanguageToolSpellingError SpellBad
 
-    Plugin 'godlygeek/tabular'
+  Plugin 'godlygeek/tabular'
 
-    call vundle#end()
+  call vundle#end()
 
-    filetype plugin indent on
+  filetype plugin indent on
 endif
 
 if !has('nvim')
@@ -348,12 +350,12 @@ nnoremap <leader>mgh :grep '^\#+ ' %<CR>
 
 " Write all markdown headers in the current file to a new scratch buffer
 if !exists(":MarkdownListHeaders")
-    command MarkdownListHeaders new
-                \ | setlocal filetype=markdown
-                \ | setlocal buftype=nofile
-                \ | setlocal bufhidden=delete
-                \ | setlocal noswapfile
-                \ | %!grep '^\#\+ ' #
+  command MarkdownListHeaders new
+        \ | setlocal filetype=markdown
+        \ | setlocal buftype=nofile
+        \ | setlocal bufhidden=delete
+        \ | setlocal noswapfile
+        \ | %!grep '^\#\+ ' #
 endif
 
 " Utilize abbreviations for inserting emojis
@@ -369,35 +371,35 @@ abbreviate the1st the former
 abbreviate the2nd the latter
 
 if has("patch-8.1.0360")
-    set diffopt+=internal,algorithm:patience
+  set diffopt+=internal,algorithm:patience
 endif
 
 if !has('gui_running') && &term =~ '^\%(screen\|tmux\)'
-    " Better mouse support, see  :help 'ttymouse'
-    set ttymouse=sgr
+  " Better mouse support, see  :help 'ttymouse'
+  set ttymouse=sgr
 
-    " Enable bracketed paste mode, see  :help xterm-bracketed-paste
-    let &t_BE = "\<Esc>[?2004h"
-    let &t_BD = "\<Esc>[?2004l"
-    let &t_PS = "\<Esc>[200~"
-    let &t_PE = "\<Esc>[201~"
+  " Enable bracketed paste mode, see  :help xterm-bracketed-paste
+  let &t_BE = "\<Esc>[?2004h"
+  let &t_BD = "\<Esc>[?2004l"
+  let &t_PS = "\<Esc>[200~"
+  let &t_PE = "\<Esc>[201~"
 
-    " Enable focus event tracking, see  :help xterm-focus-event
-    let &t_fe = "\<Esc>[?1004h"
-    let &t_fd = "\<Esc>[?1004l"
-    execute "set <FocusGained>=\<Esc>[I"
-    execute "set <FocusLost>=\<Esc>[O"
+  " Enable focus event tracking, see  :help xterm-focus-event
+  let &t_fe = "\<Esc>[?1004h"
+  let &t_fd = "\<Esc>[?1004l"
+  execute "set <FocusGained>=\<Esc>[I"
+  execute "set <FocusLost>=\<Esc>[O"
 
-    " Enable modified arrow keys, see  :help arrow_modifiers
-    execute "silent! set <xUp>=\<Esc>[@;*A"
-    execute "silent! set <xDown>=\<Esc>[@;*B"
-    execute "silent! set <xRight>=\<Esc>[@;*C"
-    execute "silent! set <xLeft>=\<Esc>[@;*D"
+  " Enable modified arrow keys, see  :help arrow_modifiers
+  execute "silent! set <xUp>=\<Esc>[@;*A"
+  execute "silent! set <xDown>=\<Esc>[@;*B"
+  execute "silent! set <xRight>=\<Esc>[@;*C"
+  execute "silent! set <xLeft>=\<Esc>[@;*D"
 endif
 
 " If available, use `ripgrep` as vim's external grep
 if executable('rg')
-    set grepprg=rg\ --vimgrep
+  set grepprg=rg\ --vimgrep
 endif
 
 " Below code was copy-pasted from "$VIMRUNTIME/defaults.vim"
@@ -417,12 +419,12 @@ if 1
     " and edit binary files (it transforms input files back and forth, causing
     " them to have dual nature, so to speak) or when running the new tutor
     autocmd BufReadPost *
-      \ let line = line("'\"")
-      \ | if line >= 1 && line <= line("$") && &filetype !~# 'commit'
-      \      && index(['xxd', 'gitrebase', 'tutor'], &filetype) == -1
-      \      && !&diff
-      \ |   execute "normal! g`\""
-      \ | endif
+          \ let line = line("'\"")
+          \ | if line >= 1 && line <= line("$") && &filetype !~# 'commit'
+          \      && index(['xxd', 'gitrebase', 'tutor'], &filetype) == -1
+          \      && !&diff
+          \ |   execute "normal! g`\""
+          \ | endif
 
   augroup END
 
@@ -434,7 +436,7 @@ endif
 " Revert with: ":delcommand DiffOrig".
 if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
-                  \ | wincmd p | diffthis
+        \ | wincmd p | diffthis
 endif
 
 " I like highlighting strings inside C comments.
