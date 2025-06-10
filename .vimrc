@@ -189,6 +189,10 @@ if filereadable(expand('~/.vim/bundle/Vundle.vim/README.md'))
 
   Plugin 'godlygeek/tabular'
 
+  " EXPERIMENT: see if I like it on rare occassions when I need a light
+  " background theme.
+  Plugin 'NLKNguyen/papercolor-theme'
+
   call vundle#end()
 
   filetype plugin indent on
