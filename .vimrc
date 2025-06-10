@@ -341,6 +341,20 @@ nnoremap <leader># yiW?\V<C-r>"<CR>
 " - Assumes that the response is in JSON format
 " - External dependencies: `bash` and `jq`
 nnoremap <leader>! vipy}o<CR><CR><ESC>Pvip!bash<CR>]]!!jq<CR>
+" Grep all markdown headers in the current file;
+" Then, use `:cl`, `:copen`, and `:cc [nr]` to navigate through the headers in a
+" quicklist
+nnoremap <leader>mgh :grep '^\#+ ' %<CR>
+
+" Write all markdown headers in the current file to a new scratch buffer
+if !exists(":MarkdownListHeaders")
+    command MarkdownListHeaders new
+                \ | setlocal filetype=markdown
+                \ | setlocal buftype=nofile
+                \ | setlocal bufhidden=delete
+                \ | setlocal noswapfile
+                \ | %!grep '^\#\+ ' #
+endif
 
 " Utilize abbreviations for inserting emojis
 abbreviate :warn: ⚠️
