@@ -258,7 +258,10 @@ set ruler
 set rulerformat=%l/%L:%c%V
 set tabstop=8
 set undofile
-set nrformats=alpha,bin,hex
+" Added `blank` for better handling of ISO dates;
+" without it, pressing CTRL-X on `2025-01-07` (with cursor on `7`) results in
+" `2025-01-08,` while I want `2025-01-06`
+set nrformats=alpha,bin,blank,hex
 set updatetime=250
 
 set ignorecase
