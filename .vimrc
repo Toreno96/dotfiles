@@ -253,7 +253,7 @@ endif
 set showcmd
 set splitbelow
 set splitright
-set statusline=[%n]\ %f\ %<%y[%{&ff}]%m%r%w%=%l/%L:%c%V\ \|\ %{strftime(\"%F\ %T\",getftime(expand(\"%:p\")))}
+set statusline=[%n]\ %t\ %<%y[%{&ff}]%m%r%w%=%l/%L:%c%V\ \|\ %{wordcount().words}
 " The ruler is shown if laststatus is 0 or 1 (not 2)
 set ruler
 set rulerformat=%l/%L:%c%V
