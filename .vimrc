@@ -47,6 +47,7 @@ function! s:tweak_colors()
   " Experiment with undercurl instead of underline
   hi SpellBad ctermfg=red cterm=undercurl
   hi SpellCap ctermfg=blue cterm=undercurl
+  hi SpellLocal ctermfg=green cterm=undercurl
 
   " Highlight the search pattern _while typing_ (e.g. `/IncSearch`).
   " This is separate from the `hi Search`, which highlights the last search
@@ -308,7 +309,8 @@ nnoremap <leader>yf :let @+ = expand("%:p") . ":" . line(".")<enter>
 " Edit existing _or new file_ whose name is under or after the cursor
 nnoremap <leader>gf :e <cfile><CR>
 " Enable spellchecking
-nnoremap <leader>esp :setlocal spell spelllang=pl,en<CR>
+nnoremap <leader>esp :setlocal spell spelllang=en_us,pl<CR>
+nnoremap <leader>ese :setlocal spell spelllang=en_us<CR>
 " Disable spellchecking
 nnoremap <leader>dsp :setlocal nospell<CR>
 " Clear search highlighting
