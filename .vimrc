@@ -241,15 +241,12 @@ set previewheight=5
 let s:scrolloff=3
 let &scrolloff=s:scrolloff
 set shiftwidth=4
-" Redirect STDERR because `uname -o` is an illegal option on macOS
-let is_android=substitute(system('uname -o 2>/dev/null || uname -s'), '\n', '', '') == 'Android'
-" Do not use `↪` on Android because it is ugly there (or at least on my Samsung
-" Galaxy A50)
-if !is_android && ($TERM=~'xterm' || $PRESERVED_TERM=~'xterm')
-  set showbreak=↪\ "
-else
-  set showbreak=\\\ "
-endif
+
+" EXPERIMENT: Do not put any special string at the start of lines that have been
+" wrapped. Instead, rely on blank space between line numbers for identifying
+" wrapped lines. Check if that's clear enough for me.
+set showbreak=
+
 set showcmd
 set splitbelow
 set splitright
