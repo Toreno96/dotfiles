@@ -11,6 +11,8 @@ $ make
 
 # Tytuł
 
+### Autor
+
 ## Spis treści
 
 [TOC]

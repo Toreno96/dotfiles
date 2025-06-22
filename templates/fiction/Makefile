@@ -36,6 +36,7 @@ intermediate.html: a.md template.html config.json
 		-x pymdownx.tilde \
 		-x tables \
 		-x toc \
+		-x fenced_code \
 		-c config.json a.md >intermediate.html
 
 # Delete all files in the current directory that are created by this makefile
