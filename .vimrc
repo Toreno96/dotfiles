@@ -300,6 +300,10 @@ set wildoptions=pum
 " the next full match
 set wildmode=longest:full,full
 
+" Do _not_ insert two spaces after a dot with a join command, i.e. always insert
+" only one space
+set nojoinspaces
+
 " Delete trailing whitespaces
 nnoremap <leader>d<space> :s/\s\+$//g<enter>
 vnoremap <leader>d<space> :s/\s\+$//g<enter>
