@@ -9,24 +9,44 @@ $ make
 
 -->
 
+
+
+
 # Tytuł
+
 
 ### Autor
 
+
+
+
 ## Spis treści
+
 
 [TOC]
 
+
+
+
 ## Rozdział I
+
 
 * * *
 
+
+
+
 ## Glosariusz
+
 
 Pojęcie
 : Wyjaśnienie
 
+
+
+
 ## Changelog
+
 
 ### Unreleased
 
