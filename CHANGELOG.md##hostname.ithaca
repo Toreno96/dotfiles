@@ -21,6 +21,35 @@ The format is _very loosely_ based on [Keep a Changelog](https://keepachangelog.
 
 -->
 
+## 2025-07-12
+
+<!--
+BTW Is it needed to add info about updating the backup to the changelog,
+considering I can find this info on demand via
+`history | rg 'rsync .* /hdd/bak'`?
+I guess not, so from now on, I won't.
+-->
+
+- Updated backup on HDD.
+- Removed `recent` from GTK bookmarks, as Thunar provides this by default now, with no way to disable it (TODO push to version control).
+
+## 2025-07-04
+
+- Updated backup on HDD.
+
+## 2025-06-24
+
+- Updated backup on HDD.
+
+## 2024-11-18
+
+- Updated backup on HDD.
+- Updated `Thunar` settings (TODO push to version control).
+
+## 2024-09-10
+
+- Updated backup on HDD.
+
 ## 2024-07-15
 
 - Removed all `lib32-*` packages (they were blocking system upgrade).
