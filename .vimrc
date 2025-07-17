@@ -41,6 +41,8 @@ function! s:tweak_colors()
   hi diffAdded    ctermfg=green ctermbg=black
   hi DiffChange   ctermfg=green ctermbg=black
   hi DiffText     ctermfg=black ctermbg=green
+  " EXPERIMENT: see if I need it to be different than DiffText
+  hi DiffTextAdd  ctermfg=black ctermbg=green cterm=underline
   hi DiffDelete   ctermfg=black ctermbg=red
   hi diffRemoved  ctermfg=red ctermbg=black
 
@@ -410,8 +412,16 @@ abbreviate :warn: ⚠️
 abbreviate the1st the former
 abbreviate the2nd the latter
 
+" According to the docs, this is set by default, but I prefer to set it
+" explicitly
+set diffopt+=filler,closeoff
 if has("patch-8.1.0360")
   set diffopt+=internal,algorithm:patience
+endif
+if has("patch-9.1.1243")
+  " Based on the screenshots from https://github.com/vim/vim/pull/16881,
+  " per-word diff seems more readable than per-character diff to me
+  set diffopt+=inline:word
 endif
 
 if !has('gui_running') && &term =~ '^\%(screen\|tmux\)'
