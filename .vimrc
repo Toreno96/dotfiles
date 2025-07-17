@@ -44,7 +44,7 @@ function! s:tweak_colors()
   hi DiffDelete   ctermfg=black ctermbg=red
   hi diffRemoved  ctermfg=red ctermbg=black
 
-  " Experiment with undercurl instead of underline
+  " EXPERIMENT: with undercurl instead of underline
   hi SpellBad ctermfg=red cterm=undercurl
   hi SpellCap ctermfg=blue cterm=undercurl
   hi SpellLocal ctermfg=green cterm=undercurl
@@ -90,7 +90,7 @@ function! s:tweak_codedark_colors()
   " Make it more readable than the default red on red
   hi Error cterm=none ctermfg=white ctermbg=red
 
-  " Things like '\e' in '\e[9m', 'SID' in '<SID>goyo_enter()', etc;
+  " EXPERIMENT: Things like '\e' in '\e[9m', 'SID' in '<SID>goyo_enter()', etc;
   " experimentally borrowed from the more recent version of `codedark`
   hi Special ctermfg=179
 endfunction
