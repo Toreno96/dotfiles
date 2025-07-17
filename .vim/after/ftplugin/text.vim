@@ -1,5 +1,3 @@
-" EXPERIMENT: see if I like it
-setlocal conceallevel=2
 " Show the keyword's definition in English dictionary.
 "
 " If the result is too long, show it in a pager.

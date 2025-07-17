@@ -45,9 +45,15 @@ function! s:tweak_colors()
   hi diffRemoved  ctermfg=red ctermbg=black
 
   " EXPERIMENT: with undercurl instead of underline
-  hi SpellBad ctermfg=red cterm=undercurl
-  hi SpellCap ctermfg=blue cterm=undercurl
-  hi SpellLocal ctermfg=green cterm=undercurl
+  "
+  " TODO consider moving it to the `codedark`'s file?
+  " Since those colors are not fully compatible with every color scheme anyway,
+  " e.g. with white backgrounds if "ctermbg=black"; with "colorscheme default"
+  " if no "ctermbg=black".
+  hi SpellBad ctermfg=red ctermbg=black cterm=undercurl
+  hi SpellCap ctermfg=blue ctermbg=black cterm=undercurl
+  hi SpellLocal ctermfg=green ctermbg=black cterm=undercurl
+  hi SpellRare ctermfg=magenta ctermbg=black cterm=undercurl
 
   " Highlight the search pattern _while typing_ (e.g. `/IncSearch`).
   " This is separate from the `hi Search`, which highlights the last search
@@ -357,6 +363,28 @@ nnoremap <leader>! vipy}o<CR><CR><ESC>Pvip!bash<CR>]]!!jq<CR>
 " Then, use `:cl`, `:copen`, and `:cc [nr]` to navigate through the headers in a
 " quicklist
 nnoremap <leader>mgh :grep '^\#+ ' %<CR>
+" Display total word count of the current file
+nnoremap <leader>wc :echo wordcount().words<CR>
+" For the current English word, show its definition in English dictionary and
+" its translation to Polish, both results combined.
+"
+" If the result is too long, show it in a pager.
+" For non-English words, the result will be nonsensical, obviously.
+"
+" Requires https://www.soimort.org/translate-shell
+nnoremap <leader>K :!bash -c 'trans en:en <C-r><C-w> && trans en:pl <C-r><C-w>' \| less -FR<CR>
+" For the current word, open a web browser and find the word's definition in the
+" Cambridge dictionary
+nnoremap <leader>camd :URLOpen https://duckduckgo.com/?q=!camd <C-r><C-w><CR>
+" For the current word, open a web browser and find the word's definition in the
+" PWN Słownik Języka Polskiego (Polish dictionary)
+nnoremap <leader>sjp :URLOpen https://duckduckgo.com/?q=!sjp <C-r><C-w><CR>
+" For the current word, open a web browser and find the word's definition in the
+" English Wikipedia
+nnoremap <leader>wen :URLOpen https://duckduckgo.com/?q=!wen <C-r><C-w><CR>
+" For the current word, open a web browser and find the word's definition in the
+" Polish Wikipedia
+nnoremap <leader>wpl :URLOpen https://duckduckgo.com/?q=!wpl <C-r><C-w><CR>
 
 " Write all markdown headers in the current file to a new scratch buffer
 if !exists(":MarkdownListHeaders")

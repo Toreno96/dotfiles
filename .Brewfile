@@ -50,6 +50,7 @@ brew "shellcheck"
 brew "terminal-notifier"
 brew "timewarrior"
 brew "tmux"
+brew "translate-shell"
 brew "trash", link: true
 brew "unbound"
 brew "vim"
