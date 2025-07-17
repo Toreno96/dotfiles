@@ -324,12 +324,14 @@ nnoremap <leader>dsp :setlocal nospell<CR>
 nnoremap <leader>n :noh<CR>
 " Insert to do item
 nnoremap <leader>iti o<C-D>- [ ]<Space>
-" Insert current date
-nnoremap <leader>idd "=strftime('%F')<CR>p
-" Insert current datetime
-nnoremap <leader>idt "=strftime('%F %R')<CR>p
-" Insert current timezone-aware datetime
-nnoremap <leader>idz "=strftime('%F %R %Z')<CR>p
+" Put after the cursor the current date
+nnoremap <leader>pdd "=strftime('%F')<CR>p
+" Put before the cursor the current date
+nnoremap <leader>Pdd "=strftime('%F')<CR>P
+" Put after the cursor the current timezone-aware datetime
+nnoremap <leader>pdt "=strftime('%F %R %Z')<CR>p
+" Put before the cursor the current timezone-aware datetime
+nnoremap <leader>Pdt "=strftime('%F %R %Z')<CR>P
 " Insert line numbering
 xnoremap <leader>iln :!nl -s'. '<CR>gv=
 " Convert the current file from `dos` to `unix` fileformat
@@ -351,8 +353,8 @@ nnoremap <leader>d} di{"_d%P
 " Source vimrc
 nnoremap <leader>ss :source $MYVIMRC<CR>
 " Search next/previous WORD, see :help WORD
-nnoremap <leader>* yiW/\V<C-r>"<CR>
-nnoremap <leader># yiW?\V<C-r>"<CR>
+nnoremap <leader>* /\V<C-r><C-a><CR>
+nnoremap <leader># ?\V<C-r><C-a><CR>
 " Run inline `curl` command (HTTP request) and put the output (HTTP response)
 " below the command, and reformat the output
 " - Supports both single-line and multiline `curl` command
