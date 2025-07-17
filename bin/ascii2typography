@@ -11,6 +11,12 @@
 # it on Termux at Android, so that way I don't even need to send the file to
 # another machine.
 #
+# The script also automates a few good practices:
+# - Adding a non-breaking space before closing en/em dash (for Polish dialogues).
+# - Adding a thin space between adjacent quotes, see:
+#     https://editorsmanual.com/articles/single-vs-double-quotation-marks/#adjacent
+#     https://www.chicagomanualofstyle.org/qanda/data/faq/topics/Quotations/faq0025.html
+#
 # [^1]: as defined by myself: they are either inspired by Compose key sequences,
 #       like `---` (triple hyphen) for em dash, or invented myself, like `,,` double
 #       comma and `''` double apostrophe (!) for Polish quotation marks
@@ -21,10 +27,10 @@ s/---/—/g
 s/--\./–/g
 s/\.\.\./…/g
 s/>'/’/g
-s/>`/‘/g
+s/<'/‘/g
 s/,,/„/g
 s/''/”/g
-s/``/“/g
+/```/! s/``/“/g
 s/<</«/g
 s/>>/»/g
 
@@ -32,3 +38,5 @@ s/ —/ —/g
 s/ –/ –/g
 s/”’/” ’/g
 s/’”/’ ”/g
+s/“‘/“ ‘/g
+s/‘“/‘ “/g
