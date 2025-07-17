@@ -34,6 +34,16 @@ h3 {
     break-after: avoid;
 }
 
+/* Indented paragraphs instead of blank line paragraphs */
+p {
+    margin: 0;
+    text-indent: 1em;
+}
+/* Do not indent the first paragraph after a heading */
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+    text-indent: 0;
+}
+
 /* Define dinkus */
 hr {
     overflow: visible; /* For IE */
