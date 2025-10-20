@@ -1,150 +1,155 @@
 /* `body` and `h1-h3` are heavily based on the: */
 /* http://bettermotherfuckingwebsite.com/ */
 body {
-    margin: 40px auto;
-    max-width: 650px;
-    line-height: 1.6;
-    font-size: 18px;
-    color: #444;
-    padding: 0 10px;
-    font-family: "Literata";
+  margin: 40px auto;
+  max-width: 650px;
+  line-height: 1.6;
+  font-size: 18px;
+  color: #444;
+  padding: 0 10px;
+  font-family: "Literata";
 }
 
 h1,
 h2,
 h3 {
-    line-height: 1.2;
-    /* Based on: https://standardebooks.org/manual/1.7.3/single-page */
-    /* See e.g.: https://github.com/standardebooks/edgar-rice-burroughs_tarzan-the-terrible/blob/ab37f905ad620764ef36defd6ef90c197e69737f/src/epub/css/core.css */
-    font-variant: small-caps;
-    text-align: center;
+  line-height: 1.2;
+  /* Based on: https://standardebooks.org/manual/1.7.3/single-page */
+  /* See e.g.: https://github.com/standardebooks/edgar-rice-burroughs_tarzan-the-terrible/blob/ab37f905ad620764ef36defd6ef90c197e69737f/src/epub/css/core.css */
+  font-variant: small-caps;
+  text-align: center;
 }
 
 h2 {
-    /* Force page break before a new chapter when printing or saving as PDF */
-    break-before: page;
+  /* Force page break before a new chapter when printing or saving as PDF */
+  break-before: page;
 }
 /* Reset page break if a new chapter comes immediately after a quote */
 /* (see Lovecraft's "Call of Cthulhu" */
 blockquote + h2 {
-    break-before: avoid;
+  break-before: avoid;
 }
 h3 {
-    /* Prevent header from being orphaned at the bottom */
-    break-after: avoid;
+  /* Prevent header from being orphaned at the bottom */
+  break-after: avoid;
 }
 
 /* Indented paragraphs instead of blank line paragraphs */
 p {
-    margin: 0;
-    text-indent: 1em;
+  margin: 0;
+  text-indent: 1em;
 }
 /* Do not indent the first paragraph after a heading */
-h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
-    text-indent: 0;
+h1 + p,
+h2 + p,
+h3 + p,
+h4 + p,
+h5 + p,
+h6 + p {
+  text-indent: 0;
 }
 
 /* Define dinkus */
 hr {
-    overflow: visible; /* For IE */
-    padding: 0;
-    border: none;
-    color: #8c8c8c;
-    text-align: center;
-    /* Fancy gradient line on the sides of dinkus */
-    background-image: linear-gradient(
-        to right,
-        transparent,
-        #8c8c8c,
-        transparent
-    );
-    height: 1px;
-    margin-top: 40px;
-    margin-bottom: 40px;
+  overflow: visible; /* For IE */
+  padding: 0;
+  border: none;
+  color: #8c8c8c;
+  text-align: center;
+  /* Fancy gradient line on the sides of dinkus */
+  background-image: linear-gradient(
+    to right,
+    transparent,
+    #8c8c8c,
+    transparent
+  );
+  height: 1px;
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
 hr:after {
-    font-family: "Material Icons";
-    /* The most common one: three spaced asterisks in a horizontal row */
-    /* Source: https://en.wikipedia.org/wiki/Dinkus */
-    content: "* * *";
+  font-family: "Material Icons";
+  /* The most common one: three spaced asterisks in a horizontal row */
+  /* Source: https://en.wikipedia.org/wiki/Dinkus */
+  content: "* * *";
 
-    /* The historical dinkus: asterism */
-    /* Source: https://en.wikipedia.org/wiki/Dinkus */
-    /* content: "⁂" */
+  /* The historical dinkus: asterism */
+  /* Source: https://en.wikipedia.org/wiki/Dinkus */
+  /* content: "⁂" */
 
-    /* For Moon Knight fan-fiction: triple crescent moon */
-    /* content: "\e3a8\e3a8\e3a8"; */
+  /* For Moon Knight fan-fiction: triple crescent moon */
+  /* content: "\e3a8\e3a8\e3a8"; */
 
-    /* For Daredevil fan-fiction: a series of colons commonly used in Esperanto Braille punctuation */
-    /* Source: https://en.wikipedia.org/wiki/Dinkus#Variations */
-    /* content "⠒⠒⠒"; */
+  /* For Daredevil fan-fiction: a series of colons commonly used in Esperanto Braille punctuation */
+  /* Source: https://en.wikipedia.org/wiki/Dinkus#Variations */
+  /* content "⠒⠒⠒"; */
 
-    display: inline-block;
-    position: relative;
-    top: -0.8em;
-    font-size: 24px;
-    font-weight: 900;
-    padding: 0 0.25em;
-    background: white;
+  display: inline-block;
+  position: relative;
+  top: -0.8em;
+  font-size: 24px;
+  font-weight: 900;
+  padding: 0 0.25em;
+  background: white;
 }
 
 /* Based on the format I found in the Frank Herbert's "Dune" */
 dt {
-    font-weight: bold;
-    /* font-variant: small-caps; */
+  font-weight: bold;
+  /* font-variant: small-caps; */
 }
 /* Source: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl#metadata */
 dt::after {
-    content: ": ";
+  content: ": ";
 }
 
 table {
-    width: 100%;
-    font-size: 18px;
-    /* The Black Hack-like tables */
-    border-collapse: collapse;
+  width: 100%;
+  font-size: 18px;
+  /* The Black Hack-like tables */
+  border-collapse: collapse;
 }
 
 table th,
 table td {
-    /* The Black Hack-like tables */
-    border: 1px solid #ddd;
-    padding: 6px 13px;
+  /* The Black Hack-like tables */
+  border: 1px solid #ddd;
+  padding: 6px 13px;
 }
 
 table th {
-    /* The Black Hack-like tables */
-    background-color: #444;
-    color: white;
+  /* The Black Hack-like tables */
+  background-color: #444;
+  color: white;
 }
 
 a.toclink {
-    color: #444;
-    text-decoration: none;
+  color: #444;
+  text-decoration: none;
 }
 
 @page {
-    size: A5;
-    /* Margin box at bottom center showing page number */
-    @bottom-center {
-        content: counter(page);
-    }
+  size: A5;
+  /* Margin box at bottom center showing page number */
+  @bottom-center {
+    content: counter(page);
+  }
 }
 
 @media print {
-    body {
-        font-size: 12px;
-        /* Uncomment for better printer-friendliness */
-        /* color: black; */
-    }
+  body {
+    font-size: 12px;
+    /* Uncomment for better printer-friendliness */
+    /* color: black; */
+  }
 
-    table {
-        font-size: 12px;
-    }
+  table {
+    font-size: 12px;
+  }
 
-    table th {
-        /* Uncomment for better printer-friendliness */
-        /* background-color: white; */
-        /* color: black; */
-    }
+  table th {
+    /* Uncomment for better printer-friendliness */
+    /* background-color: white; */
+    /* color: black; */
+  }
 }
