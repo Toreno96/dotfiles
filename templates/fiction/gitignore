@@ -1,0 +1,6 @@
+# macOS-specific
+.DS_Store
+# Build output
+intermediate.html
+a.html
+a.pdf
