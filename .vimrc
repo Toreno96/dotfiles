@@ -19,6 +19,8 @@ let g:netrw_sizestyle = 'H'
 let g:netrw_special_syntax=1
 " e.g. Sat 1996-12-10 08:00:00 CEST
 let g:netrw_timefmt = '%a %F %T %Z'
+" Preview file in a vertically split window
+let g:netrw_preview = 1
 
 
 let g:python_host_prog='/usr/bin/python3'
