@@ -27,13 +27,8 @@
 [delta]
     max-line-length = 0
     syntax-theme = Visual Studio Dark+
-[delta "diff-highlight"]
     diff-highlight = true
     keep-plus-minus-markers = true
-    paging = never
-[delta "ddiff"]
-    line-numbers = true
-    navigate = true
     paging = auto
 [diff]
     tool = vimdiff
@@ -68,14 +63,6 @@
     rs = restore --staged
     pushu = ! git push -u origin $(git branch --show-current)
     pusht = push --tags
-    # The mnemonic [b]etter [diff]
-    bdiff = ! git diff --color=always | delta --features=diff-highlight | less -FR
-    bdiffs = ! git diffs --color=always | delta --features=diff-highlight | less -FR
-    bdiffm = ! git diffm --color=always | delta --features=diff-highlight | less -FR
-    # The mnemonic [d]elta [diff]
-    ddiff = ! git diff --color=always | delta --features=ddiff
-    ddiffs = ! git diffs --color=always | delta --features=ddiff
-    ddiffm = ! git diffm --color=always | delta --features=ddiff
     # Add all changed tracked files to the index while being verbose about it
     # to allow instant verification of what exactly was added.
     # The alias `ada` comes from [ad]d [a]ll, while also being the tribute
@@ -125,3 +112,7 @@
 [branch]
     # Order by the most recent commit
     sort = -committerdate
+[core]
+    pager = delta
+[interactive]
+    diffFilter = delta --color-only
