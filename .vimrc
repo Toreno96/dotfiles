@@ -272,10 +272,14 @@ set splitbelow
 set splitright
 " Buffer number file name (tail) truncate if too long,modified
 " flag,alignment,virtual column number custom fileformat
+" Example:
+" 1 .vimrc +                                                                24 ␊
 set statusline=%n\ %t\ %<%M%=%v\ %{Fileformat()}
 " The ruler is shown if laststatus is 0 or 1 (not 2)
 set ruler
 " Modified flag,alignment,virtual column number custom fileformat
+" Example:
+"                                                             +            24 ␊
 set rulerformat=%M%=%v\ %{Fileformat()}
 set tabstop=8
 set undofile
