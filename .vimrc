@@ -353,10 +353,12 @@ nnoremap <leader>Pdt "=strftime('%F %R %Z')<CR>P
 xnoremap <leader>iln :!nl -s'. '<CR>gv=
 " Convert the current file from `dos` to `unix` fileformat
 nnoremap <leader>unix :set fileformat=unix<CR>
-" Use arrow keys to jump between buffers
+" Use arrow keys to jump between buffers and errors
 " Source: https://github.com/jdavis/dotfiles/blob/62435dc83dd444be605e9ba204a3033e7192f3e4/.vimrc#L278..L280
-map <right> :bn<CR>
-map <left> :bp<CR>
+noremap <right> :bn<CR>
+noremap <left> :bp<CR>
+noremap <up> :cp<CR>
+noremap <down> :cn<CR>
 " Change `'` to `"` globally in the line
 nnoremap <leader>' :s/'/"/g<CR>
 " Remove parentheses `()`, (square) brackets `[]`
