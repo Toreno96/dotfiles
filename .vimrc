@@ -271,8 +271,8 @@ set showcmd
 set splitbelow
 set splitright
 " Buffer number file name (tail) truncate if too long,modified
-" flag,alignment,virtual column number custom fileformat words count
-set statusline=%n\ %t\ %<%M%=%v\ %{Fileformat()}\ %{wordcount().words}
+" flag,alignment,virtual column number custom fileformat
+set statusline=%n\ %t\ %<%M%=%v\ %{Fileformat()}
 " The ruler is shown if laststatus is 0 or 1 (not 2)
 set ruler
 set rulerformat=%l/%L:%c%V
