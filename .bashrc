@@ -134,7 +134,7 @@ fi
 PS1+="${ANSI_BOLD}${ANSI_BLUE}\w${ANSI_RESET}\$ "
 
 # Don't put duplicate lines or lines starting with space in the history
-HISTCONTROL=ignoreboth
+HISTCONTROL=ignoreboth:erasedups
 
 # Append to the history file, don't overwrite it
 shopt -s histappend
@@ -169,7 +169,7 @@ export HISTSIZE=-1
 # > value less than zero, the history file is not truncated.
 # > —https://man.archlinux.org/man/bash.1#HISTORY
 export HISTFILESIZE=-1
-export HISTTIMEFORMAT='%F %T '
+unset HISTTIMEFORMAT
 [ -f ~/.bash_aliases ] && source ~/.bash_aliases
 [ -f ~/.bash_functions ] && source ~/.bash_functions
 if [ "$(uname)" == 'Darwin' ]; then
