@@ -28,3 +28,9 @@ if command -v delta &>/dev/null; then
     alias diff-highlight='delta --diff-highlight --keep-plus-minus-markers --paging=never'
     alias ddiff='delta --line-numbers --navigate --paging=auto'
 fi
+
+if command -v roll &>/dev/null; then
+    # Roll 3d6 down the line, incl. starting gold pieces;
+    # for OSE, B/X, BECMI, OD&D, etc
+    alias 3d6dtl="paste <(echo -e 'STR\nINT\nWIS\nDEX\nCON\nCHA\n$') <(roll 6{3d6},3d6x10)"
+fi
