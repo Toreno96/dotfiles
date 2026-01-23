@@ -257,10 +257,22 @@ set shiftwidth=4
 " wrapped lines. Check if that's clear enough for me.
 set showbreak=
 
+function! Fileformat()
+    if &fileformat == "unix"
+        return "␊"
+    elseif &fileformat == "dos"
+        return "␍␊"
+    elseif &fileformat == "mac"
+        return "␍"
+    endif
+endfunction
+
 set showcmd
 set splitbelow
 set splitright
-set statusline=[%n]\ %t\ %<%y[%{&ff}]%m%r%w%=%l/%L:%c%V\ \|\ %{wordcount().words}
+" Buffer number file name (tail) truncate if too long,modified
+" flag,alignment,virtual column number custom fileformat words count
+set statusline=%n\ %t\ %<%M%=%v\ %{Fileformat()}\ %{wordcount().words}
 " The ruler is shown if laststatus is 0 or 1 (not 2)
 set ruler
 set rulerformat=%l/%L:%c%V
