@@ -21,7 +21,6 @@ let g:netrw_timefmt = '%a %F %T %Z'
 let g:netrw_preview = 1
 
 
-let g:python_host_prog='/usr/bin/python3'
 let g:markdown_fenced_languages = ['sh', 'bash=sh', 'shell=sh', 'python', 'json', 'vim', 'diff', 'toml']
 " Support strikethrough
 let &t_Ts = "\e[9m"
@@ -30,8 +29,6 @@ let &t_Te = "\e[29m"
 let &t_Cs = "\e[4:3m"
 let &t_Ce = "\e[4:0m"
 
-" set termguicolors
-" set background=light
 set background=dark
 syntax enable
 
@@ -315,20 +312,15 @@ set nojoinspaces
 " Delete trailing whitespaces
 nnoremap <leader>d<space> :s/\s\+$//g<enter>
 vnoremap <leader>d<space> :s/\s\+$//g<enter>
-" Yank current filepath and line number to the + register
-nnoremap <leader>yf :let @+ = expand("%:p") . ":" . line(".")<enter>
 " Expanded version of `gf`:
 " Edit existing _or new file_ whose name is under or after the cursor
 nnoremap <leader>gf :e <cfile><CR>
 " Enable spellchecking
 nnoremap <leader>esp :setlocal spell spelllang=en_us,pl<CR>
-nnoremap <leader>ese :setlocal spell spelllang=en_us<CR>
 " Disable spellchecking
 nnoremap <leader>dsp :setlocal nospell<CR>
 " Clear search highlighting
 nnoremap <leader>n :noh<CR>
-" Insert to do item
-nnoremap <leader>iti o<C-D>- [ ]<Space>
 " Put after the cursor the current date
 nnoremap <leader>pdd "=strftime('%F')<CR>p
 " Put before the cursor the current date
@@ -339,16 +331,12 @@ nnoremap <leader>pdt "=strftime('%F %R %Z')<CR>p
 nnoremap <leader>Pdt "=strftime('%F %R %Z')<CR>P
 " Insert line numbering
 xnoremap <leader>iln :!nl -s'. '<CR>gv=
-" Convert the current file from `dos` to `unix` fileformat
-nnoremap <leader>unix :set fileformat=unix<CR>
 " Use arrow keys to jump between buffers and errors
 " Source: https://github.com/jdavis/dotfiles/blob/62435dc83dd444be605e9ba204a3033e7192f3e4/.vimrc#L278..L280
 noremap <right> :bn<CR>
 noremap <left> :bp<CR>
 noremap <up> :cp<CR>
 noremap <down> :cn<CR>
-" Change `'` to `"` globally in the line
-nnoremap <leader>' :s/'/"/g<CR>
 " Remove parentheses `()`, (square) brackets `[]`
 " or braces (curly brackets) `{}` around an entity, e.g.
 " `(foo bar baz)` -> `foo bar baz`
@@ -394,16 +382,6 @@ nnoremap <leader>wen :URLOpen https://duckduckgo.com/?q=!wen <C-r><C-w><CR>
 " For the current word, open a web browser and find the word's definition in the
 " Polish Wikipedia
 nnoremap <leader>wpl :URLOpen https://duckduckgo.com/?q=!wpl <C-r><C-w><CR>
-
-" Write all markdown headers in the current file to a new scratch buffer
-if !exists(":MarkdownListHeaders")
-  command MarkdownListHeaders new
-        \ | setlocal filetype=markdown
-        \ | setlocal buftype=nofile
-        \ | setlocal bufhidden=delete
-        \ | setlocal noswapfile
-        \ | %!grep '^\#\+ ' #
-endif
 
 " Utilize abbreviations for inserting emojis
 abbreviate :warn: ⚠️
