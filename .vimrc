@@ -1,8 +1,6 @@
 " vim: set shiftwidth=2:
 
-if !has('nvim')
-  set nocompatible
-endif
+set nocompatible
 
 " Show (relative) line numbers
 let g:netrw_bufsettings='noma nomod nu rnu nobl nowrap ro'
@@ -133,7 +131,7 @@ if filereadable(expand('~/.vim/bundle/Vundle.vim/README.md'))
   Plugin 'VundleVim/Vundle.vim'
 
   Plugin 'airblade/vim-gitgutter'
-  if has('nvim') || v:version > 800
+  if v:version > 800
     set signcolumn=yes
   else
     let g:gitgutter_sign_column_always=1
@@ -199,29 +197,27 @@ if filereadable(expand('~/.vim/bundle/Vundle.vim/README.md'))
   filetype plugin indent on
 endif
 
-if !has('nvim')
-  set autoindent
-  set autoread
-  set backspace=indent,eol,start
-  set backupdir=~/.vim/backup
-  set directory=~/.vim/swap//
-  set encoding=utf-8
-  set formatoptions=jcroql
-  set history=10000
-  set hlsearch
-  set incsearch
-  set langnoremap
-  set laststatus=2
-  set mouse=a
-  set nrformats=bin,hex
-  set sessionoptions=blank,buffers,curdir,folds,help,tabpages,winsize
-  set smarttab
-  set tabpagemax=50
-  set ttyfast
-  set undodir=~/.vim/undo
-  set viminfo=!,'100,<50,s10,h
-  set wildmenu
-endif
+set autoindent
+set autoread
+set backspace=indent,eol,start
+set backupdir=~/.vim/backup
+set directory=~/.vim/swap//
+set encoding=utf-8
+set formatoptions=jcroql
+set history=10000
+set hlsearch
+set incsearch
+set langnoremap
+set laststatus=2
+set mouse=a
+set nrformats=bin,hex
+set sessionoptions=blank,buffers,curdir,folds,help,tabpages,winsize
+set smarttab
+set tabpagemax=50
+set ttyfast
+set undodir=~/.vim/undo
+set viminfo=!,'100,<50,s10,h
+set wildmenu
 set breakindent
 set cinoptions=j1
 set expandtab
