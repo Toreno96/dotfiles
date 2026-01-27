@@ -172,16 +172,10 @@ if filereadable(expand('~/.vim/bundle/Vundle.vim/README.md'))
 
   Plugin 'junegunn/goyo.vim'
   function! s:goyo_enter()
-    " set scrolloff=999
     set number relativenumber
   endfunction
 
-  function! s:goyo_leave()
-    let &scrolloff=s:scrolloff
-  endfunction
-
   autocmd! User GoyoEnter nested call <SID>goyo_enter()
-  autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
   Plugin 'tpope/vim-fugitive'
   " Support for GitHub in `:GBrowse`
@@ -248,8 +242,7 @@ else
 endif
 set number relativenumber
 set previewheight=5
-let s:scrolloff=3
-let &scrolloff=s:scrolloff
+set scrolloff=3
 set shiftwidth=4
 
 " EXPERIMENT: Do not put any special string at the start of lines that have been
