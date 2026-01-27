@@ -100,7 +100,7 @@ function! s:tweak_codedark_colors()
   " Make it more readable than the default red on red
   hi Error cterm=none ctermfg=white ctermbg=red
 
-  " EXPERIMENT: Things like '\e' in '\e[9m', 'SID' in '<SID>goyo_enter()', etc;
+  " Things like '\e' in '\e[9m', 'SID' in '<SID>goyo_enter()', etc;
   " experimentally borrowed from the more recent version of `codedark`
   hi Special ctermfg=179
 endfunction
@@ -194,10 +194,6 @@ if filereadable(expand('~/.vim/bundle/Vundle.vim/README.md'))
 
   Plugin 'godlygeek/tabular'
 
-  " EXPERIMENT: see if I like it on rare occassions when I need a light
-  " background theme.
-  Plugin 'NLKNguyen/papercolor-theme'
-
   call vundle#end()
 
   filetype plugin indent on
@@ -244,9 +240,9 @@ set number relativenumber
 set previewheight=5
 set shiftwidth=4
 
-" EXPERIMENT: Do not put any special string at the start of lines that have been
-" wrapped. Instead, rely on blank space between line numbers for identifying
-" wrapped lines. Check if that's clear enough for me.
+" Do not put any special string at the start of lines that have been wrapped.
+" Instead, rely on blank space between line numbers for identifying wrapped
+" lines.
 set showbreak=
 
 function! Fileformat()
