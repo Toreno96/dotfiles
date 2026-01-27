@@ -150,17 +150,6 @@ if filereadable(expand('~/.vim/bundle/Vundle.vim/README.md'))
   let python_highlight_all=1
   let python_highlight_file_headers_as_comments=1
 
-  Plugin 'octol/vim-cpp-enhanced-highlight'
-  " Works only with classes, not structures, which introduce inconsistency
-  let g:cpp_class_decl_highlight=0
-  let g:cpp_class_scope_highlight=1
-  let g:cpp_member_variable_highlight=1
-  " Choose either of the following two:
-  " " 1. Lag issues
-  " let g:cpp_experimental_simple_template_highlight=1
-  " " 2. Highlighting issues with std::cout << '> '
-  " let g:cpp_experimental_template_highlight=1
-
   Plugin 'tpope/vim-commentary'
 
   Plugin 'tpope/vim-repeat'
