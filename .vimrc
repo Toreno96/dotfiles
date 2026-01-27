@@ -185,7 +185,6 @@ endif
 
 set autoindent
 set autoread
-set backspace=indent,eol,start
 set backupdir=~/.vim/backup
 set directory=~/.vim/swap//
 set encoding=utf-8
@@ -193,19 +192,12 @@ set formatoptions=jcroql
 set history=10000
 set hlsearch
 set incsearch
-set langnoremap
 set laststatus=2
 set mouse=a
 set nrformats=bin,hex
-set sessionoptions=blank,buffers,curdir,folds,help,tabpages,winsize
 set smarttab
-set tabpagemax=50
-set ttyfast
 set undodir=~/.vim/undo
-set viminfo=!,'100,<50,s10,h
-set wildmenu
 set breakindent
-set cinoptions=j1
 set expandtab
 set linebreak
 set list
@@ -219,7 +211,6 @@ else
   set listchars=tab:\|\ ,trail:#,extends:>,precedes:<,nbsp:!
 endif
 set number relativenumber
-set previewheight=5
 set shiftwidth=4
 
 " Do not put any special string at the start of lines that have been wrapped.
@@ -237,7 +228,6 @@ function! Fileformat()
     endif
 endfunction
 
-set showcmd
 set splitbelow
 set splitright
 " Buffer number file name (tail) truncate if too long,modified
@@ -251,13 +241,11 @@ set ruler
 " Example:
 "                                                             +            24 ␊
 set rulerformat=%M%=%v\ %{Fileformat()}
-set tabstop=8
 set undofile
 " Added `blank` for better handling of ISO dates;
 " without it, pressing CTRL-X on `2025-01-07` (with cursor on `7`) results in
 " `2025-01-08,` while I want `2025-01-06`
 set nrformats=alpha,bin,blank,hex
-set updatetime=250
 
 set ignorecase
 set tagcase=followscs
