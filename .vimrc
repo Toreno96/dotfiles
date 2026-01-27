@@ -242,7 +242,6 @@ else
 endif
 set number relativenumber
 set previewheight=5
-set scrolloff=3
 set shiftwidth=4
 
 " EXPERIMENT: Do not put any special string at the start of lines that have been
