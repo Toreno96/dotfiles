@@ -32,31 +32,8 @@ let &t_Ce = "\e[4:0m"
 set background=dark
 syntax enable
 
-" Customizes all colorschemes
-function! s:tweak_colors()
-  " Change bold to underline;
-  " Inspired by: Tony's letter in The Ultimates (2024) #1
-  hi markdownBold cterm=underline
-  hi markdownBoldItalic cterm=underline,italic
-
-  " Custom syntax groups
-  hi markdownTodoDone ctermfg=grey cterm=strikethrough
-  hi markdownTodoDoneMarker ctermfg=grey
-
-  hi def link markdownStrike htmlStrike
-
-  " Plugins
-  hi GitGutterAdd ctermfg=darkgreen
-  hi GitGutterChange ctermfg=darkblue
-  hi GitGutterDelete ctermfg=darkred
-  hi GitGutterChangeDelete ctermfg=darkmagenta
-
-  hi link LanguageToolGrammarError SpellCap
-  hi link LanguageToolSpellingError SpellBad
-endfunction
-
 " Customizes `torenodark` scheme
-" TODO consider moving it to the `torenodark`'s file?
+" TODO [IN PROGRESS] consider moving it to the `torenodark`'s file?
 " that would remove the need for this autocmd function and I could define colors
 " for 256colorless terminal easily
 function! s:tweak_torenodark_colors()
@@ -68,47 +45,15 @@ function! s:tweak_torenodark_colors()
   " hi DiffDelete   ctermfg=black ctermbg=red
 
   " EXPERIMENT: limit this customization to `torenodark`, not every colorscheme
-  hi SpellBad ctermfg=red ctermbg=NONE cterm=undercurl
-  hi SpellCap ctermfg=blue ctermbg=NONE cterm=undercurl
-  hi SpellLocal ctermfg=green ctermbg=NONE cterm=undercurl
-  hi SpellRare ctermfg=magenta ctermbg=NONE cterm=undercurl
-
-  " Highlight the search pattern _while typing_ (e.g. `/IncSearch`).
-  " This is separate from the `hi Search`, which highlights the last search
-  " pattern (e.g. `/IncSearch<CR>`)
-  hi IncSearch ctermfg=red cterm=bold
-
-  " From 'octol/vim-cpp-enhanced-highlight'
-  hi cCustomClassName ctermfg=43
-
-  " Make H1 distinguishable from H2-6 to make it easier to catch if it's
-  " incorrectly in the middle of higher-level headings;
-  " also, wanted the opportunity to use the beautiful `ctermfg=43` for something
-  hi markdownH1 ctermfg=43 cterm=bold,reverse
-  " Headings and code colorization inspired by:
-  " https://github.com/charmbracelet/glow
-  hi markdownH2 ctermfg=75 cterm=bold
-  " Make odd headings a different color than even headings, to make them a bit
-  " more distinguishable from each other
-  hi markdownH3 ctermfg=43 cterm=bold
-  hi markdownH4 ctermfg=75 cterm=bold
-  hi markdownH5 ctermfg=43 cterm=bold
-  hi markdownH6 ctermfg=75 cterm=bold
-  hi markdownHeadingDelimiter ctermfg=75 cterm=bold
-  hi markdownCode ctermfg=203
-  hi markdownCodeDelimiter ctermfg=203
-
-  " Highlight the current match for the last search pattern to distinguish it
-  " from other matches
-  hi CurSearch ctermbg=239 cterm=underline
-
-  " Make it more readable than the default red on red
-  hi Error cterm=none ctermfg=white ctermbg=red
+  " (applied in `torenodark` colorscheme)
+  " hi SpellBad ctermfg=red ctermbg=NONE cterm=undercurl
+  " hi SpellCap ctermfg=blue ctermbg=NONE cterm=undercurl
+  " hi SpellLocal ctermfg=green ctermbg=NONE cterm=undercurl
+  " hi SpellRare ctermfg=magenta ctermbg=NONE cterm=undercurl
 endfunction
 
 " To avoid losing my customization after changing colorscheme and changing it back
 " Source: https://github.com/junegunn/goyo.vim/blob/7f5d35a65510083ea5c2d0941797244b9963d4a9/README.md#faq
-autocmd! ColorScheme * call s:tweak_colors()
 autocmd! ColorScheme torenodark call s:tweak_torenodark_colors()
 
 " Check if Vundle plugin manager is installed by checking if the README file

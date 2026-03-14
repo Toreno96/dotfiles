@@ -138,7 +138,6 @@ call <sid>hi('VertSplit', s:cdSplitDark, s:cdBack, 'none', {})
 call <sid>hi('Folded', s:cdLeftLight, s:cdLeftDark, 'underline', {})
 call <sid>hi('FoldColumn', s:cdLineNumber, s:cdBack, 'none', {})
 call <sid>hi('SignColumn', {}, s:cdBack, 'none', {})
-call <sid>hi('IncSearch', s:cdNone, s:cdSearchCurrent, 'none', {})
 call <sid>hi('LineNr', s:cdLineNumber, s:cdBack, 'none', {})
 call <sid>hi('CursorLineNr', s:cdPopupFront, s:cdBack, 'none', {})
 call <sid>hi('MatchParen', s:cdNone, s:cdCursorDark, 'none', {})
@@ -151,6 +150,13 @@ call <sid>hi('PmenuSbar', {}, s:cdPopupHighlightGray, 'none', {})
 call <sid>hi('PmenuThumb', {}, s:cdPopupFront, 'none', {})
 call <sid>hi('Question', s:cdBlue, s:cdBack, 'none', {})
 call <sid>hi('Search', s:cdNone, s:cdSearch, 'none', {})
+" Highlight the current match for the last search pattern to distinguish it from
+" other matches
+call <sid>hi('CurSearch', s:cdNone, s:cdSearchCurrent, 'underline', {})
+" Highlight the search pattern _while typing_ (e.g. `/IncSearch`).
+" This is separate from the `hi Search`, which highlights the last search
+" pattern (e.g. `/IncSearch<CR>`)
+call <sid>hi('IncSearch', s:cdLightRed, s:cdSearchCurrent, 'none', {})
 call <sid>hi('SpecialKey', s:cdLineNumber, s:cdNone, 'none', {})
 call <sid>hi('StatusLine', s:cdFront, s:cdLeftMid, 'none', {})
 call <sid>hi('StatusLineTerm', s:cdFront, s:cdLeftMid, 'none', {})
@@ -171,6 +177,11 @@ call <sid>hi('netrwMarkFile', s:cdFront, s:cdSelection, 'none', {})
 hi! link diffAdded DiffAdd
 hi! link diffChanged DiffChange
 hi! link diffRemoved DiffDelete
+
+" EXPERIMENT: Uncomment if custom Diff* highlight groups
+" hi! link Added DiffAdd
+" hi! link Changed DiffChange
+" hi! link Removed DiffDelete
 
 call <sid>hi('Comment', s:cdGreen, {}, 'none', {})
 
@@ -218,25 +229,44 @@ call <sid>hi("Conceal", s:cdFront, s:cdBack, 'none', {})
 
 call <sid>hi('Ignore', s:cdBack, {}, 'none', {})
 
-call <sid>hi('Error', s:cdRed, s:cdBack, 'undercurl', s:cdRed)
+call <sid>hi('Error', s:cdLightRed, s:cdBack, 'undercurl', s:cdRed)
 
 call <sid>hi('Todo', s:cdNone, s:cdLeftMid, 'none', {})
-call <sid>hi('SpellBad', s:cdRed, s:cdBack, 'undercurl', s:cdRed)
-call <sid>hi('SpellCap', s:cdRed, s:cdBack, 'undercurl', s:cdRed)
-call <sid>hi('SpellRare', s:cdRed, s:cdBack, 'undercurl', s:cdRed)
-call <sid>hi('SpellLocal', s:cdRed, s:cdBack, 'undercurl', s:cdRed)
+" EXPERIMENT: colorscheme's colors instead of red, blue, green, magenta
+call <sid>hi('SpellBad', s:cdLightRed, s:cdBack, 'undercurl', s:cdRed)
+" EXPERIMENT: cdBlue vs cdLightBlue
+call <sid>hi('SpellCap', s:cdBlue, s:cdBack, 'undercurl', s:cdRed)
+call <sid>hi('SpellRare', s:cdPink, s:cdBack, 'undercurl', s:cdRed)
+call <sid>hi('SpellLocal', s:cdLightGreen, s:cdBack, 'undercurl', s:cdRed)
 
 " MARKDOWN (built-in)
-" TODO copy customization from vimrc
-call <sid>hi('markdownH1', s:cdBlue, {}, 'bold', {})
-hi! link markdownH2 markdownH1
-hi! link markdownH3 markdownH1
-hi! link markdownH4 markdownH1
-hi! link markdownH5 markdownH1
-hi! link markdownH6 markdownH1
-call <sid>hi('markdownHeadingDelimiter', s:cdBlue, {}, 'none', {})
-call <sid>hi('markdownCode', s:cdOrange, {}, 'none', {})
-hi! link markdownCodeDelimiter markdownCode
+
+" Make H1 distinguishable from H2-6 to make it easier to catch if it's
+" incorrectly in the middle of higher-level headings
+call <sid>hi('markdownH1', s:cdBlueGreen, {}, 'bold,reverse', {})
+" Headings and code colorization inspired by:
+" https://github.com/charmbracelet/glow
+call <sid>hi('markdownH2', s:cdBlue, {}, 'bold', {})
+" Make odd headings a different color than even headings, to make them a bit
+" more distinguishable from each other
+call <sid>hi('markdownH3', s:cdBlueGreen, {}, 'bold', {})
+call <sid>hi('markdownH4', s:cdBlue, {}, 'bold', {})
+call <sid>hi('markdownH5', s:cdBlueGreen, {}, 'bold', {})
+call <sid>hi('markdownH6', s:cdBlue, {}, 'bold', {})
+call <sid>hi('markdownHeadingDelimiter', s:cdBlue, {}, 'bold', {})
+call <sid>hi('markdownCode', s:cdRed, {}, 'none', {})
+call <sid>hi('markdownCodeDelimiter', s:cdRed, {}, 'none', {})
+
+" Change bold to underline;
+" Inspired by: Tony's letter in The Ultimates (2024) #1
+call <sid>hi('markdownBold', {}, {}, 'underline', {})
+call <sid>hi('markdownBoldItalic', {}, {}, 'underline,italic', {})
+
+" Custom syntax groups
+hi markdownTodoDone ctermfg=grey cterm=strikethrough
+hi markdownTodoDoneMarker ctermfg=grey
+
+hi! link markdownStrike htmlStrike
 
 " HTML (built-in)
 call <sid>hi('htmlTag', s:cdGray, {}, 'none', {})
@@ -277,3 +307,19 @@ call <sid>hi('rubyClassNameTag', s:cdBlueGreen, {}, 'none', {})
 
 " Python:
 call <sid>hi('pythonOperator', s:cdPink, {}, 'none', {})
+
+" PLUGINS
+
+" airblade/vim-gitgutter
+hi GitGutterAdd ctermfg=darkgreen
+hi GitGutterChange ctermfg=darkblue
+hi GitGutterDelete ctermfg=darkred
+hi GitGutterChangeDelete ctermfg=darkmagenta
+
+" dpelle/vim-LanguageTool
+hi! link LanguageToolGrammarError SpellCap
+hi! link LanguageToolSpellingError SpellBad
+
+" octol/vim-cpp-enhanced-highlight
+call <sid>hi('cCustomClassName', s:cdBlueGreen, {}, 'none', {})
+
