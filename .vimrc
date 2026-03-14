@@ -34,8 +34,7 @@ syntax enable
 
 " Customizes all colorschemes
 function! s:tweak_colors()
-  " EXPERIMENT: see if I like it;
-  " Change bold to underline, just for fun;
+  " Change bold to underline;
   " Inspired by: Tony's letter in The Ultimates (2024) #1
   hi markdownBold cterm=underline
   hi markdownBoldItalic cterm=underline,italic
@@ -65,15 +64,10 @@ endfunction
 " for 256colorless terminal easily
 function! s:tweak_torenodark_colors()
   hi DiffAdd      ctermfg=green ctermbg=NONE
-  hi diffAdded    ctermfg=green ctermbg=NONE
   hi DiffChange   ctermfg=green ctermbg=NONE
   hi DiffText     ctermfg=black ctermbg=green
-  " EXPERIMENT: see if I need it to be different than DiffText
-  hi DiffTextAdd  ctermfg=black ctermbg=green cterm=underline
   hi DiffDelete   ctermfg=black ctermbg=red
-  hi diffRemoved  ctermfg=red ctermbg=NONE
 
-  " EXPERIMENT: with undercurl instead of underline
   " EXPERIMENT: limit this customization to `torenodark`, not every colorscheme
   hi SpellBad ctermfg=red ctermbg=NONE cterm=undercurl
   hi SpellCap ctermfg=blue ctermbg=NONE cterm=undercurl
