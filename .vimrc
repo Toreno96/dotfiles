@@ -34,6 +34,21 @@ syntax enable
 
 " Customizes all colorschemes
 function! s:tweak_colors()
+  " Plugins
+  hi GitGutterAdd ctermfg=darkgreen
+  hi GitGutterChange ctermfg=darkblue
+  hi GitGutterDelete ctermfg=darkred
+  hi GitGutterChangeDelete ctermfg=darkmagenta
+
+  hi link LanguageToolGrammarError SpellCap
+  hi link LanguageToolSpellingError SpellBad
+endfunction
+
+" Customizes `codedark` scheme
+" TODO consider moving it to the `codedark`'s file?
+" that would remove the need for this autocmd function and I could define colors
+" for 256colorless terminal easily
+function! s:tweak_codedark_colors()
   hi DiffAdd      ctermfg=green ctermbg=NONE
   hi diffAdded    ctermfg=green ctermbg=NONE
   hi DiffChange   ctermfg=green ctermbg=NONE
@@ -61,21 +76,7 @@ function! s:tweak_colors()
 
   hi netrwMarkFile cterm=reverse
 
-  " Plugins
-  hi GitGutterAdd ctermfg=darkgreen
-  hi GitGutterChange ctermfg=darkblue
-  hi GitGutterDelete ctermfg=darkred
-  hi GitGutterChangeDelete ctermfg=darkmagenta
 
-  hi link LanguageToolGrammarError SpellCap
-  hi link LanguageToolSpellingError SpellBad
-endfunction
-
-" Customizes `codedark` scheme
-" TODO consider moving it to the `codedark`'s file?
-" that would remove the need for this autocmd function and I could define colors
-" for 256colorless terminal easily
-function! s:tweak_codedark_colors()
   hi SpecialKey ctermfg=240
   " From 'octol/vim-cpp-enhanced-highlight'
   hi cCustomClassName ctermfg=43
