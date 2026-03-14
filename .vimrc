@@ -361,6 +361,7 @@ nnoremap <leader>wen :URLOpen https://duckduckgo.com/?q=!wen <C-r><C-w><CR>
 " For the current word, open a web browser and find the word's definition in the
 " Polish Wikipedia
 nnoremap <leader>wpl :URLOpen https://duckduckgo.com/?q=!wpl <C-r><C-w><CR>
+nnoremap <leader>tag yiWo<ESC>pA<C-v><TAB><C-r>=expand("%:t")<CR><C-v><TAB>/^$<ESC>P
 
 " Utilize abbreviations for inserting emojis
 abbreviate :warn: ⚠️
@@ -373,6 +374,10 @@ abbreviate :warn: ⚠️
 " and `non-id` in `:help abbreviations`)
 abbreviate the1st the former
 abbreviate the2nd the latter
+" EXPERIMENT: Same replacements in the macOS' settings; see if it doesn't get in
+" the way
+abbreviate §1 the former
+abbreviate §2 the latter
 
 " According to the docs, this is set by default, but I prefer to set it
 " explicitly
