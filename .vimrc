@@ -44,11 +44,11 @@ function! s:tweak_colors()
   hi link LanguageToolSpellingError SpellBad
 endfunction
 
-" Customizes `codedark` scheme
-" TODO consider moving it to the `codedark`'s file?
+" Customizes `torenodark` scheme
+" TODO consider moving it to the `torenodark`'s file?
 " that would remove the need for this autocmd function and I could define colors
 " for 256colorless terminal easily
-function! s:tweak_codedark_colors()
+function! s:tweak_torenodark_colors()
   hi DiffAdd      ctermfg=green ctermbg=NONE
   hi diffAdded    ctermfg=green ctermbg=NONE
   hi DiffChange   ctermfg=green ctermbg=NONE
@@ -59,11 +59,7 @@ function! s:tweak_codedark_colors()
   hi diffRemoved  ctermfg=red ctermbg=NONE
 
   " EXPERIMENT: with undercurl instead of underline
-  "
-  " TODO consider moving it to the `codedark`'s file?
-  " Since those colors are not fully compatible with every color scheme anyway,
-  " e.g. with white backgrounds if "ctermbg=black"; with "colorscheme default"
-  " if no "ctermbg=black".
+  " EXPERIMENT: limit this customization to `torenodark`, not every colorscheme
   hi SpellBad ctermfg=red ctermbg=NONE cterm=undercurl
   hi SpellCap ctermfg=blue ctermbg=NONE cterm=undercurl
   hi SpellLocal ctermfg=green ctermbg=NONE cterm=undercurl
@@ -106,7 +102,7 @@ function! s:tweak_codedark_colors()
   hi Error cterm=none ctermfg=white ctermbg=red
 
   " Things like '\e' in '\e[9m', 'SID' in '<SID>goyo_enter()', etc;
-  " experimentally borrowed from the more recent version of `codedark`
+  " experimentally borrowed from the more recent version of `torenodark`
   hi Special ctermfg=179
 endfunction
 
@@ -116,15 +112,7 @@ endfunction
 " TODO fix "~/.vim/after/syntax/markdown.vim" not being reloaded after changing
 " colorscheme and changing it back
 autocmd! ColorScheme * call s:tweak_colors()
-autocmd! ColorScheme codedark call s:tweak_codedark_colors()
-
-if $TERM=~'256color'
-  colorscheme codedark
-else
-  " TODO test how `codedark` would work on the terminal without 256 color support;
-  " that would simplify syntax highlighting configuration significantly
-  colorscheme default
-endif
+autocmd! ColorScheme torenodark call s:tweak_torenodark_colors()
 
 " Check if Vundle plugin manager is installed by checking if the README file
 " exists because `filereadable` doesn't handle directories
@@ -184,9 +172,19 @@ if filereadable(expand('~/.vim/bundle/Vundle.vim/README.md'))
 
   Plugin 'preservim/vim-wordy'
 
+  Plugin 'tomasiser/vim-code-dark'
+
   call vundle#end()
 
   filetype plugin indent on
+endif
+
+if $TERM=~'256color'
+  colorscheme torenodark
+else
+  " TODO test how `torenodark` would work on the terminal without 256 color support;
+  " that would simplify syntax highlighting configuration significantly
+  colorscheme default
 endif
 
 set autoindent
