@@ -164,7 +164,7 @@ call <sid>hi('Visual', s:cdNone, s:cdSelection, 'none', {})
 call <sid>hi('VisualNOS', s:cdNone, s:cdSelection, 'none', {})
 call <sid>hi('WarningMsg', s:cdOrange, s:cdBack, 'none', {})
 call <sid>hi('WildMenu', s:cdNone, s:cdSelection, 'none', {})
-" TODO customize as reversed
+" TODO customize as reversed: hi netrwMarkFile cterm=reverse
 call <sid>hi('netrwMarkFile', s:cdFront, s:cdSelection, 'none', {})
 
 " Legacy groups for official git.vim and diff.vim syntax

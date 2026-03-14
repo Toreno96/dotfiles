@@ -63,10 +63,12 @@ endfunction
 " that would remove the need for this autocmd function and I could define colors
 " for 256colorless terminal easily
 function! s:tweak_torenodark_colors()
-  hi DiffAdd      ctermfg=green ctermbg=NONE
-  hi DiffChange   ctermfg=green ctermbg=NONE
-  hi DiffText     ctermfg=black ctermbg=green
-  hi DiffDelete   ctermfg=black ctermbg=red
+  " EXPERIMENT: see how I like the updated version from the latest codedark
+  " (applied in `torenodark` colorscheme)
+  " hi DiffAdd      ctermfg=green ctermbg=NONE
+  " hi DiffChange   ctermfg=green ctermbg=NONE
+  " hi DiffText     ctermfg=black ctermbg=green
+  " hi DiffDelete   ctermfg=black ctermbg=red
 
   " EXPERIMENT: limit this customization to `torenodark`, not every colorscheme
   hi SpellBad ctermfg=red ctermbg=NONE cterm=undercurl
@@ -79,10 +81,6 @@ function! s:tweak_torenodark_colors()
   " pattern (e.g. `/IncSearch<CR>`)
   hi IncSearch ctermfg=red cterm=bold
 
-  hi netrwMarkFile cterm=reverse
-
-
-  hi SpecialKey ctermfg=240
   " From 'octol/vim-cpp-enhanced-highlight'
   hi cCustomClassName ctermfg=43
 
@@ -109,10 +107,6 @@ function! s:tweak_torenodark_colors()
 
   " Make it more readable than the default red on red
   hi Error cterm=none ctermfg=white ctermbg=red
-
-  " Things like '\e' in '\e[9m', 'SID' in '<SID>goyo_enter()', etc;
-  " experimentally borrowed from the more recent version of `torenodark`
-  hi Special ctermfg=179
 endfunction
 
 " To avoid losing my customization after changing colorscheme and changing it back
