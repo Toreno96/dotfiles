@@ -34,14 +34,14 @@ syntax enable
 
 " Customizes all colorschemes
 function! s:tweak_colors()
-  hi DiffAdd      ctermfg=green ctermbg=bg
-  hi diffAdded    ctermfg=green ctermbg=bg
-  hi DiffChange   ctermfg=green ctermbg=bg
+  hi DiffAdd      ctermfg=green ctermbg=NONE
+  hi diffAdded    ctermfg=green ctermbg=NONE
+  hi DiffChange   ctermfg=green ctermbg=NONE
   hi DiffText     ctermfg=black ctermbg=green
   " EXPERIMENT: see if I need it to be different than DiffText
   hi DiffTextAdd  ctermfg=black ctermbg=green cterm=underline
   hi DiffDelete   ctermfg=black ctermbg=red
-  hi diffRemoved  ctermfg=red ctermbg=bg
+  hi diffRemoved  ctermfg=red ctermbg=NONE
 
   " EXPERIMENT: with undercurl instead of underline
   "
@@ -49,10 +49,10 @@ function! s:tweak_colors()
   " Since those colors are not fully compatible with every color scheme anyway,
   " e.g. with white backgrounds if "ctermbg=black"; with "colorscheme default"
   " if no "ctermbg=black".
-  hi SpellBad ctermfg=red ctermbg=bg cterm=undercurl
-  hi SpellCap ctermfg=blue ctermbg=bg cterm=undercurl
-  hi SpellLocal ctermfg=green ctermbg=bg cterm=undercurl
-  hi SpellRare ctermfg=magenta ctermbg=bg cterm=undercurl
+  hi SpellBad ctermfg=red ctermbg=NONE cterm=undercurl
+  hi SpellCap ctermfg=blue ctermbg=NONE cterm=undercurl
+  hi SpellLocal ctermfg=green ctermbg=NONE cterm=undercurl
+  hi SpellRare ctermfg=magenta ctermbg=NONE cterm=undercurl
 
   " Highlight the search pattern _while typing_ (e.g. `/IncSearch`).
   " This is separate from the `hi Search`, which highlights the last search
