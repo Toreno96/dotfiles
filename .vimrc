@@ -60,6 +60,15 @@ function! s:tweak_colors()
   hi IncSearch ctermfg=red cterm=bold
 
   hi netrwMarkFile cterm=reverse
+
+  " Plugins
+  hi GitGutterAdd ctermfg=darkgreen
+  hi GitGutterChange ctermfg=darkblue
+  hi GitGutterDelete ctermfg=darkred
+  hi GitGutterChangeDelete ctermfg=darkmagenta
+
+  hi link LanguageToolGrammarError SpellCap
+  hi link LanguageToolSpellingError SpellBad
 endfunction
 
 " Customizes `codedark` scheme
@@ -141,10 +150,6 @@ if filereadable(expand('~/.vim/bundle/Vundle.vim/README.md'))
     let g:gitgutter_sign_removed_above_and_below='▞'
     let g:gitgutter_sign_modified_removed='▛'
   endif
-  hi GitGutterAdd ctermfg=darkgreen
-  hi GitGutterChange ctermfg=darkblue
-  hi GitGutterDelete ctermfg=darkred
-  hi GitGutterChangeDelete ctermfg=darkmagenta
 
   Plugin 'hdima/python-syntax'
   let python_highlight_all=1
@@ -173,8 +178,6 @@ if filereadable(expand('~/.vim/bundle/Vundle.vim/README.md'))
   " https://stackoverflow.com/a/46306176/5875021
   Plugin 'dpelle/vim-LanguageTool'
   let g:languagetool_cmd='languagetool'
-  hi link LanguageToolGrammarError SpellCap
-  hi link LanguageToolSpellingError SpellBad
 
   Plugin 'godlygeek/tabular'
 
