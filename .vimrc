@@ -459,3 +459,5 @@ endif
 " I like highlighting strings inside C comments.
 " Revert with ":unlet c_comment_strings".
 let c_comment_strings=1
+
+" Above code was copy-pasted from "$VIMRUNTIME/defaults.vim"
