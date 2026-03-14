@@ -1,5 +1,5 @@
-" Vim Code Dark (color scheme)
-" https://github.com/tomasiser/vim-code-dark
+" Vim Toreno Dark (color scheme)
+" Heavily based on: https://github.com/tomasiser/vim-code-dark
 "
 " At some point I copy-pasted this file from the original repo into my vim
 " directory, and (later?) made some small customizations to it. It was added to
@@ -34,9 +34,8 @@
 " (Date: 2023-11-11 17:42:04 +0100)
 "
 " But it contains a lot of changes I'm not happy with, like different colors in
-" Markdown and search than the ones I'm used to. As such, I'll probably
-" continue using my own copy, and maybe copy-paste only small parts of the most
-" recent versions (e.g. updates to Python and JavaScript syntax highlighting).
+" Markdown and search than the ones I'm used to. As such, I continue using my
+" own copy, and copy-pasted only small parts of the most recent versions.
 
 scriptencoding utf-8
 
@@ -134,6 +133,8 @@ let s:cdDiffRedLight = {'gui': '#6F1313', 'cterm': s:cterm08, 'cterm256': '52'}
 let s:cdDiffRedLightLight = {'gui': '#FB0101', 'cterm': s:cterm08, 'cterm256': '09'}
 let s:cdDiffGreenDark = {'gui': '#373D29', 'cterm': s:cterm0B, 'cterm256': '237'}
 let s:cdDiffGreenLight = {'gui': '#4B5632', 'cterm': s:cterm09, 'cterm256': '58'}
+let s:cdDiffBlueLight = {'gui': '#87d7ff', 'cterm': s:cterm0C, 'cterm256': '117'}
+let s:cdDiffBlue = {'gui': '#005f87', 'cterm': s:cterm0D, 'cterm256': '24'}
 
 let s:cdSearchCurrent = {'gui': '#49545F', 'cterm': s:cterm09, 'cterm256': '239'}
 let s:cdSearch = {'gui': '#4C4E50', 'cterm': s:cterm0A, 'cterm256': '239'}
@@ -147,9 +148,10 @@ endif
 let s:cdGray = {'gui': '#808080', 'cterm': s:cterm04, 'cterm256': '08'}
 let s:cdViolet = {'gui': '#646695', 'cterm': s:cterm04, 'cterm256': '60'}
 let s:cdBlue = {'gui': '#569CD6', 'cterm': s:cterm0D, 'cterm256': '75'}
+let s:cdDarkBlue = {'gui': '#223E55', 'cterm': s:cterm0D, 'cterm256': '73'}
 let s:cdLightBlue = {'gui': '#9CDCFE', 'cterm': s:cterm0C, 'cterm256': '117'}
 if g:codedark_conservative | let s:cdLightBlue = s:cdFront | endif
-let s:cdGreen = {'gui': '#608B4E', 'cterm': s:cterm0B, 'cterm256': '65'}
+let s:cdGreen = {'gui': '#6A9955', 'cterm': s:cterm0B, 'cterm256': '65'}
 let s:cdBlueGreen = {'gui': '#4EC9B0', 'cterm': s:cterm0F, 'cterm256': '43'}
 let s:cdLightGreen = {'gui': '#B5CEA8', 'cterm': s:cterm09, 'cterm256': '151'}
 let s:cdRed = {'gui': '#F44747', 'cterm': s:cterm08, 'cterm256': '203'}
@@ -161,18 +163,19 @@ let s:cdYellow = {'gui': '#DCDCAA', 'cterm': s:cterm0A, 'cterm256': '187'}
 if g:codedark_conservative | let s:cdYellow = s:cdFront | endif
 let s:cdPink = {'gui': '#C586C0', 'cterm': s:cterm0E, 'cterm256': '176'}
 if g:codedark_conservative | let s:cdPink = s:cdBlue | endif
+let s:cdSilver = {'gui': '#C0C0C0', 'cterm': s:cterm05, 'cterm256': '7'}
 
-" Vim editor colors
+" UI (built-in)
 "    <sid>hi(GROUP, FOREGROUND, BACKGROUND, ATTRIBUTE, SPECIAL)
 call <sid>hi('Normal', s:cdFront, s:cdBack, 'none', {})
 call <sid>hi('ColorColumn', {}, s:cdCursorDarkDark, 'none', {})
 call <sid>hi('Cursor', s:cdCursorDark, s:cdCursorLight, 'none', {})
 call <sid>hi('CursorLine', {}, s:cdCursorDarkDark, 'none', {})
-call <sid>hi('Directory', s:cdBlue, s:cdBack, 'none', {})
-call <sid>hi('DiffAdd', {}, s:cdDiffGreenDark, 'none', {})
-call <sid>hi('DiffChange', {}, s:cdDiffRedDark, 'none', {})
-call <sid>hi('DiffDelete', {}, s:cdDiffRedLight, 'none', {})
-call <sid>hi('DiffText', {}, s:cdDiffRedLight, 'none', {})
+call <sid>hi('Directory', s:cdBlue, s:cdNone, 'none', {})
+call <sid>hi('DiffAdd', s:cdFront, s:cdDiffGreenLight, 'none', {})
+call <sid>hi('DiffChange', s:cdFront, s:cdDiffBlue, 'none', {})
+call <sid>hi('DiffDelete', s:cdFront, s:cdDiffRedLight, 'none', {})
+call <sid>hi('DiffText', s:cdBack, s:cdDiffBlueLight, 'none', {})
 call <sid>hi('EndOfBuffer', s:cdLineNumber, s:cdBack, 'none', {})
 call <sid>hi('ErrorMsg', s:cdRed, s:cdBack, 'none', {})
 call <sid>hi('VertSplit', s:cdSplitDark, s:cdBack, 'none', {})
@@ -185,17 +188,14 @@ call <sid>hi('CursorLineNr', s:cdPopupFront, s:cdBack, 'none', {})
 call <sid>hi('MatchParen', s:cdNone, s:cdCursorDark, 'none', {})
 call <sid>hi('ModeMsg', s:cdFront, s:cdLeftDark, 'none', {})
 call <sid>hi('MoreMsg', s:cdFront, s:cdLeftDark, 'none', {})
-call <sid>hi('NonText', s:cdLineNumber, s:cdBack, 'none', {})
+call <sid>hi('NonText', s:cdLineNumber, s:cdNone, 'none', {})
 call <sid>hi('Pmenu', s:cdPopupFront, s:cdPopupBack, 'none', {})
 call <sid>hi('PmenuSel', s:cdPopupFront, s:cdPopupHighlightBlue, 'none', {})
 call <sid>hi('PmenuSbar', {}, s:cdPopupHighlightGray, 'none', {})
 call <sid>hi('PmenuThumb', {}, s:cdPopupFront, 'none', {})
 call <sid>hi('Question', s:cdBlue, s:cdBack, 'none', {})
 call <sid>hi('Search', s:cdNone, s:cdSearch, 'none', {})
-call <sid>hi('SpecialKey', s:cdBlue, s:cdNone, 'none', {})
-call <sid>hi('SpellBad', s:cdNone, s:cdNone, 'underline', {})
-call <sid>hi('SpellCap', s:cdNone, s:cdNone, 'underline', {})
-call <sid>hi('SpellLocal', s:cdNone, s:cdNone, 'underline', {})
+call <sid>hi('SpecialKey', s:cdLineNumber, s:cdNone, 'none', {})
 call <sid>hi('StatusLine', s:cdFront, s:cdLeftMid, 'none', {})
 call <sid>hi('StatusLineTerm', s:cdFront, s:cdLeftMid, 'none', {})
 call <sid>hi('StatusLineNC', s:cdFront, s:cdLeftDark, 'none', {})
@@ -208,9 +208,17 @@ call <sid>hi('Visual', s:cdNone, s:cdSelection, 'none', {})
 call <sid>hi('VisualNOS', s:cdNone, s:cdSelection, 'none', {})
 call <sid>hi('WarningMsg', s:cdOrange, s:cdBack, 'none', {})
 call <sid>hi('WildMenu', s:cdNone, s:cdSelection, 'none', {})
+" TODO customize as reversed
+call <sid>hi('netrwMarkFile', s:cdFront, s:cdSelection, 'none', {})
+
+" Legacy groups for official git.vim and diff.vim syntax
+hi! link diffAdded DiffAdd
+hi! link diffChanged DiffChange
+hi! link diffRemoved DiffDelete
 
 call <sid>hi('Comment', s:cdGreen, {}, 'none', {})
 
+" SYNTAX HIGHLIGHT (built-in)
 call <sid>hi('Constant', s:cdBlue, {}, 'none', {})
 call <sid>hi('String', s:cdOrange, {}, 'none', {})
 call <sid>hi('Character', s:cdOrange, {}, 'none', {})
@@ -227,7 +235,6 @@ call <sid>hi('Repeat', s:cdPink, {}, 'none', {})
 call <sid>hi('Label', s:cdPink, {}, 'none', {})
 call <sid>hi('Operator', s:cdFront, {}, 'none', {})
 call <sid>hi('Keyword', s:cdPink, {}, 'none', {})
-call <sid>hi('pythonOperator', s:cdPink, {}, 'none', {})
 call <sid>hi('Exception', s:cdPink, {}, 'none', {})
 
 call <sid>hi('PreProc', s:cdPink, {}, 'none', {})
@@ -241,8 +248,10 @@ call <sid>hi('StorageClass', s:cdBlue, {}, 'none', {})
 call <sid>hi('Structure', s:cdBlue, {}, 'none', {})
 call <sid>hi('Typedef', s:cdBlue, {}, 'none', {})
 
-call <sid>hi('Special', s:cdFront, {}, 'none', {})
-call <sid>hi('SpecialChar', s:cdOrange, {}, 'none', {})
+" Things like '\e' in '\e[9m', 'SID' in '<SID>goyo_enter()', etc
+call <sid>hi('Special', s:cdYellowOrange, {}, 'none', {})
+
+call <sid>hi('SpecialChar', s:cdFront, {}, 'none', {})
 call <sid>hi('Tag', s:cdFront, {}, 'none', {})
 call <sid>hi('Delimiter', s:cdFront, {}, 'none', {})
 call <sid>hi('SpecialComment', s:cdGreen, {}, 'none', {})
@@ -251,20 +260,36 @@ call <sid>hi('Debug', s:cdFront, {}, 'none', {})
 call <sid>hi('Underlined', s:cdNone, {}, 'underline', {})
 call <sid>hi("Conceal", s:cdFront, s:cdBack, 'none', {})
 
-call <sid>hi('Ignore', s:cdFront, {}, 'none', {})
+call <sid>hi('Ignore', s:cdBack, {}, 'none', {})
 
-call <sid>hi('Error', s:cdRed, {}, 'undercurl', s:cdRed)
+call <sid>hi('Error', s:cdRed, s:cdBack, 'undercurl', s:cdRed)
 
 call <sid>hi('Todo', s:cdNone, s:cdLeftMid, 'none', {})
+call <sid>hi('SpellBad', s:cdRed, s:cdBack, 'undercurl', s:cdRed)
+call <sid>hi('SpellCap', s:cdRed, s:cdBack, 'undercurl', s:cdRed)
+call <sid>hi('SpellRare', s:cdRed, s:cdBack, 'undercurl', s:cdRed)
+call <sid>hi('SpellLocal', s:cdRed, s:cdBack, 'undercurl', s:cdRed)
 
-" HTML:
+" MARKDOWN (built-in)
+" TODO copy customization from vimrc
+call <sid>hi('markdownH1', s:cdBlue, {}, 'bold', {})
+hi! link markdownH2 markdownH1
+hi! link markdownH3 markdownH1
+hi! link markdownH4 markdownH1
+hi! link markdownH5 markdownH1
+hi! link markdownH6 markdownH1
+call <sid>hi('markdownHeadingDelimiter', s:cdBlue, {}, 'none', {})
+call <sid>hi('markdownCode', s:cdOrange, {}, 'none', {})
+hi! link markdownCodeDelimiter markdownCode
+
+" HTML (built-in)
 call <sid>hi('htmlTag', s:cdGray, {}, 'none', {})
 call <sid>hi('htmlEndTag', s:cdGray, {}, 'none', {})
 call <sid>hi('htmlTagName', s:cdBlue, {}, 'none', {})
 call <sid>hi('htmlSpecialTagName', s:cdBlue, {}, 'none', {})
 call <sid>hi('htmlArg', s:cdLightBlue, {}, 'none', {})
 
-" CSS:
+" CSS (built-in)
 call <sid>hi('cssBraces', s:cdFront, {}, 'none', {})
 call <sid>hi('cssInclude', s:cdPink, {}, 'none', {})
 call <sid>hi('cssTagName', s:cdYellowOrange, {}, 'none', {})
@@ -294,3 +319,5 @@ call <sid>hi('jsThis', s:cdBlue, {}, 'none', {})
 " Ruby:
 call <sid>hi('rubyClassNameTag', s:cdBlueGreen, {}, 'none', {})
 
+" Python:
+call <sid>hi('pythonOperator', s:cdPink, {}, 'none', {})
