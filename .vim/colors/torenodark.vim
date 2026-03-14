@@ -1,41 +1,5 @@
 " Vim Toreno Dark (color scheme)
 " Heavily based on: https://github.com/tomasiser/vim-code-dark
-"
-" At some point I copy-pasted this file from the original repo into my vim
-" directory, and (later?) made some small customizations to it. It was added to
-" the dotfiles repo either before the customizations or after them, I don't
-" remember.
-"
-" At this point, I can't possibly recall which exact commit from the original
-" repo it was. I tried to find it by checking out each single commit of
-" 'tomasiser/vim-code-dark' and comparing my initial version of this file (from
-" the initial commit in my dotfiles repo) with the version from the original
-" author, but I was _not_ able to find the version that would be exactly
-" identical.
-"
-" The best candidate is the one from
-" https://github.com/tomasiser/vim-code-dark/tree/d5519a1ca8775896d60c2355317000dbd5c20490
-" (Date: 2017-07-23 00:20:23 +0200)
-" PR #6 (https://github.com/tomasiser/vim-code-dark/pull/6), which has only one
-" different line:
-"
-" ```
-" 206c206
-" < call <sid>hi('SpecialChar', s:cdOrange, {}, 'none', {})
-" ---
-" > call <sid>hi('SpecialChar', s:cdFront, {}, 'none', {})
-" ```
-"
-" But I can't recall changing this specific line in my copy, especially since I
-" modified `SpecialChar` highlighting in the `$MYVIMRC` instead.
-"
-" I've also tried to update this file with the newest version at the moment, the one from
-" https://github.com/tomasiser/vim-code-dark/tree/8def3d890b2087ee4c42af03117d7edc7d693706
-" (Date: 2023-11-11 17:42:04 +0100)
-"
-" But it contains a lot of changes I'm not happy with, like different colors in
-" Markdown and search than the ones I'm used to. As such, I continue using my
-" own copy, and copy-pasted only small parts of the most recent versions.
 
 scriptencoding utf-8
 
@@ -44,20 +8,20 @@ hi clear
 if exists("syntax_on")
     syntax reset
 endif
-let g:colors_name="codedark"
+let g:colors_name="torenodark"
 
 " Highlighting function (inspiration from https://github.com/chriskempson/base16-vim)
 if &t_Co >= 256
-    let g:codedark_term256=1
-elseif !exists("g:codedark_term256")
-    let g:codedark_term256=0
+    let g:torenodark_term256=1
+elseif !exists("g:torenodark_term256")
+    let g:torenodark_term256=0
 endif
 fun! <sid>hi(group, fg, bg, attr, sp)
   if !empty(a:fg)
-    exec "hi " . a:group . " guifg=" . a:fg.gui . " ctermfg=" . (g:codedark_term256 ? a:fg.cterm256 : a:fg.cterm)
+    exec "hi " . a:group . " guifg=" . a:fg.gui . " ctermfg=" . (g:torenodark_term256 ? a:fg.cterm256 : a:fg.cterm)
   endif
   if !empty(a:bg)
-    exec "hi " . a:group . " guibg=" . a:bg.gui . " ctermbg=" . (g:codedark_term256 ? a:bg.cterm256 : a:bg.cterm)
+    exec "hi " . a:group . " guibg=" . a:bg.gui . " ctermbg=" . (g:torenodark_term256 ? a:bg.cterm256 : a:bg.cterm)
   endif
   if a:attr != ""
     exec "hi " . a:group . " gui=" . a:attr . " cterm=" . a:attr
@@ -141,8 +105,8 @@ let s:cdSearch = {'gui': '#4C4E50', 'cterm': s:cterm0A, 'cterm256': '239'}
 
 " Syntax colors:
 
-if !exists("g:codedark_conservative")
-    let g:codedark_conservative=0
+if !exists("g:torenodark_conservative")
+    let g:torenodark_conservative=0
 endif
 
 let s:cdGray = {'gui': '#808080', 'cterm': s:cterm04, 'cterm256': '08'}
@@ -150,19 +114,19 @@ let s:cdViolet = {'gui': '#646695', 'cterm': s:cterm04, 'cterm256': '60'}
 let s:cdBlue = {'gui': '#569CD6', 'cterm': s:cterm0D, 'cterm256': '75'}
 let s:cdDarkBlue = {'gui': '#223E55', 'cterm': s:cterm0D, 'cterm256': '73'}
 let s:cdLightBlue = {'gui': '#9CDCFE', 'cterm': s:cterm0C, 'cterm256': '117'}
-if g:codedark_conservative | let s:cdLightBlue = s:cdFront | endif
+if g:torenodark_conservative | let s:cdLightBlue = s:cdFront | endif
 let s:cdGreen = {'gui': '#6A9955', 'cterm': s:cterm0B, 'cterm256': '65'}
 let s:cdBlueGreen = {'gui': '#4EC9B0', 'cterm': s:cterm0F, 'cterm256': '43'}
 let s:cdLightGreen = {'gui': '#B5CEA8', 'cterm': s:cterm09, 'cterm256': '151'}
 let s:cdRed = {'gui': '#F44747', 'cterm': s:cterm08, 'cterm256': '203'}
 let s:cdOrange = {'gui': '#CE9178', 'cterm': s:cterm0F, 'cterm256': '173'}
 let s:cdLightRed = {'gui': '#D16969', 'cterm': s:cterm08, 'cterm256': '167'}
-if g:codedark_conservative | let s:cdLightRed = s:cdOrange | endif
+if g:torenodark_conservative | let s:cdLightRed = s:cdOrange | endif
 let s:cdYellowOrange = {'gui': '#D7BA7D', 'cterm': s:cterm0A, 'cterm256': '179'}
 let s:cdYellow = {'gui': '#DCDCAA', 'cterm': s:cterm0A, 'cterm256': '187'}
-if g:codedark_conservative | let s:cdYellow = s:cdFront | endif
+if g:torenodark_conservative | let s:cdYellow = s:cdFront | endif
 let s:cdPink = {'gui': '#C586C0', 'cterm': s:cterm0E, 'cterm256': '176'}
-if g:codedark_conservative | let s:cdPink = s:cdBlue | endif
+if g:torenodark_conservative | let s:cdPink = s:cdBlue | endif
 let s:cdSilver = {'gui': '#C0C0C0', 'cterm': s:cterm05, 'cterm256': '7'}
 
 " UI (built-in)
