@@ -1,8 +1,3 @@
-" Custom tag
-syn match markdownMust '+must'
-syn match markdownShould '+should'
-syn match markdownCould '+could'
-
 " Support for GFM's task list items:
 " https://github.github.com/gfm/#task-list-items-extension-
 syn match markdownTodoDoneMarker '\s\+\[x\]\s\+' contained

@@ -40,9 +40,6 @@ function! s:tweak_colors()
   hi markdownBoldItalic cterm=underline,italic
 
   " Custom syntax groups
-  hi markdownMust ctermfg=203 cterm=bold
-  hi markdownShould ctermfg=173 cterm=bold
-  hi markdownCould ctermfg=green cterm=bold
   hi markdownTodoDone ctermfg=grey cterm=strikethrough
   hi markdownTodoDoneMarker ctermfg=grey
 
