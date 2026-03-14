@@ -178,6 +178,8 @@ if filereadable(expand('~/.vim/bundle/Vundle.vim/README.md'))
 
   Plugin 'godlygeek/tabular'
 
+  Plugin 'preservim/vim-wordy'
+
   call vundle#end()
 
   filetype plugin indent on
