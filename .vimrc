@@ -34,6 +34,21 @@ syntax enable
 
 " Customizes all colorschemes
 function! s:tweak_colors()
+  " EXPERIMENT: see if I like it;
+  " Change bold to underline, just for fun;
+  " Inspired by: Tony's letter in The Ultimates (2024) #1
+  hi markdownBold cterm=underline
+  hi markdownBoldItalic cterm=underline,italic
+
+  " Custom syntax groups
+  hi markdownMust ctermfg=203 cterm=bold
+  hi markdownShould ctermfg=173 cterm=bold
+  hi markdownCould ctermfg=green cterm=bold
+  hi markdownTodoDone ctermfg=grey cterm=strikethrough
+  hi markdownTodoDoneMarker ctermfg=grey
+
+  hi def link markdownStrike htmlStrike
+
   " Plugins
   hi GitGutterAdd ctermfg=darkgreen
   hi GitGutterChange ctermfg=darkblue
@@ -108,9 +123,6 @@ endfunction
 
 " To avoid losing my customization after changing colorscheme and changing it back
 " Source: https://github.com/junegunn/goyo.vim/blob/7f5d35a65510083ea5c2d0941797244b9963d4a9/README.md#faq
-"
-" TODO fix "~/.vim/after/syntax/markdown.vim" not being reloaded after changing
-" colorscheme and changing it back
 autocmd! ColorScheme * call s:tweak_colors()
 autocmd! ColorScheme torenodark call s:tweak_torenodark_colors()
 

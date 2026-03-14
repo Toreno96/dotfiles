@@ -14,17 +14,3 @@ syn region markdownTodoDone start='\%(\t\| \{0,4\}\)[-*+]\s\+\[x\]\s\+' end='$' 
 " https://github.com/gabrielelana/vim-markdown/blob/dd0a7d5d05c0d136b9644f591b222176f3c51996/syntax/markdown.vim
 syn match markdownStrike /\%(\\\)\@<!\~\~\%(\S\)\@=\_.\{-}\%(\S\)\@<=\~\~/ contains=markdownStrikeDelimiter,@markdownInline
 syn match markdownStrikeDelimiter /\~\~/ contained conceal
-
-hi def link markdownStrike htmlStrike
-
-hi markdownMust ctermfg=203 cterm=bold
-hi markdownShould ctermfg=173 cterm=bold
-hi markdownCould ctermfg=green cterm=bold
-hi markdownTodoDone ctermfg=grey cterm=strikethrough
-hi markdownTodoDoneMarker ctermfg=grey
-
-" EXPERIMENT: see if I like it;
-" Change bold to underline, just for fun;
-" Inspired by: Tony's letter in The Ultimates (2024) #1
-hi markdownBold cterm=underline
-hi markdownBoldItalic cterm=underline,italic
