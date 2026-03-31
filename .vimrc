@@ -308,6 +308,8 @@ nnoremap <leader>wen :URLOpen https://duckduckgo.com/?q=!wen <C-r><C-w><CR>
 " Polish Wikipedia
 nnoremap <leader>wpl :URLOpen https://duckduckgo.com/?q=!wpl <C-r><C-w><CR>
 nnoremap <leader>tag yiWo<ESC>pA<C-v><TAB><C-r>=expand("%:t")<CR><C-v><TAB>/^$<ESC>P
+" Insert BCMS jira issue at the beginning
+nnoremap <leader>bcms /BCMS-\d\+<CR>y3eggi[] <ESC>hP
 
 " Utilize abbreviations for inserting emojis
 abbreviate :warn: ⚠️
