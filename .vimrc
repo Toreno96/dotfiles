@@ -193,7 +193,8 @@ set undofile
 " Added `blank` for better handling of ISO dates;
 " without it, pressing CTRL-X on `2025-01-07` (with cursor on `7`) results in
 " `2025-01-08,` while I want `2025-01-06`
-set nrformats=alpha,bin,blank,hex
+" TODO research why `blank` is unavailable on Linux
+set nrformats=alpha,bin,hex
 
 set ignorecase
 set tagcase=followscs
