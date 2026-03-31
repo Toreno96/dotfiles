@@ -23,3 +23,24 @@ activate_nvm() {
     PS1="(nvm) ${PS1:-}"
     export PS1
 }
+
+# Filters the result of Python unittest run into a concise summary.
+# Requires redirecting stderr into stdout.
+#
+# Mnemonic: [f]ilter [u]nitest [r]esult
+#
+# Example usage:
+# $ python manage.py test -v 0 2>&1 | fur
+#
+# Advanced flow:
+# $ python manage.py test -v 0 2>&1 | tee /tmp/unittest | fur
+# $ # See the full output if details are needed
+# $ vim /tmp/unittest
+# <CTRL-Z>
+# $ # Another test run
+# $ python manage.py test -v 0 2>&1 | tee /tmp/unittest | fur
+# $ # Go back to refreshed full output
+# $ fg
+fur() {
+    grep --color=always 'ERROR:\|FAIL:\|Ran \d\+ tests\|FAILED\|OK'
+}
