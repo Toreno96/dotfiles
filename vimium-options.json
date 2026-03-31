@@ -1,8 +1,4 @@
 {
-  "keyMappings": "# Workaround for Gmail using `d` and `u` for its own mappings;\n# this may conflict with `CTRL+d` and `CTRL+u` on Linux/Windows, however, the\n# former is a shortcut for adding a bookmark, which I don't use anyway, while\n# I'm not sure the CTRL-u if even has any mapping\nmap <c-d> scrollPageDown\nmap <c-u> scrollPageUp",
-  "grabBackFocus": true,
-  "searchEngines": "",
-  "settingsVersion": "2.2.1",
   "exclusionRules": [
     {
       "passKeys": "",
@@ -45,12 +41,25 @@
       "pattern": "https?://www.owlbear.rodeo/*"
     },
     {
+      "passKeys": "",
+      "pattern": "https?://xproger.info/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://shifthappens.site/*"
+    },
+    {
       "passKeys": "oObBtTxXWvVrR",
       "pattern": "*"
     },
     {
       "passKeys": "",
-      "pattern": "https?://xproger.info/*"
+      "pattern": "https?://us.posthog.com/*"
     }
-  ]
+  ],
+  "grabBackFocus": true,
+  "keyMappings": "# Workaround for Gmail using `d` and `u` for its own mappings;\n# this may conflict with `CTRL+d` and `CTRL+u` on Linux/Windows, however, the\n# former is a shortcut for adding a bookmark, which I don't use anyway, while\n# I'm not sure the CTRL-u if even has any mapping\nmap <c-d> scrollPageDown\nmap <c-u> scrollPageUp",
+  "newTabDestination": "browserNewTabPage",
+  "searchEngines": "",
+  "settingsVersion": "2.4.2"
 }
