@@ -229,15 +229,15 @@ call <sid>hi("Conceal", s:cdFront, s:cdBack, 'none', {})
 
 call <sid>hi('Ignore', s:cdBack, {}, 'none', {})
 
-call <sid>hi('Error', s:cdLightRed, s:cdBack, 'undercurl', s:cdRed)
+call <sid>hi('Error', s:cdLightRed, s:cdBack, 'underline', s:cdRed)
 
 call <sid>hi('Todo', s:cdNone, s:cdLeftMid, 'none', {})
 " EXPERIMENT: colorscheme's colors instead of red, blue, green, magenta
-call <sid>hi('SpellBad', s:cdLightRed, s:cdBack, 'undercurl', s:cdRed)
+call <sid>hi('SpellBad', s:cdLightRed, s:cdBack, 'underline', s:cdRed)
 " EXPERIMENT: cdBlue vs cdLightBlue
-call <sid>hi('SpellCap', s:cdBlue, s:cdBack, 'undercurl', s:cdRed)
-call <sid>hi('SpellRare', s:cdPink, s:cdBack, 'undercurl', s:cdRed)
-call <sid>hi('SpellLocal', s:cdLightGreen, s:cdBack, 'undercurl', s:cdRed)
+call <sid>hi('SpellCap', s:cdBlue, s:cdBack, 'underline', s:cdRed)
+call <sid>hi('SpellRare', s:cdPink, s:cdBack, 'underline', s:cdRed)
+call <sid>hi('SpellLocal', s:cdLightGreen, s:cdBack, 'underline', s:cdRed)
 
 " MARKDOWN (built-in)
 
