@@ -81,6 +81,8 @@ if filereadable(expand('~/.vim/bundle/Vundle.vim/README.md'))
     let g:gitgutter_sign_removed_above_and_below='▞'
     let g:gitgutter_sign_modified_removed='▛'
   endif
+  " Required to see gitgutter sings immediately
+  set updatetime=250
 
   Plugin 'hdima/python-syntax'
   let python_highlight_all=1
