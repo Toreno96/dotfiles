@@ -4,7 +4,6 @@ as-tree
 autojump
 brave-bin
 byzanz
-checkupdates+aur
 hardcode-tray
 ipw2100-fw
 ipw2200-fw

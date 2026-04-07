@@ -14,7 +14,6 @@ blueman
 bluez-utils
 brave-bin
 byzanz
-checkupdates+aur
 cifs-utils
 cmake
 ctags

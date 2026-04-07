@@ -28,7 +28,7 @@ Supported values for PACKAGE_MANAGER:
            Requires installed:
            - pacman
            - checkupdates
-           - checkupdates-aur
+           - yay
 
 Supported values for FRONTEND:
   tmux     The result must be compatible with the status line of tmux terminal
@@ -80,7 +80,7 @@ dependencies_available() {
     if [ "${PACKAGE_MANAGER}" = 'brew' ]; then
         (command -v brew &>/dev/null)
     elif [ "${PACKAGE_MANAGER}" = 'pacman' ]; then
-        (command -v pacman &>/dev/null) && (command -v checkupdates &>/dev/null) && (command -v checkupdates-aur &>/dev/null)
+        (command -v pacman &>/dev/null) && (command -v checkupdates &>/dev/null) && (command -v yay &>/dev/null)
     else
         echo "${0}: unexpected error" >&2
         exit 2
@@ -106,7 +106,7 @@ main() {
             # require sudo privileges
             echo 'warning: option -p is ignored' >&2
         fi
-        OUTDATED="$(checkupdates; checkupdates-aur)"
+        OUTDATED="$(checkupdates; yay -Qua)"
         INSTALLED="$(pacman -Q)"
     else
         echo "${0}: unexpected error" >&2
@@ -154,6 +154,12 @@ fi
 #
 # The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 # and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+#
+# [3.0.0] - 2026-04-07
+#
+# CHANGED
+# - Replaced `checkupdates-aur` with `yay -Qua`, due to the former being
+#   removed from AUR.
 #
 # [2.3.0] - 2024-01-03
 #
