@@ -3,7 +3,6 @@ arc-gtk-theme
 as-tree
 autojump
 brave-bin
-byzanz
 hardcode-tray
 ipw2100-fw
 ipw2200-fw
@@ -11,7 +10,6 @@ megasync-bin
 mesa-vdpau
 mp3info
 mpris2controller-git
-neofetch
 nord-dircolors
 nvidia-580xx-dkms
 otf-font-awesome-5
@@ -24,4 +22,3 @@ units
 wpa_actiond
 yay-bin
 yay-bin-debug
-youtube-dl

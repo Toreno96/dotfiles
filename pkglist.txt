@@ -13,7 +13,6 @@ bind
 blueman
 bluez-utils
 brave-bin
-byzanz
 cifs-utils
 cmake
 ctags
@@ -58,7 +57,6 @@ mesa-vdpau
 moreutils
 mp3info
 mpris2controller-git
-neofetch
 net-tools
 netctl
 network-manager-applet
@@ -140,4 +138,3 @@ xorg-xwud
 yadm
 yay-bin
 yay-bin-debug
-youtube-dl
