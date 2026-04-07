@@ -4,14 +4,5 @@ clear lock
 keycode 66 = Control_L
 add control = Control_L
 
-! Right Shift as Compose Key
-keycode 62 = Multi_key
-
-! Grave/asciitilde as Escape
-! (emulate Keychron K14 keyboard on different keyboards)
-keycode 49 = Escape
-
-! Right Ctrl as grave/asciitilde (for Keychron K14 keyboard)
-keycode 105 = grave asciitilde grave asciitilde notsign logicalor notsign
-! Menu key as grave/asciitilde (for ASUS laptop)
-keycode 135 = grave asciitilde grave asciitilde notsign logicalor notsign
+! Right Ctrl as Compose Key
+keycode 105 = Multi_key
