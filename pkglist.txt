@@ -1,6 +1,5 @@
 acpi
 acpid
-acpilight
 adobe-source-code-pro-fonts
 adobe-source-sans-fonts
 alsa-utils

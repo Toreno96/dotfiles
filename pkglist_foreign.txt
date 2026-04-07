@@ -1,4 +1,3 @@
-acpilight
 arc-gtk-theme
 as-tree
 autojump
