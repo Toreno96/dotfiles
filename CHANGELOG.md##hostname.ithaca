@@ -21,6 +21,25 @@ The format is _very loosely_ based on [Keep a Changelog](https://keepachangelog.
 
 -->
 
+## 2026-04-07
+
+- Upgraded packages via `pacman`.
+- Upgraded packages via `yay`.
+
+Note: from now on, updating packages won't be mentioned in the changelog anymore, as this can be now seen easily by pushing `pkglist*.txt` to dotfiles repository.
+
+## 2026-04-01
+
+- Upgraded packages via `pacman` after a year or so.
+    - `nvidia-open` broke the system.
+    - Replaced `nvidia-open` with `nvidia-580xx-dkms` from AUR.
+    - Required `linux-headers`. See <https://aur.archlinux.org/packages/nvidia-580xx-dkms?O=100#comment-1052403>.
+- Upgraded packages via `yay` after a year or so.
+- Removed `initramfs-linux-fallback.img` due to `/boot` partition size limitations.
+- Connected Keychron K14 keyboard via bluetooth (required connecting via CLI).
+- Added a setup of GPG.
+- Added a setup of onetimepass.
+
 ## 2025-07-12
 
 <!--
@@ -31,7 +50,9 @@ I guess not, so from now on, I won't.
 -->
 
 - Updated backup on HDD.
-- Removed `recent` from GTK bookmarks, as Thunar provides this by default now, with no way to disable it (TODO push to version control).
+- Removed `recent` from GTK bookmarks, as Thunar provides this by default now, with no way to disable it.
+
+Note: from now on, updating the backup won't be mentioned in the changelog, as this can be seen easily in a shell history.
 
 ## 2025-07-04
 
@@ -44,7 +65,7 @@ I guess not, so from now on, I won't.
 ## 2024-11-18
 
 - Updated backup on HDD.
-- Updated `Thunar` settings (TODO push to version control).
+- Updated `Thunar` settings.
 
 ## 2024-09-10
 
@@ -101,15 +122,12 @@ I guess not, so from now on, I won't.
 
 ## 2023-12-12
 
-TODO translate to English and rephrase
-
-- Synchronizacja plików z MEGA do ithaca.
-- Rename `~/pictures/screens` → `~/pictures/screenshots.old`.
-- Upgrade całego systemu, włącznie z paczkami z AUR.
-- Eksperymentalna zmiana Arc-Darker + ePapirus na rzecz Arc-Dark + Papirus-Dark.
-- Usunięcie katalogu `current`. Nie używam tej maszyny regularnie, by taki katalog miał czemukolwiek obecnie służyć.
-- Usunięcie broken symlinka `~/comics/mega -> /data/mega/comics` (zmigrowałem jakiś czas temu, nie pamiętam dokładnie jaki, komiksy na mega jako podkatalog katalogu `books` (`~/books/comics`).
-- Opróżnienie katalogów `~/downloads`, `~/tmp` i `~/desktop`.
-- Zakomentowanie linii w `~/.Xmodmap`, w celu przywrócenia standardowego układu Ctrl, Super, Alt.
-- TODO zaktualizowanie key mappingów.
-- TODO zaktualizowanie dotfilesów (wrzucenie z phthia, zaciągnięcie do ithaca, wrzucenie z ithaca).
+- Synced files from MEGA to ithaca.
+- Renamed `~/pictures/screens` → `~/pictures/screenshots.old`.
+- Upgraded packages via `pacman`.
+- Upgraded packages from AUR.
+- Experiment: Changed Arc-Darker + ePapirus to Arc-Dark + Papirus-Dark.
+- Removed `current` directory. I'm not using this machine regularly anymore, so the existence of such directory is not justified and it gets outdated easily.
+- Removed broken symlink of `~/comics/mega -> /data/mega/comics`. I migrated comics on MEGA to a subdirectory of `books` directory (`~/books/comics`) some time ago, I don't recall when exactly.
+- Cleaned the content of directories: `~/downloads`, `~/tmp` and `~/desktop`.
+- Commented a line in `~/.Xmodmap`, to restore a standard layout of Ctrl, Super, Alt.
