@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.1" encoding="UTF-8"?>
 
 <channel name="xsettings" version="1.0">
   <property name="Net" type="empty">
-    <property name="ThemeName" type="string" value="Arc-Dark"/>
-    <property name="IconThemeName" type="string" value="Papirus-Dark"/>
+    <property name="ThemeName" type="string" value="Arc-Lighter"/>
+    <property name="IconThemeName" type="string" value="Papirus-Light"/>
     <property name="DoubleClickTime" type="empty"/>
     <property name="DoubleClickDistance" type="empty"/>
     <property name="DndDragThreshold" type="empty"/>
@@ -14,7 +14,7 @@
     <property name="EnableInputFeedbackSounds" type="bool" value="false"/>
   </property>
   <property name="Xft" type="empty">
-    <property name="DPI" type="int" value="95"/>
+    <property name="DPI" type="int" value="120"/>
     <property name="Antialias" type="int" value="1"/>
     <property name="Hinting" type="empty"/>
     <property name="HintStyle" type="string" value="hintfull"/>
@@ -27,8 +27,6 @@
     <property name="MonospaceFontName" type="string" value="Source Code Pro 12"/>
     <property name="IconSizes" type="empty"/>
     <property name="KeyThemeName" type="empty"/>
-    <property name="ToolbarStyle" type="string" value="icons"/>
-    <property name="ToolbarIconSize" type="empty"/>
     <property name="MenuImages" type="empty"/>
     <property name="ButtonImages" type="empty"/>
     <property name="MenuBarAccel" type="empty"/>
@@ -37,6 +35,8 @@
     <property name="DecorationLayout" type="string" value="close,minimize,maximize:"/>
     <property name="DialogsUseHeader" type="empty"/>
     <property name="TitlebarMiddleClick" type="empty"/>
+    <property name="ToolbarStyle" type="string" value="icons"/>
+    <property name="ToolbarIconSize" type="empty"/>
     <property name="ShellShowsMenubar" type="bool" value="true"/>
     <property name="ShellShowsAppmenu" type="bool" value="true"/>
   </property>
@@ -44,6 +44,7 @@
     <property name="WindowScalingFactor" type="int" value="1"/>
   </property>
   <property name="Xfce" type="empty">
-    <property name="LastCustomDPI" type="int" value="95"/>
+    <property name="LastCustomDPI" type="int" value="120"/>
+    <property name="SyncThemes" type="bool" value="true"/>
   </property>
 </channel>

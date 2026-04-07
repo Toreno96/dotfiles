@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.1" encoding="UTF-8"?>
 
 <channel name="xfce4-notifyd" version="1.0">
   <property name="theme" type="string" value="Default"/>
-  <property name="initial-opacity" type="double" value="0.90000000000000002"/>
+  <property name="initial-opacity" type="double" value="1"/>
   <property name="applications" type="empty">
     <property name="known_applications" type="array">
       <value type="string" value="blueman"/>
@@ -41,7 +41,11 @@
   <property name="notification-log" type="bool" value="true"/>
   <property name="log-max-size-enabled" type="bool" value="true"/>
   <property name="show-notifications-on" type="string" value="active-monitor"/>
-  <property name="log-level" type="string" value="not-fully-shown"/>
+  <property name="log-level" type="string" value="always"/>
   <property name="log-level-apps" type="string" value="all"/>
   <property name="notify-location" type="string" value="top-right"/>
+  <property name="date-time-custom-format" type="string" value="%a %H:%M:%S"/>
+  <property name="min-width-enabled" type="bool" value="false"/>
+  <property name="show-text-with-gauge" type="bool" value="true"/>
+  <property name="date-time-format" type="string" value="relative-times"/>
 </channel>
