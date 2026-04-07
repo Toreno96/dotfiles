@@ -58,7 +58,7 @@ pacman-contrib
 papirus-icon-theme
 pkgfile
 pkgstats
-postgresql
+postgresql-libs
 python-pdm
 qt5ct
 redshift

@@ -72,14 +72,13 @@ pacman-contrib
 papirus-icon-theme
 pkgfile
 pkgstats
-postgresql
+postgresql-libs
 python-eyed3
 python-pdm
 qnapi
 qt5ct
 redshift
 reflector
-reiserfsprogs
 ripgrep
 rofimoji
 rxvt-unicode
@@ -138,4 +137,3 @@ xorg-xwininfo
 xorg-xwud
 yadm
 yay-bin
-yay-bin-debug

@@ -14,10 +14,8 @@ nvidia-580xx-dkms
 otf-font-awesome-5
 python-eyed3
 qnapi
-reiserfsprogs
 spotify
 stdman-git
 units
 wpa_actiond
 yay-bin
-yay-bin-debug
