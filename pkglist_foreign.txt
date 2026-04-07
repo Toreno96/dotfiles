@@ -18,12 +18,10 @@ otf-font-awesome-5
 python-eyed3
 qnapi
 reiserfsprogs
-shellcheck-bin
 spotify
 stdman-git
 units
 wpa_actiond
-yadm-git
 yay-bin
 yay-bin-debug
 youtube-dl

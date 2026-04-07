@@ -86,7 +86,7 @@ reiserfsprogs
 ripgrep
 rofimoji
 rxvt-unicode
-shellcheck-bin
+shellcheck
 spotify
 stdman-git
 sysfsutils
@@ -137,7 +137,7 @@ xorg-xsetroot
 xorg-xvinfo
 xorg-xwd
 xorg-xwud
-yadm-git
+yadm
 yay-bin
 yay-bin-debug
 youtube-dl

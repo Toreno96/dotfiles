@@ -66,6 +66,7 @@ reflector
 ripgrep
 rofimoji
 rxvt-unicode
+shellcheck
 sysfsutils
 terminus-font
 translate-shell
@@ -112,3 +113,4 @@ xorg-xsetroot
 xorg-xvinfo
 xorg-xwd
 xorg-xwud
+yadm
