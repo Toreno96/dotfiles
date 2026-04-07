@@ -10,7 +10,7 @@ megasync-bin
 mesa-vdpau
 mp3info
 mpris2controller-git
-nord-dircolors
+nord-xfce-terminal
 nvidia-580xx-dkms
 otf-font-awesome-5
 python-eyed3

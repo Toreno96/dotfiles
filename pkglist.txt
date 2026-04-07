@@ -64,7 +64,7 @@ networkmanager-openvpn
 networkmanager-pptp
 newsboat
 nfs-utils
-nord-dircolors
+nord-xfce-terminal
 nvidia-580xx-dkms
 obs-studio
 otf-font-awesome-5
