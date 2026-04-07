@@ -119,6 +119,7 @@ xorg-smproxy
 xorg-x11perf
 xorg-xcmsdb
 xorg-xcursorgen
+xorg-xdpyinfo
 xorg-xdriinfo
 xorg-xev
 xorg-xgamma
@@ -134,6 +135,7 @@ xorg-xrefresh
 xorg-xsetroot
 xorg-xvinfo
 xorg-xwd
+xorg-xwininfo
 xorg-xwud
 yadm
 yay-bin
