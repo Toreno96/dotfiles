@@ -14,6 +14,7 @@ nvidia-580xx-dkms
 otf-font-awesome-5
 python-eyed3
 qnapi
+roll
 spotify
 stdman-git
 units
