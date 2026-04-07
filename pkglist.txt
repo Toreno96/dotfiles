@@ -102,9 +102,6 @@ wget
 whois
 wireless_tools
 wpa_actiond
-xautomation
-xbindkeys
-xcape
 xdg-user-dirs-gtk
 xf86-video-fbdev
 xf86-video-vesa
