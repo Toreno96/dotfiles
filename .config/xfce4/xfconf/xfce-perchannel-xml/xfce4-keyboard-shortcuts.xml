@@ -61,9 +61,9 @@
         <property name="startup-notify" type="bool" value="true"/>
       </property>
       <property name="&lt;Shift&gt;&lt;Super&gt;q" type="string" value="rofi -modi session:xfce-session -show session -sidebar-mode"/>
-      <property name="&lt;Super&gt;space" type="string" value="rofi -modi combi,drun,session:xfce-session -combi-modi window,run -show combi -sidebar-mode"/>
       <property name="&lt;Alt&gt;&lt;Super&gt;space" type="string" value="rofimoji --action clipboard --skin-tone neutral"/>
       <property name="&lt;Shift&gt;&lt;Super&gt;less" type="string" value="xfce4-settings-manager"/>
+      <property name="&lt;Super&gt;space" type="string" value="rofi -modi combi,calc,session:xfce-session -combi-modi window,run -show combi -sidebar-mode"/>
       <property name="&lt;Shift&gt;&lt;Super&gt;numbersign" type="string" value="screenshot -f"/>
       <property name="&lt;Shift&gt;&lt;Super&gt;dollar" type="string" value="screenshot -r"/>
       <property name="&lt;Shift&gt;&lt;Super&gt;percent" type="string" value="screenshot"/>

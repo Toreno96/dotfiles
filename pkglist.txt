@@ -147,6 +147,7 @@ redshift
 reflector
 ripgrep
 rofi
+rofi-calc
 rofimoji
 rsync
 rxvt-unicode
