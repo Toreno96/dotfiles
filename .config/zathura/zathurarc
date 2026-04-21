@@ -5,3 +5,4 @@ set statusbar-home-tilde
 # Gruvbox soft (light background)
 set recolor-darkcolor "#282828"
 set recolor-lightcolor "#F2E5BC"
+set scroll-step 80
