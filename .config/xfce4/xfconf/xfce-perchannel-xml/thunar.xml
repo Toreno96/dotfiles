@@ -7,7 +7,7 @@
   <property name="misc-single-click" type="bool" value="false"/>
   <property name="default-view" type="string" value="ThunarCompactView"/>
   <property name="last-details-view-zoom-level" type="string" value="THUNAR_ZOOM_LEVEL_25_PERCENT"/>
-  <property name="last-details-view-column-widths" type="string" value="50,172,175,50,314,50,50,66,778,229,50,73,50,99"/>
+  <property name="last-details-view-column-widths" type="string" value="50,172,508,50,314,50,50,66,335,229,50,92,50,118"/>
   <property name="misc-file-size-binary" type="bool" value="false"/>
   <property name="misc-text-beside-icons" type="bool" value="false"/>
   <property name="shortcuts-icon-size" type="string" value="THUNAR_ICON_SIZE_SMALLEST"/>
@@ -19,11 +19,11 @@
   <property name="last-statusbar-visible" type="bool" value="true"/>
   <property name="last-menubar-visible" type="bool" value="true"/>
   <property name="misc-middle-click-in-tab" type="bool" value="true"/>
-  <property name="last-side-pane" type="string" value="ThunarShortcutsPane"/>
+  <property name="last-side-pane" type="string" value="THUNAR_SIDEPANE_TYPE_SHORTCUTS"/>
   <property name="last-compact-view-zoom-level" type="string" value="THUNAR_ZOOM_LEVEL_25_PERCENT"/>
   <property name="last-sort-column" type="string" value="THUNAR_COLUMN_NAME"/>
   <property name="last-sort-order" type="string" value="GTK_SORT_ASCENDING"/>
-  <property name="misc-date-style" type="string" value="THUNAR_DATE_STYLE_ISO"/>
+  <property name="misc-date-style" type="string" value="THUNAR_DATE_STYLE_CUSTOM_SIMPLE"/>
   <property name="last-location-bar" type="string" value="ThunarLocationButtons"/>
   <property name="last-show-hidden" type="bool" value="false"/>
   <property name="misc-confirm-close-multiple-tabs" type="bool" value="false"/>
@@ -34,4 +34,7 @@
   <property name="misc-change-window-icon" type="bool" value="true"/>
   <property name="misc-full-path-in-tab-title" type="bool" value="true"/>
   <property name="misc-open-new-window-as-tab" type="bool" value="true"/>
+  <property name="misc-date-custom-style" type="string" value="%Y-%m-%d %H:%M:%S %Z"/>
+  <property name="last-toolbar-items" type="string" value="menu:0,back:1,forward:1,open-parent:1,open-home:1,new-tab:0,new-window:0,toggle-split-view:0,undo:0,redo:0,zoom-out:0,zoom-in:0,zoom-reset:0,view-as-icons:0,view-as-detailed-list:0,view-as-compact-list:0,view-switcher:0,location-bar:1,reload:0,search:1,uca-action-1532133411436747-1:0"/>
+  <property name="misc-status-bar-active-info" type="uint" value="21"/>
 </channel>
