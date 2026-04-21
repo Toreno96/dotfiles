@@ -1,0 +1,12 @@
+SHELL = /bin/sh
+
+.PHONY: install papersize
+
+install: papersize
+
+papersize:
+	sudo rsync -bLPu 'papersize' '/etc/papersize'
+	sudo chown root:root '/etc/papersize'
+	sudo chmod 644 '/etc/papersize'
+	# Compare the result (permissions, owner and group, modification time, etc)
+	stat /etc/papersize*
