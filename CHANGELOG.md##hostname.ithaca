@@ -23,10 +23,12 @@ The format is _very loosely_ based on [Keep a Changelog](https://keepachangelog.
 
 ## 2026-04-07
 
+- Added network connection to the HP Envy Photo printer. Required `cups`, `cups-pdf`, `nss-mdns`. Successfully printed a test page. Scanner not covered.
+    - Enabled `avahi-daemon` and `cups` systemctl service.
 - Upgraded packages via `pacman`.
 - Upgraded packages via `yay`.
 
-Note: from now on, updating packages won't be mentioned in the changelog anymore, as this can be now seen easily by pushing `pkglist*.txt` to dotfiles repository.
+Note: from now on, updating packages won't be mentioned in the changelog anymore if it happens regularly. If I come back to using Linux rarely and updating the packages once every half a year or more, I will mention it again.
 
 ## 2026-04-01
 
@@ -37,7 +39,7 @@ Note: from now on, updating packages won't be mentioned in the changelog anymore
 - Upgraded packages via `yay` after a year or so.
 - Removed `initramfs-linux-fallback.img` due to `/boot` partition size limitations.
 - Connected Keychron K14 keyboard via bluetooth (required connecting via CLI).
-- Added a setup of GPG.
+- Added a setup of GnuPG.
 - Added a setup of onetimepass.
 
 ## 2025-07-12
