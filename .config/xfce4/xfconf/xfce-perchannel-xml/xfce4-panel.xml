@@ -28,6 +28,7 @@
         <value type="int" value="2"/>
         <value type="int" value="3"/>
         <value type="int" value="9"/>
+        <value type="int" value="1"/>
         <value type="int" value="10"/>
         <value type="int" value="20"/>
         <value type="int" value="11"/>
@@ -165,6 +166,45 @@
       <property name="include-all-workspaces" type="bool" value="true"/>
       <property name="show-only-minimized" type="bool" value="false"/>
       <property name="include-all-monitors" type="bool" value="true"/>
+    </property>
+    <property name="plugin-1" type="string" value="weather">
+      <property name="location" type="empty">
+        <property name="name" type="string" value="Bolesławiec, powiat bolesławiecki"/>
+        <property name="latitude" type="string" value="51.263033"/>
+        <property name="longitude" type="string" value="15.565105"/>
+      </property>
+      <property name="msl" type="int" value="192"/>
+      <property name="timezone" type="string" value="Europe/Warsaw"/>
+      <property name="offset" type="string" value="+02:00"/>
+      <property name="cache-max-age" type="int" value="172800"/>
+      <property name="power-saving" type="bool" value="true"/>
+      <property name="units" type="empty">
+        <property name="temperature" type="int" value="0"/>
+        <property name="pressure" type="int" value="0"/>
+        <property name="windspeed" type="int" value="0"/>
+        <property name="precipitation" type="int" value="0"/>
+        <property name="altitude" type="int" value="0"/>
+        <property name="apparent-temperature" type="int" value="2"/>
+      </property>
+      <property name="round" type="bool" value="true"/>
+      <property name="single-row" type="bool" value="true"/>
+      <property name="tooltip-style" type="int" value="0"/>
+      <property name="forecast" type="empty">
+        <property name="layout" type="int" value="1"/>
+        <property name="days" type="int" value="5"/>
+      </property>
+      <property name="theme-dir" type="string" value="/usr/share/xfce4/weather/icons/simplistic"/>
+      <property name="scrollbox" type="empty">
+        <property name="show" type="bool" value="true"/>
+        <property name="animate" type="bool" value="false"/>
+        <property name="lines" type="int" value="1"/>
+        <property name="font" type="string" value="Bitstream Vera Sans 12"/>
+        <property name="color" type="string" value="rgba(0,0,0,0)"/>
+        <property name="use-color" type="bool" value="false"/>
+      </property>
+      <property name="labels" type="empty">
+        <property name="label0" type="int" value="3"/>
+      </property>
     </property>
   </property>
 </channel>
