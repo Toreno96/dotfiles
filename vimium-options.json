@@ -17,44 +17,12 @@
       "pattern": "https://mail.google.com/*"
     },
     {
-      "passKeys": "",
-      "pattern": "https?://www.typelit.io/*"
-    },
-    {
-      "passKeys": "",
-      "pattern": "https?://tung.github.io/*"
-    },
-    {
-      "passKeys": "",
-      "pattern": "https?://docs.google.com/*"
-    },
-    {
-      "passKeys": "",
-      "pattern": "https?://mega.nz/*"
-    },
-    {
-      "passKeys": "",
-      "pattern": "https?://ooooooooo.ooo/*"
-    },
-    {
-      "passKeys": "",
-      "pattern": "https?://www.owlbear.rodeo/*"
-    },
-    {
-      "passKeys": "",
-      "pattern": "https?://xproger.info/*"
-    },
-    {
-      "passKeys": "",
-      "pattern": "https?://shifthappens.site/*"
-    },
-    {
       "passKeys": "oObBtTxXWvVrR",
       "pattern": "*"
     },
     {
       "passKeys": "",
-      "pattern": "https?://us.posthog.com/*"
+      "pattern": "https?://app-eu.codility.com/*"
     }
   ],
   "grabBackFocus": true,
