@@ -1,0 +1,6 @@
+#!/bin/bash
+
+echo "Setting light theme..." &&
+    xfconf-query -c xfwm4     -p /general/theme     -s Arc-Lighter &&
+    xfconf-query -c xsettings -p /Net/ThemeName     -s Arc-Lighter &&
+    xfconf-query -c xsettings -p /Net/IconThemeName -s Papirus-Light
