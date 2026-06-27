@@ -18,7 +18,7 @@ groot() {
 activate_nvm() {
     export NVM_DIR="$HOME/.nvm"
 
-    [ -s "${HOMEBREW_PREFIX}/opt/nvm/nvm.sh" ] && source "${HOMEBREW_PREFIX}/opt/nvm/nvm.sh"
+    [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
 
     PS1="(nvm) ${PS1:-}"
     export PS1
