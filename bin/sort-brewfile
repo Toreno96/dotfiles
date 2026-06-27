@@ -1,0 +1,66 @@
+#!/usr/bin/env python3
+import sys
+import argparse
+
+if sys.version_info < (3, 10):
+    sys.exit("Python 3.10+ required")
+
+VERSION = "1.0.0"
+DESCRIPTION = """
+Sort a Brewfile by section (tap, brew, cask, etc) and alphabetically within each
+section.
+
+This is because `brew bundle dump` produces entries in non-deterministic order
+within each section, causing non-optimal diffs when versioning Brewfiles.
+
+Comments are removed.
+"""
+
+EPILOG = """
+examples:
+  %(prog)s ~/.Brewfile | sponge ~/.Brewfile
+  brew bundle dump --file - | %(prog)s > ~/.Brewfile
+"""
+
+ORDER = ["tap", "brew", "cask", "vscode", "npm"]
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(
+        description=DESCRIPTION,
+        epilog=EPILOG,
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+    )
+    parser.add_argument(
+        "file", nargs="?", default="-", help="A Brewfile to sort (default: STDIN)"
+    )
+    parser.add_argument(
+        "-v", "--version", action="version", version=f"%(prog)s {VERSION}"
+    )
+    args = parser.parse_args()
+
+    try:
+        # Context manager not needed because the file is garbage collected immediately
+        # after the script exits
+        file = sys.stdin if args.file == "-" else open(args.file)
+    except FileNotFoundError as exc:
+        parser.exit(
+            status=exc.errno, message=f"{parser.prog}: {exc.strerror}: {exc.filename}\n"
+        )
+
+    lines = [line for line in file if line.strip() and not line.startswith("#")]
+    lines.sort(key=lambda line: (ORDER.index(line.split()[0]), line.split()[1]))
+    print("".join(lines), end="")
+
+
+# CHANGELOG
+#
+# All notable changes to this project will be documented in this file.
+#
+# The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+# and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+#
+# [1.0.0] - 2026-06-26
+#
+# ADDED
+#
+# - Initial version of this script.
