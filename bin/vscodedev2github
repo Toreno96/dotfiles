@@ -1,0 +1,3 @@
+#!/usr/bin/sed -f
+
+s@https://vscode.dev/github/@https://github.com/@
