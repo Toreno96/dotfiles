@@ -355,6 +355,10 @@ docker system prune
 # - build cache
 docker system prune --all --volumes
 
+# Show disk usage
+docker system df
+docker system df -v
+
 # Show full output of _all_ the build steps; the default `tty` hides a lot of them
 docker-compose build --progress plain <service>
 # Do not use cache when building the image
@@ -671,6 +675,10 @@ efibootmgr -n 2
 # Change the boot order to 0002,0001,0004
 efibootmgr -o 2,1,4
 
+# Sort by the 2nd and _only_ the 2nd field
+sort -k2,2
+# Preserve the original order for records with an equal key
+sort -s --stable
 
 ###########
 ### AWS ###
