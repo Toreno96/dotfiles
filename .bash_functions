@@ -18,10 +18,25 @@ groot() {
 activate_nvm() {
     export NVM_DIR="$HOME/.nvm"
 
-    [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
+    if [ -s "$NVM_DIR/nvm.sh" ]; then
+        source "$NVM_DIR/nvm.sh"
+        PS1="(nvm) ${PS1:-}"
+        export PS1
+    else
+        echo 'nvm unavailable' >&2
+    fi
+}
 
-    PS1="(nvm) ${PS1:-}"
-    export PS1
+# Enable `fnm` on demand, to not delay creating a new instance of bash when
+# I don't need `fnm` in the instance
+activate_fnm() {
+    if command -v fnm &>/dev/null; then
+        eval "$(fnm env --shell bash)"
+        PS1="(fnm) ${PS1:-}"
+        export PS1
+    else
+        echo 'fnm unavailable' >&2
+    fi
 }
 
 # Filters the result of Python unittest run into a concise summary.

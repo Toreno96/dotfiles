@@ -18,10 +18,3 @@ if [ -f "${HOME}/.config/locale.conf" ]; then
         source "${HOME}/.config/locale.conf"
     fi
 fi
-
-# TODO extract to bash function (e.g. similar to `activate_nvm`)
-# fnm
-FNM_PATH="/opt/homebrew/opt/fnm/bin"
-if [ -d "$FNM_PATH" ]; then
-  eval "$(fnm env --shell bash)"
-fi
