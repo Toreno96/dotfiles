@@ -179,3 +179,7 @@ if command -v fzf &>/dev/null; then
 fi
 
 export LS_COLORS="${LS_COLORS}ow=01;34:"
+
+if command -v uv &>/dev/null; then
+    export PATH="~/.local/bin${PATH+:$PATH}"
+fi

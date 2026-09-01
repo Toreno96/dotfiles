@@ -53,6 +53,7 @@ brew "tmux"
 brew "translate-shell"
 brew "trash", link: true
 brew "unbound"
+brew "uv"
 brew "vim"
 brew "watch"
 brew "weasyprint"
@@ -87,3 +88,4 @@ vscode "ms-python.vscode-python-envs"
 vscode "ms-vscode-remote.remote-containers"
 vscode "tamasfe.even-better-toml"
 vscode "vscodevim.vim"
+uv "cadm", with: ["botocore"]

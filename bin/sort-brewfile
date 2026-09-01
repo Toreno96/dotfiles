@@ -5,7 +5,7 @@ import argparse
 if sys.version_info < (3, 10):
     sys.exit("Python 3.10+ required")
 
-VERSION = "1.0.0"
+VERSION = "1.0.1"
 DESCRIPTION = """
 Sort a Brewfile by section (tap, brew, cask, etc) and alphabetically within each
 section.
@@ -22,7 +22,7 @@ examples:
   brew bundle dump --file - | %(prog)s > ~/.Brewfile
 """
 
-ORDER = ["tap", "brew", "cask", "vscode", "npm"]
+ORDER = ["tap", "brew", "cask", "vscode", "npm", "uv"]
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
@@ -58,6 +58,12 @@ if __name__ == "__main__":
 #
 # The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 # and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+#
+# [1.0.1] - 2026-08-26
+#
+# FIXED
+#
+# - Lack of support for "uv" section (see https://docs.astral.sh/uv).
 #
 # [1.0.0] - 2026-06-26
 #
