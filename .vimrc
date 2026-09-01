@@ -68,13 +68,6 @@ if filereadable(expand('~/.vim/bundle/Vundle.vim/README.md'))
 
   Plugin 'tpope/vim-repeat'
 
-  Plugin 'junegunn/goyo.vim'
-  function! s:goyo_enter()
-    set number relativenumber
-  endfunction
-
-  autocmd! User GoyoEnter nested call <SID>goyo_enter()
-
   Plugin 'tpope/vim-fugitive'
   " Support for GitHub in `:GBrowse`
   Plugin 'tpope/vim-rhubarb'
@@ -294,8 +287,6 @@ nnoremap <leader>wen :URLOpen https://duckduckgo.com/?q=!wen <C-r><C-w><CR>
 " Polish Wikipedia
 nnoremap <leader>wpl :URLOpen https://duckduckgo.com/?q=!wpl <C-r><C-w><CR>
 nnoremap <leader>tag yiWo<ESC>pA<C-v><TAB><C-r>=expand("%:t")<CR><C-v><TAB>/^$<ESC>P
-" Insert BCMS jira issue at the beginning
-nnoremap <leader>bcms /BCMS-\d\+<CR>y3eggi[] <ESC>hP
 
 " Utilize abbreviations for inserting emojis
 abbreviate :warn: ⚠️
