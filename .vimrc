@@ -286,6 +286,7 @@ nnoremap <leader>wen :URLOpen https://duckduckgo.com/?q=!wen <C-r><C-w><CR>
 " For the current word, open a web browser and find the word's definition in the
 " Polish Wikipedia
 nnoremap <leader>wpl :URLOpen https://duckduckgo.com/?q=!wpl <C-r><C-w><CR>
+" Generate a line for "tags" file for the current WORD
 nnoremap <leader>tag yiWo<ESC>pA<C-v><TAB><C-r>=expand("%:t")<CR><C-v><TAB>/^$<ESC>P
 
 " Utilize abbreviations for inserting emojis
