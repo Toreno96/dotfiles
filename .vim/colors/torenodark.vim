@@ -178,11 +178,6 @@ hi! link diffAdded DiffAdd
 hi! link diffChanged DiffChange
 hi! link diffRemoved DiffDelete
 
-" EXPERIMENT: Uncomment if custom Diff* highlight groups
-" hi! link Added DiffAdd
-" hi! link Changed DiffChange
-" hi! link Removed DiffDelete
-
 call <sid>hi('Comment', s:cdGreen, {}, 'none', {})
 
 " SYNTAX HIGHLIGHT (built-in)
@@ -232,9 +227,7 @@ call <sid>hi('Ignore', s:cdBack, {}, 'none', {})
 call <sid>hi('Error', s:cdLightRed, s:cdBack, 'underline', s:cdRed)
 
 call <sid>hi('Todo', s:cdNone, s:cdLeftMid, 'none', {})
-" EXPERIMENT: colorscheme's colors instead of red, blue, green, magenta
 call <sid>hi('SpellBad', s:cdLightRed, s:cdBack, 'underline', s:cdRed)
-" EXPERIMENT: cdBlue vs cdLightBlue
 call <sid>hi('SpellCap', s:cdBlue, s:cdBack, 'underline', s:cdRed)
 call <sid>hi('SpellRare', s:cdPink, s:cdBack, 'underline', s:cdRed)
 call <sid>hi('SpellLocal', s:cdLightGreen, s:cdBack, 'underline', s:cdRed)

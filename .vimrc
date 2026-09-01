@@ -32,30 +32,6 @@ let &t_Ce = "\e[4:0m"
 set background=dark
 syntax enable
 
-" Customizes `torenodark` scheme
-" TODO [IN PROGRESS] consider moving it to the `torenodark`'s file?
-" that would remove the need for this autocmd function and I could define colors
-" for 256colorless terminal easily
-function! s:tweak_torenodark_colors()
-  " EXPERIMENT: see how I like the updated version from the latest codedark
-  " (applied in `torenodark` colorscheme)
-  " hi DiffAdd      ctermfg=green ctermbg=NONE
-  " hi DiffChange   ctermfg=green ctermbg=NONE
-  " hi DiffText     ctermfg=black ctermbg=green
-  " hi DiffDelete   ctermfg=black ctermbg=red
-
-  " EXPERIMENT: limit this customization to `torenodark`, not every colorscheme
-  " (applied in `torenodark` colorscheme)
-  " hi SpellBad ctermfg=red ctermbg=NONE cterm=undercurl
-  " hi SpellCap ctermfg=blue ctermbg=NONE cterm=undercurl
-  " hi SpellLocal ctermfg=green ctermbg=NONE cterm=undercurl
-  " hi SpellRare ctermfg=magenta ctermbg=NONE cterm=undercurl
-endfunction
-
-" To avoid losing my customization after changing colorscheme and changing it back
-" Source: https://github.com/junegunn/goyo.vim/blob/7f5d35a65510083ea5c2d0941797244b9963d4a9/README.md#faq
-autocmd! ColorScheme torenodark call s:tweak_torenodark_colors()
-
 " Check if Vundle plugin manager is installed by checking if the README file
 " exists because `filereadable` doesn't handle directories
 if filereadable(expand('~/.vim/bundle/Vundle.vim/README.md'))
@@ -325,15 +301,10 @@ nnoremap <leader>bcms /BCMS-\d\+<CR>y3eggi[] <ESC>hP
 abbreviate :warn: ⚠️
 " Make it easier to remember which is which, because I always confuse the two.
 "
-" Unfortunately, the patterns `§1st` and `§2nd` that I have configured globally
-" in the macOS' settings (which does not work in the terminal) and I'm used to,
-" cannot be configured in Vim because it doesn't support such pattern (`§` is
-" treated as a non-keyword character; see the explanation of `full-id`, `end-id`
-" and `non-id` in `:help abbreviations`)
-abbreviate the1st the former
-abbreviate the2nd the latter
-" EXPERIMENT: Same replacements in the macOS' settings; see if it doesn't get in
-" the way
+" Unfortunately, the patterns `§1st` and `§2nd` cannot be configured in Vim
+" because it doesn't support such pattern (`§` is treated as a non-keyword
+" character; see the explanation of `full-id`, `end-id` and `non-id` in `:help
+" abbreviations`).
 abbreviate §1 the former
 abbreviate §2 the latter
 
