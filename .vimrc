@@ -235,6 +235,15 @@ set wildmode=longest:full,full
 " only one space
 set nojoinspaces
 
+" EXPERIMENT: Treat kebab-case as a single keyword.
+" Mostly to allow using them as tags in my journal (instead of being forced to
+" use snake_case), but obviously it impacts other things like commands "w", "*",
+" etc.
+" Alternatives, if I'm not happy with this as a global configuration:
+" - Limit it to markdown only by putting it in the ftplugin.
+" - As a last resort, get used to the snake_case tags.
+set iskeyword+=-
+
 " Delete trailing whitespaces
 nnoremap <leader>d<space> :s/\s\+$//g<enter>
 vnoremap <leader>d<space> :s/\s\+$//g<enter>
