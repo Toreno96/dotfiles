@@ -242,7 +242,7 @@
       "float" : 190
     },
     "subsequentExecutionMode" : {
-      "int" : 0
+      "int" : 5
     },
     "systemWideMouseDown" : {
       "int" : 0
@@ -289,6 +289,10 @@
       "keyCode" : 125,
       "modifierFlags" : 1572864
     },
+    "bottomRight" : {
+      "keyCode" : 119,
+      "modifierFlags" : 1572864
+    },
     "center" : {
       "keyCode" : 8,
       "modifierFlags" : 1572864
@@ -331,6 +335,10 @@
     },
     "topHalf" : {
       "keyCode" : 126,
+      "modifierFlags" : 1572864
+    },
+    "topLeft" : {
+      "keyCode" : 115,
       "modifierFlags" : 1572864
     }
   },
