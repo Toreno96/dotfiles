@@ -204,6 +204,10 @@ set wildmode=longest:full,full
 " only one space
 set nojoinspaces
 
+" This is used in help files. So long as you are moving around text is
+" concealed, but when starting to insert text or selecting a Visual area the
+" concealed text is displayed, so that you can see what you are doing.
+set concealcursor=nc
 
 " Delete trailing whitespaces
 nnoremap <leader>d<space> :s/\s\+$//g<enter>
